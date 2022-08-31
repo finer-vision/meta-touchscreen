@@ -5,6 +5,7 @@ import {
   Logo,
   MenuWrapper,
   RotateWrapper,
+  ContentWrapper,
 } from "./home-page.style";
 import useMeta from "@/hooks/use-meta";
 import emitter from "@/services/emitter";
@@ -65,15 +66,19 @@ export default function ScreenSaver() {
   }, [rotate]);
 
   useSubscription(Subscription.openHotspot, () => {
-    setHotspot(true)
-  })
+    setHotspot(true);
+  });
+
+  useSubscription(Subscription.closeHotspot, () => {
+    setHotspot(false);
+  });
 
   return (
     <Section backdrop={!isMenuOpen}>
       {!isMenuOpen && (
         <>
           <LabelWapper show={!isMenuOpen} ref={labelRef}>
-            <span  >OPEN RACK V3</span>
+            <span>OPEN RACK V3</span>
           </LabelWapper>
           <RotateWrapper
             show={!isMenuOpen}
@@ -101,8 +106,19 @@ export default function ScreenSaver() {
           </div>
         </div>
       </MenuWrapper>
-      <Modal open={hotspot} onClose={() => { setHotspot(false) }}>
-        <div>dddd</div>
+      <Modal
+        open={hotspot}
+        onClose={() => {
+          emitter.emit(Subscription.closeHotspot);
+        }}
+      >
+        <ContentWrapper
+          onClick={() => {
+            emitter.emit(Subscription.closeHotspot);
+          }}
+        >
+          <img src="./assets/popup.png" />
+        </ContentWrapper>
       </Modal>
     </Section>
   );

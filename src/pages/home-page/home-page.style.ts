@@ -31,7 +31,7 @@ export const Section = styled.section<SectionProps>`
   ${({ backdrop }) => {
     if (!backdrop) {
       return css`
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, var(--opacity));
       `;
     }
   }}
@@ -248,4 +248,15 @@ export const RotateWrapper = styled.div<ShowProps>`
     transform: rotate(180deg);
     margin-top: 4rem;
   }
+`;
+
+export const ContentWrapper = styled.div`
+  width: 1957px;
+  height: 997px;
+  color: #000;
+  border-radius: 50px;
+  background: #fff;
+  position: relative;
+  left: 50%;
+  transform: translate(-45%, 0%);
 `;

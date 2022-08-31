@@ -59,7 +59,7 @@ export default createGlobalStyle`
     --color-ebony-clay: #1F2B32;
     // General transition speed
     --speed: 350ms;
-    --opacity: 0.7;
+    --opacity: 0.5;
     // General transition timing-function (easing)
     --ease: ease;
     --z-index-modal: 1;

@@ -2,16 +2,18 @@ import styled, { css } from "styled-components";
 import { SlideLeft, SlideLeftOut } from "@/styles/keyframes";
 
 export const Backdrop = styled.div`
-  position: fixed;
+  position: absolute;
+  inset: 0;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: var(--z-index-side-modal);
-  background-color: rgba(0, 0, 0, var(--opacity));
+  background-color: rgba(255, 255, 255, var(--opacity));
   animation-timing-function: var(--ease);
   animation-duration: var(--speed);
   animation-fill-mode: forwards;
+  pointer-events: auto;
 
   @keyframes side-modal-fade-in {
     0% {

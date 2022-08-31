@@ -5,4 +5,6 @@ export type User = {
 export enum Subscription {
   rotate = "roatate",
   stopRotate = "stopRotate",
+  openHotspot = "openHotspot",
+  closeHotspot = "closeHotspot",
 }

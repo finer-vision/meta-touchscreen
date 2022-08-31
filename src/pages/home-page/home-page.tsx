@@ -9,6 +9,9 @@ import {
 import useMeta from "@/hooks/use-meta";
 import emitter from "@/services/emitter";
 import { Subscription } from "@/types";
+import useSubscription from "@/hooks/use-subscription";
+import Model from "@/components/model/model";
+import { Modal } from "@/components/modal/modal";
 
 export default function ScreenSaver() {
   const { isMenuOpen, setIsMenuOpen, reset } = useMeta();
@@ -18,6 +21,7 @@ export default function ScreenSaver() {
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
+  const [hotspot, setHotspot] = React.useState(false);
 
   React.useEffect(() => {
     if (
@@ -60,6 +64,10 @@ export default function ScreenSaver() {
     }
   }, [rotate]);
 
+  useSubscription(Subscription.openHotspot, () => {
+    setHotspot(true)
+  })
+
   return (
     <Section backdrop={!isMenuOpen}>
       {!isMenuOpen && (
@@ -93,6 +101,9 @@ export default function ScreenSaver() {
           </div>
         </div>
       </MenuWrapper>
+      <Modal open={hotspot} onClose={() => { setHotspot(false) }}>
+        <div>dddd</div>
+      </Modal>
     </Section>
   );
 }

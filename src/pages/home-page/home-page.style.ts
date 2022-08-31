@@ -4,11 +4,15 @@ type Props = {
   onClick?: (e: Event) => void;
 };
 
-type RotateProps = {
+type ShowProps = {
   show: boolean;
 };
 
-export const Section = styled.section`
+type SectionProps = {
+  backdrop: boolean;
+};
+
+export const Section = styled.section<SectionProps>`
   width: 100vw;
   height: 100vh;
   min-height: 100%;
@@ -23,9 +27,35 @@ export const Section = styled.section`
   &:-webkit-scrollbar {
     display: none;
   }
+
+  ${({ backdrop }) => {
+    if (!backdrop) {
+      return css`
+        background-color: rgba(255, 255, 255, 0.5);
+      `;
+    }
+  }}
+
+  @keyframes showElement {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hiddenElement {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.div<ShowProps>`
   background-image: url("./assets/logo.svg");
   background-size: 416px 100px;
   background-repeat: no-repeat;
@@ -37,9 +67,27 @@ export const Logo = styled.div`
   bottom: calc(var(--gap) * 6.9);
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 1;
+
+  ${({ show }) => {
+    if (!show) {
+      return css`
+        animation-duration: 1000ms;
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    } else {
+      return css`
+        animation-duration: 1000ms;
+        animation-delay: calc(0.1s + var(--speed) * 1);
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
 `;
 
-export const LabelWapper = styled.div`
+export const LabelWapper = styled.div<ShowProps>`
   width: 1250px;
   height: 270px;
   background-color: var(--color-ebony-clay);
@@ -55,6 +103,7 @@ export const LabelWapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
 
   span {
     font-family: "Inter";
@@ -64,6 +113,23 @@ export const LabelWapper = styled.div`
     line-height: 109px;
     margin-left: 106px;
   }
+
+  ${({ show }) => {
+    if (!show) {
+      return css`
+        animation-duration: 1000ms;
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    } else {
+      return css`
+        animation-duration: 1000ms;
+        animation-delay: calc(0.1s + var(--speed) * 1);
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
 `;
 
 export const MenuWrapper = styled.div<Props>`
@@ -136,7 +202,7 @@ export const MenuWrapper = styled.div<Props>`
   }
 `;
 
-export const RotateWrapper = styled.div<RotateProps>`
+export const RotateWrapper = styled.div<ShowProps>`
   width: 145px;
   height: 576px;
   background-color: var(--color-ebony-clay);
@@ -181,23 +247,5 @@ export const RotateWrapper = styled.div<RotateProps>`
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     margin-top: 4rem;
-  }
-
-  @keyframes showButton {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes hiddenButton {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
   }
 `;

@@ -14,42 +14,41 @@ export default function ScreenSaver() {
   const { isMenuOpen, setIsMenuOpen, reset } = useMeta();
   const menuContainerRef = React.useRef<HTMLDivElement>();
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
-  const labelRef = React.useRef<HTMLSpanElement>();
+  const LogoRef = React.useRef<HTMLDivElement>();
+  const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
 
   React.useEffect(() => {
-    if (!labelRef.current) return;
-    labelRef.current.innerText = "OPEN RACK V3";
-  }, []);
-
-  React.useEffect(() => {
-    console.log(isMenuOpen, mounted);
     if (
       !menuContainerRef.current &&
       !rotateWrapperRef.current &&
+      !LogoRef.current &&
       !labelRef.current
     )
       return;
     if (mounted) {
       const menuBtn = menuContainerRef.current;
       const rotateBtn = rotateWrapperRef.current;
+      const label = labelRef.current;
+      const logo = LogoRef.current;
       if (isMenuOpen) {
-        labelRef.current.innerText = "Model List";
         menuBtn.style.transform = "translateX(0px)";
         menuBtn.style.animationName = "slideLeft";
-        rotateBtn.style.animationName = "hiddenButton";
-        rotateBtn.style.opacity = "0";
       } else {
-        labelRef.current.innerText = "OPEN RACK V3";
         menuBtn.style.transform = "translateX(1952px)";
         menuBtn.style.animationName = "slideRight";
-        rotateBtn.style.animationName = "showButton";
+        rotateBtn.style.animationName = "showElement";
+        rotateBtn.style.opacity = "0";
+        logo.style.animationName = "showElement";
+        logo.style.opacity = "0";
+        label.style.animationName = "showElement";
+        label.style.opacity = "0";
       }
     } else {
       setMounted(true);
     }
-  }, [isMenuOpen, menuContainerRef, labelRef]);
+  }, [isMenuOpen, menuContainerRef, LogoRef, labelRef]);
 
   React.useEffect(() => {
     if (mounted) {
@@ -62,10 +61,24 @@ export default function ScreenSaver() {
   }, [rotate]);
 
   return (
-    <Section>
-      <LabelWapper>
-        <span ref={labelRef} />
-      </LabelWapper>
+    <Section backdrop={!isMenuOpen}>
+      {!isMenuOpen && (
+        <>
+          <LabelWapper show={!isMenuOpen} ref={labelRef}>
+            <span  >OPEN RACK V3</span>
+          </LabelWapper>
+          <RotateWrapper
+            show={!isMenuOpen}
+            ref={rotateWrapperRef}
+            onClick={() => {
+              setRotate((rotate) => !rotate);
+            }}
+          >
+            <span>Rrotate the model</span>
+          </RotateWrapper>
+          <Logo show={!isMenuOpen} ref={LogoRef} />
+        </>
+      )}
       <MenuWrapper
         onClick={() => {
           setIsMenuOpen((isOpen) => !isOpen);
@@ -80,16 +93,6 @@ export default function ScreenSaver() {
           </div>
         </div>
       </MenuWrapper>
-      <RotateWrapper
-        show={!isMenuOpen}
-        ref={rotateWrapperRef}
-        onClick={() => {
-          setRotate((rotate) => !rotate);
-        }}
-      >
-        <span>Rrotate the model</span>
-      </RotateWrapper>
-      <Logo />
     </Section>
   );
 }

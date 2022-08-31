@@ -23,10 +23,12 @@ export default function Model() {
 
   return (
     <>
-      <Environment background={false} files="./assets/environment.hdr" />
-      <primitive object={gltf.scene} position-y={-1.5} />
-      <ambientLight />
-      <OrbitControls />
+      <mesh scale={1.5}>
+        <Environment background={false} files="./assets/environment.hdr" />
+        <primitive object={gltf.scene} position-y={-1.5} />
+        <ambientLight />
+        <OrbitControls />
+      </mesh>
     </>
   );
 }

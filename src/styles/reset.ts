@@ -58,6 +58,10 @@ export default createGlobalStyle`
     color: #fefefe;
   }
 
+  body {
+    background: url(./assets/background.png);
+  }
+
   input, textarea, button {
     background-color: #fefefe;
     color: #1e1e1e;

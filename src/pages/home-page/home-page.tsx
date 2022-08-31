@@ -7,6 +7,8 @@ import {
   RotateWrapper,
 } from "./home-page.style";
 import useMeta from "@/hooks/use-meta";
+import emitter from "@/services/emitter";
+import { Subscription } from "@/types";
 
 export default function ScreenSaver() {
   const { isMenuOpen, setIsMenuOpen, reset } = useMeta();
@@ -14,6 +16,7 @@ export default function ScreenSaver() {
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
   const labelRef = React.useRef<HTMLSpanElement>();
   const [mounted, setMounted] = React.useState(false);
+  const [rotate, setRotate] = React.useState(false);
 
   React.useEffect(() => {
     if (!labelRef.current) return;
@@ -22,7 +25,12 @@ export default function ScreenSaver() {
 
   React.useEffect(() => {
     console.log(isMenuOpen, mounted);
-    if (!menuContainerRef.current && !rotateWrapperRef.current && !labelRef.current) return;
+    if (
+      !menuContainerRef.current &&
+      !rotateWrapperRef.current &&
+      !labelRef.current
+    )
+      return;
     if (mounted) {
       const menuBtn = menuContainerRef.current;
       const rotateBtn = rotateWrapperRef.current;
@@ -31,7 +39,7 @@ export default function ScreenSaver() {
         menuBtn.style.transform = "translateX(0px)";
         menuBtn.style.animationName = "slideLeft";
         rotateBtn.style.animationName = "hiddenButton";
-        rotateBtn.style.opacity = '0';
+        rotateBtn.style.opacity = "0";
       } else {
         labelRef.current.innerText = "OPEN RACK V3";
         menuBtn.style.transform = "translateX(1952px)";
@@ -39,9 +47,19 @@ export default function ScreenSaver() {
         rotateBtn.style.animationName = "showButton";
       }
     } else {
-        setMounted(true);
+      setMounted(true);
     }
   }, [isMenuOpen, menuContainerRef, labelRef]);
+
+  React.useEffect(() => {
+    if (mounted) {
+      if (rotate) {
+        emitter.emit(Subscription.rotate);
+      } else {
+        emitter.emit(Subscription.stopRotate);
+      }
+    }
+  }, [rotate]);
 
   return (
     <Section>
@@ -62,7 +80,13 @@ export default function ScreenSaver() {
           </div>
         </div>
       </MenuWrapper>
-      <RotateWrapper show={!isMenuOpen} ref={rotateWrapperRef}>
+      <RotateWrapper
+        show={!isMenuOpen}
+        ref={rotateWrapperRef}
+        onClick={() => {
+          setRotate((rotate) => !rotate);
+        }}
+      >
         <span>Rrotate the model</span>
       </RotateWrapper>
       <Logo />

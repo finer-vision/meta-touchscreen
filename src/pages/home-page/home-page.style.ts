@@ -9,11 +9,16 @@ type RotateProps = {
 };
 
 export const Section = styled.section`
-  background: url(./assets/background.png);
   width: 100vw;
   height: 100vh;
   min-height: 100%;
-  position: relative;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  * {
+    pointer-events: auto;
+  }
 
   &:-webkit-scrollbar {
     display: none;
@@ -165,8 +170,6 @@ export const RotateWrapper = styled.div<RotateProps>`
       `;
     }
   }}
-
-
 
   span {
     font-family: "PT Sans Caption";

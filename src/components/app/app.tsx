@@ -1,9 +1,11 @@
 import React from "react";
+import { OrbitControls } from "@react-three/drei"
+import { Canvas } from "@react-three/fiber";
+import Model from "@/components/model/model"
 
 import Homepage from "@/pages/home-page/home-page";
 
 export default function App() {
-
   React.useEffect(() => {
     function onContextMenu(event: MouseEvent) {
       event.preventDefault();
@@ -15,7 +17,12 @@ export default function App() {
     };
   }, []);
   return (
-    <>    
+    <>
+      <Canvas legacy flat linear dpr={1} gl={{alpha: true}} >
+        <React.Suspense fallback={<></>}>
+          <Model />
+        </React.Suspense>
+      </Canvas>
       <Homepage />
     </>
   );

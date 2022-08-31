@@ -3,6 +3,55 @@ import { fluidRange } from "polished";
 import vars from "./vars";
 
 export default createGlobalStyle`
+  @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-Caption.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-Caption.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PT Sans Caption";
+        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+          url("./assets/fonts/PTSans-Caption.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
   :root {
     --gap: 1rem;
     --color-white: #FFFFFF;
@@ -52,7 +101,7 @@ export default createGlobalStyle`
       `${vars.responsiveMin}px`,
       `${vars.responsiveMax}px`
     )};
-    font-family: ${vars.fontBody};
+    font-family: "PT Sans Caption", system-ui, sans-serif;
     font-weight: normal;
     line-height: 1.2;
     color: #fefefe;

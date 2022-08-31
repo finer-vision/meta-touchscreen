@@ -106,7 +106,7 @@ export const LabelWapper = styled.div<ShowProps>`
   opacity: 1;
 
   span {
-    font-family: "Inter";
+    /* font-family: "Inter"; */
     font-style: normal;
     font-weight: 700;
     font-size: 90px;
@@ -170,7 +170,7 @@ export const MenuWrapper = styled.div<Props>`
       align-items: center;
 
       span {
-        font-family: "PT Sans Caption";
+        /* font-family: "PT Sans Caption"; */
         font-style: normal;
         font-weight: 700;
         font-size: 45px;
@@ -238,7 +238,7 @@ export const RotateWrapper = styled.div<ShowProps>`
   }}
 
   span {
-    font-family: "PT Sans Caption";
+    /* font-family: "PT Sans Caption"; */
     font-style: normal;
     font-weight: 700;
     font-size: 45px;

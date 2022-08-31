@@ -5,14 +5,14 @@ screen: 2160x3840
 
 #### Run project
 ```
-cp client/env.example.ts client/env.ts
+cp env.example.ts env.ts
 npm install
 npm start
 ```
 
 #### Run project
 ```
-cp client/env.example.ts client/env.ts
+cp env.example.ts env.ts
 npm install
 npm run build
 

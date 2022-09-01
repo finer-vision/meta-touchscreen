@@ -18,7 +18,7 @@ export default function App() {
   }, []);
   return (
     <>
-      <Canvas legacy flat linear dpr={1} gl={{alpha: true}} >
+      <Canvas legacy flat linear dpr={1} gl={{alpha: true}} style={{width: "100vh", height: "100vw"}}>
         <React.Suspense fallback={<></>}>
           <Model />
         </React.Suspense>

@@ -53,6 +53,8 @@ export default createGlobalStyle`
       }
 
   :root {
+    --x: 1vh;
+    --y: 1vw;
     --gap: 1rem;
     --color-white: #FFFFFF;
     --color-black: #000000;
@@ -82,8 +84,8 @@ export default createGlobalStyle`
   html,
   body,
   #root {
-    width: 100%;
-    height: 100%;
+    width: calc(100 * var(--x));
+    height: calc(100 * var(--y));
     /* Disable overscroll history navigation (touch gesture) */
     overscroll-behavior: none;
     overflow: hidden;
@@ -108,7 +110,11 @@ export default createGlobalStyle`
   }
 
   body {
-    background: url(./assets/background.png);
+    background-image: url(./assets/background.png);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    transform: rotate(-90deg);
+    transform-origin: 50% 28.1%;
   }
 
   input, textarea, button {
@@ -124,5 +130,10 @@ export default createGlobalStyle`
 
   svg, img {
     height: auto;
+  }
+
+  canvas {
+    width: 100vh !important;
+    height: 100vw !important;
   }
 `;

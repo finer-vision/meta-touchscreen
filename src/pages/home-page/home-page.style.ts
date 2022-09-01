@@ -13,8 +13,8 @@ type SectionProps = {
 };
 
 export const Section = styled.section<SectionProps>`
-  width: 100vw;
-  height: 100vh;
+  width: calc(100 * var(--x));
+  height: calc(100 * var(--y));
   min-height: 100%;
   position: absolute;
   inset: 0;
@@ -57,7 +57,6 @@ export const Section = styled.section<SectionProps>`
 
 export const Logo = styled.div<ShowProps>`
   background-image: url("./assets/logo.svg");
-  background-size: 416px 100px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;

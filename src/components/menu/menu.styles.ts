@@ -6,7 +6,7 @@ export const MenuWrapper = styled.div`
   height: 100vh;
   width: max-content;
   transform: translateX(-80em);
-  transition: transform 0.35s ease;
+  transition: transform 0.6s ease;
 `;
 
 export const MenuLeft = styled.div`
@@ -18,36 +18,11 @@ export const MenuHandle = styled.div``;
 export const Main = styled.div`
   background-color: #1f2b32;
   height: 90vh;
-  width: 80em;
-  border-top-right-radius: 3em;
+  //width: 80em;
+  width: 40em;
+  //border-top-right-radius: 3em;
   border-bottom-right-radius: 3em;
   position: relative;
-`;
-
-export const MainItemContainer = styled.div`
-  padding: 2em;
-`;
-
-export const MainItem = styled.div`
-  margin-bottom: 1.5em;
-  position: relative;
-  overflow: auto;
-  border-radius: 2em;
-`;
-
-export const MainItemFlex = styled.div`
-  width: 35em;
-  height: 100%;
-  padding: 3em;
-  background-color: white;
-  border-radius: 2em;
-
-  & > span {
-    color: #1f2b32;
-    font-size: 2em;
-    position: relative;
-    z-index: 1;
-  }
 `;
 
 export const DropDown = styled.div`
@@ -68,6 +43,46 @@ export const DropDown = styled.div`
     &:nth-child(even) {
       background-color: rgba(31, 43, 50, 0.08);
     }
+  }
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+`;
+
+export const MainItemContainer = styled.div`
+  padding: 2em;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const MainItem = styled.div`
+  margin-bottom: 1.5em;
+  position: relative;
+  overflow: auto;
+  border-radius: 2em;
+  height: 9em;
+`;
+
+export const MainItemFlex = styled.div`
+  width: 35em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-inline: 3em;
+  background-color: white;
+  border-radius: 2em;
+
+  & > span {
+    color: #1f2b32;
+    font-size: 2em;
+    position: relative;
+    z-index: 1;
   }
 `;
 

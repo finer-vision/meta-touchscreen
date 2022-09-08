@@ -10,8 +10,6 @@ import {
   MainItem,
   MainItemFlex,
 } from "@/components/menu/menu.styles";
-import emitter from "@/services/emitter";
-import { Subscription } from "@/types";
 
 const models = [
   {
@@ -45,30 +43,37 @@ type Props = {
 };
 
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
+  const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
+  const dropDownRef = React.useRef<HTMLDivElement>();
+  const mainRef = React.useRef<HTMLDivElement>();
   return (
     <MenuWrapper
       style={{
-        transform: mainMenuOpen ? "translateX(0)" : "translateX(-80em)",
+        transform: mainMenuOpen ? "translateX(0)" : "translateX(-40em)",
       }}
     >
       <MenuLeft>
         <Title>
           <h1>Select a model</h1>
         </Title>
-        <Main>
+        <Main ref={mainRef}>
           <MainItemContainer>
-            {models.map((model, index) => {
-              const backgroundColor = index === 0 ? "#EDEEEF" : undefined;
+            {models.map((model) => {
+              const backgroundColor =
+                model.id === 0 && sideMenuOpen ? "#EDEEEF" : undefined;
               return (
                 <MainItem key={model.id} style={{ backgroundColor }}>
-                  <MainItemFlex style={{ backgroundColor }}>
+                  <MainItemFlex
+                    style={{ backgroundColor }}
+                    onClick={() => setSideMenuOpen(model.id)}
+                  >
                     <span>{model.title}</span>
                   </MainItemFlex>
                 </MainItem>
               );
             })}
           </MainItemContainer>
-          <DropDown>
+          <DropDown ref={dropDownRef}>
             <span>ARROWHEAD POOLS</span>
             <span>ARROWHEAD POOLS</span>
             <span>ARROWHEAD POOLS</span>
@@ -76,7 +81,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
         </Main>
       </MenuLeft>
       <MenuHandle onClick={animateMenu}>
-        <img src="./assets/menu/model-list.png" alt="Close" />
+        <img
+          src={`./assets/menu/${mainMenuOpen ? "close" : "model-list"}.png`}
+          alt="Close"
+        />
       </MenuHandle>
     </MenuWrapper>
   );

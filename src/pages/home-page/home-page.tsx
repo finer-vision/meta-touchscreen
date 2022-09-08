@@ -11,11 +11,10 @@ import useMeta from "@/hooks/use-meta";
 import emitter from "@/services/emitter";
 import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
-import Model from "@/components/model/model";
 import { Modal } from "@/components/modal/modal";
+import Menu from "@/components/menu/menu";
 
 export default function ScreenSaver() {
-  const { isMenuOpen, setIsMenuOpen, reset } = useMeta();
   const menuContainerRef = React.useRef<HTMLDivElement>();
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
   const LogoRef = React.useRef<HTMLDivElement>();
@@ -23,6 +22,13 @@ export default function ScreenSaver() {
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
   const [hotspot, setHotspot] = React.useState(false);
+  const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
+
+  const animateMenu = React.useCallback(() => {
+    setMainMenuOpen((prevState) => {
+      return !prevState;
+    });
+  }, []);
 
   React.useEffect(() => {
     if (
@@ -33,16 +39,10 @@ export default function ScreenSaver() {
     )
       return;
     if (mounted) {
-      const menuBtn = menuContainerRef.current;
       const rotateBtn = rotateWrapperRef.current;
       const label = labelRef.current;
       const logo = LogoRef.current;
-      if (isMenuOpen) {
-        menuBtn.style.transform = "translateX(0px)";
-        menuBtn.style.animationName = "slideLeft";
-      } else {
-        menuBtn.style.transform = "translateX(1952px)";
-        menuBtn.style.animationName = "slideRight";
+      if (!mainMenuOpen) {
         rotateBtn.style.animationName = "showElement";
         rotateBtn.style.opacity = "0";
         logo.style.animationName = "showElement";
@@ -53,7 +53,7 @@ export default function ScreenSaver() {
     } else {
       setMounted(true);
     }
-  }, [isMenuOpen, menuContainerRef, LogoRef, labelRef]);
+  }, [mainMenuOpen, menuContainerRef, LogoRef, labelRef]);
 
   React.useEffect(() => {
     if (mounted) {
@@ -74,14 +74,14 @@ export default function ScreenSaver() {
   });
 
   return (
-    <Section backdrop={!isMenuOpen}>
-      {!isMenuOpen && (
+    <Section backdrop={!mainMenuOpen}>
+      {!mainMenuOpen && (
         <>
-          <LabelWapper show={!isMenuOpen} ref={labelRef}>
+          <LabelWapper show={!mainMenuOpen} ref={labelRef}>
             <span>OPEN RACK V3</span>
           </LabelWapper>
           <RotateWrapper
-            show={!isMenuOpen}
+            show={!mainMenuOpen}
             ref={rotateWrapperRef}
             onClick={() => {
               setRotate((rotate) => !rotate);
@@ -89,22 +89,11 @@ export default function ScreenSaver() {
           >
             <span>Rrotate the model</span>
           </RotateWrapper>
-          <Logo show={!isMenuOpen} ref={LogoRef} />
+          <Logo show={!mainMenuOpen} ref={LogoRef} />
         </>
       )}
-      <MenuWrapper
-        onClick={() => {
-          setIsMenuOpen((isOpen) => !isOpen);
-        }}
-      >
-        <div className="menuContainer" ref={menuContainerRef}>
-          <div className="menu">
-            <img src="./assets/menu/menu.png" />
-          </div>
-          <div className="menuButton">
-            <span>Model List</span>
-          </div>
-        </div>
+      <MenuWrapper>
+        <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
       </MenuWrapper>
       <Modal
         open={hotspot}

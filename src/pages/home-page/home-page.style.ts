@@ -133,13 +133,24 @@ export const LabelWapper = styled.div<ShowProps>`
 `;
 
 export const MenuWrapper = styled.div<Props>`
-  height: 2242px;
-  width: 2096px;
-  position: absolute;
-  left: 0px;
-  top: 50%;
-  transform: translate(-1952px, -50%);
+  //height: 2242px;
+  //width: 2096px;
+  //position: absolute;
+  //left: 0px;
+  //top: 50%;
+  //transform: translate(-1952px, -50%);
   z-index: 2;
+  position: relative;
+  //height: 100vh;
+  //padding: 1em 0;
+
+  //& > div:first-child {
+  //  z-index: -1;
+  //  position: absolute;
+  //  background-color: rgba(255, 255, 255, 0.8);
+  //  width: 100vw;
+  //  height: 100vh;
+  //}
 
   .menuContainer {
     display: flex;

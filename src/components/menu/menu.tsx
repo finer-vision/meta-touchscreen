@@ -95,7 +95,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                     style={{ backgroundColor }}
                     onClick={() =>
                       setSideMenuOpen((prevState) =>
-                        prevState === -1 ? model.id : -1
+                        prevState === model.id ? -1 : model.id
                       )
                     }
                   >
@@ -118,7 +118,12 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </>
         </Main>
       </MenuLeft>
-      <MenuHandle onClick={animateMenu}>
+      <MenuHandle
+        onClick={() => {
+          setSideMenuOpen(-1);
+          animateMenu();
+        }}
+      >
         <img
           src={`./assets/menu/${mainMenuOpen ? "close" : "model-list"}.png`}
           alt="Close"

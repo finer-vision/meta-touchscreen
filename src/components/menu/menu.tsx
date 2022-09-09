@@ -15,26 +15,56 @@ const models = [
   {
     id: 0,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
   {
     id: 1,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
   {
     id: 2,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
   {
     id: 3,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
   {
     id: 4,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
   {
     id: 5,
     title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
   },
 ];
 type Props = {
@@ -44,8 +74,6 @@ type Props = {
 
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
-  const dropDownRef = React.useRef<HTMLDivElement>();
-  const mainRef = React.useRef<HTMLDivElement>();
   return (
     <MenuWrapper
       style={{
@@ -56,16 +84,20 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
         <Title>
           <h1>Select a model</h1>
         </Title>
-        <Main ref={mainRef}>
+        <Main open={sideMenuOpen > -1}>
           <MainItemContainer>
             {models.map((model) => {
               const backgroundColor =
-                model.id === 0 && sideMenuOpen ? "#EDEEEF" : undefined;
+                model.id === sideMenuOpen ? "#EDEEEF" : undefined;
               return (
                 <MainItem key={model.id} style={{ backgroundColor }}>
                   <MainItemFlex
                     style={{ backgroundColor }}
-                    onClick={() => setSideMenuOpen(model.id)}
+                    onClick={() =>
+                      setSideMenuOpen((prevState) =>
+                        prevState === -1 ? model.id : -1
+                      )
+                    }
                   >
                     <span>{model.title}</span>
                   </MainItemFlex>
@@ -73,11 +105,17 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               );
             })}
           </MainItemContainer>
-          <DropDown ref={dropDownRef}>
-            <span>ARROWHEAD POOLS</span>
-            <span>ARROWHEAD POOLS</span>
-            <span>ARROWHEAD POOLS</span>
-          </DropDown>
+          <>
+            {models?.map((model) => {
+              return (
+                <DropDown key={model.id} open={sideMenuOpen === model.id}>
+                  {model.dropDowns.map((dropDown, index) => {
+                    return <span key={index}>{dropDown.title}</span>;
+                  })}
+                </DropDown>
+              );
+            })}
+          </>
         </Main>
       </MenuLeft>
       <MenuHandle onClick={animateMenu}>

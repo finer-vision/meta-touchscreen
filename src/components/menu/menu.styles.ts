@@ -16,7 +16,7 @@ export const MenuLeft = styled.div`
 export const MenuHandle = styled.div``;
 
 export const DropDownItemFlex = styled.div`
-  height: 13rem;
+  height: 7.8vh;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -96,7 +96,7 @@ export const MainItem = styled.div`
   position: relative;
   overflow: auto;
   border-radius: 2em;
-  height: 13em;
+  height: 7.8vh;
 `;
 
 export const MainItemFlex = styled.div`

@@ -125,12 +125,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </MainItemContainer>
           <>
             {models?.map((model) => {
-              const top =
-                sideMenuOpen > 5
-                  ? `${50 + 10 * (sideMenuOpen - 5)}em`
-                  : sideMenuOpen > 2
-                  ? "45.5em"
-                  : "2em";
+              const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
+              const secondOffset = (sideMenuOpen - 1) * 16.5 - 14.7;
+              let top = sideMenuOpen < 1 ? "2em" : sideMenuOpen < models.length - 2 ? `${firstOffset}em` : `${secondOffset}em`;
+
               return (
                 <DropDown
                   style={{ top }}

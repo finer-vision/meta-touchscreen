@@ -127,7 +127,12 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             {models?.map((model) => {
               const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
               const secondOffset = (sideMenuOpen - 1) * 16.5 - 14.7;
-              let top = sideMenuOpen < 1 ? "2em" : sideMenuOpen < models.length - 2 ? `${firstOffset}em` : `${secondOffset}em`;
+              let top =
+                sideMenuOpen < 1
+                  ? "2em"
+                  : sideMenuOpen < models.length - 2
+                  ? `${firstOffset}em`
+                  : `${secondOffset}em`;
 
               return (
                 <DropDown
@@ -137,9 +142,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 >
                   {model.dropDowns.map((dropDown, index) => {
                     return (
-                      <DropDownItemFlex>
+                      <DropDownItemFlex key={index}>
                         <img src={dropDown.image} alt={model.title} />
-                        <span key={index}>{dropDown.title}</span>;
+                        <span>{dropDown.title}</span>;
                       </DropDownItemFlex>
                     );
                   })}

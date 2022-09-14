@@ -18,7 +18,6 @@ export const MenuHandle = styled.div``;
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 2em;
-  top: 2em;
   width: 38em;
   background-color: #edeeef;
   display: flex;
@@ -26,7 +25,7 @@ export const DropDown = styled.div<{ open: boolean }>`
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
   transition: all 0.1s ease;
-  
+
   span {
     color: #1f2b32;
     font-size: 1.5rem;
@@ -39,20 +38,22 @@ export const DropDown = styled.div<{ open: boolean }>`
     &:nth-child(even) {
       background-color: rgba(31, 43, 50, 0.08);
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   ${({ open }) => {
-  if (!open) {
-    return css`
+    if (!open) {
+      return css`
         opacity: 0;
         pointer-events: none;
         visibility: hidden;
       `;
-  }
-}}
+    }
+  }}
 `;
-
-
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
@@ -72,9 +73,7 @@ export const Main = styled.div<{ open: boolean }>`
         width: 40em;
       `;
     }
-  }}
-  
-  // ${DropDown} {
+  }}// ${DropDown} {
   //   &:nth-child(5),  {
   //     top: 100em;
   //   }
@@ -82,8 +81,6 @@ export const Main = styled.div<{ open: boolean }>`
   //  
   // }
 `;
-
-
 
 export const MainItemContainer = styled.div`
   padding: 2em;

@@ -66,6 +66,15 @@ const models = [
       { title: "Arrowhead pools" },
     ],
   },
+  {
+    id: 6,
+    title: "Open Rack",
+    dropDowns: [
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+      { title: "Arrowhead pools" },
+    ],
+  },
 ];
 type Props = {
   mainMenuOpen: boolean;
@@ -107,8 +116,18 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </MainItemContainer>
           <>
             {models?.map((model) => {
+              const top =
+                sideMenuOpen > 5
+                  ? `${33.5 + 10 * (sideMenuOpen - 5)}em`
+                  : sideMenuOpen > 2
+                  ? "33.5em"
+                  : "2em";
               return (
-                <DropDown key={model.id} open={sideMenuOpen === model.id}>
+                <DropDown
+                  style={{ top }}
+                  key={model.id}
+                  open={sideMenuOpen === model.id}
+                >
                   {model.dropDowns.map((dropDown, index) => {
                     return <span key={index}>{dropDown.title}</span>;
                   })}

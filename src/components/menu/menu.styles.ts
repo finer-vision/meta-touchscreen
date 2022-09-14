@@ -5,7 +5,7 @@ export const MenuWrapper = styled.div`
   align-items: center;
   height: 100vh;
   width: max-content;
-  transform: translateX(-80em);
+  transform: translateX(-74em);
   transition: transform 0.6s ease;
 `;
 
@@ -15,34 +15,42 @@ export const MenuLeft = styled.div`
 
 export const MenuHandle = styled.div``;
 
+export const DropDownItemFlex = styled.div`
+  height: 13rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  gap: 2em;
+
+  span {
+    font-size: 1.9rem;
+    color: #1f2b32;
+  }
+  
+  img {
+    width: 9em;
+  }
+
+  &:nth-child(even) {
+    background-color: rgba(31, 43, 50, 0.08);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 2em;
-  width: 38em;
+  width: 32em;
   background-color: #edeeef;
   display: flex;
   flex-direction: column;
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
   transition: all 0.1s ease;
-
-  span {
-    color: #1f2b32;
-    font-size: 1.5rem;
-    height: 13rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    padding-left: 1em;
-
-    &:nth-child(even) {
-      background-color: rgba(31, 43, 50, 0.08);
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 
   ${({ open }) => {
     if (!open) {
@@ -65,7 +73,7 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: 80em;
+        width: 74em;
         border-top-right-radius: 3em;
       `;
     } else {
@@ -98,6 +106,7 @@ export const MainItemFlex = styled.div`
   padding-inline: 3em;
   background-color: white;
   border-radius: 2em;
+  gap: 2em;
   overflow: hidden;
 
   & > span {
@@ -105,6 +114,12 @@ export const MainItemFlex = styled.div`
     font-size: 2em;
     position: relative;
     z-index: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 10em;
   }
 `;
 

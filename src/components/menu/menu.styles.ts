@@ -29,7 +29,7 @@ export const DropDown = styled.div<{ open: boolean }>`
   span {
     color: #1f2b32;
     font-size: 1.5rem;
-    height: 9rem;
+    height: 13rem;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
@@ -73,24 +73,13 @@ export const Main = styled.div<{ open: boolean }>`
         width: 40em;
       `;
     }
-  }}// ${DropDown} {
-  //   &:nth-child(5),  {
-  //     top: 100em;
-  //   }
-  // 
-  //  
-  // }
+  }}
 `;
 
 export const MainItemContainer = styled.div`
   padding: 2em;
   height: 100%;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: auto;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
 `;
 
 export const MainItem = styled.div`
@@ -98,7 +87,7 @@ export const MainItem = styled.div`
   position: relative;
   overflow: auto;
   border-radius: 2em;
-  height: 9em;
+  height: 13em;
 `;
 
 export const MainItemFlex = styled.div`

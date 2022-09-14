@@ -118,9 +118,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             {models?.map((model) => {
               const top =
                 sideMenuOpen > 5
-                  ? `${33.5 + 10 * (sideMenuOpen - 5)}em`
+                  ? `${50 + 10 * (sideMenuOpen - 5)}em`
                   : sideMenuOpen > 2
-                  ? "33.5em"
+                  ? "45.5em"
                   : "2em";
               return (
                 <DropDown

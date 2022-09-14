@@ -10,7 +10,7 @@ export const MenuWrapper = styled.div`
 `;
 
 export const MenuLeft = styled.div`
-  height: 100vh;
+  height: 70vh;
 `;
 
 export const MenuHandle = styled.div``;
@@ -65,10 +65,11 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  height: 90vh;
+  height: 63vh;
   border-bottom-right-radius: 3em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
+  margin-top: -1em;
 
   ${({ open }) => {
     if (open) {
@@ -125,12 +126,12 @@ export const MainItemFlex = styled.div`
 
 export const Title = styled.div`
   background-color: #1f2b32;
-  height: 10vh;
+  height: 7vh;
   padding: 3em 2em;
   width: 40em;
   border-top-right-radius: 3em;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   h1 {
     font-weight: 700;

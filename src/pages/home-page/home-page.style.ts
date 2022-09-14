@@ -139,10 +139,11 @@ export const MenuWrapper = styled.div<Props>`
   //left: 0px;
   //top: 50%;
   //transform: translate(-1952px, -50%);
-  z-index: 2;
-  position: relative;
+  //z-index: 2;
+  //position: relative;
   //height: 100vh;
   //padding: 1em 0;
+  pointer-events: none;
 
   //& > div:first-child {
   //  z-index: -1;
@@ -152,65 +153,65 @@ export const MenuWrapper = styled.div<Props>`
   //  height: 100vh;
   //}
 
-  .menuContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation-duration: 1000ms;
-    animation-delay: calc(0.1s + var(--speed) * 1);
-    animation-timing-function: var(--ease);
-    animation-fill-mode: forwards;
-    transform: translateX(0px);
-
-    .menu {
-      width: 1952px;
-      height: 2242px;
-    }
-
-    .menuButton {
-      width: 144px;
-      height: 469px;
-      background-color: var(--color-ebony-clay);
-      background-image: url("./assets/cube.svg");
-      background-repeat: no-repeat;
-      background-position: top;
-      background-position-y: 3rem;
-      border-radius: 0 1.8rem 1.8rem 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      span {
-        /* font-family: "PT Sans Caption"; */
-        font-style: normal;
-        font-weight: 700;
-        font-size: 45px;
-        line-height: 58px;
-        color: var(--color-white);
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
-        margin-top: 3rem;
-      }
-    }
-  }
-
-  @keyframes slideLeft {
-    from {
-      transform: translateX(0px);
-    }
-    to {
-      transform: translateX(1952px);
-    }
-  }
-
-  @keyframes slideRight {
-    from {
-      transform: translateX(1952px);
-    }
-    to {
-      transform: translateX(0px);
-    }
-  }
+  //.menuContainer {
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  animation-duration: 1000ms;
+  //  animation-delay: calc(0.1s + var(--speed) * 1);
+  //  animation-timing-function: var(--ease);
+  //  animation-fill-mode: forwards;
+  //  transform: translateX(0px);
+  //
+  //  .menu {
+  //    width: 1952px;
+  //    height: 2242px;
+  //  }
+  //
+  //  .menuButton {
+  //    width: 144px;
+  //    height: 469px;
+  //    background-color: var(--color-ebony-clay);
+  //    background-image: url("./assets/cube.svg");
+  //    background-repeat: no-repeat;
+  //    background-position: top;
+  //    background-position-y: 3rem;
+  //    border-radius: 0 1.8rem 1.8rem 0;
+  //    display: flex;
+  //    justify-content: center;
+  //    align-items: center;
+  //
+  //    span {
+  //      /* font-family: "PT Sans Caption"; */
+  //      font-style: normal;
+  //      font-weight: 700;
+  //      font-size: 45px;
+  //      line-height: 58px;
+  //      color: var(--color-white);
+  //      writing-mode: vertical-lr;
+  //      transform: rotate(180deg);
+  //      margin-top: 3rem;
+  //    }
+  //  }
+  //}
+  //
+  //@keyframes slideLeft {
+  //  from {
+  //    transform: translateX(0px);
+  //  }
+  //  to {
+  //    transform: translateX(1952px);
+  //  }
+  //}
+  //
+  //@keyframes slideRight {
+  //  from {
+  //    transform: translateX(1952px);
+  //  }
+  //  to {
+  //    transform: translateX(0px);
+  //  }
+  //}
 `;
 
 export const RotateWrapper = styled.div<ShowProps>`

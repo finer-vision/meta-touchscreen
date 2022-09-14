@@ -143,7 +143,6 @@ export const MenuWrapper = styled.div<Props>`
   //position: relative;
   //height: 100vh;
   //padding: 1em 0;
-  pointer-events: none;
 
   //& > div:first-child {
   //  z-index: -1;

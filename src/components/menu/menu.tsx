@@ -94,7 +94,7 @@ const models = [
 
   {
     id: 7,
-    title: "TTV",
+    title: "TTVT",
     image: "./assets/images/ttv.png",
     dropDowns: [
       { title: "ARROWHEAD POOLS 5", image: "./assets/images/ap_iso.png" },
@@ -104,7 +104,7 @@ const models = [
   },
   {
     id: 8,
-    title: "GRAND TETON",
+    title: "GRAND TETONT",
     image: "./assets/images/grand-teton.png",
     dropDowns: [
       { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
@@ -149,7 +149,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           <MainItemContainer>
             {activeModels.map((model) => {
               const backgroundColor =
-                model.id === sideMenuOpen ? "#EDEEEF" : undefined;
+                model.id === sideMenuOpen ? "#DDDEE0" : undefined;
               return (
                 <MainItem key={model.id} style={{ backgroundColor }}>
                   <MainItemFlex
@@ -193,13 +193,13 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             </Next>
           </NavWrapper>
           <>
-            {models?.map((model) => {
+            {activeModels?.map((model) => {
               const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
               const secondOffset = (sideMenuOpen - 1) * 16.5 - 14.7;
               let top =
                 sideMenuOpen < 1
                   ? "2em"
-                  : sideMenuOpen < models.length - 2
+                  : sideMenuOpen < activeModels.length - 2
                   ? `${firstOffset}em`
                   : `${secondOffset}em`;
 

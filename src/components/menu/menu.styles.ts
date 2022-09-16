@@ -46,7 +46,7 @@ export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 2em;
   width: 32em;
-  background-color: #edeeef;
+  background-color: #DDDEE0;
   display: flex;
   flex-direction: column;
   border-top-right-radius: 2em;
@@ -186,5 +186,3 @@ export const DotContainer = styled.div`
   justify-content: center;
   gap: 0.8em;
 `;
-
-// DDDEE0

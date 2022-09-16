@@ -23,8 +23,63 @@ import {
 const models = [
   {
     id: 0,
-    title: "OPEN RACK",
+    title: "OPEN RACK v3",
     image: "./assets/images/open-rack.png",
+    dropDowns: [
+      { title: "POWER SHELF", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
+    ],
+  },
+  {
+    id: 1,
+    title: "NOAH'S ARK",
+    image: "./assets/images/noah-ark.png",
+    dropDowns: [
+      { title: "RPU", image: "./assets/images/ap_iso.png" },
+      { title: "TTV", image: "./assets/images/sp_iso.png" },
+    ],
+  },
+  {
+    id: 2,
+    title: "BLIND MATE INTERFACES",
+    image: "./assets/images/blind-mate.png",
+    dropDowns: [
+      { title: "ARROWHEAD POOLS 2", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cc_iso.png" },
+    ],
+  },
+  {
+    id: 3,
+    title: "LIQUID COOLING CART",
+    image: "./assets/images/liquid-coolant.png",
+    dropDowns: [
+      { title: "RACK ADAPTER", image: "./assets/images/ap_iso.png" },
+      { title: "MODULE", image: "./assets/images/sp_iso.png" },
+    ],
+  },
+  {
+    id: 4,
+    title: "WEDGE 400C",
+    image: "./assets/images/wedge-400c.png",
+    dropDowns: [
+      { title: "RACK ADAPTER", image: "./assets/images/ap_iso.png" },
+      { title: "MODULE", image: "./assets/images/sp_iso.png" },
+    ],
+  },
+  {
+    id: 5,
+    title: "MINIPACK2",
+    image: "./assets/images/minipack2.png",
+    dropDowns: [
+      { title: "LINE CARD EJECTOR", image: "./assets/images/ap_iso.png" },
+      { title: "CHASSIS", image: "./assets/images/sp_iso.png" }
+    ],
+  },
+  {
+    id: 6,
+    title: "GRAND CANYON",
+    image: "./assets/images/grand-canyon.png",
     dropDowns: [
       { title: "ARROWHEAD POOLS", image: "./assets/images/ap_iso.png" },
       { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
@@ -32,80 +87,39 @@ const models = [
     ],
   },
   {
-    id: 1,
-    title: "BBU",
-    image: "./assets/images/bbu.png",
-    dropDowns: [
-      { title: "ARROWHEAD POOLS 1", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 1", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 1", image: "./assets/images/cc_iso.png" },
-    ],
-  },
-  {
-    id: 2,
-    title: "POWER SHELF",
-    image: "./assets/images/power-shelf.png",
-    dropDowns: [
-      { title: "ARROWHEAD POOLS 2", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 2", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 2", image: "./assets/images/cc_iso.png" },
-    ],
-  },
-  {
-    id: 3,
-    title: "NOAH'S ARK",
-    image: "./assets/images/noahs-ark.png",
-    dropDowns: [
-      { title: "ARROWHEAD POOLS 3", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 3", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 3", image: "./assets/images/cc_iso.png" },
-    ],
-  },
-  {
-    id: 4,
-    title: "RPU",
-    image: "./assets/images/rpu.png",
-    dropDowns: [
-      { title: "ARROWHEAD POOLS 4", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 4", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 4", image: "./assets/images/cc_iso.png" },
-    ],
-  },
-  {
-    id: 5,
-    title: "TTV",
-    image: "./assets/images/ttv.png",
-    dropDowns: [
-      { title: "ARROWHEAD POOLS 5", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 5", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 5", image: "./assets/images/cc_iso.png" },
-    ],
-  },
-  {
-    id: 6,
+    id: 7,
     title: "GRAND TETON",
-    image: "./assets/images/grand-teton.png",
+    image: "./assets/images/grand-tenton.png",
+    dropDowns: [
+      { title: "ARROWHEAD POOLS", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cc_iso.png" },
+    ],
+  },
+  {
+    id: 8,
+    title: "GLACIER POINT",
+    image: "./assets/images/glacier-point.png",
     dropDowns: [
       { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
       { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
       { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
     ],
   },
-
   {
-    id: 7,
-    title: "TTVT",
-    image: "./assets/images/ttv.png",
+    id: 9,
+    title: "DISCOVERY POINT",
+    image: "./assets/images/discovery-point.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS 5", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 5", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 5", image: "./assets/images/cc_iso.png" },
+      { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
+      { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
     ],
   },
   {
-    id: 8,
-    title: "GRAND TETONT",
-    image: "./assets/images/grand-teton.png",
+    id: 10,
+    title: "KINGS CANYON",
+    image: "./assets/images/king-canyon.png",
     dropDowns: [
       { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
       { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
@@ -134,6 +148,8 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const activeModels = React.useMemo(() => {
     return chunkedModel[activePage];
   }, [activePage, chunkedModel]);
+
+  console.log(sideMenuOpen)
 
   return (
     <MenuWrapper
@@ -193,7 +209,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             </Next>
           </NavWrapper>
           <>
-            {activeModels?.map((model) => {
+            {activeModels?.map((model, index) => {
               const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
               const secondOffset = (sideMenuOpen - 1) * 16.5 - 14.7;
               let top =

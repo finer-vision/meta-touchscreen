@@ -46,7 +46,7 @@ export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 2em;
   width: 32em;
-  background-color: #DDDEE0;
+  background-color: #dddee0;
   display: flex;
   flex-direction: column;
   border-top-right-radius: 2em;
@@ -108,7 +108,8 @@ export const MainItemFlex = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  padding-inline: 3em;
+  justify-content: space-between;
+  padding-inline: 2em;
   background-color: white;
   border-radius: 2em;
   gap: 2em;

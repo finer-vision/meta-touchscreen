@@ -27,13 +27,14 @@ export const DropDownItemFlex = styled.div`
     font-size: 1.9rem;
     color: #1f2b32;
   }
-  
+
   img {
     width: 9em;
   }
 
   &:nth-child(even) {
-    background-color: rgba(31, 43, 50, 0.08);
+    border-top: 1px solid rgba(31, 43, 50, 0.3);
+    border-bottom: 1px solid rgba(31, 43, 50, 0.3);
   }
 
   &:last-child {
@@ -111,17 +112,21 @@ export const MainItemFlex = styled.div`
   overflow: hidden;
 
   & > span {
-    color: #1f2b32;
+    color: #20202e;
     font-size: 2em;
     position: relative;
     z-index: 1;
     font-weight: bold;
     text-transform: uppercase;
   }
+`;
 
-  img {
-    width: 10em;
-  }
+export const Model = styled.img`
+  width: 10em;
+`;
+export const Arrow = styled.img`
+  margin-left: auto;
+  width: 2.3em;
 `;
 
 export const Title = styled.div`

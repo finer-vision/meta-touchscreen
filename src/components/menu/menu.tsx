@@ -9,7 +9,7 @@ import {
   Title,
   MainItem,
   MainItemFlex,
-  DropDownItemFlex,
+  DropDownItemFlex, Model, Arrow,
 } from "@/components/menu/menu.styles";
 
 const models = [
@@ -116,8 +116,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       )
                     }
                   >
-                    <img src={model.image} alt={model.title} />
+                    <Model src={model.image} alt={model.title} />
                     <span>{model.title}</span>
+                    <Arrow src="./assets/images/arrow.png" alt="Arrow" />
                   </MainItemFlex>
                 </MainItem>
               );

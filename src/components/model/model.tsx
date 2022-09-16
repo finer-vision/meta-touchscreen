@@ -33,17 +33,17 @@ export default function Model() {
     <group ref={ref}>
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
-        <primitive object={gltf.scene} position-y={-1.5} />
+        <primitive object={gltf.scene} position-y={-1.7} scale={1.4} />
         <Hotspot
           title="BATTERY BACKUP"
-          position={[-0.4, 0.6, 0.6]}
+          position={[-0.3, 1, 0.8]}
           onClick={() => {
             emitter.emit(Subscription.openHotspot);
           }}
         />
         <Hotspot
           title="POWER SHELF"
-          position={[-0, -0.3, 0.6]}
+          position={[-0, -0.3, 0.8]}
           onClick={() => {
             emitter.emit(Subscription.openHotspot);
           }}

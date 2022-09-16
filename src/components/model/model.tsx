@@ -1,4 +1,5 @@
 import React from "react";
+import * as THREE from "three";
 import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useSubscription from "@/hooks/use-subscription";
@@ -8,6 +9,7 @@ import emitter from "@/services/emitter";
 
 export default function Model() {
   const gltf = useGLTF("./assets/open-rack-v3.glb");
+  const ref = React.useRef<THREE.Group>();
   const [rotate, setRotate] = React.useState(false);
   useSubscription(Subscription.rotate, () => {
     setRotate(true);
@@ -18,17 +20,17 @@ export default function Model() {
   });
 
   useSubscription(Subscription.reset, () => {
-    gltf.scene.rotation.y = 0;
+    ref.current.rotation.y = 0;
   });
 
   useFrame(() => {
     if (rotate) {
-      gltf.scene.rotation.y += 0.01;
+      ref.current.rotation.y += 0.01;
     }
   });
 
   return (
-    <>
+    <group ref={ref}>
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
         <primitive object={gltf.scene} position-y={-1.5} />
@@ -49,6 +51,6 @@ export default function Model() {
         <ambientLight />
         <OrbitControls />
       </mesh>
-    </>
+    </group>
   );
 }

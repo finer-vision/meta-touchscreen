@@ -10,7 +10,7 @@ export const MenuWrapper = styled.div`
 `;
 
 export const MenuLeft = styled.div`
-  height: 70vh;
+  height: 72vh;
 `;
 
 export const MenuHandle = styled.div``;
@@ -66,11 +66,14 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  height: 63vh;
+  height: 65vh;
   border-bottom-right-radius: 3em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
   margin-top: -1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   ${({ open }) => {
     if (open) {
@@ -88,7 +91,7 @@ export const Main = styled.div<{ open: boolean }>`
 
 export const MainItemContainer = styled.div`
   padding: 2em;
-  height: 100%;
+  height: 95%;
   overflow: hidden;
 `;
 
@@ -144,3 +147,44 @@ export const Title = styled.div`
     line-height: 1;
   }
 `;
+
+export const NavWrapper = styled.div`
+  width: 36em;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  img {
+    width: 2.2em;
+  }
+`;
+
+export const Prev = styled.button`
+  background: none;
+  display: inline-block;
+  border: none;
+`;
+export const Next = styled.button`
+  background: none;
+  display: inline-block;
+  border: none;
+`;
+
+export const Dot = styled.div<{ active: boolean }>`
+  width: 1.6em;
+  height: 1.6em;
+  border: 5px solid white;
+  border-radius: 50%;
+  background-color: ${({ active }) => (active ? "#ffffff" : "transparent")};
+`;
+
+export const DotContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+`;
+
+// DDDEE0

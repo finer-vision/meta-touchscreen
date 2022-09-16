@@ -1,4 +1,5 @@
 import React from "react";
+import { chunk } from "lodash";
 import {
   DropDown,
   Main,
@@ -9,7 +10,14 @@ import {
   Title,
   MainItem,
   MainItemFlex,
-  DropDownItemFlex, Model, Arrow,
+  DropDownItemFlex,
+  Model,
+  Arrow,
+  NavWrapper,
+  Prev,
+  Next,
+  DotContainer,
+  Dot,
 } from "@/components/menu/menu.styles";
 
 const models = [
@@ -83,6 +91,27 @@ const models = [
       { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
     ],
   },
+
+  {
+    id: 7,
+    title: "TTV",
+    image: "./assets/images/ttv.png",
+    dropDowns: [
+      { title: "ARROWHEAD POOLS 5", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT 5", image: "./assets/images/sp_iso.png" },
+      { title: "CASCADE CREEK 5", image: "./assets/images/cc_iso.png" },
+    ],
+  },
+  {
+    id: 8,
+    title: "GRAND TETON",
+    image: "./assets/images/grand-teton.png",
+    dropDowns: [
+      { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
+      { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
+      { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
+    ],
+  },
 ];
 type Props = {
   mainMenuOpen: boolean;
@@ -91,6 +120,21 @@ type Props = {
 
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
+  const [activePage, setActivePage] = React.useState(0);
+
+  const chunkedModel = React.useMemo(() => {
+    return chunk(models, 7);
+  }, [models]);
+
+  const totalPages = React.useMemo(() => {
+    console.log(chunkedModel);
+    return chunkedModel.length;
+  }, [chunkedModel]);
+
+  const activeModels = React.useMemo(() => {
+    return chunkedModel[activePage];
+  }, [activePage, chunkedModel]);
+
   return (
     <MenuWrapper
       style={{
@@ -103,7 +147,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
         </Title>
         <Main open={sideMenuOpen > -1}>
           <MainItemContainer>
-            {models.map((model) => {
+            {activeModels.map((model) => {
               const backgroundColor =
                 model.id === sideMenuOpen ? "#EDEEEF" : undefined;
               return (
@@ -124,6 +168,30 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               );
             })}
           </MainItemContainer>
+          <NavWrapper>
+            <Prev
+              onClick={() => {
+                setSideMenuOpen(-1);
+                setActivePage((active) => Math.max(0, active - 1));
+              }}
+            >
+              <img src="./assets/images/prev.svg" alt="Prev" />
+            </Prev>
+            <DotContainer>
+              {Array.from({ length: totalPages }).map((_, idx) => {
+                console.log(idx);
+                return <Dot key={idx} active={idx === activePage} />;
+              })}
+            </DotContainer>
+            <Next
+              onClick={() => {
+                setSideMenuOpen(-1);
+                setActivePage((active) => Math.min(totalPages, active + 1));
+              }}
+            >
+              <img src="./assets/images/next.svg" alt="Next" />
+            </Next>
+          </NavWrapper>
           <>
             {models?.map((model) => {
               const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;

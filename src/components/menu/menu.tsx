@@ -73,7 +73,7 @@ const models = [
     image: "./assets/images/minipack2.png",
     dropDowns: [
       { title: "LINE CARD EJECTOR", image: "./assets/images/ap_iso.png" },
-      { title: "CHASSIS", image: "./assets/images/sp_iso.png" }
+      { title: "CHASSIS", image: "./assets/images/sp_iso.png" },
     ],
   },
   {
@@ -149,7 +149,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
     return chunkedModel[activePage];
   }, [activePage, chunkedModel]);
 
-  console.log(sideMenuOpen)
+  console.log(sideMenuOpen);
 
   return (
     <MenuWrapper
@@ -211,13 +211,16 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           <>
             {activeModels?.map((model, index) => {
               const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
-              const secondOffset = (sideMenuOpen - 1) * 16.5 - 14.7;
+              const secondOffset = (sideMenuOpen - 1) * 16.5 + 1.8;
+              const thirdOffset = (sideMenuOpen - 1) * 13.5;
               let top =
                 sideMenuOpen < 1
                   ? "2em"
                   : sideMenuOpen < activeModels.length - 2
                   ? `${firstOffset}em`
-                  : `${secondOffset}em`;
+                  : sideMenuOpen < activeModels.length - 1
+                  ? `${secondOffset}em`
+                  : `${thirdOffset}em`;
 
               return (
                 <DropDown

@@ -215,18 +215,10 @@ export const MenuWrapper = styled.div<Props>`
 `;
 
 export const RotateWrapper = styled.div<ShowProps>`
-  width: 145px;
-  height: 576px;
-  background-color: var(--color-ebony-clay);
-  background-image: url("./assets/rotate.svg");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-position-y: 2rem;
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 50%;
-  transform: translate(0%, -50%);
-  border-radius: 1.8rem 0 0 1.8rem;
+  transform: translateY(-50%);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -7,7 +7,6 @@ import {
   RotateWrapper,
   ContentWrapper,
 } from "./home-page.style";
-import useMeta from "@/hooks/use-meta";
 import emitter from "@/services/emitter";
 import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
@@ -87,7 +86,7 @@ export default function ScreenSaver() {
               setRotate((rotate) => !rotate);
             }}
           >
-            <span>Rrotate the model</span>
+            <img src="./assets/images/rotate.png" alt="Rotate model" />
           </RotateWrapper>
           <Logo show={!mainMenuOpen} ref={LogoRef} />
         </>

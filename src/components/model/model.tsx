@@ -17,6 +17,10 @@ export default function Model() {
     setRotate(false);
   });
 
+  useSubscription(Subscription.reset, () => {
+    gltf.scene.rotation.y = 0;
+  });
+
   useFrame(() => {
     if (rotate) {
       gltf.scene.rotation.y += 0.01;
@@ -28,12 +32,20 @@ export default function Model() {
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
         <primitive object={gltf.scene} position-y={-1.5} />
-        <Hotspot title="BATTERY BACKUP" position={[-0.4, 0.6, 0.6]} onClick={() => {
-            emitter.emit(Subscription.openHotspot)
-        }}/>
-        <Hotspot title="POWER SHELF" position={[-0, -0.3, 0.6]} onClick={() => {
-            emitter.emit(Subscription.openHotspot)
-        }}/>
+        <Hotspot
+          title="BATTERY BACKUP"
+          position={[-0.4, 0.6, 0.6]}
+          onClick={() => {
+            emitter.emit(Subscription.openHotspot);
+          }}
+        />
+        <Hotspot
+          title="POWER SHELF"
+          position={[-0, -0.3, 0.6]}
+          onClick={() => {
+            emitter.emit(Subscription.openHotspot);
+          }}
+        />
         <ambientLight />
         <OrbitControls />
       </mesh>

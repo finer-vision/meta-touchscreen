@@ -6,6 +6,7 @@ import {
   MenuWrapper,
   RotateWrapper,
   ContentWrapper,
+  ResetWrapper,
 } from "./home-page.style";
 import emitter from "@/services/emitter";
 import { Subscription } from "@/types";
@@ -16,6 +17,7 @@ import Menu from "@/components/menu/menu";
 export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
+  const resetWrapperRef = React.useRef<HTMLDivElement>();
   const LogoRef = React.useRef<HTMLDivElement>();
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
@@ -79,6 +81,25 @@ export default function ScreenSaver() {
           <LabelWapper show={!mainMenuOpen} ref={labelRef}>
             <span>OPEN RACK V3</span>
           </LabelWapper>
+          <ResetWrapper
+            show={!mainMenuOpen}
+            ref={resetWrapperRef}
+            onClick={() => {
+              setRotate(false);
+              emitter.emit(Subscription.reset);
+            }}
+          >
+            <img src="./assets/images/reset.png" alt="Rotate model" />
+          </ResetWrapper>
+          <RotateWrapper
+            show={!mainMenuOpen}
+            ref={rotateWrapperRef}
+            onClick={() => {
+              setRotate((rotate) => !rotate);
+            }}
+          >
+            <img src="./assets/images/rotate.png" alt="Rotate model" />
+          </RotateWrapper>
           <RotateWrapper
             show={!mainMenuOpen}
             ref={rotateWrapperRef}

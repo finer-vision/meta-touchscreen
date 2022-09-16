@@ -214,6 +214,33 @@ export const MenuWrapper = styled.div<Props>`
   //}
 `;
 
+export const ResetWrapper = styled.div<ShowProps>`
+  position: absolute;
+  right: 0;
+  top: 39%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+
+  ${({ show }) => {
+    if (!show) {
+      return css`
+        animation-duration: 1000ms;
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    } else {
+      return css`
+        animation-duration: 1000ms;
+        animation-delay: calc(0.1s + var(--speed) * 1);
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
+`
+
 export const RotateWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
@@ -240,18 +267,6 @@ export const RotateWrapper = styled.div<ShowProps>`
       `;
     }
   }}
-
-  span {
-    /* font-family: "PT Sans Caption"; */
-    font-style: normal;
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 58px;
-    color: var(--color-white);
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    margin-top: 4rem;
-  }
 `;
 
 export const ContentWrapper = styled.div`

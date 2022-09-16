@@ -26,8 +26,8 @@ const models = [
     title: "OPEN RACK v3",
     image: "./assets/images/open-rack.png",
     dropDowns: [
-      { title: "POWER SHELF", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
+      { title: "POWER SHELF", image: "./assets/images/power-shelf.png" },
+      { title: "BATTERY BACK UP", image: "./assets/images/battery-backup.png" },
     ],
   },
   {
@@ -35,8 +35,8 @@ const models = [
     title: "NOAH'S ARK",
     image: "./assets/images/noah-ark.png",
     dropDowns: [
-      { title: "RPU", image: "./assets/images/ap_iso.png" },
-      { title: "TTV", image: "./assets/images/sp_iso.png" },
+      { title: "RPU", image: "./assets/images/rpu.png" },
+      { title: "TTV", image: "./assets/images/ttv.png" },
     ],
   },
   {
@@ -44,9 +44,12 @@ const models = [
     title: "BLIND MATE INTERFACES",
     image: "./assets/images/blind-mate.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS 2", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
   {
@@ -54,8 +57,8 @@ const models = [
     title: "LIQUID COOLING CART",
     image: "./assets/images/liquid-coolant.png",
     dropDowns: [
-      { title: "RACK ADAPTER", image: "./assets/images/ap_iso.png" },
-      { title: "MODULE", image: "./assets/images/sp_iso.png" },
+      { title: "RACK ADAPTER", image: "./assets/images/rack-adapter.png" },
+      { title: "MODULE", image: "./assets/images/module.png" },
     ],
   },
   {
@@ -63,8 +66,8 @@ const models = [
     title: "WEDGE 400C",
     image: "./assets/images/wedge-400c.png",
     dropDowns: [
-      { title: "RACK ADAPTER", image: "./assets/images/ap_iso.png" },
-      { title: "MODULE", image: "./assets/images/sp_iso.png" },
+      { title: "RACK ADAPTER", image: "./assets/images/rack-adapter.png" },
+      { title: "MODULE", image: "./assets/images/module.png" },
     ],
   },
   {
@@ -72,8 +75,8 @@ const models = [
     title: "MINIPACK2",
     image: "./assets/images/minipack2.png",
     dropDowns: [
-      { title: "LINE CARD EJECTOR", image: "./assets/images/ap_iso.png" },
-      { title: "CHASSIS", image: "./assets/images/sp_iso.png" },
+      { title: "LINE CARD EJECTOR", image: "./assets/images/chasis.png" },
+      { title: "CHASSIS", image: "./assets/images/chasis.png" },
     ],
   },
   {
@@ -81,9 +84,12 @@ const models = [
     title: "GRAND CANYON",
     image: "./assets/images/grand-canyon.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
   {
@@ -91,9 +97,12 @@ const models = [
     title: "GRAND TETON",
     image: "./assets/images/grand-tenton.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
   {
@@ -101,9 +110,12 @@ const models = [
     title: "GLACIER POINT",
     image: "./assets/images/glacier-point.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
   {
@@ -111,9 +123,12 @@ const models = [
     title: "DISCOVERY POINT",
     image: "./assets/images/discovery-point.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
   {
@@ -121,9 +136,12 @@ const models = [
     title: "KINGS CANYON",
     image: "./assets/images/king-canyon.png",
     dropDowns: [
-      { title: "ARROWHEAD POOLS 6", image: "./assets/images/ap_iso.png" },
-      { title: "STORM POINT 6", image: "./assets/images/sp_iso.png" },
-      { title: "CASCADE CREEK 6", image: "./assets/images/cc_iso.png" },
+      {
+        title: "ARROWHEAD POOLS",
+        image: "./assets/images/arrowhead-pools.png",
+      },
+      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
+      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
     ],
   },
 ];
@@ -163,16 +181,16 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
         </Title>
         <Main open={sideMenuOpen > -1}>
           <MainItemContainer>
-            {activeModels.map((model) => {
+            {activeModels.map((model, index) => {
               const backgroundColor =
-                model.id === sideMenuOpen ? "#DDDEE0" : undefined;
+                index === sideMenuOpen ? "#DDDEE0" : undefined;
               return (
                 <MainItem key={model.id} style={{ backgroundColor }}>
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() =>
                       setSideMenuOpen((prevState) =>
-                        prevState === model.id ? -1 : model.id
+                        prevState === index ? -1 : index
                       )
                     }
                   >
@@ -216,9 +234,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               let top =
                 sideMenuOpen < 1
                   ? "2em"
-                  : sideMenuOpen < activeModels.length - 2
+                  : sideMenuOpen < 5
                   ? `${firstOffset}em`
-                  : sideMenuOpen < activeModels.length - 1
+                  : sideMenuOpen < 6
                   ? `${secondOffset}em`
                   : `${thirdOffset}em`;
 
@@ -226,7 +244,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 <DropDown
                   style={{ top }}
                   key={model.id}
-                  open={sideMenuOpen === model.id}
+                  open={sideMenuOpen === index}
                 >
                   {model.dropDowns.map((dropDown, index) => {
                     return (

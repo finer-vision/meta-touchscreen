@@ -159,15 +159,12 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   }, [models]);
 
   const totalPages = React.useMemo(() => {
-    console.log(chunkedModel);
     return chunkedModel.length;
   }, [chunkedModel]);
 
   const activeModels = React.useMemo(() => {
     return chunkedModel[activePage];
   }, [activePage, chunkedModel]);
-
-  console.log(sideMenuOpen);
 
   return (
     <MenuWrapper
@@ -188,11 +185,11 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 <MainItem key={model.id} style={{ backgroundColor }}>
                   <MainItemFlex
                     style={{ backgroundColor }}
-                    onClick={() =>
+                    onClick={() => {
                       setSideMenuOpen((prevState) =>
                         prevState === index ? -1 : index
-                      )
-                    }
+                      );
+                    }}
                   >
                     <Model src={model.image} alt={model.title} />
                     <span>{model.title}</span>
@@ -213,7 +210,6 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             </Prev>
             <DotContainer>
               {Array.from({ length: totalPages }).map((_, idx) => {
-                console.log(idx);
                 return <Dot key={idx} active={idx === activePage} />;
               })}
             </DotContainer>
@@ -228,17 +224,18 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </NavWrapper>
           <>
             {activeModels?.map((model, index) => {
-              const firstOffset = (sideMenuOpen - 1) * 16.5 + 18.5;
+              const firstOffset = sideMenuOpen * 16.5 + 2;
               const secondOffset = (sideMenuOpen - 1) * 16.5 + 1.8;
-              const thirdOffset = (sideMenuOpen - 1) * 13.5;
+              const thirdOffset = (sideMenuOpen - 1) * 16.5 + 2.05;
+              const lastOffset = (sideMenuOpen - 1) * 16.5 - 14.6;
               let top =
-                sideMenuOpen < 1
-                  ? "2em"
-                  : sideMenuOpen < 5
+                sideMenuOpen === 2
+                  ? `${thirdOffset}em`
+                  : sideMenuOpen < 2
                   ? `${firstOffset}em`
-                  : sideMenuOpen < 6
-                  ? `${secondOffset}em`
-                  : `${thirdOffset}em`;
+                  : sideMenuOpen === activeModels.length - 1
+                  ? `${lastOffset}em`
+                  : `${secondOffset}em`;
 
               return (
                 <DropDown

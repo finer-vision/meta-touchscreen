@@ -38,6 +38,10 @@ export const DropDownItemFlex = styled.div`
   }
 
   &:last-child {
+    border-bottom: none;
+  }
+
+  &:last-child {
     margin-bottom: 0;
   }
 `;

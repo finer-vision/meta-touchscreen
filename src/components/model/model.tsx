@@ -6,9 +6,11 @@ import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
 import Hotspot from "@/components/hotspot/hotspot";
 import emitter from "@/services/emitter";
+import { appState } from "@/state/app-state";
 
 export default function Model() {
-  const gltf = useGLTF("./assets/open-rack-v3.glb");
+  const modelId = appState((state) => state.modelId);
+  const gltf = useGLTF(`./assets/models/${modelId}.glb`);
   const ref = React.useRef<THREE.Group>();
   const [rotate, setRotate] = React.useState(false);
   useSubscription(Subscription.rotate, () => {

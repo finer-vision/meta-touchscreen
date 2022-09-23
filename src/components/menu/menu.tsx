@@ -19,138 +19,15 @@ import {
   DotContainer,
   Dot,
 } from "@/components/menu/menu.styles";
+import models from "@/config/models";
 
-const models = [
-  {
-    id: 0,
-    title: "OPEN RACK v3",
-    image: "./assets/images/open-rack.png",
-    dropDowns: [
-      { title: "POWER SHELF", image: "./assets/images/power-shelf.png" },
-      { title: "BATTERY BACK UP", image: "./assets/images/battery-backup.png" },
-    ],
-  },
-  {
-    id: 1,
-    title: "NOAH'S ARK",
-    image: "./assets/images/noah-ark.png",
-    dropDowns: [
-      { title: "RPU", image: "./assets/images/rpu.png" },
-      { title: "TTV", image: "./assets/images/ttv.png" },
-    ],
-  },
-  {
-    id: 2,
-    title: "BLIND MATE INTERFACES",
-    image: "./assets/images/blind-mate.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-  {
-    id: 3,
-    title: "LIQUID COOLING CART",
-    image: "./assets/images/liquid-coolant.png",
-    dropDowns: [
-      { title: "RACK ADAPTER", image: "./assets/images/rack-adapter.png" },
-      { title: "MODULE", image: "./assets/images/module.png" },
-    ],
-  },
-  {
-    id: 4,
-    title: "WEDGE 400C",
-    image: "./assets/images/wedge-400c.png",
-    dropDowns: [
-      { title: "RACK ADAPTER", image: "./assets/images/rack-adapter.png" },
-      { title: "MODULE", image: "./assets/images/module.png" },
-    ],
-  },
-  {
-    id: 5,
-    title: "MINIPACK2",
-    image: "./assets/images/minipack2.png",
-    dropDowns: [
-      { title: "LINE CARD EJECTOR", image: "./assets/images/chasis.png" },
-      { title: "CHASSIS", image: "./assets/images/chasis.png" },
-    ],
-  },
-  {
-    id: 6,
-    title: "GRAND CANYON",
-    image: "./assets/images/grand-canyon.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-  {
-    id: 7,
-    title: "GRAND TETON",
-    image: "./assets/images/grand-tenton.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-  {
-    id: 8,
-    title: "GLACIER POINT",
-    image: "./assets/images/glacier-point.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-  {
-    id: 9,
-    title: "DISCOVERY POINT",
-    image: "./assets/images/discovery-point.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-  {
-    id: 10,
-    title: "KINGS CANYON",
-    image: "./assets/images/king-canyon.png",
-    dropDowns: [
-      {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
-      },
-      { title: "STORM POINT", image: "./assets/images/storm-point.png" },
-      { title: "CASCADE CREEK", image: "./assets/images/cascade-creek.png" },
-    ],
-  },
-];
 type Props = {
   mainMenuOpen: boolean;
   animateMenu: () => void;
+  onChange: (modelId: string) => void;
 };
 
-export default function Menu({ mainMenuOpen, animateMenu }: Props) {
+export default function Menu({ mainMenuOpen, animateMenu, onChange }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
   const [activePage, setActivePage] = React.useState(0);
 
@@ -245,7 +122,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 >
                   {model.dropDowns.map((dropDown, index) => {
                     return (
-                      <DropDownItemFlex key={index}>
+                      <DropDownItemFlex
+                        key={index}
+                        onClick={() => onChange(`${model.id}-${dropDown.id}`)}
+                      >
                         <img src={dropDown.image} alt={model.title} />
                         <span>{dropDown.title}</span>;
                       </DropDownItemFlex>

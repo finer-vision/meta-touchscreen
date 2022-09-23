@@ -1,18 +1,19 @@
 import React from "react";
 import {
-  Section,
+  ContentWrapper,
   LabelWapper,
   Logo,
   MenuWrapper,
-  RotateWrapper,
-  ContentWrapper,
   ResetWrapper,
+  RotateWrapper,
+  Section,
 } from "./home-page.style";
 import emitter from "@/services/emitter";
 import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import { Modal } from "@/components/modal/modal";
 import Menu from "@/components/menu/menu";
+import { appState } from "@/state/app-state";
 
 export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
@@ -113,7 +114,11 @@ export default function ScreenSaver() {
         </>
       )}
       <MenuWrapper>
-        <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
+        <Menu
+          mainMenuOpen={mainMenuOpen}
+          animateMenu={animateMenu}
+          onChange={appState.getState().setModelId}
+        />
       </MenuWrapper>
       <Modal
         open={hotspot}
@@ -126,7 +131,7 @@ export default function ScreenSaver() {
             emitter.emit(Subscription.closeHotspot);
           }}
         >
-          <img src="./assets/popup.png" />
+          <img src="./assets/popup.png" alt="" />
         </ContentWrapper>
       </Modal>
     </Section>

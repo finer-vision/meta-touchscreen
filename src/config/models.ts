@@ -104,13 +104,14 @@ const models: Model[] = [
   {
     id: "wedge-400c",
     title: "WEDGE 400C",
+    position: [0, -1.7, 0],
     components: [
       {
         id: "rack-adapter",
         title: "RACK ADAPTER",
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
+          position: [0, 1, 0],
         },
       },
       {

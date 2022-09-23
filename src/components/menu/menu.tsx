@@ -63,6 +63,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() => {
+                      appState
+                        .getState()
+                        .setSelectedModel({ model, component: null });
                       setSideMenuOpen((prevState) =>
                         prevState === index ? -1 : index
                       );

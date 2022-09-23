@@ -6,9 +6,16 @@ export enum Subscription {
   reset = "reset",
 }
 
+export type Vector = [x: number, y: number, z: number];
+
 export type ModelComponent = {
   id: string;
   title: string;
+  hotspot: {
+    title: string;
+    description: string;
+    position: Vector;
+  };
 };
 
 export type Model = {

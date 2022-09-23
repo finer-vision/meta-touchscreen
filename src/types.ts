@@ -12,7 +12,6 @@ export type ModelComponent = {
   id: string;
   title: string;
   hotspot: {
-    title: string;
     description: string;
     position: Vector;
   };

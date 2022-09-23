@@ -1,5 +1,7 @@
 import { Model } from "@/types";
 
+const PLACEHOLDER_DESCRIPTION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti`;
+
 const models: Model[] = [
   {
     id: "orv3",
@@ -9,18 +11,16 @@ const models: Model[] = [
         id: "power-shelf",
         title: "POWER SHELF",
         hotspot: {
-          title: "",
-          description: "",
-          position: [0, 0, 0],
+          description: PLACEHOLDER_DESCRIPTION,
+          position: [-0, -0.3, 0.8],
         },
       },
       {
         id: "bbu",
         title: "BATTERY BACK UP",
         hotspot: {
-          title: "",
-          description: "",
-          position: [0, 0, 0],
+          description: PLACEHOLDER_DESCRIPTION,
+          position: [-0.3, 1, 0.8],
         },
       },
     ],
@@ -33,8 +33,7 @@ const models: Model[] = [
         id: "rpu",
         title: "RPU",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -42,8 +41,7 @@ const models: Model[] = [
         id: "ttv",
         title: "TTV",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -57,8 +55,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -66,8 +63,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -75,8 +71,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -90,8 +85,7 @@ const models: Model[] = [
         id: "rack-adapter",
         title: "RACK ADAPTER",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -99,8 +93,7 @@ const models: Model[] = [
         id: "module",
         title: "MODULE",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -114,8 +107,7 @@ const models: Model[] = [
         id: "rack-adapter",
         title: "RACK ADAPTER",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -123,8 +115,7 @@ const models: Model[] = [
         id: "module",
         title: "MODULE",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -138,8 +129,7 @@ const models: Model[] = [
         id: "line-card-ejector",
         title: "LINE CARD EJECTOR",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -147,8 +137,7 @@ const models: Model[] = [
         id: "chasis",
         title: "CHASSIS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -162,8 +151,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -171,8 +159,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -180,8 +167,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -195,8 +181,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -204,8 +189,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -213,8 +197,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -228,8 +211,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -237,8 +219,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -246,8 +227,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -261,8 +241,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -270,8 +249,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -279,8 +257,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -294,8 +271,7 @@ const models: Model[] = [
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -303,8 +279,7 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },
@@ -312,8 +287,7 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         hotspot: {
-          title: "",
-          description: "",
+          description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0, 0],
         },
       },

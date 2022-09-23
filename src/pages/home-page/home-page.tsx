@@ -9,10 +9,12 @@ import {
   Section,
 } from "./home-page.style";
 import emitter from "@/services/emitter";
-import { Subscription } from "@/types";
+import { ModelComponent, Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import { Modal } from "@/components/modal/modal";
 import Menu from "@/components/menu/menu";
+import models from "@/config/models";
+import { appState } from "@/state/app-state";
 
 export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
@@ -22,8 +24,11 @@ export default function ScreenSaver() {
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
-  const [hotspot, setHotspot] = React.useState(false);
+  const [openComponent, setOpenComponent] =
+    React.useState<ModelComponent>(null);
   const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
+
+  const selectedModel = appState((state) => state.selectedModel);
 
   const animateMenu = React.useCallback(() => {
     setMainMenuOpen((prevState) => {
@@ -66,12 +71,16 @@ export default function ScreenSaver() {
     }
   }, [rotate]);
 
-  useSubscription(Subscription.openHotspot, () => {
-    setHotspot(true);
+  useSubscription(Subscription.openHotspot, (componentId: string) => {
+    const component = selectedModel.model.components.find((component) => {
+      return component.id === componentId;
+    });
+    if (component === undefined) return;
+    setOpenComponent(component);
   });
 
   useSubscription(Subscription.closeHotspot, () => {
-    setHotspot(false);
+    setOpenComponent(null);
   });
 
   return (
@@ -116,7 +125,7 @@ export default function ScreenSaver() {
         <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
       </MenuWrapper>
       <Modal
-        open={hotspot}
+        open={openComponent !== null}
         onClose={() => {
           emitter.emit(Subscription.closeHotspot);
         }}
@@ -126,7 +135,20 @@ export default function ScreenSaver() {
             emitter.emit(Subscription.closeHotspot);
           }}
         >
-          <img src="./assets/popup.png" alt="" />
+          {openComponent !== null && (
+            <>
+              <div>
+                <h3>{openComponent.title}</h3>
+                <p>{openComponent.hotspot.description}</p>
+              </div>
+              <div>
+                <img
+                  src={`./assets/models/${selectedModel.model.id}/${openComponent.id}.png`}
+                  alt=""
+                />
+              </div>
+            </>
+          )}
         </ContentWrapper>
       </Modal>
     </Section>

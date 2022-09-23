@@ -1,6 +1,6 @@
 import React from "react";
 import * as THREE from "three";
-import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
+import { Environment, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
@@ -52,13 +52,6 @@ export default function Model() {
             />
           );
         })}
-        <ambientLight />
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          minPolarAngle={Math.PI * 0.25}
-          maxPolarAngle={Math.PI * 0.75}
-        />
       </mesh>
     </group>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Model from "@/components/model/model"
+import Model from "@/components/model/model";
 
 import Homepage from "@/pages/home-page/home-page";
 
@@ -18,10 +18,17 @@ export default function App() {
   }, []);
   return (
     <>
-      <Canvas legacy flat linear dpr={1} gl={{alpha: true}} >
+      <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <React.Suspense fallback={<></>}>
           <Model />
         </React.Suspense>
+        <ambientLight />
+        <OrbitControls
+          enablePan={false}
+          enableZoom={false}
+          minPolarAngle={Math.PI * 0.25}
+          maxPolarAngle={Math.PI * 0.75}
+        />
       </Canvas>
       <Homepage />
     </>

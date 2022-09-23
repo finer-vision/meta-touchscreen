@@ -1,33 +1,33 @@
 import React from "react";
 import { chunk } from "lodash";
 import {
+  Arrow,
+  Dot,
+  DotContainer,
   DropDown,
+  DropDownItemFlex,
   Main,
+  MainItem,
   MainItemContainer,
+  MainItemFlex,
   MenuHandle,
   MenuLeft,
   MenuWrapper,
-  Title,
-  MainItem,
-  MainItemFlex,
-  DropDownItemFlex,
-  Model,
-  Arrow,
+  ModelPreview,
   NavWrapper,
-  Prev,
   Next,
-  DotContainer,
-  Dot,
+  Prev,
+  Title,
 } from "@/components/menu/menu.styles";
 import models from "@/config/models";
+import { appState } from "@/state/app-state";
 
 type Props = {
   mainMenuOpen: boolean;
   animateMenu: () => void;
-  onChange: (modelId: string) => void;
 };
 
-export default function Menu({ mainMenuOpen, animateMenu, onChange }: Props) {
+export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
   const [activePage, setActivePage] = React.useState(0);
 
@@ -68,7 +68,10 @@ export default function Menu({ mainMenuOpen, animateMenu, onChange }: Props) {
                       );
                     }}
                   >
-                    <Model src={model.image} alt={model.title} />
+                    <ModelPreview
+                      src={`./assets/models/${model.id}/${model.id}.png`}
+                      alt={model.title}
+                    />
                     <span>{model.title}</span>
                     <Arrow src="./assets/images/arrow.png" alt="Arrow" />
                   </MainItemFlex>
@@ -120,14 +123,21 @@ export default function Menu({ mainMenuOpen, animateMenu, onChange }: Props) {
                   key={model.id}
                   open={sideMenuOpen === index}
                 >
-                  {model.dropDowns.map((dropDown, index) => {
+                  {model.components.map((component, index) => {
                     return (
                       <DropDownItemFlex
                         key={index}
-                        onClick={() => onChange(`${model.id}-${dropDown.id}`)}
+                        onClick={() => {
+                          appState
+                            .getState()
+                            .setSelectedModel({ model, component });
+                        }}
                       >
-                        <img src={dropDown.image} alt={model.title} />
-                        <span>{dropDown.title}</span>;
+                        <img
+                          src={`./assets/models/${model.id}/${component.id}.png`}
+                          alt={model.title}
+                        />
+                        <span>{component.title}</span>;
                       </DropDownItemFlex>
                     );
                   })}

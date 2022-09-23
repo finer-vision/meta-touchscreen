@@ -9,8 +9,10 @@ import emitter from "@/services/emitter";
 import { appState } from "@/state/app-state";
 
 export default function Model() {
-  const modelId = appState((state) => state.modelId);
-  const gltf = useGLTF(`./assets/models/${modelId}.glb`);
+  const selectedModel = appState((state) => state.selectedModel);
+  const gltf = useGLTF(
+    `./assets/models/${selectedModel.model.id}/${selectedModel.model.id}.glb`
+  );
   const ref = React.useRef<THREE.Group>();
   const [rotate, setRotate] = React.useState(false);
   useSubscription(Subscription.rotate, () => {

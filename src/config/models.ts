@@ -1,219 +1,184 @@
-const models = [
+import { Model } from "@/types";
+
+const models: Model[] = [
   {
-    id: 0,
+    id: "orv3",
     title: "OPEN RACK v3",
-    image: "./assets/images/open-rack.png",
-    dropDowns: [
+    components: [
       {
-        title: "POWER SHELF",
-        image: "./assets/images/power-shelf.png",
         id: "power-shelf",
+        title: "POWER SHELF",
       },
       {
-        title: "BATTERY BACK UP",
-        image: "./assets/images/battery-backup.png",
         id: "bbu",
+        title: "BATTERY BACK UP",
       },
     ],
   },
   {
-    id: 1,
+    id: "noahs-ark",
     title: "NOAH'S ARK",
-    image: "./assets/images/noah-ark.png",
-    dropDowns: [
+    components: [
       {
-        title: "RPU",
-        image: "./assets/images/rpu.png",
         id: "rpu",
+        title: "RPU",
       },
       {
-        title: "TTV",
-        image: "./assets/images/ttv.png",
         id: "ttv",
+        title: "TTV",
       },
     ],
   },
   {
-    id: 2,
+    id: "blind-mate-interfaces",
     title: "BLIND MATE INTERFACES",
-    image: "./assets/images/blind-mate.png",
-    dropDowns: [
+    components: [
       {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
         id: "arrowhead-pools",
+        title: "ARROWHEAD POOLS",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
   {
-    id: 3,
+    id: "liquid-cooling-cart",
     title: "LIQUID COOLING CART",
-    image: "./assets/images/liquid-coolant.png",
-    dropDowns: [
+    components: [
       {
-        title: "RACK ADAPTER",
-        image: "./assets/images/rack-adapter.png",
         id: "rack-adapter",
+        title: "RACK ADAPTER",
       },
       {
-        title: "MODULE",
-        image: "./assets/images/module.png",
         id: "module",
+        title: "MODULE",
       },
     ],
   },
   {
-    id: 4,
+    id: "wedge-400c",
     title: "WEDGE 400C",
-    image: "./assets/images/wedge-400c.png",
-    dropDowns: [
+    components: [
       {
-        title: "RACK ADAPTER",
-        image: "./assets/images/rack-adapter.png",
         id: "rack-adapter",
+        title: "RACK ADAPTER",
       },
       {
-        title: "MODULE",
-        image: "./assets/images/module.png",
         id: "module",
+        title: "MODULE",
       },
     ],
   },
   {
-    id: 5,
+    id: "minipack2",
     title: "MINIPACK2",
-    image: "./assets/images/minipack2.png",
-    dropDowns: [
+    components: [
       {
+        id: "line-card-ejector",
         title: "LINE CARD EJECTOR",
-        image: "./assets/images/chasis.png",
-        id: "chasis",
       },
       {
+        id: "chasis",
         title: "CHASSIS",
-        image: "./assets/images/chasis.png",
-        id: "chasis",
       },
     ],
   },
   {
-    id: 6,
+    id: "grand-canyon",
     title: "GRAND CANYON",
-    image: "./assets/images/grand-canyon.png",
-    dropDowns: [
+    components: [
       {
+        id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
   {
-    id: 7,
+    id: "grand-teton",
     title: "GRAND TETON",
-    image: "./assets/images/grand-tenton.png",
-    dropDowns: [
+    components: [
       {
+        id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
   {
-    id: 8,
+    id: "glacier-point",
     title: "GLACIER POINT",
-    image: "./assets/images/glacier-point.png",
-    dropDowns: [
+    components: [
       {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
         id: "arrowhead-pools",
+        title: "ARROWHEAD POOLS",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
   {
-    id: 9,
+    id: "discovery-point",
     title: "DISCOVERY POINT",
-    image: "./assets/images/discovery-point.png",
-    dropDowns: [
+    components: [
       {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
         id: "arrowhead-pools",
+        title: "ARROWHEAD POOLS",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
   {
-    id: 10,
-    title: "KINGS CANYON",
-    image: "./assets/images/king-canyon.png",
-    dropDowns: [
+    id: "kings-canyon",
+    title: "kings-canyon",
+    components: [
       {
-        title: "ARROWHEAD POOLS",
-        image: "./assets/images/arrowhead-pools.png",
         id: "arrowhead-pools",
+        title: "ARROWHEAD POOLS",
       },
       {
-        title: "STORM POINT",
-        image: "./assets/images/storm-point.png",
         id: "storm-point",
+        title: "STORM POINT",
       },
       {
-        title: "CASCADE CREEK",
-        image: "./assets/images/cascade-creek.png",
         id: "cascade-creek",
+        title: "CASCADE CREEK",
       },
     ],
   },
 ];
 
-export default models as typeof models;
+export default models;

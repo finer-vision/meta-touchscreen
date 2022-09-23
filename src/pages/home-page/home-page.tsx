@@ -13,7 +13,6 @@ import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import { Modal } from "@/components/modal/modal";
 import Menu from "@/components/menu/menu";
-import { appState } from "@/state/app-state";
 
 export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
@@ -114,11 +113,7 @@ export default function ScreenSaver() {
         </>
       )}
       <MenuWrapper>
-        <Menu
-          mainMenuOpen={mainMenuOpen}
-          animateMenu={animateMenu}
-          onChange={appState.getState().setModelId}
-        />
+        <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
       </MenuWrapper>
       <Modal
         open={hotspot}

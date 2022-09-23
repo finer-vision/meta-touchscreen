@@ -129,7 +129,7 @@ export const MainItemFlex = styled.div`
   }
 `;
 
-export const Model = styled.img`
+export const ModelPreview = styled.img`
   width: 10em;
 `;
 export const Arrow = styled.img`

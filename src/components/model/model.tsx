@@ -37,7 +37,9 @@ export default function Model() {
     <group ref={ref}>
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
-        <primitive object={gltf.scene} position-y={-1.7} scale={1.4} />
+        <group position={selectedModel.model.position}>
+          <primitive object={gltf.scene} scale={selectedModel.model.scale} />
+        </group>
         {selectedModel.model.components.map((component, index) => {
           return (
             <Hotspot

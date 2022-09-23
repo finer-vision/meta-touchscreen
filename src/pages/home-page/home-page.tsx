@@ -13,7 +13,6 @@ import { ModelComponent, Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import { Modal } from "@/components/modal/modal";
 import Menu from "@/components/menu/menu";
-import models from "@/config/models";
 import { appState } from "@/state/app-state";
 
 export default function ScreenSaver() {

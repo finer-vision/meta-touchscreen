@@ -6,6 +6,8 @@ const models: Model[] = [
   {
     id: "orv3",
     title: "OPEN RACK v3",
+    position: [0, -1.7, 0],
+    scale: 1.4,
     components: [
       {
         id: "power-shelf",

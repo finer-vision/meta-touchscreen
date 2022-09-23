@@ -11,6 +11,8 @@ export type Vector = [x: number, y: number, z: number];
 export type ModelComponent = {
   id: string;
   title: string;
+  position?: Vector;
+  scale?: number;
   hotspot: {
     description: string;
     position: Vector;
@@ -20,6 +22,8 @@ export type ModelComponent = {
 export type Model = {
   id: string;
   title: string;
+  position?: Vector;
+  scale?: number;
   components: ModelComponent[];
 };
 

@@ -17,6 +17,7 @@ const modelPaths = models
   })
   .flat();
 useGLTF.preload(modelPaths);
+useGLTF.preload("./assets/hotspot.glb");
 
 export default function App() {
   React.useEffect(() => {

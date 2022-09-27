@@ -40,7 +40,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   }, [chunkedModel]);
 
   const activeModels = React.useMemo(() => {
-    return chunkedModel[activePage];
+    return chunkedModel[activePage] ?? [];
   }, [activePage, chunkedModel]);
 
   return (
@@ -106,7 +106,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             </Next>
           </NavWrapper>
           <>
-            {activeModels?.map((model, index) => {
+            {activeModels.map((model, index) => {
               const firstOffset = sideMenuOpen * 16.5 + 2;
               const secondOffset = (sideMenuOpen - 1) * 16.5 + 1.8;
               const thirdOffset = (sideMenuOpen - 1) * 16.5 + 2.05;

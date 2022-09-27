@@ -10,9 +10,12 @@ import { appState } from "@/state/app-state";
 
 export default function Model() {
   const selectedModel = appState((state) => state.selectedModel);
-  const gltf = useGLTF(
-    `./assets/models/${selectedModel.model.id}/${selectedModel.model.id}.glb`
-  );
+  const models = useGLTF([
+    `./assets/models/${selectedModel.model.id}/${selectedModel.model.id}.glb`,
+    ...selectedModel.model.components.map((component) => {
+      return `./assets/models/${selectedModel.model.id}/${component.id}.glb`;
+    }),
+  ]);
   const ref = React.useRef<THREE.Group>();
   const [rotate, setRotate] = React.useState(false);
   useSubscription(Subscription.rotate, () => {
@@ -38,18 +41,28 @@ export default function Model() {
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
         <group position={selectedModel.model.position}>
-          <primitive object={gltf.scene} scale={selectedModel.model.scale} />
+          <primitive
+            object={models[0].scene}
+            scale={selectedModel.model.scale}
+          />
         </group>
         {selectedModel.model.components.map((component, index) => {
           return (
-            <Hotspot
-              key={index}
-              title={component.title}
-              position={component.hotspot.position}
-              onClick={() => {
-                emitter.emit(Subscription.openHotspot, component.id);
-              }}
-            />
+            <group key={index} position={component.position}>
+              <primitive
+                object={models[index + 1].scene}
+                scale={component.scale ?? selectedModel.model.scale}
+              />
+              <Hotspot
+                key={index}
+                title={component.title}
+                position={component.hotspot.position}
+                flipped={component.hotspot.flipped}
+                onClick={() => {
+                  emitter.emit(Subscription.openHotspot, component.id);
+                }}
+              />
+            </group>
           );
         })}
       </mesh>

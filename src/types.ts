@@ -15,7 +15,8 @@ export type ModelComponent = {
   scale?: number;
   hotspot: {
     description: string;
-    position: Vector;
+    position?: Vector;
+    flipped?: boolean;
   };
 };
 

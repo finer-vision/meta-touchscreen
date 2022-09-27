@@ -19,11 +19,17 @@ type GLTFResult = GLTF & {
 };
 
 type Props = GroupProps & {
-  padding?: number;
   title: string;
+  padding?: number;
+  flipped?: boolean;
 };
 
-export default function Hotspot({ title, padding = 0.1, ...props }: Props) {
+export default function Hotspot({
+  title,
+  padding = 0.1,
+  flipped = false,
+  ...props
+}: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
 
   const [width, setWidth] = React.useState(1);
@@ -48,44 +54,47 @@ export default function Hotspot({ title, padding = 0.1, ...props }: Props) {
   return (
     <group {...props}>
       <group scale={0.4}>
-        <group position={[0.67, 0, 0]}>
-          <mesh geometry={nodes.Hotspot_Surround_01.geometry}>
-            <meshBasicMaterial color="#35373e" />
-          </mesh>
-          <mesh
-            position-x={width + padding}
-            geometry={nodes.Hotspot_Surround_03001.geometry}
-          >
-            <meshBasicMaterial color="#35373e" />
-          </mesh>
-        </group>
-        <group position={labelPosition}>
-          <mesh>
-            <boxBufferGeometry args={[width + padding, 0.395, 0.057]} />
-            <meshBasicMaterial color="#35373e" />
-          </mesh>
-          <Text
-            position-x={0.025}
-            position-z={0.057 + 0.0001}
-            fontSize={0.395 / 2}
-            onAfterRender={(renderer, scene, camera, geometry) => {
-              const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
-              if (nextWidth === Infinity) return;
-              if (nextWidth !== width) {
-                setWidth(nextWidth);
-              }
-            }}
-          >
-            {title}
-          </Text>
-        </group>
-        <group ref={pillGroupRef}>
-          <mesh geometry={nodes.Curve.geometry}>
-            <meshBasicMaterial color="#3A82EC" />
-          </mesh>
-          <mesh geometry={nodes.Curve_1.geometry}>
-            <meshBasicMaterial color="#ffffff" />
-          </mesh>
+        <group scale-x={flipped ? -1 : 1}>
+          <group position={[0.67, 0, 0]}>
+            <mesh geometry={nodes.Hotspot_Surround_01.geometry}>
+              <meshBasicMaterial color="#35373e" />
+            </mesh>
+            <mesh
+              position-x={width + padding}
+              geometry={nodes.Hotspot_Surround_03001.geometry}
+            >
+              <meshBasicMaterial color="#35373e" />
+            </mesh>
+          </group>
+          <group position={labelPosition}>
+            <mesh>
+              <boxBufferGeometry args={[width + padding, 0.395, 0.057]} />
+              <meshBasicMaterial color="#35373e" />
+            </mesh>
+            <Text
+              scale-x={flipped ? -1 : 1}
+              position-x={0.025}
+              position-z={0.057 + 0.0001}
+              fontSize={0.395 / 2}
+              onAfterRender={(renderer, scene, camera, geometry) => {
+                const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
+                if (nextWidth === Infinity) return;
+                if (nextWidth !== width) {
+                  setWidth(nextWidth);
+                }
+              }}
+            >
+              {title}
+            </Text>
+          </group>
+          <group ref={pillGroupRef}>
+            <mesh geometry={nodes.Curve.geometry}>
+              <meshBasicMaterial color="#3A82EC" />
+            </mesh>
+            <mesh geometry={nodes.Curve_1.geometry}>
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          </group>
         </group>
       </group>
     </group>

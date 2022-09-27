@@ -1,9 +1,22 @@
 import React from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Model from "@/components/model/model";
-
 import Homepage from "@/pages/home-page/home-page";
+import models from "@/config/models";
+
+// Preload assets
+const modelPaths = models
+  .map((model) => {
+    return [
+      `./assets/models/${model.id}/${model.id}.glb`,
+      ...model.components.map((component) => {
+        return `./assets/models/${model.id}/${component.id}.glb`;
+      }),
+    ];
+  })
+  .flat();
+useGLTF.preload(modelPaths);
 
 export default function App() {
   React.useEffect(() => {

@@ -3,14 +3,14 @@ import * as THREE from "three";
 import { Environment, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useSubscription from "@/hooks/use-subscription";
-import { Subscription } from "@/types";
-import Hotspot from "@/components/hotspot/hotspot";
-import emitter from "@/services/emitter";
+import { ModelComponent as ModelComponentType, Subscription } from "@/types";
+import { a, useSpring } from "@react-spring/three";
 import { appState } from "@/state/app-state";
+import ModelComponent from "@/components/model/model-component";
 
 export default function Model() {
   const selectedModel = appState((state) => state.selectedModel);
-  const models = useGLTF([
+  const modelGltfs = useGLTF([
     `./assets/models/${selectedModel.model.id}/${selectedModel.model.id}.glb`,
     ...selectedModel.model.components.map((component) => {
       return `./assets/models/${selectedModel.model.id}/${component.id}.glb`;
@@ -18,6 +18,9 @@ export default function Model() {
   ]);
   const ref = React.useRef<THREE.Group>();
   const [rotate, setRotate] = React.useState(false);
+  const [openModelComponent, setOpenModelComponent] =
+    React.useState<ModelComponentType>(null);
+
   useSubscription(Subscription.rotate, () => {
     setRotate(true);
   });
@@ -36,35 +39,41 @@ export default function Model() {
     }
   });
 
+  const props = useSpring({
+    position:
+      openModelComponent !== null
+        ? selectedModel.model.componentOpenPosition
+        : selectedModel.model.position,
+  });
+
   return (
     <group ref={ref}>
       <mesh scale={1.5}>
         <Environment background={false} files="./assets/environment.hdr" />
-        <group position={selectedModel.model.position}>
-          <primitive
-            object={models[0].scene}
-            scale={selectedModel.model.scale}
-          />
-        </group>
-        {selectedModel.model.components.map((component, index) => {
-          return (
-            <group key={index} position={component.position}>
-              <primitive
-                object={models[index + 1].scene}
-                scale={component.scale ?? selectedModel.model.scale}
-              />
-              <Hotspot
-                key={index}
-                title={component.title}
-                position={component.hotspot.position}
-                flipped={component.hotspot.flipped}
-                onClick={() => {
-                  emitter.emit(Subscription.openHotspot, component.id);
-                }}
-              />
-            </group>
-          );
-        })}
+        <a.group {...props}>
+          <group scale={selectedModel.model.scale}>
+            <primitive object={modelGltfs[0].scene} />
+            {selectedModel.model.components.map((component, index) => {
+              return (
+                <ModelComponent
+                  key={index}
+                  component={component}
+                  path={`./assets/models/${selectedModel.model.id}/${component.id}.glb`}
+                  open={
+                    openModelComponent === null ||
+                    openModelComponent?.id === component.id
+                  }
+                  onClick={() => {
+                    setOpenModelComponent((openModelComponent) => {
+                      if (openModelComponent !== null) return null;
+                      return component;
+                    });
+                  }}
+                />
+              );
+            })}
+          </group>
+        </a.group>
       </mesh>
     </group>
   );

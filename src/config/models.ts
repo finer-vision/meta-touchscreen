@@ -6,25 +6,27 @@ const models: Model[] = [
   {
     id: "orv3",
     title: "OPEN RACK v3",
-    position: [0, -1.7, 0],
+    position: [0, -1.7, -0.5],
+    componentOpenPosition: [0, -1.7, -1],
     scale: 1.4,
     components: [
       {
         id: "power-shelf",
         title: "POWER SHELF",
-        position: [0, 1.34, 0],
+        position: [0, 2.17, 0],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0.2, 0.1, 0.8],
+          position: [0.2, 0.1, 0.6],
         },
       },
       {
         id: "bbu",
         title: "BATTERY BACK UP",
-        position: [0, 1.21, 0],
+        position: [0, 2.075, 0],
+        openPosition: [0, 0, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.05, 0.8],
+          position: [-0.2, -0.05, 0.6],
           flipped: true,
         },
       },

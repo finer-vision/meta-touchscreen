@@ -12,10 +12,12 @@ export type ModelComponent = {
   id: string;
   title: string;
   position?: Vector;
+  openPosition?: Vector;
   scale?: number;
   hotspot: {
     description: string;
     position?: Vector;
+    openPosition?: Vector;
     flipped?: boolean;
   };
 };
@@ -24,6 +26,7 @@ export type Model = {
   id: string;
   title: string;
   position?: Vector;
+  componentOpenPosition?: Vector;
   scale?: number;
   components: ModelComponent[];
 };

@@ -41,6 +41,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.25.2",
     "@react-three/fiber": "^8.6.0",
     "lodash": "^4.17.21",

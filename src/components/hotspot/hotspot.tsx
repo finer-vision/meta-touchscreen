@@ -3,6 +3,8 @@ import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { GroupProps, useFrame } from "@react-three/fiber";
 import { Text, useGLTF } from "@react-three/drei";
+import { a, useSpring } from "@react-spring/three";
+import { Vector } from "@/types";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,16 +20,18 @@ type GLTFResult = GLTF & {
   };
 };
 
-type Props = GroupProps & {
+type Props = Omit<GroupProps, "position"> & {
   title: string;
   padding?: number;
   flipped?: boolean;
+  position?: Vector;
 };
 
 export default function Hotspot({
   title,
   padding = 0.1,
   flipped = false,
+  position,
   ...props
 }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
@@ -51,8 +55,12 @@ export default function Hotspot({
     return [padding / 2 + width / 2 + x2 - 0.069 / 2, 0, 0];
   }, [width, x2]);
 
+  const groupProps = useSpring({
+    position: position,
+  });
+
   return (
-    <group {...props}>
+    <a.group {...props} {...groupProps}>
       <group scale={0.4}>
         <group scale-x={flipped ? -1 : 1}>
           <group position={[0.67, 0, 0]}>
@@ -97,6 +105,6 @@ export default function Hotspot({
           </group>
         </group>
       </group>
-    </group>
+    </a.group>
   );
 }

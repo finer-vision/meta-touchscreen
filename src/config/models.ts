@@ -236,32 +236,15 @@ const models: Model[] = [
   {
     id: "discovery-point",
     title: "DISCOVERY POINT",
-    components: [
-      {
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "storm-point",
-        title: "STORM POINT",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    components: [],
+    scale: 2.5,
+    position: [0, 0, 0],
+    rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
+    hotspot: {
+      position: [-0.2, 0.2, 0],
+      rotation: [0, THREE.MathUtils.degToRad(-45), 0],
+      description: PLACEHOLDER_DESCRIPTION,
+    },
   },
   {
     id: "kings-canyon",

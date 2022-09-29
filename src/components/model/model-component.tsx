@@ -10,8 +10,6 @@ type Props = {
   component: ModelComponentType;
   open?: boolean;
   showHotspot?: boolean;
-  onOpen: () => void;
-  onClose: () => void;
 };
 
 export default function ModelComponent({
@@ -20,8 +18,6 @@ export default function ModelComponent({
   component,
   open = true,
   showHotspot = true,
-  onOpen,
-  onClose,
 }: Props) {
   const model = useGLTF(path);
 
@@ -36,7 +32,7 @@ export default function ModelComponent({
         {showHotspot && (
           <Hotspot
             modelId={modelId}
-            componentId={component.id}
+            modelComponent={component}
             title={open ? "MORE INFO" : component.title}
             info={{
               title: component.title,
@@ -46,8 +42,6 @@ export default function ModelComponent({
               open ? component.hotspot.openPosition : component.hotspot.position
             }
             flipped={component.hotspot.flipped}
-            onOpen={onOpen}
-            onClose={onClose}
           />
         )}
       </group>

@@ -4,6 +4,7 @@ export enum Subscription {
   openHotspot = "openHotspot",
   closeHotspot = "closeHotspot",
   reset = "reset",
+  openModalComponent = "openModalComponent",
 }
 
 export type Vector = [x: number, y: number, z: number];

@@ -5,8 +5,9 @@ import { GLTF } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
 import { Html, Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
-import { Vector } from "@/types";
+import { ModelComponent, Vector } from "@/types";
 import ModelInfo from "@/components/model-info/model-info";
+import { appState } from "@/state/app-state";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -24,7 +25,7 @@ type GLTFResult = GLTF & {
 
 type Props = Omit<GroupProps, "position"> & {
   modelId: string;
-  componentId: string;
+  modelComponent: ModelComponent;
   title: string;
   info: {
     title: string;
@@ -33,8 +34,6 @@ type Props = Omit<GroupProps, "position"> & {
   padding?: number;
   flipped?: boolean;
   position?: Vector;
-  onOpen: () => void;
-  onClose: () => void;
 };
 
 enum Step {
@@ -45,14 +44,12 @@ enum Step {
 
 export default function Hotspot({
   modelId,
-  componentId,
+  modelComponent,
   title,
   info,
   padding = 0.1,
   flipped = false,
   position,
-  onOpen,
-  onClose,
   ...props
 }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
@@ -86,20 +83,43 @@ export default function Hotspot({
     position: position,
   });
 
+  const selectedModel = appState((state) => state.selectedModel);
+  const selectedModelComponent = appState(
+    (state) => state.selectedModelComponent
+  );
+
+  React.useEffect(() => {
+    const selected =
+      selectedModel?.id === modelId &&
+      selectedModelComponent?.id === modelComponent.id;
+    if (selected && step === Step.initial) {
+      setStep(Step.open);
+    }
+    if (!selected && step !== Step.initial) {
+      setStep(Step.initial);
+    }
+  }, [
+    step,
+    selectedModel?.id,
+    selectedModelComponent?.id,
+    modelId,
+    modelComponent.id,
+  ]);
+
   const handleClick = React.useCallback(
     (event: ThreeEvent<MouseEvent>) => {
       event.stopPropagation();
       switch (step) {
         case Step.initial:
           setStep(Step.open);
-          onOpen();
+          appState.getState().setSelectedModelComponent(modelComponent);
           break;
         case Step.open:
           setStep(Step.info);
           break;
       }
     },
-    [step, onOpen]
+    [step]
   );
 
   return (
@@ -155,12 +175,12 @@ export default function Hotspot({
           {createPortal(
             <ModelInfo
               modelId={modelId}
-              componentId={componentId}
+              componentId={modelComponent.id}
               title={info.title}
               description={info.description}
               onClose={() => {
                 setStep(Step.initial);
-                onClose();
+                appState.getState().setSelectedModelComponent(null);
               }}
             />,
             modelInfoRoot

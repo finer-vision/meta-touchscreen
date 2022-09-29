@@ -19,3 +19,10 @@ export default function useSubscription(
     };
   }, [subscription]);
 }
+
+useSubscription.emit = function emit<Data = any>(
+  subscription: Subscription,
+  data?: Data
+) {
+  emitter.emit(subscription, data);
+};

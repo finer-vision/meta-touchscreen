@@ -21,6 +21,8 @@ import {
 } from "@/components/menu/menu.styles";
 import models from "@/config/models";
 import { appState } from "@/state/app-state";
+import useSubscription from "@/hooks/use-subscription";
+import { Subscription } from "@/types";
 
 type Props = {
   mainMenuOpen: boolean;
@@ -63,9 +65,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() => {
-                      appState
-                        .getState()
-                        .setSelectedModel({ model, component: null });
+                      appState.getState().setSelectedModel(model);
                       setSideMenuOpen((prevState) =>
                         prevState === index ? -1 : index
                       );
@@ -133,7 +133,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                         onClick={() => {
                           appState
                             .getState()
-                            .setSelectedModel({ model, component });
+                            .setSelectedModelComponent(component);
+                          setSideMenuOpen(-1);
+                          animateMenu();
                         }}
                       >
                         <img

@@ -69,7 +69,7 @@ export default function ScreenSaver() {
   }, [rotate]);
 
   useSubscription(Subscription.openHotspot, (componentId: string) => {
-    const component = selectedModel.model.components.find((component) => {
+    const component = selectedModel.components.find((component) => {
       return component.id === componentId;
     });
     if (component === undefined) return;

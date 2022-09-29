@@ -8,6 +8,7 @@ import models from "@/config/models";
 import { isLocal } from "@/utils";
 import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
+import { appState } from "@/state/app-state";
 
 // Preload assets
 const modelPaths = models
@@ -58,13 +59,15 @@ export default function App() {
     controls.reset();
   }, []);
 
+  const selectedModel = appState((state) => state.selectedModel);
+
   useSubscription(Subscription.reset, onReset);
 
   return (
     <>
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <React.Suspense fallback={<></>}>
-          <Model />
+          <Model key={selectedModel.id} />
         </React.Suspense>
         <ambientLight />
         <OrbitControls

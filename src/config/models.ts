@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { Model } from "@/types";
 
 const PLACEHOLDER_DESCRIPTION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti`;
@@ -90,24 +91,16 @@ const models: Model[] = [
   {
     id: "liquid-cooling-cart",
     title: "LIQUID COOLING CART",
-    components: [
-      {
-        id: "rack-adapter",
-        title: "RACK ADAPTER",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "module",
-        title: "MODULE",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    rotation: [0, THREE.MathUtils.degToRad(-60), 0],
+    position: [0, -1.5, 0],
+    components: [],
+    hotspot: {
+      description: PLACEHOLDER_DESCRIPTION,
+      flipped: true,
+      openPosition: [0, 0, 0],
+      position: [0, 1.4, 0.5],
+      rotation: [0, THREE.MathUtils.degToRad(60), 0],
+    },
   },
   {
     id: "wedge-400c",
@@ -144,54 +137,12 @@ const models: Model[] = [
   {
     id: "minipack2",
     title: "MINIPACK2",
-    components: [
-      {
-        id: "line-card-ejector",
-        title: "LINE CARD EJECTOR",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "chasis",
-        title: "CHASSIS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    components: [],
   },
   {
     id: "grand-canyon",
     title: "GRAND CANYON",
-    components: [
-      {
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "storm-point",
-        title: "STORM POINT",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    components: [],
   },
   {
     id: "grand-teton",

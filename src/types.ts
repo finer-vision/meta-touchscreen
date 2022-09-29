@@ -4,10 +4,17 @@ export enum Subscription {
   openHotspot = "openHotspot",
   closeHotspot = "closeHotspot",
   reset = "reset",
-  openModalComponent = "openModalComponent",
 }
 
 export type Vector = [x: number, y: number, z: number];
+
+type Hotspot = {
+  description: string;
+  position?: Vector;
+  rotation?: Vector;
+  openPosition?: Vector;
+  flipped?: boolean;
+};
 
 export type ModelComponent = {
   id: string;
@@ -15,24 +22,16 @@ export type ModelComponent = {
   position?: Vector;
   openPosition?: Vector;
   scale?: number;
-  hotspot: {
-    description: string;
-    position?: Vector;
-    openPosition?: Vector;
-    flipped?: boolean;
-  };
+  hotspot: Hotspot;
 };
 
 export type Model = {
   id: string;
   title: string;
   position?: Vector;
+  rotation?: Vector;
   componentOpenPosition?: Vector;
   scale?: number;
   components: ModelComponent[];
-};
-
-export type SelectedModel = {
-  model: Model;
-  component: ModelComponent | null;
+  hotspot?: Hotspot;
 };

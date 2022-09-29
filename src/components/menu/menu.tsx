@@ -21,8 +21,6 @@ import {
 } from "@/components/menu/menu.styles";
 import models from "@/config/models";
 import { appState } from "@/state/app-state";
-import useSubscription from "@/hooks/use-subscription";
-import { Subscription } from "@/types";
 
 type Props = {
   mainMenuOpen: boolean;
@@ -31,19 +29,19 @@ type Props = {
 
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
-  const [activePage, setActivePage] = React.useState(0);
+  const [page, setPage] = React.useState(0);
 
-  const chunkedModel = React.useMemo(() => {
+  const modelsPages = React.useMemo(() => {
     return chunk(models, 7);
   }, [models]);
 
   const totalPages = React.useMemo(() => {
-    return chunkedModel.length;
-  }, [chunkedModel]);
+    return modelsPages.length;
+  }, [modelsPages]);
 
-  const activeModels = React.useMemo(() => {
-    return chunkedModel[activePage] ?? [];
-  }, [activePage, chunkedModel]);
+  const modelsInPage = React.useMemo(() => {
+    return modelsPages[page] ?? [];
+  }, [page, modelsPages]);
 
   return (
     <MenuWrapper
@@ -57,7 +55,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
         </Title>
         <Main open={sideMenuOpen > -1}>
           <MainItemContainer>
-            {activeModels.map((model, index) => {
+            {modelsInPage.map((model, index) => {
               const backgroundColor =
                 index === sideMenuOpen ? "#DDDEE0" : undefined;
               return (
@@ -66,9 +64,14 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                     style={{ backgroundColor }}
                     onClick={() => {
                       appState.getState().setSelectedModel(model);
-                      setSideMenuOpen((prevState) =>
-                        prevState === index ? -1 : index
-                      );
+                      if (model.components.length > 0) {
+                        setSideMenuOpen((prevState) => {
+                          return prevState === index ? -1 : index;
+                        });
+                      } else {
+                        setSideMenuOpen(-1);
+                        animateMenu();
+                      }
                     }}
                   >
                     <ModelPreview
@@ -76,7 +79,11 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       alt={model.title}
                     />
                     <span>{model.title}</span>
-                    <Arrow src="./assets/images/arrow.png" alt="Arrow" />
+                    <Arrow
+                      src="./assets/images/arrow.png"
+                      alt="Arrow"
+                      style={{ opacity: model.components.length > 0 ? 1 : 0 }}
+                    />
                   </MainItemFlex>
                 </MainItem>
               );
@@ -86,27 +93,27 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             <Prev
               onClick={() => {
                 setSideMenuOpen(-1);
-                setActivePage((active) => Math.max(0, active - 1));
+                setPage((active) => Math.max(0, active - 1));
               }}
             >
               <img src="./assets/images/prev.svg" alt="Prev" />
             </Prev>
             <DotContainer>
               {Array.from({ length: totalPages }).map((_, idx) => {
-                return <Dot key={idx} active={idx === activePage} />;
+                return <Dot key={idx} active={idx === page} />;
               })}
             </DotContainer>
             <Next
               onClick={() => {
                 setSideMenuOpen(-1);
-                setActivePage((active) => Math.min(totalPages, active + 1));
+                setPage((active) => Math.min(totalPages, active + 1));
               }}
             >
               <img src="./assets/images/next.svg" alt="Next" />
             </Next>
           </NavWrapper>
           <>
-            {activeModels.map((model, index) => {
+            {modelsInPage.map((model, index) => {
               const firstOffset = sideMenuOpen * 16.5 + 2;
               const secondOffset = (sideMenuOpen - 1) * 16.5 + 1.8;
               const thirdOffset = (sideMenuOpen - 1) * 16.5 + 2.05;
@@ -116,7 +123,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   ? `${thirdOffset}em`
                   : sideMenuOpen < 2
                   ? `${firstOffset}em`
-                  : sideMenuOpen === activeModels.length - 1
+                  : sideMenuOpen === modelsInPage.length - 1
                   ? `${lastOffset}em`
                   : `${secondOffset}em`;
 

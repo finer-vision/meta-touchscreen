@@ -8,16 +8,14 @@ import {
 } from "@/components/model-info/model-info.styles";
 
 type Props = {
-  modelId: string;
-  componentId: string;
+  image: string;
   title: string;
   description: string;
   onClose: () => void;
 };
 
 export default function ModelInfo({
-  modelId,
-  componentId,
+  image,
   title,
   description,
   onClose,
@@ -33,7 +31,7 @@ export default function ModelInfo({
         </ModelInfoHeader>
         <ModelInfoBody>
           <p>{description}</p>
-          <img src={`./assets/models/${modelId}/${componentId}.png`} alt="" />
+          <img src={image} alt="" />
         </ModelInfoBody>
       </ModelInfoContainer>
     </ModelInfoWrapper>

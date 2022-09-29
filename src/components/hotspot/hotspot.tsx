@@ -34,6 +34,7 @@ type Props = Omit<GroupProps, "position"> & {
   padding?: number;
   flipped?: boolean;
   position?: Vector;
+  rotation?: Vector;
 };
 
 enum Step {
@@ -50,6 +51,7 @@ export default function Hotspot({
   padding = 0.1,
   flipped = false,
   position,
+  rotation,
   ...props
 }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
@@ -124,58 +126,59 @@ export default function Hotspot({
 
   return (
     <>
-      <a.group {...props} {...groupProps} onClick={handleClick}>
-        <group scale={0.4}>
-          <group scale-x={flipped ? -1 : 1}>
-            <group position={[0.67, 0, 0]}>
-              <mesh geometry={nodes.Hotspot_Surround_01.geometry}>
-                <meshBasicMaterial color="#35373e" />
-              </mesh>
-              <mesh
-                position-x={width + padding}
-                geometry={nodes.Hotspot_Surround_03001.geometry}
-              >
-                <meshBasicMaterial color="#35373e" />
-              </mesh>
-            </group>
-            <group position={labelPosition}>
-              <mesh>
-                <boxBufferGeometry args={[width + padding, 0.395, 0.057]} />
-                <meshBasicMaterial color="#35373e" />
-              </mesh>
-              <Text
-                scale-x={flipped ? -1 : 1}
-                position-x={0.025}
-                position-z={0.057 + 0.0001}
-                fontSize={0.395 / 2}
-                onAfterRender={(renderer, scene, camera, geometry) => {
-                  const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
-                  if (nextWidth === Infinity) return;
-                  if (nextWidth !== width) {
-                    setWidth(nextWidth);
-                  }
-                }}
-              >
-                {title}
-              </Text>
-            </group>
-            <group ref={pillGroupRef}>
-              <mesh geometry={nodes.Curve.geometry}>
-                <meshBasicMaterial color="#3A82EC" />
-              </mesh>
-              <mesh geometry={nodes.Curve_1.geometry}>
-                <meshBasicMaterial color="#ffffff" />
-              </mesh>
+      <group rotation={rotation}>
+        <a.group {...props} {...groupProps} onClick={handleClick}>
+          <group scale={0.4}>
+            <group scale-x={flipped ? -1 : 1}>
+              <group position={[0.67, 0, 0]}>
+                <mesh geometry={nodes.Hotspot_Surround_01.geometry}>
+                  <meshBasicMaterial color="#35373e" />
+                </mesh>
+                <mesh
+                  position-x={width + padding}
+                  geometry={nodes.Hotspot_Surround_03001.geometry}
+                >
+                  <meshBasicMaterial color="#35373e" />
+                </mesh>
+              </group>
+              <group position={labelPosition}>
+                <mesh>
+                  <boxBufferGeometry args={[width + padding, 0.395, 0.057]} />
+                  <meshBasicMaterial color="#35373e" />
+                </mesh>
+                <Text
+                  scale-x={flipped ? -1 : 1}
+                  position-x={0.025}
+                  position-z={0.057 + 0.0001}
+                  fontSize={0.395 / 2}
+                  onAfterRender={(renderer, scene, camera, geometry) => {
+                    const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
+                    if (nextWidth === Infinity) return;
+                    if (nextWidth !== width) {
+                      setWidth(nextWidth);
+                    }
+                  }}
+                >
+                  {title}
+                </Text>
+              </group>
+              <group ref={pillGroupRef}>
+                <mesh geometry={nodes.Curve.geometry}>
+                  <meshBasicMaterial color="#3A82EC" />
+                </mesh>
+                <mesh geometry={nodes.Curve_1.geometry}>
+                  <meshBasicMaterial color="#ffffff" />
+                </mesh>
+              </group>
             </group>
           </group>
-        </group>
-      </a.group>
+        </a.group>
+      </group>
       {step === Step.info && (
         <Html>
           {createPortal(
             <ModelInfo
-              modelId={modelId}
-              componentId={modelComponent.id}
+              image={`./assets/models/${modelId}/${modelComponent.id}.png`}
               title={info.title}
               description={info.description}
               onClose={() => {

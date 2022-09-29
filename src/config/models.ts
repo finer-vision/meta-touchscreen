@@ -61,32 +61,15 @@ const models: Model[] = [
   {
     id: "blind-mate-interfaces",
     title: "BLIND MATE INTERFACES",
-    components: [
-      {
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "storm-point",
-        title: "STORM POINT",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    scale: 2,
+    position: [0, -0.15, 0],
+    rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
+    components: [],
+    hotspot: {
+      description: PLACEHOLDER_DESCRIPTION,
+      position: [-0.15, 0.25, 0],
+      rotation: [0, THREE.MathUtils.degToRad(-45), 0],
+    },
   },
   {
     id: "liquid-cooling-cart",

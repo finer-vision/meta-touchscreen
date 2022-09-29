@@ -142,7 +142,15 @@ const models: Model[] = [
   {
     id: "grand-canyon",
     title: "GRAND CANYON",
+    scale: 1,
+    position: [-0.25, 0, 0],
+    rotation: [THREE.MathUtils.degToRad(25), THREE.MathUtils.degToRad(25), 0],
     components: [],
+    hotspot: {
+      description: PLACEHOLDER_DESCRIPTION,
+      position: [0, 0.3, 0.25],
+      rotation: [0, THREE.MathUtils.degToRad(-25), 0],
+    },
   },
   {
     id: "grand-teton",

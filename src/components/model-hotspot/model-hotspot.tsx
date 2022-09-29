@@ -141,7 +141,7 @@ export default function ModelHotspot({
         <Html>
           {createPortal(
             <ModelInfo
-              image={`./assets/models/${modelId}.png`}
+              image={`./assets/models/${modelId}/${modelId}.png`}
               title={info.title}
               description={info.description}
               onClose={() => setOpen(false)}

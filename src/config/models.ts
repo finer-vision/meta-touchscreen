@@ -137,7 +137,16 @@ const models: Model[] = [
   {
     id: "minipack2",
     title: "MINIPACK2",
+    scale: 2,
+    position: [0, -0.25, 0],
+    rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(15), 0],
     components: [],
+    hotspot: {
+      description: PLACEHOLDER_DESCRIPTION,
+      position: [0.1, 0.28, 0],
+      rotation: [0, THREE.MathUtils.degToRad(-15), 0],
+      flipped: true,
+    },
   },
   {
     id: "grand-canyon",

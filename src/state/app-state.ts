@@ -15,7 +15,7 @@ export const appState = create<AppState>((set) => {
   return {
     // @todo remove when finished testing
     // selectedModel: models[0],
-    selectedModel: models[6],
+    selectedModel: models[5],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },

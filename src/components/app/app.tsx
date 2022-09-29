@@ -52,6 +52,7 @@ export default function App() {
   const onReset = React.useCallback(() => {
     const controls = controlsRef.current;
     if (controls === null) return;
+    controls.reset();
     controls.enableDamping = false;
     controls.reset();
     controls.enableDamping = true;
@@ -61,6 +62,10 @@ export default function App() {
   const selectedModel = appState((state) => state.selectedModel);
 
   useSubscription(Subscription.reset, onReset);
+
+  React.useEffect(() => {
+    useSubscription.emit(Subscription.reset);
+  }, [selectedModel.id]);
 
   return (
     <>

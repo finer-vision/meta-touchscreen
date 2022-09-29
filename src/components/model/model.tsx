@@ -58,7 +58,11 @@ export default function Model() {
   return (
     <group ref={ref}>
       <mesh scale={1.5}>
-        <Environment background={false} files="./assets/environment.hdr" />
+        <Environment
+          background={false}
+          files="./assets/environment.hdr"
+          encoding={THREE.LinearEncoding}
+        />
         <group rotation={selectedModel.rotation}>
           <a.group {...props}>
             <group scale={selectedModel.scale}>

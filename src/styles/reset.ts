@@ -125,4 +125,8 @@ export default createGlobalStyle`
   svg, img {
     height: auto;
   }
+
+  img {
+    pointer-events: none;
+  }
 `;

@@ -57,6 +57,7 @@ export default function Model() {
               return (
                 <ModelComponent
                   key={index}
+                  modelId={selectedModel.model.id}
                   component={component}
                   path={`./assets/models/${selectedModel.model.id}/${component.id}.glb`}
                   open={openModelComponent?.id === component.id}
@@ -64,12 +65,8 @@ export default function Model() {
                     openModelComponent === null ||
                     openModelComponent?.id === component.id
                   }
-                  onClick={() => {
-                    setOpenModelComponent((openModelComponent) => {
-                      if (openModelComponent !== null) return null;
-                      return component;
-                    });
-                  }}
+                  onOpen={() => setOpenModelComponent(component)}
+                  onClose={() => setOpenModelComponent(null)}
                 />
               );
             })}

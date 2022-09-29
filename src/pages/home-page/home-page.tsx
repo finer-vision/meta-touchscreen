@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  ContentWrapper,
   LabelWapper,
   Logo,
   MenuWrapper,
@@ -11,7 +10,6 @@ import {
 import emitter from "@/services/emitter";
 import { ModelComponent, Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
-import { Modal } from "@/components/modal/modal";
 import Menu from "@/components/menu/menu";
 import { appState } from "@/state/app-state";
 
@@ -123,33 +121,6 @@ export default function ScreenSaver() {
       <MenuWrapper>
         <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
       </MenuWrapper>
-      <Modal
-        open={openComponent !== null}
-        onClose={() => {
-          emitter.emit(Subscription.closeHotspot);
-        }}
-      >
-        <ContentWrapper
-          onClick={() => {
-            emitter.emit(Subscription.closeHotspot);
-          }}
-        >
-          {openComponent !== null && (
-            <>
-              <div>
-                <h3>{openComponent.title}</h3>
-                <p>{openComponent.hotspot.description}</p>
-              </div>
-              <div>
-                <img
-                  src={`./assets/models/${selectedModel.model.id}/${openComponent.id}.png`}
-                  alt=""
-                />
-              </div>
-            </>
-          )}
-        </ContentWrapper>
-      </Modal>
     </Section>
   );
 }

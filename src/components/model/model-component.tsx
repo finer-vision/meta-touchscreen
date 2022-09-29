@@ -5,19 +5,23 @@ import { a, useSpring } from "@react-spring/three";
 import Hotspot from "@/components/hotspot/hotspot";
 
 type Props = {
+  modelId: string;
   path: string;
   component: ModelComponentType;
   open?: boolean;
   showHotspot?: boolean;
-  onClick?: () => void;
+  onOpen: () => void;
+  onClose: () => void;
 };
 
 export default function ModelComponent({
+  modelId,
   path,
   component,
   open = true,
   showHotspot = true,
-  onClick,
+  onOpen,
+  onClose,
 }: Props) {
   const model = useGLTF(path);
 
@@ -26,20 +30,24 @@ export default function ModelComponent({
   });
 
   return (
-    <a.group {...props}>
+    <a.group position={props.position}>
       <group scale={component.scale}>
         <primitive object={model.scene} />
         {showHotspot && (
           <Hotspot
-            title={component.title}
+            modelId={modelId}
+            componentId={component.id}
+            title={open ? "MORE INFO" : component.title}
+            info={{
+              title: component.title,
+              description: component.hotspot.description,
+            }}
             position={
               open ? component.hotspot.openPosition : component.hotspot.position
             }
             flipped={component.hotspot.flipped}
-            onClick={(event) => {
-              event.stopPropagation();
-              if (onClick) onClick();
-            }}
+            onOpen={onOpen}
+            onClose={onClose}
           />
         )}
       </group>

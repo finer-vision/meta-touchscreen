@@ -39,24 +39,7 @@ const models: Model[] = [
   {
     id: "noahs-ark",
     title: "NOAH'S ARK",
-    components: [
-      {
-        id: "rpu",
-        title: "RPU",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "ttv",
-        title: "TTV",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    components: [],
   },
   {
     id: "blind-mate-interfaces",
@@ -189,32 +172,7 @@ const models: Model[] = [
   {
     id: "glacier-point",
     title: "GLACIER POINT",
-    components: [
-      {
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "storm-point",
-        title: "STORM POINT",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
+    components: [],
   },
   {
     id: "discovery-point",
@@ -228,36 +186,6 @@ const models: Model[] = [
       rotation: [0, THREE.MathUtils.degToRad(-45), 0],
       description: PLACEHOLDER_DESCRIPTION,
     },
-  },
-  {
-    id: "kings-canyon",
-    title: "kings-canyon",
-    components: [
-      {
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "storm-point",
-        title: "STORM POINT",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-      {
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
-        },
-      },
-    ],
   },
 ];
 

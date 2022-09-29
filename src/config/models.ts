@@ -112,22 +112,31 @@ const models: Model[] = [
   {
     id: "wedge-400c",
     title: "WEDGE 400C",
-    position: [0, -1.7, 0],
+    position: [0, 0, 0],
+    componentOpenPosition: [0, 0.5, -1],
+    scale: 1.5,
     components: [
       {
         id: "rack-adapter",
         title: "RACK ADAPTER",
+        position: [0, 0, 0],
+        openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 1, 0],
+          position: [-0.2, 0.25, 0.4],
+          openPosition: [-0.2, 0.25, 0.4],
         },
       },
       {
         id: "module",
         title: "MODULE",
+        position: [0, 0, 0],
+        openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
+          position: [-0.1, -0.15, 0.4],
+          openPosition: [0.2, -0.15, 0.4],
+          flipped: true,
         },
       },
     ],

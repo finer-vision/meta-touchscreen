@@ -133,6 +133,18 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   key={model.id}
                   open={sideMenuOpen === index}
                 >
+                  <DropDownItemFlex
+                    onClick={() => {
+                      setSideMenuOpen(-1);
+                      animateMenu();
+                    }}
+                  >
+                    <img
+                      src={`./assets/models/${model.id}/${model.id}.png`}
+                      alt={model.title}
+                    />
+                    <span>{model.title}</span>
+                  </DropDownItemFlex>
                   {model.components.map((component, index) => {
                     return (
                       <DropDownItemFlex
@@ -149,7 +161,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                           src={`./assets/models/${model.id}/${component.id}.png`}
                           alt={model.title}
                         />
-                        <span>{component.title}</span>;
+                        <span>{component.title}</span>
                       </DropDownItemFlex>
                     );
                   })}

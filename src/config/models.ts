@@ -164,29 +164,41 @@ const models: Model[] = [
   {
     id: "grand-teton",
     title: "GRAND TETON",
+    position: [0, -0.3, 1],
+    componentOpenPosition: [0, -0.3, 0.5],
     components: [
       {
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
+        position: [0, 0.01, 0.1],
+        openPosition: [0, 0, 1.25],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
+          position: [0, 0.5, 0.2],
+          openPosition: [-0.225, 0.3, 0],
         },
       },
       {
         id: "storm-point",
         title: "STORM POINT",
+        position: [0, 0.28, 0.1],
+        openPosition: [0, 0, 1.25],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
+          position: [0.2, -0.4, 0.2],
+          openPosition: [-0.225, 0.225, 0],
         },
       },
       {
         id: "cascade-creek",
         title: "CASCADE CREEK",
+        position: [0, 0.18, 0.1],
+        openPosition: [0, 0, 1.25],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0, 0],
+          position: [-0.1, -0.3, 0.2],
+          openPosition: [0.225, 0.225, 0],
+          flipped: true,
         },
       },
     ],

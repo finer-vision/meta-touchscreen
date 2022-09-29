@@ -29,7 +29,9 @@ type Props = {
 
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
-  const [page, setPage] = React.useState(0);
+  // @todo remove when finished testing
+  // const [page, setPage] = React.useState(0);
+  const [page, setPage] = React.useState(1);
 
   const modelsPages = React.useMemo(() => {
     return chunk(models, 7);

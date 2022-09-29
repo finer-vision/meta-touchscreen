@@ -18,7 +18,7 @@ const models: Model[] = [
         openPosition: [0, 1.075, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0.2, 0.1, 0.6],
+          position: [0, 0.1, 0.6],
           openPosition: [-0.25, 0.2, 0.3],
         },
       },
@@ -29,7 +29,7 @@ const models: Model[] = [
         openPosition: [0, 1.075, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.2, -0.05, 0.6],
+          position: [0, -0.1, 0.6],
           openPosition: [0.25, 0.25, 0.38],
           flipped: true,
         },

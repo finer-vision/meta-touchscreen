@@ -127,6 +127,6 @@ export default createGlobalStyle`
   }
 
   img {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 `;

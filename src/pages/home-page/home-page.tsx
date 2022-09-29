@@ -7,7 +7,6 @@ import {
   RotateWrapper,
   Section,
 } from "./home-page.style";
-import emitter from "@/services/emitter";
 import { ModelComponent, Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import Menu from "@/components/menu/menu";
@@ -59,12 +58,11 @@ export default function ScreenSaver() {
   }, [mainMenuOpen, menuContainerRef, LogoRef, labelRef]);
 
   React.useEffect(() => {
-    if (mounted) {
-      if (rotate) {
-        emitter.emit(Subscription.rotate);
-      } else {
-        emitter.emit(Subscription.stopRotate);
-      }
+    if (!mounted) return;
+    if (rotate) {
+      useSubscription.emit(Subscription.rotate);
+    } else {
+      useSubscription.emit(Subscription.stopRotate);
     }
   }, [rotate]);
 
@@ -92,7 +90,7 @@ export default function ScreenSaver() {
             ref={resetWrapperRef}
             onClick={() => {
               setRotate(false);
-              emitter.emit(Subscription.reset);
+              useSubscription.emit(Subscription.reset);
             }}
           >
             <img src="./assets/images/reset.png" alt="Rotate model" />

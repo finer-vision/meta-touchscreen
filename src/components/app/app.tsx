@@ -5,7 +5,6 @@ import { Canvas } from "@react-three/fiber";
 import Model from "@/components/model/model";
 import Homepage from "@/pages/home-page/home-page";
 import models from "@/config/models";
-import { isLocal } from "@/utils";
 import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
 import { appState } from "@/state/app-state";
@@ -72,8 +71,8 @@ export default function App() {
         <ambientLight />
         <OrbitControls
           ref={controlsRef}
-          enablePan={isLocal()}
-          enableZoom={isLocal()}
+          enablePan={false}
+          enableZoom={false}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}
         />

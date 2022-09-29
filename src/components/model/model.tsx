@@ -59,7 +59,8 @@ export default function Model() {
                   key={index}
                   component={component}
                   path={`./assets/models/${selectedModel.model.id}/${component.id}.glb`}
-                  open={
+                  open={openModelComponent?.id === component.id}
+                  showHotspot={
                     openModelComponent === null ||
                     openModelComponent?.id === component.id
                   }

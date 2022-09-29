@@ -8,6 +8,7 @@ type Props = {
   path: string;
   component: ModelComponentType;
   open?: boolean;
+  showHotspot?: boolean;
   onClick?: () => void;
 };
 
@@ -15,6 +16,7 @@ export default function ModelComponent({
   path,
   component,
   open = true,
+  showHotspot = true,
   onClick,
 }: Props) {
   const model = useGLTF(path);
@@ -26,8 +28,8 @@ export default function ModelComponent({
   return (
     <a.group {...props}>
       <group scale={component.scale}>
-        <primitive object={model} />
-        {open && (
+        <primitive object={model.scene} />
+        {showHotspot && (
           <Hotspot
             title={component.title}
             position={

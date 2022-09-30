@@ -27,7 +27,7 @@ export default function Model() {
     action.play();
   }, [animation.names[0]]);
 
-  const ref = React.useRef<THREE.Group>();
+  const groupRef = React.useRef<THREE.Group>(null);
   const [rotate, setRotate] = React.useState(false);
 
   useSubscription(Subscription.rotate, () => {
@@ -39,13 +39,16 @@ export default function Model() {
   });
 
   useSubscription(Subscription.reset, () => {
-    ref.current.rotation.y = 0;
+    const group = groupRef.current;
+    if (group === null) return;
+    group.rotation.y = 0;
   });
 
   useFrame(() => {
-    if (rotate) {
-      ref.current.rotation.y += 0.01;
-    }
+    if (!rotate) return;
+    const group = groupRef.current;
+    if (group === null) return;
+    group.rotation.y += 0.01;
   });
 
   const props = useSpring({
@@ -56,7 +59,7 @@ export default function Model() {
   });
 
   return (
-    <group ref={ref}>
+    <group ref={groupRef}>
       <mesh scale={1.5}>
         <Environment
           background={false}

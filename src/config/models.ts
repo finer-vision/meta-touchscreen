@@ -17,7 +17,7 @@ const models: Model[] = [
         position: [0, 2.17, 0],
         openPosition: [0, 1.075, 1],
         hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
+          description: `Meet the Power Shelf. In ORV3 the Power Shelf can be installed in any OU position and isn’t bolted to the busbar, allowing for maximum rack configuration flexibility. With the increased power capability and efficiency of 48V, ORV3 delivers more total kilowatt than ORV2.`,
           position: [0, 0.1, 0.6],
           openPosition: [-0.25, 0.2, 0.3],
         },
@@ -28,7 +28,7 @@ const models: Model[] = [
         position: [0, 2.075, 0],
         openPosition: [0, 1.075, 1],
         hotspot: {
-          description: PLACEHOLDER_DESCRIPTION,
+          description: `The increased performance Battery Backup (BBU) module has a 4 minute capacity compared to 90 seconds in its predecessor. It also has more capacity with 15 kilowatts of power as well as increased flexibility. Similar to the Power Shelf, you can put the BBU in any location you want to customize your needs.`,
           position: [0.05, -0.1, 0.6],
           openPosition: [0.25, 0.25, 0.38],
           flipped: true,
@@ -62,7 +62,7 @@ const models: Model[] = [
     components: [],
     scale: 1.15,
     hotspot: {
-      description: PLACEHOLDER_DESCRIPTION,
+      description: `Get to know the ORV3 Blind-mate Interfaces. These solutions are designed to enable liquid cooling at scale, with optimized serviceability. The overarching aims are to reduce human interaction and error, as well as dramatically reducing service and maintenance time. The blind mate solutions include blind mate valves, manifolds, rack frame interfaces, hoses and tubing, and a unique chassis designed specifically for blind-mate applications. All of which can be easily integrated into ORV3.`,
       flipped: true,
       openPosition: [0, 0, 0],
       position: [0, 1.4, 0.5],
@@ -96,7 +96,7 @@ const models: Model[] = [
         openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.15, 0],
+          position: [0, -0.15, 0.3],
           openPosition: [0.225, -0.15, 0.25],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
           flipped: true,
@@ -112,7 +112,7 @@ const models: Model[] = [
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
     hotspot: {
-      description: PLACEHOLDER_DESCRIPTION,
+      description: `Minipack2 is Meta's next generation fabric switch, doubling the bandwidth of Minipack1. Minipack2 is positioned in the fabric layer, connecting rack switches to each other and also forwards traffic up to higher layers of the network. By designing for more bandwidth, this allows for greater machine to machine (or east to west) traffic and machine to user (or north to south) traffic.`,
       position: [0.1, 0.28, 0],
       rotation: [0, THREE.MathUtils.degToRad(20), 0],
       flipped: true,

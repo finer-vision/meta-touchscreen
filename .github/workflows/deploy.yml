@@ -17,10 +17,9 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          rm -rf node_modules package-lock.json
-          cp env.example.ts env.ts
-          npm install
+          npm ci
           PUBLIC_PATH=./ npm run build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.8
         with:

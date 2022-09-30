@@ -74,7 +74,7 @@ const models: Model[] = [
     title: "WEDGE 400C",
     position: [0, 0, 0],
     componentOpenPosition: [0, 0.5, -1],
-    scale: 1.5,
+    scale: 2,
     components: [
       {
         id: "rack-adapter",
@@ -83,8 +83,8 @@ const models: Model[] = [
         openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.2, 0.25, 0.4],
-          openPosition: [-0.2, 0.25, 0.4],
+          position: [-0.2, 0.25, 0],
+          openPosition: [-0.25, 0.25, 0],
         },
       },
       {
@@ -94,8 +94,8 @@ const models: Model[] = [
         openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.15, 0.4],
-          openPosition: [0.2, -0.15, 0.4],
+          position: [-0.1, -0.15, 0],
+          openPosition: [0.225, -0.15, 0.25],
           flipped: true,
         },
       },
@@ -118,27 +118,28 @@ const models: Model[] = [
   {
     id: "grand-canyon",
     title: "GRAND CANYON",
-    scale: 1,
+    scale: 1.5,
     position: [-0.25, 0, 0],
-    rotation: [THREE.MathUtils.degToRad(25), THREE.MathUtils.degToRad(25), 0],
+    rotation: [0, THREE.MathUtils.degToRad(25), 0],
     components: [],
     hotspot: {
       description: PLACEHOLDER_DESCRIPTION,
       position: [0, 0.3, 0.25],
-      rotation: [0, THREE.MathUtils.degToRad(-25), 0],
+      rotation: [0, 0, 0],
     },
   },
   {
     id: "grand-teton",
     title: "GRAND TETON",
     position: [0, -0.3, 0],
-    componentOpenPosition: [0, -0.3, 0.5],
+    componentOpenPosition: [0, -0.3, -0.75],
+    scale: 1.5,
     components: [
       {
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
-        position: [0, 0.01, 0.1],
-        openPosition: [0, 0, 1.25],
+        position: [0, 0, 0.1],
+        openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
           position: [0, 0.5, 0.2],
@@ -149,10 +150,10 @@ const models: Model[] = [
         id: "storm-point",
         title: "STORM POINT",
         position: [0, 0.28, 0.1],
-        openPosition: [0, 0, 1.25],
+        openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0.2, -0.4, 0.2],
+          position: [0.2, -0.4, -0.2],
           openPosition: [-0.225, 0.225, 0],
         },
       },
@@ -160,10 +161,10 @@ const models: Model[] = [
         id: "cascade-creek",
         title: "CASCADE CREEK",
         position: [0, 0.18, 0.1],
-        openPosition: [0, 0, 1.25],
+        openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.3, 0.2],
+          position: [-0.1, -0.3, 0],
           openPosition: [0.225, 0.225, 0],
           flipped: true,
         },

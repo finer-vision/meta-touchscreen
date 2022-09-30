@@ -58,8 +58,9 @@ const models: Model[] = [
     id: "liquid-cooling-cart",
     title: "LIQUID COOLING CART",
     rotation: [0, THREE.MathUtils.degToRad(-60), 0],
-    position: [0, -1.5, 0],
+    position: [0, -0.6, 0],
     components: [],
+    scale: 1.15,
     hotspot: {
       description: PLACEHOLDER_DESCRIPTION,
       flipped: true,

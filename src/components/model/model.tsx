@@ -44,7 +44,30 @@ export default function Model() {
     group.rotation.y = 0;
   });
 
+  React.useEffect(() => {
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = 0;
+      object.material.needsUpdate = true;
+    });
+  }, []);
+
   useFrame(() => {
+    const speed = 0.01;
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = THREE.MathUtils.lerp(
+        object.material.opacity,
+        1,
+        speed
+      );
+      object.material.needsUpdate = true;
+    });
+
     if (!rotate) return;
     const group = groupRef.current;
     if (group === null) return;

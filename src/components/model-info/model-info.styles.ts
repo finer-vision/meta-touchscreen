@@ -1,4 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    translate: 0 50%;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const ModelInfoClose = styled.button`
   --size: 6em;
@@ -52,6 +72,7 @@ export const ModelInfoHeader = styled.div`
 export const ModelInfoContainer = styled.div`
   --padding: 5em;
   width: calc(100% - (var(--padding) * 2));
+  animation: ${fadeInUp} 500ms ease-out forwards;
 `;
 
 export const ModelInfoWrapper = styled.div`
@@ -66,4 +87,5 @@ export const ModelInfoWrapper = styled.div`
   color: #082636;
   position: absolute;
   inset: 0;
+  animation: ${fadeIn} 300ms ease forwards;
 `;

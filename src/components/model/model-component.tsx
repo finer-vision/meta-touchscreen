@@ -3,6 +3,8 @@ import { useGLTF } from "@react-three/drei";
 import { ModelComponent as ModelComponentType } from "@/types";
 import { a, useSpring } from "@react-spring/three";
 import Hotspot from "@/components/hotspot/hotspot";
+import * as THREE from "three";
+import { useFrame } from "@react-three/fiber";
 
 type Props = {
   modelId: string;
@@ -23,6 +25,31 @@ export default function ModelComponent({
 
   const props = useSpring({
     position: open ? component.openPosition : component.position,
+  });
+
+  React.useEffect(() => {
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = 0;
+      object.material.needsUpdate = true;
+    });
+  }, []);
+
+  useFrame(() => {
+    const speed = 0.01;
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = THREE.MathUtils.lerp(
+        object.material.opacity,
+        1,
+        speed
+      );
+      object.material.needsUpdate = true;
+    });
   });
 
   return (

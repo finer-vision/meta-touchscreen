@@ -13,8 +13,7 @@ type AppState = {
 
 export const appState = create<AppState>((set) => {
   return {
-    // selectedModel: models[0],
-    selectedModel: models[2],
+    selectedModel: models[0],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },

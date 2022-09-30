@@ -5,6 +5,7 @@ import {
   Dot,
   DotContainer,
   DropDown,
+  DropDownImage,
   DropDownItemFlex,
   Main,
   MainItem,
@@ -46,7 +47,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   return (
     <MenuWrapper
       style={{
-        transform: mainMenuOpen ? "translateX(0)" : "translateX(-40em)",
+        transform: mainMenuOpen ? "translateX(0)" : "translateX(-54.55em)",
       }}
     >
       <MenuLeft>
@@ -139,9 +140,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       animateMenu();
                     }}
                   >
-                    <img
-                      src={`./assets/models/${model.id}/${model.id}.png`}
-                      alt={model.title}
+                    <DropDownImage
+                      style={{
+                        backgroundImage: `url(./assets/models/${model.id}/${model.id}.png)`,
+                      }}
                     />
                     <span>{model.title}</span>
                   </DropDownItemFlex>
@@ -157,9 +159,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                           animateMenu();
                         }}
                       >
-                        <img
-                          src={`./assets/models/${model.id}/${component.id}.png`}
-                          alt={model.title}
+                        <DropDownImage
+                          style={{
+                            backgroundImage: `url(./assets/models/${model.id}/${component.id}.png)`,
+                          }}
                         />
                         <span>{component.title}</span>
                       </DropDownItemFlex>

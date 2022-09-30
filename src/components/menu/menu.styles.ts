@@ -5,23 +5,35 @@ export const MenuWrapper = styled.div`
   align-items: center;
   height: 100vh;
   width: max-content;
-  transform: translateX(-74em);
+  transform: translateX(-91.44999999999999em);
   transition: transform 0.6s ease;
 `;
 
 export const MenuLeft = styled.div`
-  height: 72vh;
+  height: 58.09895833333333vh;
 `;
 
 export const MenuHandle = styled.div``;
 
+export const DropDownImage = styled.div`
+  width: 10em;
+  height: 100%;
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
 export const DropDownItemFlex = styled.div`
-  height: 7.8vh;
-  margin-bottom: 1.5rem;
+  height: 5.494791666666667vh;
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
   padding-left: 1em;
   gap: 2em;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 
   span {
     font-size: 1.9rem;
@@ -49,7 +61,7 @@ export const DropDownItemFlex = styled.div`
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 2em;
-  width: 32em;
+  width: 36.9em;
   background-color: #dddee0;
   display: flex;
   flex-direction: column;
@@ -70,7 +82,7 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  height: 65vh;
+  height: 51.550448vh;
   border-bottom-right-radius: 3em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
@@ -82,12 +94,12 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: 74em;
+        width: 91.44999999999999em;
         border-top-right-radius: 3em;
       `;
     } else {
       return css`
-        width: 40em;
+        width: 54.55em;
       `;
     }
   }}
@@ -95,20 +107,25 @@ export const Main = styled.div<{ open: boolean }>`
 
 export const MainItemContainer = styled.div`
   padding: 2em;
-  height: 95%;
+  padding-bottom: 0;
+  height: 92%;
   overflow: hidden;
 `;
 
 export const MainItem = styled.div`
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
   position: relative;
   overflow: auto;
   border-radius: 2em;
-  height: 7.8vh;
+  height: 5.494791666666667vh;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const MainItemFlex = styled.div`
-  width: 36em;
+  width: 49.095em;
   height: 100%;
   display: flex;
   align-items: center;
@@ -121,7 +138,7 @@ export const MainItemFlex = styled.div`
 
   & > span {
     color: #20202e;
-    font-size: 2em;
+    font-size: 3.5em;
     position: relative;
     z-index: 1;
     font-weight: bold;
@@ -130,8 +147,11 @@ export const MainItemFlex = styled.div`
 `;
 
 export const ModelPreview = styled.img`
-  width: 10em;
+  height: 100%;
+  width: auto;
+  display: block;
 `;
+
 export const Arrow = styled.img`
   margin-left: auto;
   width: 2.3em;
@@ -141,21 +161,21 @@ export const Title = styled.div`
   background-color: #1f2b32;
   height: 7vh;
   padding: 3em 2em;
-  width: 40em;
+  width: 54.55em;
   border-top-right-radius: 3em;
   display: flex;
   align-items: flex-end;
 
   h1 {
     font-weight: 700;
-    font-size: 4em;
+    font-size: 5em;
     line-height: 1;
   }
 `;
 
 export const NavWrapper = styled.div`
-  width: 36em;
-  height: 5%;
+  width: 49.095em;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;

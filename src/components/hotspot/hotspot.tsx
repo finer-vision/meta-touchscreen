@@ -127,7 +127,16 @@ export default function Hotspot({
   return (
     <>
       <group rotation={rotation}>
-        <a.group {...props} {...groupProps} onClick={handleClick}>
+        <a.group
+          {...props}
+          {...groupProps}
+          onClick={handleClick}
+          onPointerMissed={() => {
+            if (step === Step.open) {
+              appState.getState().setSelectedModelComponent(null);
+            }
+          }}
+        >
           <group scale={0.4}>
             <group scale-x={flipped ? -1 : 1}>
               <group position={[0.67, 0, 0]}>

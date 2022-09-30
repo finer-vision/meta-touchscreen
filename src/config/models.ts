@@ -130,7 +130,7 @@ const models: Model[] = [
   {
     id: "grand-teton",
     title: "GRAND TETON",
-    position: [0, -0.3, 1],
+    position: [0, -0.3, 0],
     componentOpenPosition: [0, -0.3, 0.5],
     components: [
       {

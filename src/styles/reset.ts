@@ -4,53 +4,58 @@ import vars from "./vars";
 
 export default createGlobalStyle`
   @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-Caption.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-Caption.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PT Sans Caption";
-        src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-          url("./assets/fonts/PTSans-Caption.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-Caption.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-Caption.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "PT Sans Caption";
+      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+        url("./assets/fonts/PTSans-Caption.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
   :root {
     --gap: 1rem;

@@ -42,7 +42,6 @@ export default function ModelComponent({
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
-      object.material.transparent = true;
       object.material.opacity = THREE.MathUtils.lerp(
         object.material.opacity,
         1,

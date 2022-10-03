@@ -74,8 +74,8 @@ const models: Model[] = [
     title: "WEDGE 400C",
     position: [0, 0, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
-    componentOpenPosition: [0, 0.5, -1],
-    scale: 2,
+    componentOpenPosition: [0, 0.5, -2],
+    scale: 1.5,
     components: [
       {
         id: "rack-adapter",
@@ -96,8 +96,8 @@ const models: Model[] = [
         openPosition: [0, -0.5, 1],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, -0.15, 0.3],
-          openPosition: [0.225, -0.15, 0.25],
+          position: [0, 0, 0.5],
+          openPosition: [0.1, -0.2, 0.25],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
           flipped: true,
         },
@@ -137,7 +137,7 @@ const models: Model[] = [
     position: [0, -0.3, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, -0.3, -0.75],
-    scale: 1.5,
+    scale: 1.25,
     components: [
       {
         id: "arrowhead-pools",
@@ -146,7 +146,7 @@ const models: Model[] = [
         openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0, 0.5, 0.2],
+          position: [-0.1, 0.5, 0.2],
           openPosition: [-0.225, 0.3, 0],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
         },
@@ -158,7 +158,7 @@ const models: Model[] = [
         openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0.2, -0.4, -0.2],
+          position: [0.2, -0.4, 0.25],
           openPosition: [-0.225, 0.225, 0],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
         },
@@ -170,7 +170,7 @@ const models: Model[] = [
         openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.3, 0],
+          position: [-0.1, -0.3, 0.25],
           openPosition: [0.225, 0.225, 0],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
           flipped: true,

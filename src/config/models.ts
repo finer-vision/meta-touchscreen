@@ -158,7 +158,7 @@ const models: Model[] = [
         openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [0.2, -0.4, 0.25],
+          position: [0.375, -0.2, 0.35],
           openPosition: [-0.175, -0.1, 0.25],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
         },
@@ -170,7 +170,7 @@ const models: Model[] = [
         openPosition: [0, 0, 0.75],
         hotspot: {
           description: PLACEHOLDER_DESCRIPTION,
-          position: [-0.1, -0.3, 0.25],
+          position: [-0.375, -0.11, 0.25],
           openPosition: [0.16, -0.1, 0.25],
           rotation: [0, THREE.MathUtils.degToRad(20), 0],
           flipped: true,

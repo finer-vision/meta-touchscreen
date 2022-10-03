@@ -137,7 +137,7 @@ export default function Hotspot({
             }
           }}
         >
-          <group scale={0.4}>
+          <group scale={0.25}>
             <group scale-x={flipped ? -1 : 1}>
               <group position={[0.67, 0, 0]}>
                 <mesh geometry={nodes.Hotspot_Surround_01.geometry}>

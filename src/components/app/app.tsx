@@ -68,7 +68,7 @@ export default function App() {
   }, [selectedModel.id]);
 
   return (
-    <>
+    <React.Fragment key={selectedModel.id}>
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <React.Suspense fallback={<></>}>
           <Model key={selectedModel.id} />
@@ -83,6 +83,6 @@ export default function App() {
         />
       </Canvas>
       <Homepage />
-    </>
+    </React.Fragment>
   );
 }

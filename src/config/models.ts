@@ -49,7 +49,7 @@ const models: Model[] = [
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
     hotspot: {
-      description: PLACEHOLDER_DESCRIPTION,
+      description: `Get to know the ORV3 Blind-mate Interfaces. These solutions are designed to enable liquid cooling at scale, with optimized serviceability. The overarching aims are to reduce human interaction and error, as well as dramatically reducing service and maintenance time. The blind mate solutions include blind mate valves, manifolds, rack frame interfaces, hoses and tubing, and a unique chassis designed specifically for blind-mate applications. All of which can be easily integrated into ORV3.`,
       position: [-0.15, 0.25, 0],
       rotation: [0, THREE.MathUtils.degToRad(20), 0],
     },
@@ -62,7 +62,7 @@ const models: Model[] = [
     components: [],
     scale: 1.15,
     hotspot: {
-      description: `Get to know the ORV3 Blind-mate Interfaces. These solutions are designed to enable liquid cooling at scale, with optimized serviceability. The overarching aims are to reduce human interaction and error, as well as dramatically reducing service and maintenance time. The blind mate solutions include blind mate valves, manifolds, rack frame interfaces, hoses and tubing, and a unique chassis designed specifically for blind-mate applications. All of which can be easily integrated into ORV3.`,
+      description: PLACEHOLDER_DESCRIPTION,
       flipped: true,
       openPosition: [0, 0, 0],
       position: [0, 1.4, 0.5],

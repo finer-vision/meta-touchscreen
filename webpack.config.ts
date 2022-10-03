@@ -82,7 +82,8 @@ const config = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(PUBLIC_DIR, "index.html"),
+      template: path.join(PUBLIC_DIR, 
+"template.html"),
       filename: "index.html",
       inject: "body",
     }),

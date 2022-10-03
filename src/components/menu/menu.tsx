@@ -47,7 +47,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   return (
     <MenuWrapper
       style={{
-        transform: mainMenuOpen ? "translateX(0)" : "translateX(-54.55em)",
+        transform: mainMenuOpen ? "translateX(0)" : "translateX(-27.275em)",
       }}
     >
       <MenuLeft>
@@ -115,10 +115,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </NavWrapper>
           <>
             {modelsInPage.map((model, index) => {
-              const firstOffset = sideMenuOpen * 16.5 + 2;
-              const secondOffset = (sideMenuOpen - 1) * 16.5 + 1.8;
-              const thirdOffset = (sideMenuOpen - 1) * 16.5 + 2.05;
-              const lastOffset = (sideMenuOpen - 1) * 16.5 - 14.6;
+              const firstOffset = (sideMenuOpen * 16.5 + 2) / 2;
+              const secondOffset = 27.85;
+              const thirdOffset = ((sideMenuOpen - 1) * 16.5 + 2.05) / 2;
+              const lastOffset = ((sideMenuOpen - 1) * 16.5 - 14.6) / 2;
               let top =
                 sideMenuOpen === 2
                   ? `${thirdOffset}em`

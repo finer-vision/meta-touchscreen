@@ -5,7 +5,7 @@ export const MenuWrapper = styled.div`
   align-items: center;
   height: 100vh;
   width: max-content;
-  transform: translateX(-91.44999999999999em);
+  transform: translateX(-45.724999999999994em);
   transition: transform 0.6s ease;
 `;
 
@@ -13,10 +13,17 @@ export const MenuLeft = styled.div`
   height: 58.09895833333333vh;
 `;
 
-export const MenuHandle = styled.div``;
+export const MenuHandle = styled.div`
+  height: 12.213541666666666vh;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+`;
 
 export const DropDownImage = styled.div`
-  width: 10em;
+  width: 5em;
   height: 100%;
   background-position: 50%;
   background-size: contain;
@@ -25,23 +32,22 @@ export const DropDownImage = styled.div`
 
 export const DropDownItemFlex = styled.div`
   height: 5.494791666666667vh;
-  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
-  padding-left: 1em;
-  gap: 2em;
+  padding: 0.5em;
+  gap: 1em;
 
   :last-child {
     margin-bottom: 0;
   }
 
   span {
-    font-size: 1.9rem;
+    font-size: 1.25rem;
     color: #1f2b32;
   }
 
   img {
-    width: 9em;
+    width: 4.5em;
   }
 
   &:nth-child(even) {
@@ -60,13 +66,13 @@ export const DropDownItemFlex = styled.div`
 
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
-  right: 2em;
-  width: 36.9em;
+  right: 1em;
+  width: 18.45em;
   background-color: #dddee0;
   display: flex;
   flex-direction: column;
-  border-top-right-radius: 2em;
-  border-bottom-right-radius: 2em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
   transition: all 0.1s ease;
 
   ${({ open }) => {
@@ -83,10 +89,10 @@ export const DropDown = styled.div<{ open: boolean }>`
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
   height: 51.550448vh;
-  border-bottom-right-radius: 3em;
+  border-bottom-right-radius: 1.5em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
-  margin-top: -1em;
+  margin-top: -0.5em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,29 +100,29 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: 91.44999999999999em;
-        border-top-right-radius: 3em;
+        width: 45.724999999999994em;
+        border-top-right-radius: 1.5em;
       `;
     } else {
       return css`
-        width: 54.55em;
+        width: 27.275em;
       `;
     }
   }}
 `;
 
 export const MainItemContainer = styled.div`
-  padding: 2em;
+  padding: 1em;
   padding-bottom: 0;
   height: 92%;
   overflow: hidden;
 `;
 
 export const MainItem = styled.div`
-  margin-bottom: 2.5em;
+  margin-bottom: 1.25em;
   position: relative;
   overflow: auto;
-  border-radius: 2em;
+  border-radius: 1em;
   height: 5.494791666666667vh;
 
   :last-child {
@@ -125,20 +131,20 @@ export const MainItem = styled.div`
 `;
 
 export const MainItemFlex = styled.div`
-  width: 49.095em;
+  width: 24.5475em;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 2em;
+  padding-inline: 1em;
   background-color: white;
-  border-radius: 2em;
-  gap: 2em;
+  border-radius: 1em;
+  gap: 1em;
   overflow: hidden;
 
   & > span {
     color: #20202e;
-    font-size: 3.5em;
+    font-size: 1.75em;
     position: relative;
     z-index: 1;
     font-weight: bold;
@@ -154,35 +160,35 @@ export const ModelPreview = styled.img`
 
 export const Arrow = styled.img`
   margin-left: auto;
-  width: 2.3em;
+  width: 1.15em;
 `;
 
 export const Title = styled.div`
   background-color: #1f2b32;
   height: 7vh;
-  padding: 3em 2em;
-  width: 54.55em;
-  border-top-right-radius: 3em;
+  padding: 1.5em 1em;
+  width: 27.275em;
+  border-top-right-radius: 1.5em;
   display: flex;
   align-items: flex-end;
 
   h1 {
     font-weight: 700;
-    font-size: 5em;
+    font-size: 2.5em;
     line-height: 1;
   }
 `;
 
 export const NavWrapper = styled.div`
-  width: 49.095em;
+  width: 24.5475em;
   height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em;
 
   img {
-    width: 2.2em;
+    width: 1.1em;
   }
 `;
 
@@ -198,9 +204,9 @@ export const Next = styled.button`
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: 1.6em;
-  height: 1.6em;
-  border: 5px solid white;
+  width: 0.8em;
+  height: 0.8em;
+  border: 2.5px solid white;
   border-radius: 50%;
   background-color: ${({ active }) => (active ? "#ffffff" : "transparent")};
 `;
@@ -209,5 +215,5 @@ export const DotContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8em;
+  gap: 0.4em;
 `;

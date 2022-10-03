@@ -1,13 +1,13 @@
 import React from "react";
 import {
-  LabelWapper,
+  LabelWrapper,
   Logo,
   MenuWrapper,
   ResetWrapper,
   RotateWrapper,
   Section,
 } from "./home-page.style";
-import { ModelComponent, Subscription } from "@/types";
+import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import Menu from "@/components/menu/menu";
 import { appState } from "@/state/app-state";
@@ -20,8 +20,6 @@ export default function ScreenSaver() {
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
-  const [openComponent, setOpenComponent] =
-    React.useState<ModelComponent>(null);
   const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
 
   const selectedModel = appState((state) => state.selectedModel);
@@ -66,25 +64,14 @@ export default function ScreenSaver() {
     }
   }, [rotate]);
 
-  useSubscription(Subscription.openHotspot, (componentId: string) => {
-    const component = selectedModel.components.find((component) => {
-      return component.id === componentId;
-    });
-    if (component === undefined) return;
-    setOpenComponent(component);
-  });
-
-  useSubscription(Subscription.closeHotspot, () => {
-    setOpenComponent(null);
-  });
-
   return (
     <Section backdrop={!mainMenuOpen}>
       {!mainMenuOpen && (
         <>
-          <LabelWapper show={!mainMenuOpen} ref={labelRef}>
-            <span>OPEN RACK V3</span>
-          </LabelWapper>
+          <LabelWrapper show={!mainMenuOpen} ref={labelRef}>
+            <img src="./assets/label-img.svg" alt="Meta logo" />
+            <span>{selectedModel.title.toUpperCase()}</span>
+          </LabelWrapper>
           <ResetWrapper
             show={!mainMenuOpen}
             ref={resetWrapperRef}
@@ -95,15 +82,6 @@ export default function ScreenSaver() {
           >
             <img src="./assets/images/reset.png" alt="Rotate model" />
           </ResetWrapper>
-          <RotateWrapper
-            show={!mainMenuOpen}
-            ref={rotateWrapperRef}
-            onClick={() => {
-              setRotate((rotate) => !rotate);
-            }}
-          >
-            <img src="./assets/images/rotate.png" alt="Rotate model" />
-          </RotateWrapper>
           <RotateWrapper
             show={!mainMenuOpen}
             ref={rotateWrapperRef}

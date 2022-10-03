@@ -19,13 +19,10 @@ export const Section = styled.section<SectionProps>`
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
 
   * {
     pointer-events: auto;
-  }
-
-  &:-webkit-scrollbar {
-    display: none;
   }
 
   ${({ backdrop }) => {
@@ -34,9 +31,7 @@ export const Section = styled.section<SectionProps>`
         background-color: rgba(255, 255, 255, var(--opacity));
       `;
     }
-  }}
-
-  @keyframes showElement {
+  }} @keyframes showElement {
     from {
       opacity: 0;
     }
@@ -44,7 +39,6 @@ export const Section = styled.section<SectionProps>`
       opacity: 1;
     }
   }
-
   @keyframes hiddenElement {
     from {
       opacity: 1;
@@ -57,14 +51,14 @@ export const Section = styled.section<SectionProps>`
 
 export const Logo = styled.div<ShowProps>`
   background-image: url("./assets/logo.svg");
-  background-size: 416px 100px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
-  width: 416px;
-  height: 100px;
+  aspect-ratio: 416 / 100;
+  width: auto;
+  height: 2.604166666666667vh;
   position: absolute;
-  bottom: calc(var(--gap) * 6.9);
+  bottom: calc(var(--gap) * 3.45);
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
@@ -87,31 +81,33 @@ export const Logo = styled.div<ShowProps>`
   }}
 `;
 
-export const LabelWapper = styled.div<ShowProps>`
-  width: 1250px;
-  height: 270px;
+export const LabelWrapper = styled.div<ShowProps>`
+  width: max-content;
+  height: 8vh;
+  padding-inline: 2vh;
   background-color: var(--color-ebony-clay);
-  background-image: url("./assets/label-img.svg");
-  background-repeat: no-repeat;
-  background-position: 10%;
   border-radius: 2.5rem;
   color: var(--color-white);
   position: absolute;
-  top: 270px;
+  top: 7.03125vh;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
+  gap: 2vh;
+
+  img {
+    width: auto;
+    height: 2.604166666666667vh;
+  }
 
   span {
-    /* font-family: "Inter"; */
     font-style: normal;
     font-weight: 700;
-    font-size: 90px;
-    line-height: 109px;
-    margin-left: 106px;
+    font-size: 2.34375vh;
+    line-height: 1.211111111111111em;
   }
 
   ${({ show }) => {
@@ -133,85 +129,7 @@ export const LabelWapper = styled.div<ShowProps>`
 `;
 
 export const MenuWrapper = styled.div<Props>`
-  //height: 2242px;
-  //width: 2096px;
-  //position: absolute;
-  //left: 0px;
-  //top: 50%;
-  //transform: translate(-1952px, -50%);
-  //z-index: 2;
-  //position: relative;
-  //height: 100vh;
-  //padding: 1em 0;
   pointer-events: none;
-
-  //& > div:first-child {
-  //  z-index: -1;
-  //  position: absolute;
-  //  background-color: rgba(255, 255, 255, 0.8);
-  //  width: 100vw;
-  //  height: 100vh;
-  //}
-
-  //.menuContainer {
-  //  display: flex;
-  //  justify-content: center;
-  //  align-items: center;
-  //  animation-duration: 1000ms;
-  //  animation-delay: calc(0.1s + var(--speed) * 1);
-  //  animation-timing-function: var(--ease);
-  //  animation-fill-mode: forwards;
-  //  transform: translateX(0px);
-  //
-  //  .menu {
-  //    width: 1952px;
-  //    height: 2242px;
-  //  }
-  //
-  //  .menuButton {
-  //    width: 144px;
-  //    height: 469px;
-  //    background-color: var(--color-ebony-clay);
-  //    background-image: url("./assets/cube.svg");
-  //    background-repeat: no-repeat;
-  //    background-position: top;
-  //    background-position-y: 3rem;
-  //    border-radius: 0 1.8rem 1.8rem 0;
-  //    display: flex;
-  //    justify-content: center;
-  //    align-items: center;
-  //
-  //    span {
-  //      /* font-family: "PT Sans Caption"; */
-  //      font-style: normal;
-  //      font-weight: 700;
-  //      font-size: 45px;
-  //      line-height: 58px;
-  //      color: var(--color-white);
-  //      writing-mode: vertical-lr;
-  //      transform: rotate(180deg);
-  //      margin-top: 3rem;
-  //    }
-  //  }
-  //}
-  //
-  //@keyframes slideLeft {
-  //  from {
-  //    transform: translateX(0px);
-  //  }
-  //  to {
-  //    transform: translateX(1952px);
-  //  }
-  //}
-  //
-  //@keyframes slideRight {
-  //  from {
-  //    transform: translateX(1952px);
-  //  }
-  //  to {
-  //    transform: translateX(0px);
-  //  }
-  //}
 `;
 
 export const ResetWrapper = styled.div<ShowProps>`
@@ -222,34 +140,12 @@ export const ResetWrapper = styled.div<ShowProps>`
   justify-content: center;
   align-items: center;
   opacity: 1;
+  height: 3.7760416666666665vh;
 
-  ${({ show }) => {
-    if (!show) {
-      return css`
-        animation-duration: 1000ms;
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    } else {
-      return css`
-        animation-duration: 1000ms;
-        animation-delay: calc(0.1s + var(--speed) * 1);
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    }
-  }}
-`
-
-export const RotateWrapper = styled.div<ShowProps>`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
+  img {
+    width: auto;
+    height: 100%;
+  }
 
   ${({ show }) => {
     if (!show) {
@@ -269,13 +165,36 @@ export const RotateWrapper = styled.div<ShowProps>`
   }}
 `;
 
-export const ContentWrapper = styled.div`
-  width: 1957px;
-  height: 997px;
-  color: #000;
-  border-radius: 50px;
-  background: #fff;
-  position: relative;
-  left: 50%;
-  transform: translate(-45%, 0%);
+export const RotateWrapper = styled.div<ShowProps>`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  height: 12.213541666666666vh;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+
+  ${({ show }) => {
+    if (!show) {
+      return css`
+        animation-duration: 1000ms;
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    } else {
+      return css`
+        animation-duration: 1000ms;
+        animation-delay: calc(0.1s + var(--speed) * 1);
+        animation-timing-function: var(--ease);
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
 `;

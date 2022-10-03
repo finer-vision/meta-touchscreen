@@ -21,11 +21,11 @@ const fadeIn = keyframes`
 `;
 
 export const ModelInfoClose = styled.button`
-  --size: 6em;
+  --size: 3em;
   background-color: #eef3f5;
   width: var(--size);
   height: var(--size);
-  border-radius: 1em;
+  border-radius: 0.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,12 +42,12 @@ export const ModelInfoBody = styled.div`
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   display: grid;
-  gap: 2em;
+  gap: 1.5em;
   grid-template-columns: repeat(2, 1fr);
   padding: calc(var(--padding) / 2) var(--padding);
 
   p {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   img {
@@ -65,19 +65,19 @@ export const ModelInfoHeader = styled.div`
   padding: calc(var(--padding) / 2) var(--padding);
 
   h3 {
-    font-size: 4em;
+    font-size: 2em;
   }
 `;
 
 export const ModelInfoContainer = styled.div`
-  --padding: 5em;
+  --padding: 2.5em;
   width: calc(100% - (var(--padding) * 2));
   animation: ${fadeInUp} 500ms ease-out forwards;
 `;
 
 export const ModelInfoWrapper = styled.div`
-  --padding: 2rem;
-  --border-radius: 2.5em;
+  --padding: 1rem;
+  --border-radius: 1.25em;
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.6);

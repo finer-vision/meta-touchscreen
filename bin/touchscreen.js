@@ -7,7 +7,9 @@ const puppeteer = require("puppeteer");
 const PORT = 8080;
 
 const server = http.createServer((request, response) => {
-  return handler(request, response);
+  return handler(request, response, {
+    public: path.resolve(__dirname, "..", "build"),
+  });
 });
 
 server.listen(PORT, async () => {
@@ -38,6 +40,7 @@ server.listen(PORT, async () => {
       "--no-first-run",
       "--disable-pinch",
       "--no-default-check",
+      "--kiosk",
       "--overscroll-history-navigation=0",
       `--app=http://localhost:${PORT}`,
       "--autoplay-policy=no-user-gesture-required",

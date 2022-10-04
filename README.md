@@ -30,3 +30,9 @@ npm add -g pm2
 ```shell
 npx gltf-pipeline -i in.gltf -b -o out.glb
 ```
+
+### Windows Setup
+
+```
+bin\install.bat
+```

@@ -1,1 +1,1 @@
-node C:\Users\$(whoami)\meta-touchscreen\bin\touchscreen.js
+node %USERPROFILE%\meta-touchscreen\bin\touchscreen.js

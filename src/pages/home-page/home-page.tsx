@@ -64,6 +64,10 @@ export default function ScreenSaver() {
     }
   }, [rotate]);
 
+  useEffect(() => {
+    LogoRef.current?.play()
+  }, [mainMenuOpen])
+
   return (
     <Section backdrop={!mainMenuOpen}>
       {!mainMenuOpen && (
@@ -92,7 +96,7 @@ export default function ScreenSaver() {
             <img src="./assets/images/rotate.png" alt="Rotate model" />
           </RotateWrapper>
           <Logo>
-            <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay loop/>
+            <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
             <span>Meta</span>
           </Logo>
         </>

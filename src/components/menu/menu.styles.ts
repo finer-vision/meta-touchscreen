@@ -52,7 +52,7 @@ export const DropDownItemFlex = styled.div`
   }
 
   &:nth-child(even) {
-    border-top: 1px solid rgba(31, 43, 50, 0.3);
+    border-top: 1px solid 31, 43, 50, 0.3);
     border-bottom: 1px solid rgba(31, 43, 50, 0.3);
   }
 

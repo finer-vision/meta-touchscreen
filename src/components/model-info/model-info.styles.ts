@@ -71,7 +71,7 @@ export const ModelInfoWrapper = styled.div`
   --border-radius: 1.25em;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -28,7 +28,7 @@ export const Section = styled.section<SectionProps>`
   ${({ backdrop }) => {
     if (!backdrop) {
       return css`
-        background-color: rgba(255, 255, 255, var(--opacity));
+        background-color: rgba(0,0,0,0.3);
       `;
     }
   }} @keyframes showElement {

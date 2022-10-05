@@ -22,7 +22,7 @@ import {
 } from "@/components/menu/menu.styles";
 import models from "@/config/models";
 import { appState } from "@/state/app-state";
-
+import { useAnimationControls } from "framer-motion";
 
 type Props = {
   mainMenuOpen: boolean;
@@ -32,6 +32,19 @@ type Props = {
 export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const [sideMenuOpen, setSideMenuOpen] = React.useState(-1);
   const [page, setPage] = React.useState(0);
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if(mainMenuOpen) {
+      controls.set(() => ({
+        opacity: 0
+      }))
+      controls.start(i => ({
+        opacity: 1,
+        transition: { delay: i * 0.2 },
+      }))
+    }
+  }, [mainMenuOpen, page])
 
   const modelsPages = React.useMemo(() => {
     return chunk(models, 7);
@@ -61,7 +74,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               const backgroundColor =
                 index === sideMenuOpen ? "#DDDEE0" : undefined;
               return (
-                <MainItem key={model.id} style={{ backgroundColor }}>
+                <MainItem 
+                animate={controls}
+                custom={index}
+                key={model.id} style={{ backgroundColor }}>
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() => {

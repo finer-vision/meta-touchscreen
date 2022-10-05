@@ -187,7 +187,7 @@ export const Title = styled.div`
 `;
 
 export const NavWrapper = styled.div`
-  width: calc(24.5475em*.8);
+  width: 100%;
   height: 8%;
   display: flex;
   justify-content: center;

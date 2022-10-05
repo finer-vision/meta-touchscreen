@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   LabelWrapper,
   Logo,
@@ -30,7 +30,7 @@ export default function ScreenSaver() {
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       !menuContainerRef.current &&
       !rotateWrapperRef.current &&
@@ -55,7 +55,7 @@ export default function ScreenSaver() {
     }
   }, [mainMenuOpen, menuContainerRef, LogoRef, labelRef]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!mounted) return;
     if (rotate) {
       useSubscription.emit(Subscription.rotate);

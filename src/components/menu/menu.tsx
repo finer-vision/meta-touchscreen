@@ -200,7 +200,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </>
         </Main>
       </MenuLeft>
-      <MenuHandle
+      {!appState((state) => state.modelInfo) && <MenuHandle
         onClick={() => {
           setSideMenuOpen(-1);
           animateMenu();
@@ -210,7 +210,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           src={`./assets/menu/${mainMenuOpen ? "close" : "model-list"}.png`}
           alt="Close"
         />
-      </MenuHandle>
+      </MenuHandle>}
     </MenuWrapper>
   );
 }

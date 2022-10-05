@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/macro";
+import { motion } from "framer-motion";
 
 type Props = {
   onClick?: (e: Event) => void;
@@ -68,7 +69,17 @@ export const Logo = styled.div`
   }
 `;
 
-export const LabelWrapper = styled.div<ShowProps>`
+export const LabelWrapper = styled(motion.div).attrs(() => ({
+  initial: {
+    opacity: 0
+  },
+  animate: {
+    opacity: 1
+  },
+  exit: {
+    opacity: 0
+  }
+}))`
   width: max-content;
   height: 8vh;
   padding-inline: 5vh;
@@ -96,23 +107,6 @@ export const LabelWrapper = styled.div<ShowProps>`
     font-size: 2.34375vh;
     line-height: 1.211111111111111em;
   }
-
-  ${({ show }) => {
-    if (!show) {
-      return css`
-        animation-duration: 1000ms;
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    } else {
-      return css`
-        animation-duration: 1000ms;
-        animation-delay: calc(0.1s + var(--speed) * 1);
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    }
-  }}
 `;
 
 export const MenuWrapper = styled.div<Props>`

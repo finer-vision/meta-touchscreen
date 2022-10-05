@@ -1,5 +1,4 @@
-import React from "react";
-import { createPortal } from "react-dom";
+import React, { useEffect } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
@@ -7,6 +6,7 @@ import { Html, Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
 import { Vector } from "@/types";
 import ModelInfo from "@/components/model-info/model-info";
+import { appState } from "@/state/app-state";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -84,7 +84,16 @@ export default function ModelHotspot({
 
   const handleClick = React.useCallback((event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
-    setOpen(true);
+    if(!open) {
+      setOpen(true)
+      appState.getState().setModelInfo({
+        title: info.title,
+        description: info.description,
+      });
+    } else {
+      setOpen(false)
+      appState.getState().setModelInfo(null);
+    }
   }, []);
 
   return (
@@ -137,19 +146,6 @@ export default function ModelHotspot({
           </group>
         </a.group>
       </group>
-      {open && (
-        <Html>
-          {createPortal(
-            <ModelInfo
-              image={`./assets/models/${modelId}/${modelId}.png`}
-              title={info.title}
-              description={info.description}
-              onClose={() => setOpen(false)}
-            />,
-            modelInfoRoot
-          )}
-        </Html>
-      )}
     </>
   );
 }

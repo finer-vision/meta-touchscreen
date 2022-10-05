@@ -19,7 +19,7 @@ export default function ModelComponent({
   path,
   component,
   open = true,
-  showHotspot = true,
+  showHotspot = true
 }: Props) {
   const model = useGLTF(path);
 

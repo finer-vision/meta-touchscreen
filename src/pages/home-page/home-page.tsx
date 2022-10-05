@@ -11,6 +11,7 @@ import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
 import Menu from "@/components/menu/menu";
 import { appState } from "@/state/app-state";
+import { AnimatePresence } from "framer-motion";
 
 export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
@@ -23,6 +24,7 @@ export default function ScreenSaver() {
   const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
 
   const selectedModel = appState((state) => state.selectedModel);
+  const modelInfo = appState((state) => state.modelInfo);
 
   const animateMenu = React.useCallback(() => {
     setMainMenuOpen((prevState) => {
@@ -69,41 +71,43 @@ export default function ScreenSaver() {
   }, [mainMenuOpen])
 
   return (
-    <Section backdrop={!mainMenuOpen}>
-      {!mainMenuOpen && (
-        <>
-          <LabelWrapper show={!mainMenuOpen} ref={labelRef}>
-            <img src="./assets/label-img.svg" alt="Meta logo" />
-            <span>{selectedModel.title.toUpperCase()}</span>
-          </LabelWrapper>
-          <ResetWrapper
-            show={!mainMenuOpen}
-            ref={resetWrapperRef}
-            onClick={() => {
-              setRotate(false);
-              useSubscription.emit(Subscription.reset);
-            }}
-          >
-            <img src="./assets/images/reset.png" alt="Rotate model" />
-          </ResetWrapper>
-          <RotateWrapper
-            show={!mainMenuOpen}
-            ref={rotateWrapperRef}
-            onClick={() => {
-              setRotate((rotate) => !rotate);
-            }}
-          >
-            <img src="./assets/images/rotate.png" alt="Rotate model" />
-          </RotateWrapper>
-          <Logo>
-            <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
-            <span>Meta</span>
-          </Logo>
-        </>
-      )}
-      <MenuWrapper>
-        <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
-      </MenuWrapper>
-    </Section>
+    <AnimatePresence>
+      <Section backdrop={!mainMenuOpen}>
+        {!mainMenuOpen && !modelInfo && (
+          <>
+            <LabelWrapper ref={labelRef}>
+              <img src="./assets/label-img.svg" alt="Meta logo" />
+              <span>{selectedModel.title.toUpperCase()}</span>
+            </LabelWrapper>
+            <ResetWrapper
+              show={!mainMenuOpen}
+              ref={resetWrapperRef}
+              onClick={() => {
+                setRotate(false);
+                useSubscription.emit(Subscription.reset);
+              }}
+            >
+              <img src="./assets/images/reset.png" alt="Rotate model" />
+            </ResetWrapper>
+            <RotateWrapper
+              show={!mainMenuOpen}
+              ref={rotateWrapperRef}
+              onClick={() => {
+                setRotate((rotate) => !rotate);
+              }}
+            >
+              <img src="./assets/images/rotate.png" alt="Rotate model" />
+            </RotateWrapper>
+            <Logo>
+              <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
+              <span>Meta</span>
+            </Logo>
+          </>
+        )}
+        <MenuWrapper>
+          <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />
+        </MenuWrapper>
+      </Section>
+    </AnimatePresence>
   );
 }

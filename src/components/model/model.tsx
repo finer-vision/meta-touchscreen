@@ -115,8 +115,8 @@ export default function Model() {
                     path={`./assets/models/${selectedModel.id}/${component.id}.glb`}
                     open={selectedModelComponent?.id === component.id}
                     showHotspot={
-                      selectedModelComponent === null ||
-                      selectedModelComponent?.id === component.id
+                      !rotate && (selectedModelComponent === null ||
+                      selectedModelComponent?.id === component.id)
                     }
                   />
                 );

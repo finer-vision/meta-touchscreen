@@ -1,12 +1,10 @@
-import React from "react";
-import { createPortal } from "react-dom";
+import React, { useContext, useEffect } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
 import { Html, Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
 import { ModelComponent, Vector } from "@/types";
-import ModelInfo from "@/components/model-info/model-info";
 import { appState } from "@/state/app-state";
 
 type GLTFResult = GLTF & {
@@ -115,10 +113,22 @@ export default function Hotspot({
         case Step.initial:
           setStep(Step.open);
           appState.getState().setSelectedModelComponent(modelComponent);
+          appState.getState().setModelInfo(null);
           break;
         case Step.open:
           setStep(Step.info);
+          appState.getState().setModelInfo({
+            image: `./assets/models/${modelId}/${modelId}.png`,
+            title: info.title,
+            description: info.description,
+          });
           break;
+        default:
+          appState.getState().setModelInfo({
+            image: `./assets/models/${modelId}/${modelId}.png`,
+            title: info.title,
+            description: info.description,
+          });
       }
     },
     [step]
@@ -183,22 +193,6 @@ export default function Hotspot({
           </group>
         </a.group>
       </group>
-      {step === Step.info && (
-        <Html>
-          {createPortal(
-            <ModelInfo
-              image={`./assets/models/${modelId}/${modelComponent.id}.png`}
-              title={info.title}
-              description={info.description}
-              onClose={() => {
-                setStep(Step.initial);
-                appState.getState().setSelectedModelComponent(null);
-              }}
-            />,
-            modelInfoRoot
-          )}
-        </Html>
-      )}
     </>
   );
 }

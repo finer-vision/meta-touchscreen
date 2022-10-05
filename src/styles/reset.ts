@@ -57,6 +57,14 @@ export default createGlobalStyle`
       font-display: swap;
     }
 
+    @font-face {
+      font-family: "Meta";
+      src: url("./assets/fonts/Poligon-Regular.otf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
   :root {
     --gap: 1rem;
     --color-white: #FFFFFF;

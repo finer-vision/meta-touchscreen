@@ -16,7 +16,7 @@ export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
   const resetWrapperRef = React.useRef<HTMLDivElement>();
-  const LogoRef = React.useRef<HTMLDivElement>();
+  const LogoRef = React.useRef<HTMLVideoElement>();
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
@@ -91,7 +91,10 @@ export default function ScreenSaver() {
           >
             <img src="./assets/images/rotate.png" alt="Rotate model" />
           </RotateWrapper>
-          <Logo show={!mainMenuOpen} ref={LogoRef} />
+          <Logo>
+            <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay loop/>
+            <span>Meta</span>
+          </Logo>
         </>
       )}
       <MenuWrapper>

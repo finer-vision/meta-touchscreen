@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 
 type Props = {
   onClick?: (e: Event) => void;
@@ -49,11 +49,11 @@ export const Section = styled.section<SectionProps>`
   }
 `;
 
-export const Logo = styled.div<ShowProps>`
-  background-image: url("./assets/logo.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50%;
+export const Logo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   aspect-ratio: 416 / 100;
   width: auto;
   height: 2.604166666666667vh;
@@ -61,32 +61,19 @@ export const Logo = styled.div<ShowProps>`
   bottom: calc(var(--gap) * 3.45);
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 1;
-
-  ${({ show }) => {
-    if (!show) {
-      return css`
-        animation-duration: 1000ms;
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    } else {
-      return css`
-        animation-duration: 1000ms;
-        animation-delay: calc(0.1s + var(--speed) * 1);
-        animation-timing-function: var(--ease);
-        animation-fill-mode: forwards;
-      `;
-    }
-  }}
+  font-weight: 500;
+  font-size: 150%;
+  video {
+    height: 100%;
+  }
 `;
 
 export const LabelWrapper = styled.div<ShowProps>`
   width: max-content;
   height: 8vh;
-  padding-inline: 2vh;
+  padding-inline: 5vh;
   background-color: var(--color-ebony-clay);
-  border-radius: 2.5rem;
+  border-radius: 1.5rem;
   color: var(--color-white);
   position: absolute;
   top: 7.03125vh;
@@ -135,12 +122,12 @@ export const MenuWrapper = styled.div<Props>`
 export const ResetWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
-  top: 39%;
+  top: 41.5%;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: 3.7760416666666665vh;
+  height: calc(3.7760416666666665vh*.8);
 
   img {
     width: auto;
@@ -174,7 +161,7 @@ export const RotateWrapper = styled.div<ShowProps>`
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: 12.213541666666666vh;
+  height: calc(12.213541666666666vh*.8);
 
   img {
     width: auto;

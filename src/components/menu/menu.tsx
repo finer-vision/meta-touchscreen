@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { chunk } from "lodash";
 import {
   Arrow,
@@ -22,6 +22,7 @@ import {
 } from "@/components/menu/menu.styles";
 import models from "@/config/models";
 import { appState } from "@/state/app-state";
+
 
 type Props = {
   mainMenuOpen: boolean;
@@ -47,7 +48,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   return (
     <MenuWrapper
       style={{
-        transform: mainMenuOpen ? "translateX(0)" : "translateX(-27.275em)",
+        transform: mainMenuOpen ? "translateX(0)" : "translateX(calc(-27.275em*.8))",
       }}
     >
       <MenuLeft>
@@ -64,22 +65,24 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() => {
-                      appState.getState().setSelectedModel(model);
                       if (model.components.length > 0) {
                         setSideMenuOpen((prevState) => {
                           return prevState === index ? -1 : index;
                         });
                       } else {
+                        appState.getState().setSelectedModel(model);
                         setSideMenuOpen(-1);
                         animateMenu();
                       }
                     }}
                   >
-                    <ModelPreview
-                      src={`./assets/models/${model.id}/${model.id}.png`}
-                      alt={model.title}
-                    />
-                    <span>{model.title}</span>
+                    <div>
+                      <ModelPreview
+                        src={`./assets/models/${model.id}/${model.id}.png`}
+                        alt={model.title}
+                      />
+                      <span>{model.title}</span>
+                    </div>
                     <Arrow
                       src="./assets/images/arrow.png"
                       alt="Arrow"
@@ -107,7 +110,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             <Next
               onClick={() => {
                 setSideMenuOpen(-1);
-                setPage((active) => Math.min(totalPages, active + 1));
+                setPage((active) => Math.min(totalPages-1, active + 1));
               }}
             >
               <img src="./assets/images/next.svg" alt="Next" />
@@ -116,7 +119,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           <>
             {modelsInPage.map((model, index) => {
               const firstOffset = (sideMenuOpen * 16.5 + 2) / 2;
-              const secondOffset = 27.85;
+              const secondOffset = 27.85*.81;
               const thirdOffset = ((sideMenuOpen - 1) * 16.5 + 2.05) / 2;
               const lastOffset = ((sideMenuOpen - 1) * 16.5 - 14.6) / 2;
               let top =
@@ -136,6 +139,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 >
                   <DropDownItemFlex
                     onClick={() => {
+                      appState.getState().setSelectedModel(model);
                       setSideMenuOpen(-1);
                       animateMenu();
                     }}
@@ -154,9 +158,15 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                         onClick={() => {
                           appState
                             .getState()
-                            .setSelectedModelComponent(component);
-                          setSideMenuOpen(-1);
-                          animateMenu();
+                            .setSelectedModel(model)
+
+                          setTimeout(() => {
+                            appState
+                              .getState()
+                              .setSelectedModelComponent(component);
+                            setSideMenuOpen(-1);
+                            animateMenu();
+                          }, 100);
                         }}
                       >
                         <DropDownImage

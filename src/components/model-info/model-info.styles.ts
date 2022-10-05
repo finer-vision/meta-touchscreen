@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components/macro";
 
 const fadeInUp = keyframes`
   from {
@@ -21,7 +21,7 @@ const fadeIn = keyframes`
 `;
 
 export const ModelInfoClose = styled.button`
-  --size: 3em;
+  --size: 3.5em;
   background-color: #eef3f5;
   width: var(--size);
   height: var(--size);
@@ -30,28 +30,16 @@ export const ModelInfoClose = styled.button`
   align-items: center;
   justify-content: center;
   color: #000000;
-
-  span {
-    font-size: calc(var(--size) * 0.75);
-    font-weight: lighter;
-  }
 `;
 
 export const ModelInfoBody = styled.div`
   background-color: #eef3f5;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  display: grid;
-  gap: 1.5em;
-  grid-template-columns: repeat(2, 1fr);
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: 5%;
 
   p {
-    font-size: 1.5em;
-  }
-
-  img {
-    width: 100%;
+    font-size: 1em;
   }
 `;
 
@@ -62,7 +50,9 @@ export const ModelInfoHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: 5%;
+  padding-bottom: 3%;
+  padding-top: 3%;
 
   h3 {
     font-size: 2em;
@@ -71,8 +61,9 @@ export const ModelInfoHeader = styled.div`
 
 export const ModelInfoContainer = styled.div`
   --padding: 2.5em;
-  width: calc(100% - (var(--padding) * 2));
+  width: 60vw;
   animation: ${fadeInUp} 500ms ease-out forwards;
+  line-height: 1.6;
 `;
 
 export const ModelInfoWrapper = styled.div`

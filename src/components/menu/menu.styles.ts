@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
+import { motion } from "framer-motion";
 
 export const MenuWrapper = styled.div`
   display: flex;
@@ -10,11 +11,11 @@ export const MenuWrapper = styled.div`
 `;
 
 export const MenuLeft = styled.div`
-  height: 58.09895833333333vh;
+  height: calc(58.09895833333333vh*.8);
 `;
 
 export const MenuHandle = styled.div`
-  height: 12.213541666666666vh;
+  height: calc(12.213541666666666vh*.8);
 
   img {
     width: auto;
@@ -23,7 +24,7 @@ export const MenuHandle = styled.div`
 `;
 
 export const DropDownImage = styled.div`
-  width: 5em;
+  width: calc(5em*.8);
   height: 100%;
   background-position: 50%;
   background-size: contain;
@@ -31,7 +32,7 @@ export const DropDownImage = styled.div`
 `;
 
 export const DropDownItemFlex = styled.div`
-  height: 5.494791666666667vh;
+  height: calc(5.494791666666667vh*.8);
   display: flex;
   align-items: center;
   padding: 0.5em;
@@ -42,12 +43,12 @@ export const DropDownItemFlex = styled.div`
   }
 
   span {
-    font-size: 1.25rem;
+    font-size: calc(1.25rem*.8);
     color: #1f2b32;
   }
 
   img {
-    width: 4.5em;
+    width: calc(4.5em*.8);
   }
 
   &:nth-child(even) {
@@ -67,7 +68,7 @@ export const DropDownItemFlex = styled.div`
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 1em;
-  width: 18.45em;
+  width: calc(18.45em*.8);
   background-color: #dddee0;
   display: flex;
   flex-direction: column;
@@ -88,7 +89,7 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  height: 51.550448vh;
+  height: calc(51.550448vh*.8);
   border-bottom-right-radius: 1.5em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
@@ -100,12 +101,12 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: 45.724999999999994em;
+        width: calc(46.8em*.8);
         border-top-right-radius: 1.5em;
       `;
     } else {
       return css`
-        width: 27.275em;
+        width: calc(27.275em*.8);
       `;
     }
   }}
@@ -118,12 +119,12 @@ export const MainItemContainer = styled.div`
   overflow: hidden;
 `;
 
-export const MainItem = styled.div`
-  margin-bottom: 1.25em;
+export const MainItem = styled(motion.div)`
+  margin-bottom: calc(1.25em*.8);
   position: relative;
   overflow: auto;
   border-radius: 1em;
-  height: 5.494791666666667vh;
+  height: calc(5.494791666666667vh*.8);
 
   :last-child {
     margin-bottom: 0;
@@ -131,7 +132,7 @@ export const MainItem = styled.div`
 `;
 
 export const MainItemFlex = styled.div`
-  width: 24.5475em;
+  width: calc(24.5475em*.8);
   height: 100%;
   display: flex;
   align-items: center;
@@ -142,45 +143,51 @@ export const MainItemFlex = styled.div`
   gap: 1em;
   overflow: hidden;
 
-  & > span {
+  & span {
     color: #20202e;
-    font-size: 1.75em;
+    font-size: calc(1.75em*.8);
     position: relative;
     z-index: 1;
     font-weight: bold;
     text-transform: uppercase;
+    margin-left: 3%;
+  }
+  div {
+    display: flex;
+    align-items: center;
   }
 `;
 
 export const ModelPreview = styled.img`
   height: 100%;
-  width: auto;
+  width: 30%;
+  padding: 0.2em;
   display: block;
 `;
 
 export const Arrow = styled.img`
   margin-left: auto;
-  width: 1.15em;
+  width: calc(1.15em*.8);
 `;
 
 export const Title = styled.div`
   background-color: #1f2b32;
-  height: 7vh;
+  height: 5.4vh;
   padding: 1.5em 1em;
-  width: 27.275em;
+  width: calc(27.275em*.8);
   border-top-right-radius: 1.5em;
   display: flex;
   align-items: flex-end;
 
   h1 {
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: calc(2.5em*.8);
     line-height: 1;
   }
 `;
 
 export const NavWrapper = styled.div`
-  width: 24.5475em;
+  width: calc(24.5475em*.8);
   height: 8%;
   display: flex;
   justify-content: center;
@@ -188,7 +195,7 @@ export const NavWrapper = styled.div`
   gap: 0.5em;
 
   img {
-    width: 1.1em;
+    width: calc(1.1em*.8);
   }
 `;
 
@@ -204,8 +211,8 @@ export const Next = styled.button`
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: 0.8em;
-  height: 0.8em;
+  width: calc(0.8em*.8);
+  height: calc(0.8em*.8);
   border: 2.5px solid white;
   border-radius: 50%;
   background-color: ${({ active }) => (active ? "#ffffff" : "transparent")};

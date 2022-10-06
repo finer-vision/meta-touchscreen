@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { Canvas } from "@react-three/fiber";
@@ -10,6 +10,7 @@ import { Subscription } from "@/types";
 import { appState } from "@/state/app-state";
 import ModelInfo from "../model-info/model-info";
 import { AnimatePresence } from "framer-motion";
+import { Logo } from "@/pages/home-page/home-page.style";
 
 // Preload assets
 const modelPaths = models
@@ -70,8 +71,24 @@ export default function App() {
     useSubscription.emit(Subscription.reset);
   }, [selectedModel.id]);
 
+  const LogoRef = React.useRef<HTMLVideoElement>();
+
+  useEffect(() => {
+    const playInterval = setInterval(() => {
+      LogoRef.current?.play()
+    }, 10000)
+
+    return () => {
+      clearInterval(playInterval)
+    }
+  }, [])
+
   return (
     <React.Fragment key={selectedModel.id}>
+      <Logo>
+        <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
+        <span>Meta</span>
+      </Logo>
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <Model key={selectedModel.id} />
         <ambientLight />

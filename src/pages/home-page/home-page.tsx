@@ -17,7 +17,6 @@ export default function ScreenSaver() {
   const menuContainerRef = React.useRef<HTMLDivElement>();
   const rotateWrapperRef = React.useRef<HTMLDivElement>();
   const resetWrapperRef = React.useRef<HTMLDivElement>();
-  const LogoRef = React.useRef<HTMLVideoElement>();
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
@@ -36,26 +35,22 @@ export default function ScreenSaver() {
     if (
       !menuContainerRef.current &&
       !rotateWrapperRef.current &&
-      !LogoRef.current &&
       !labelRef.current
     )
       return;
     if (mounted) {
       const rotateBtn = rotateWrapperRef.current;
       const label = labelRef.current;
-      const logo = LogoRef.current;
       if (!mainMenuOpen) {
         rotateBtn.style.animationName = "showElement";
         rotateBtn.style.opacity = "0";
-        logo.style.animationName = "showElement";
-        logo.style.opacity = "0";
         label.style.animationName = "showElement";
         label.style.opacity = "0";
       }
     } else {
       setMounted(true);
     }
-  }, [mainMenuOpen, menuContainerRef, LogoRef, labelRef]);
+  }, [mainMenuOpen, menuContainerRef, labelRef]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -65,10 +60,6 @@ export default function ScreenSaver() {
       useSubscription.emit(Subscription.stopRotate);
     }
   }, [rotate]);
-
-  useEffect(() => {
-    LogoRef.current?.play()
-  }, [mainMenuOpen])
 
   return (
     <AnimatePresence>
@@ -98,10 +89,6 @@ export default function ScreenSaver() {
             >
               <img src="./assets/images/rotate.png" alt="Rotate model" />
             </RotateWrapper>
-            <Logo>
-              <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
-              <span>Meta</span>
-            </Logo>
           </>
         )}
         <MenuWrapper>

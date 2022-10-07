@@ -99,11 +99,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       />
                     </div>
                     <span>{model.title}</span>
-                    <Arrow
-                      src="./assets/images/arrow.png"
-                      alt="Arrow"
-                      style={{ opacity: model.components.length > 0 ? 1 : 0 }}
-                    />
+                    <Arrow style={{ opacity: model.components.length > 0 ? 1 : 0 }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </Arrow>
                   </MainItemFlex>
                 </MainItem>
               );
@@ -111,6 +109,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </MainItemContainer>
           <NavWrapper>
             <Prev
+              style={{
+                visibility: page > 0 ? "visible" : "hidden"
+              }}
               onClick={() => {
                 setSideMenuOpen(-1);
                 setPage((active) => Math.max(0, active - 1));
@@ -124,6 +125,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               })}
             </DotContainer>
             <Next
+              style={{
+                visibility: page < 1 ? "visible" : "hidden"
+              }}
               onClick={() => {
                 setSideMenuOpen(-1);
                 setPage((active) => Math.min(totalPages-1, active + 1));
@@ -160,11 +164,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       animateMenu();
                     }}
                   >
-                    <DropDownImage
-                      style={{
-                        backgroundImage: `url(./assets/models/${model.id}/${model.id}.png)`,
-                      }}
-                    />
+                    <DropDownImage model={true}>
+                      <img src={`./assets/models/${model.id}/${model.id}.png`}/>
+                    </DropDownImage>
                     <span>{model.title}</span>
                   </DropDownItemFlex>
                   {model.components.map((component, index) => {
@@ -185,12 +187,10 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                           }, 100);
                         }}
                       >
-                        <DropDownImage
-                          style={{
-                            backgroundImage: `url(./assets/models/${model.id}/${component.id}.png)`,
-                          }}
-                        />
-                        <span>{component.title}</span>
+                          <DropDownImage>
+                            <img src={`./assets/models/${model.id}/${component.id}.png`}/>
+                          </DropDownImage>
+                          <span>{component.title}</span>
                       </DropDownItemFlex>
                     );
                   })}

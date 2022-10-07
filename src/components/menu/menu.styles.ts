@@ -68,20 +68,29 @@ export const MenuHandle = styled.div`
   }
 `;
 
-export const DropDownImage = styled.div`
-  width: calc(5em*.8);
-  height: 100%;
-  background-position: 50%;
-  background-size: contain;
-  background-repeat: no-repeat;
+interface DropDownImageProps {
+  model?: boolean;
+}
+export const DropDownImage = styled.div<DropDownImageProps>`
+  width: 45%;
+  height: 60%;
+  ${props => props.model && 'height: 100%;'}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
 `;
 
 export const DropDownItemFlex = styled.div`
   height: calc(5.494791666666667vh*.8);
   display: flex;
   align-items: center;
-  padding: 0.5em;
   gap: 1em;
+  height: 8vw;
 
   :last-child {
     margin-bottom: 0;
@@ -90,13 +99,11 @@ export const DropDownItemFlex = styled.div`
   span {
     font-size: calc(1.25rem*.8);
     color: #1f2b32;
+    position: absolute;
+    left: 43%;
   }
 
-  img {
-    width: calc(4.5em*.8);
-  }
-
-  &:nth-child(even) {
+  & {
     border-top: 1px solid 31, 43, 50, 0.3);
     border-bottom: 1px solid rgba(31, 43, 50, 0.3);
   }
@@ -219,9 +226,12 @@ export const ModelPreview = styled.img`
   transform: translateX(-50%);
 `;
 
-export const Arrow = styled.img`
-  margin-left: auto;
-  width: calc(1.15em*.8);
+export const Arrow = styled.svg`
+  stroke: #494957;
+  width: 7%;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 4%;
 `;
 
 export const Title = styled.div`

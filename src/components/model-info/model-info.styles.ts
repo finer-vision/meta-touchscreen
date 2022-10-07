@@ -68,4 +68,5 @@ export const ModelInfoWrapper = styled.div`
   color: #082636;
   position: absolute;
   inset: 0;
+  z-index: 100;
 `;

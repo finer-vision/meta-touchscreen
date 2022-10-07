@@ -124,6 +124,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 return <Dot key={idx} active={idx === page} />;
               })}
             </DotContainer>
+            {sideMenuOpen}
             <Next
               style={{
                 visibility: page < 1 ? "visible" : "hidden"
@@ -138,19 +139,22 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </NavWrapper>
           <>
             {modelsInPage.map((model, index) => {
-              const firstOffset = (sideMenuOpen * 16.5 + 2) / 2;
-              const secondOffset = 27.85*.81;
-              const thirdOffset = ((sideMenuOpen - 1) * 16.5 + 2.05) / 2;
-              const lastOffset = ((sideMenuOpen - 1) * 16.5 - 14.6) / 2;
-              let top =
-                sideMenuOpen === 2
-                  ? `${thirdOffset}em`
-                  : sideMenuOpen < 2
-                  ? `${firstOffset}em`
-                  : sideMenuOpen === modelsInPage.length - 1
-                  ? `${lastOffset}em`
-                  : `${secondOffset}em`;
-
+                const top = (() => {
+                  switch(sideMenuOpen) {
+                    default:
+                      return `1em`;
+                    case 1: 
+                      return `6.4em`; 
+                    case 2: 
+                      return `11.7em`;
+                    case 3: 
+                      return `15em`; 
+                    case 4: 
+                      return `22.4em`; 
+                    case 5: 
+                      return `18.75em`; 
+                  }
+                })()
               return (
                 <DropDown
                   style={{ top }}
@@ -164,7 +168,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       animateMenu();
                     }}
                   >
-                    <DropDownImage model={true}>
+                    <DropDownImage>
                       <img src={`./assets/models/${model.id}/${model.id}.png`}/>
                     </DropDownImage>
                     <span>{model.title}</span>
@@ -187,7 +191,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                           }, 100);
                         }}
                       >
-                          <DropDownImage>
+                          <DropDownImage id={component.id}>
                             <img src={`./assets/models/${model.id}/${component.id}.png`}/>
                           </DropDownImage>
                           <span>{component.title}</span>

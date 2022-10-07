@@ -89,6 +89,14 @@ export default function App() {
         <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
         <span>Meta</span>
       </Logo>
+      <ModelInfo
+          show={modelInfo}
+          title={modelInfo?.title}
+          description={modelInfo?.description}
+          onClose={() => {
+            appState.getState().setModelInfo(null);
+          }}
+      />
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <Model key={selectedModel.id} />
         <ambientLight />
@@ -101,14 +109,6 @@ export default function App() {
         />
       </Canvas>
       <Homepage />
-        <ModelInfo
-          show={modelInfo}
-          title={modelInfo?.title}
-          description={modelInfo?.description}
-          onClose={() => {
-            appState.getState().setModelInfo(null);
-          }}
-        />
     </React.Fragment>
   );
 }

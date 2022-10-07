@@ -69,12 +69,42 @@ export const MenuHandle = styled.div`
 `;
 
 interface DropDownImageProps {
-  model?: boolean;
+  id?: string
 }
 export const DropDownImage = styled.div<DropDownImageProps>`
   width: 45%;
-  height: 60%;
-  ${props => props.model && 'height: 100%;'}
+  height: 100%;
+  ${props => [
+    'power-shelf',
+    'bbu',
+  ].some((whitelist: string) => whitelist === props.id) && `
+    height: 70%;
+    margin-left: 3%;
+    margin-top: 4%;
+  `}
+  ${props => [
+    'storm-point',
+    'cascade-creek',
+    'arrowhead-pools',
+  ].some((whitelist: string) => whitelist === props.id) && `
+    height: 80%;
+    margin-left: 3%;
+    margin-top: 4%;
+  `}
+  ${props => props.id === 'rack-adapter' && `
+    height: 100%;
+  `}
+  ${props => props.id === 'module' && `
+    height: 90%;
+  `}
+  ${props => props.id === 'blind-mate-chassis' && `
+    height: 75%;
+    margin-top: 4%;
+  `}
+  ${props => props.id === 'rpu' && `
+    height: 80%;
+    margin-top: 2%;
+  `}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +130,8 @@ export const DropDownItemFlex = styled.div`
     font-size: calc(1.25rem*.8);
     color: #1f2b32;
     position: absolute;
-    left: 43%;
+    left: 50%;
+    padding-right: 5%;
   }
 
   & {

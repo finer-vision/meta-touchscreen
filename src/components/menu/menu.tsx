@@ -97,8 +97,8 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                         src={`./assets/models/${model.id}/${model.id}.png`}
                         alt={model.title}
                       />
-                      <span>{model.title}</span>
                     </div>
+                    <span>{model.title}</span>
                     <Arrow
                       src="./assets/images/arrow.png"
                       alt="Arrow"
@@ -206,10 +206,21 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           animateMenu();
         }}
       >
-        <img
-          src={`./assets/menu/${mainMenuOpen ? "close" : "model-list"}.png`}
-          alt="Close"
-        />
+        <div>
+          {mainMenuOpen
+            ? <>
+              <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <span id="close-text">Close</span>
+            </>
+            : <>
+            <svg id="open-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
+            </svg>
+            <span id="open-text">Model List</span>
+          </>}
+        </div>
       </MenuHandle>}
     </MenuWrapper>
   );

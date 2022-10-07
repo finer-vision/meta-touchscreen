@@ -16,6 +16,51 @@ export const MenuLeft = styled.div`
 
 export const MenuHandle = styled.div`
   height: calc(12.213541666666666vh*.8);
+  width: 3vh;
+  transform: translateY(-38%);
+  div {
+    background-color: rgb(33	43	49);
+    height: 131%;
+    position: relative;
+    width: 100%;
+    border-top-right-radius: .6vh;
+    border-bottom-right-radius: .6vh;
+    position: relative;
+  }
+
+  #open-icon {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 16%;
+    transform: translateX(-50%);
+  }
+
+  #open-text {
+    position: absolute;
+    width: 200%;
+    transform: rotate(-90deg);
+    left: -50%;
+    top: 50%;
+    font-weight: 500;
+  }
+
+  #close-icon {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 26%;
+    transform: translateX(-50%);
+  }
+
+  #close-text {
+    position: absolute;
+    width: 200%;
+    transform: rotate(-90deg);
+    left: -50%;
+    top: 40%;
+    font-weight: 500;
+  }
 
   img {
     width: auto;
@@ -142,27 +187,36 @@ export const MainItemFlex = styled.div`
   border-radius: 1em;
   gap: 1em;
   overflow: hidden;
+  position: relative;
 
-  & span {
+  span {
     color: #20202e;
     font-size: calc(1.75em*.8);
     position: relative;
     z-index: 1;
     font-weight: bold;
     text-transform: uppercase;
-    margin-left: 3%;
+    position: absolute;
+    left: 37%;
+    padding-right: 1vw;
   }
   div {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 2%;
+    height: 100%;
+    width: 35%;
   }
 `;
 
 export const ModelPreview = styled.img`
   height: 100%;
-  width: 30%;
-  padding: 0.2em;
   display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Arrow = styled.img`

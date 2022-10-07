@@ -124,7 +124,6 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                 return <Dot key={idx} active={idx === page} />;
               })}
             </DotContainer>
-            {sideMenuOpen}
             <Next
               style={{
                 visibility: page < 1 ? "visible" : "hidden"

@@ -86,6 +86,10 @@ export default function App() {
     };
   }, []);
 
+  React.useEffect(() => {
+    appState.getState().setSelectedModelComponent(null);
+  }, [selectedModel.id]);
+
   return (
     <React.Fragment key={selectedModel.id}>
       <Logo>

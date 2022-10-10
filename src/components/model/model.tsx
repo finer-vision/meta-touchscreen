@@ -61,33 +61,14 @@ export default function Model() {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
-      object.material.transparent = true;
-      object.material.alphaToCoverage = ["Grand Teton Chasis_Vents"].includes(
-        object.material.name
-      );
-      object.material.opacity = 0;
+      const alpha = ["Grand Teton Chasis_Vents"].includes(object.material.name);
+      object.material.transparent = alpha;
+      object.material.alphaToCoverage = alpha;
       object.material.needsUpdate = true;
     });
   }, [model.scene]);
 
   useFrame(() => {
-    const speed = 0.05;
-    model.scene.traverse((object) => {
-      if (!(object instanceof THREE.Mesh)) return;
-      if (!(object.material instanceof THREE.Material)) return;
-      object.material.transparent = true;
-      let opacityEnd = 1;
-      if (selectedModelComponent !== null) {
-        opacityEnd = 0.6;
-      }
-      object.material.opacity = THREE.MathUtils.lerp(
-        object.material.opacity,
-        opacityEnd,
-        speed
-      );
-      object.material.needsUpdate = true;
-    });
-
     if (!rotate) return;
     const group = groupRef.current;
     if (group === null) return;

@@ -46,7 +46,7 @@ const models: Model[] = [
       {
         id: "rpu",
         title: "RPU",
-        position: [0, 2.17, 0],
+        position: [-0.3, 0.16, 0],
         openPosition: [0, 1.075, 1],
         hotspot: {
           description: `The RPU (Reservoir and Pumping Unit) provides the pressure head and distributes coolant to the entire Air Assisted Liquid Cooling (AALC) solution.​ The RPU also serves as the brain for AALC solution, which is responsible for control and monitoring of the system. How does it work? Cooled fluid flows into the RPU from the heat exchanger. Coolant collects in the RPU reservoir and is pulled into 2 pumps (the other 2 pumps are redundant). The pumps create pressure to push the coolant back out of the RPU. Finally the coolant flows out of the RPU into the cold manifold in front of the rack.`,
@@ -57,7 +57,7 @@ const models: Model[] = [
       {
         id: "ttv",
         title: "TTV",
-        position: [0, 2.075, 0],
+        position: [0.305, 1.258, 0.09],
         openPosition: [0, 1.075, 1],
         hotspot: {
           description: `Team providing`,
@@ -79,7 +79,7 @@ const models: Model[] = [
       {
         id: "blind-mate-chassis",
         title: "BLIND MATE CHASSIS",
-        position: [0, 2.17, 0],
+        position: [0, 1.63, -0.06],
         openPosition: [0, 1.075, 1],
         hotspot: {
           description: `Blind mate chassis is a reference design for future IT gear using blind mating liquid cooling and to provide functional design during development. There are no manual hose connections or manifolds on the front of racks. Instead, blind mate chassis has quick connect plug valves mounted at the rear for mating directly into sockets mounted on the blind mate manifold. Within the chassis, there’s a theoretical liquid cooling passive cold plate loop (PCL) connecting to an internal manifold, which terminates into the hoses that connect to the quick connect plugs at the rear of the chassis. The injector handles are located at the front of the chassis, which have long travel and provide mechanical advantage to overcome the fluid and spring forces to mate the chassis into the rack.`,

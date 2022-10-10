@@ -61,7 +61,7 @@ export default function Model() {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
-      const alpha = ["Grand Teton Chasis_Vents"].includes(object.material.name);
+      const alpha = ["Grand Teton Chasis_Vents", "Vents"].includes(object.material.name);
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;
       object.material.needsUpdate = true;

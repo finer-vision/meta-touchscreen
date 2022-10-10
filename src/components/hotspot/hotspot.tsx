@@ -23,6 +23,7 @@ type GLTFResult = GLTF & {
 };
 
 type Props = Omit<GroupProps, "position"> & {
+  show?: boolean;
   modelId: string;
   modelComponent: ModelComponent;
   title: string;
@@ -43,6 +44,7 @@ enum Step {
 }
 
 export default function Hotspot({
+  show = true,
   modelId,
   modelComponent,
   title,
@@ -68,12 +70,26 @@ export default function Hotspot({
   }, [nodes.Hotspot_Surround_01]);
 
   const pillGroupRef = React.useRef<THREE.Group>(null);
+  const groupRef = React.useRef<THREE.Group>(null);
 
   useFrame(() => {
+    const group = groupRef.current;
+    if (group === null) return;
     const pillGroup = pillGroupRef.current;
     if (pillGroup === null) return;
     const speed = 0.05;
     pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
+    group.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = THREE.MathUtils.lerp(
+        object.material.opacity,
+        show ? 1 : 0,
+        0.05
+      );
+      object.material.needsUpdate = true;
+    });
   });
 
   const labelPosition = React.useMemo<[x: number, y: number, z: number]>(() => {
@@ -110,6 +126,7 @@ export default function Hotspot({
   const handleClick = React.useCallback(
     (event: ThreeEvent<MouseEvent>) => {
       event.stopPropagation();
+      if (!show) return;
       switch (step) {
         case Step.initial:
           setStep(Step.open);
@@ -132,12 +149,12 @@ export default function Hotspot({
           });
       }
     },
-    [step]
+    [step, show]
   );
 
   return (
     <>
-      <group rotation={rotation}>
+      <group ref={groupRef} rotation={rotation}>
         <a.group
           {...props}
           {...groupProps}

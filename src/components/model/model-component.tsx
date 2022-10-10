@@ -19,7 +19,7 @@ export default function ModelComponent({
   path,
   component,
   open = true,
-  showHotspot = true
+  showHotspot = true,
 }: Props) {
   const model = useGLTF(path);
 
@@ -55,21 +55,20 @@ export default function ModelComponent({
     <a.group position={props.position}>
       <group scale={component.scale}>
         <primitive object={model.scene} />
-        {showHotspot && (
-          <Hotspot
-            modelId={modelId}
-            modelComponent={component}
-            title={open ? "MORE INFO" : component.title}
-            info={{
-              title: component.title,
-              description: component.hotspot.description,
-            }}
-            position={
-              open ? component.hotspot.openPosition : component.hotspot.position
-            }
-            flipped={component.hotspot.flipped}
-          />
-        )}
+        <Hotspot
+          show={showHotspot}
+          modelId={modelId}
+          modelComponent={component}
+          title={open ? "MORE INFO" : component.title}
+          info={{
+            title: component.title,
+            description: component.hotspot.description,
+          }}
+          position={
+            open ? component.hotspot.openPosition : component.hotspot.position
+          }
+          flipped={component.hotspot.flipped}
+        />
       </group>
     </a.group>
   );

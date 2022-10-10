@@ -71,14 +71,9 @@ const models: Model[] = [
   {
     id: "blind-mate-interfaces",
     title: "BLIND MATE INTERFACES",
-    scale: 2,
-    position: [0, -0.15, 0],
-    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
-    hotspot: {
-      description: `Get to know the ORV3 Blind-mate Interfaces. These solutions are designed to enable liquid cooling at scale, with optimized serviceability. The overarching aims are to reduce human interaction and error, as well as dramatically reducing service and maintenance time. The blind mate solutions include blind mate valves, manifolds, rack frame interfaces, hoses and tubing, and a unique chassis designed specifically for blind-mate applications. All of which can be easily integrated into ORV3.`,
-      position: [-0.15, 0.25, 0],
-      rotation: [0, THREE.MathUtils.degToRad(20), 0],
-    },
+    scale: 1,
+    position: [0, -1.3, 0],
+    rotation: [0, 0, 0],
     components: [
       {
         id: "blind-mate-chassis",
@@ -88,21 +83,21 @@ const models: Model[] = [
         hotspot: {
           description: `Open Rack V3 has many new features that will improve how we design, configure, build, deploy and manage our IT gear. ORV3 features a new 48v power systems & distributed busbar that can support higher power densities and faster load transients, as well as an increased battery backup system providing up to 4 minutes of backup during outage events. It also supports flexible IT gear form factors for supporting OpenU & RU gear, pluggable connection to the busbar, flexible shelf placement locations, and increased rack height with support for tool-less rails to enable more gear and faster development.`,
           position: [0, 0.1, 0.6],
-          openPosition: [-0.25, 0.2, 0.3],
+          openPosition: [-0.15, 0.2, 0.3],
         },
       },
-      {
-        id: "blind-mate-manifold",
-        title: "BLIND MATE MANIFOLD",
-        position: [0, 2.075, 0],
-        openPosition: [0, 1.075, 1],
-        hotspot: {
-          description: `The increased performance Battery Backup (BBU) module has a 4 minute capacity compared to 90 seconds in its predecessor. It also has more capacity with 15 kilowatts of power as well as increased flexibility. Similar to the Power Shelf, you can put the BBU in any location you want to customize your needs.`,
-          position: [0.05, -0.1, 0.6],
-          openPosition: [0.25, 0.25, 0.38],
-          flipped: true,
-        },
-      },
+      // {
+      //   id: "blind-mate-manifold",
+      //   title: "BLIND MATE MANIFOLD",
+      //   position: [0, 2.075, 0],
+      //   openPosition: [0, 1.075, 1],
+      //   hotspot: {
+      //     description: `The increased performance Battery Backup (BBU) module has a 4 minute capacity compared to 90 seconds in its predecessor. It also has more capacity with 15 kilowatts of power as well as increased flexibility. Similar to the Power Shelf, you can put the BBU in any location you want to customize your needs.`,
+      //     position: [0.05, -0.1, 0.6],
+      //     openPosition: [0.25, 0.25, 0.38],
+      //     flipped: true,
+      //   },
+      // },
     ],
   },
   {
@@ -116,7 +111,7 @@ const models: Model[] = [
       description: `The liquid cooling cart is Meta’s solution to servicing liquid cooled equipment in our data centers.
 
       This battery powered cart is capable of handling 50 liters of coolant at a time, and performs operations such as filling, draining, and purging the rack.
-      
+
       By developing this cart, we enable our data center technicians to confidently interact with liquid enabled equipment in all data center variants.`,
       flipped: true,
       openPosition: [0, 0, 0],

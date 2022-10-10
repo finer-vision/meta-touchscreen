@@ -10,6 +10,7 @@ import { Subscription } from "@/types";
 import { appState } from "@/state/app-state";
 import ModelInfo from "../model-info/model-info";
 import { Logo } from "@/pages/home-page/home-page.style";
+import Screensaver from "@/components/screensaver/screensaver";
 
 // Preload assets
 const modelPaths = models
@@ -90,6 +91,43 @@ export default function App() {
     appState.getState().setSelectedModelComponent(null);
   }, [selectedModel.id]);
 
+  const [showScreensaver, setShowScreensaver] = React.useState(false);
+
+  React.useEffect(() => {
+    if (showScreensaver) {
+      function onPointerDown() {
+        setShowScreensaver(false);
+      }
+
+      window.addEventListener("pointerdown", onPointerDown);
+      return () => {
+        window.removeEventListener("pointerdown", onPointerDown);
+      };
+    }
+
+    let timeout: NodeJS.Timeout;
+
+    function resetScreensaverTimeout() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setShowScreensaver(true);
+      }, 60000);
+    }
+
+    resetScreensaverTimeout();
+    window.addEventListener("pointerdown", resetScreensaverTimeout);
+    window.addEventListener("pointermove", resetScreensaverTimeout);
+    window.addEventListener("pointerup", resetScreensaverTimeout);
+    window.addEventListener("pointercancel", resetScreensaverTimeout);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("pointerdown", resetScreensaverTimeout);
+      window.removeEventListener("pointermove", resetScreensaverTimeout);
+      window.removeEventListener("pointerup", resetScreensaverTimeout);
+      window.removeEventListener("pointercancel", resetScreensaverTimeout);
+    };
+  }, [showScreensaver]);
+
   return (
     <React.Fragment key={selectedModel.id}>
       <Logo>
@@ -117,6 +155,7 @@ export default function App() {
         />
       </Canvas>
       <Homepage />
+      {showScreensaver && <Screensaver />}
     </React.Fragment>
   );
 }

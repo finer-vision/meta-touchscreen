@@ -49,6 +49,7 @@ export default function Model() {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
       object.material.transparent = true;
+      object.material.alphaToCoverage = true;
       object.material.opacity = 0;
       object.material.needsUpdate = true;
     });

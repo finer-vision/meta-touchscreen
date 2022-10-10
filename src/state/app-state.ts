@@ -20,7 +20,7 @@ interface ModelInfoProps {
 
 export const appState = create<AppState>((set) => {
   return {
-    selectedModel: models[3],
+    selectedModel: models[4],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },

@@ -4,8 +4,9 @@ import { GLTF } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
 import { Html, Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
-import { ModelComponent, Vector } from "@/types";
+import { ModelComponent, Subscription, Vector } from "@/types";
 import { appState } from "@/state/app-state";
+import useSubscription from "@/hooks/use-subscription";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -58,9 +59,9 @@ export default function Hotspot({
 
   const [width, setWidth] = React.useState(1);
 
-  const modelInfoRoot = React.useMemo(() => {
-    return document.querySelector<HTMLDivElement>("#root-model-info");
-  }, []);
+  useSubscription(Subscription.closeHotspot, () => {
+    setStep(Step.initial);
+  });
 
   const x2 = React.useMemo(() => {
     return nodes.Hotspot_Surround_01.geometry.boundingBox.max.x * -0.5;

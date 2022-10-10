@@ -98,6 +98,7 @@ export default function App() {
         description={modelInfo?.description}
         onClose={() => {
           appState.getState().setModelInfo(null);
+          useSubscription.emit(Subscription.closeHotspot);
         }}
       />
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>

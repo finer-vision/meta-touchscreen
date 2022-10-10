@@ -6,7 +6,6 @@ import Hotspot from "@/components/hotspot/hotspot";
 
 type Props = {
   modelId: string;
-  path: string;
   component: ModelComponentType;
   open?: boolean;
   showHotspot?: boolean;
@@ -14,12 +13,11 @@ type Props = {
 
 export default function ModelComponent({
   modelId,
-  path,
   component,
   open = true,
   showHotspot = true,
 }: Props) {
-  const model = useGLTF(path);
+  const model = useGLTF(component.path);
 
   const props = useSpring({
     position: open ? component.openPosition : component.position,

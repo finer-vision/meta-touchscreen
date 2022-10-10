@@ -3,6 +3,8 @@ import { Model, ModelComponent } from "@/types";
 import models from "@/config/models";
 
 type AppState = {
+  showScreensaver: boolean;
+  setShowScreensaver: (showScreensaver: AppState["showScreensaver"]) => void;
   selectedModel: Model;
   setSelectedModel: (selectedModel: AppState["selectedModel"]) => void;
   selectedModelComponent: ModelComponent | null;
@@ -20,6 +22,10 @@ interface ModelInfoProps {
 
 export const appState = create<AppState>((set) => {
   return {
+    showScreensaver: false,
+    setShowScreensaver(showScreensaver) {
+      set({ showScreensaver });
+    },
     selectedModel: models[0],
     setSelectedModel(selectedModel) {
       set({ selectedModel });

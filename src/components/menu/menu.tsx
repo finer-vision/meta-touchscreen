@@ -58,6 +58,15 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
     return modelsPages[page] ?? [];
   }, [page, modelsPages]);
 
+  const showScreensaver = appState((state) => state.showScreensaver);
+
+  React.useEffect(() => {
+    if (showScreensaver) {
+      setSideMenuOpen(-1);
+      animateMenu();
+    }
+  }, [showScreensaver]);
+
   return (
     <MenuWrapper
       style={{

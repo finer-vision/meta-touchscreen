@@ -21,6 +21,14 @@ export default function ScreenSaver() {
   const [rotate, setRotate] = React.useState(false);
   const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
 
+  const showScreensaver = appState((state) => state.showScreensaver);
+
+  React.useEffect(() => {
+    if (showScreensaver) {
+      setMainMenuOpen(false);
+    }
+  }, [showScreensaver]);
+
   const selectedModel = appState((state) => state.selectedModel);
   const modelInfo = appState((state) => state.modelInfo);
 

@@ -1,8 +1,6 @@
 import * as THREE from "three";
 import { Model } from "@/types";
 
-const PLACEHOLDER_DESCRIPTION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubiaLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti`;
-
 const models: Model[] = [
   {
     id: "orv3",
@@ -10,8 +8,10 @@ const models: Model[] = [
     position: [0, -1.7, 0],
     componentOpenPosition: [0, -1.7, -1],
     scale: 1.3,
+    path: `./assets/models/orv3/orv3.glb`,
     components: [
       {
+        path: `./assets/models/orv3/power-shelf.glb`,
         id: "power-shelf",
         title: "POWER SHELF",
         position: [0, 2.17, 0],
@@ -23,6 +23,7 @@ const models: Model[] = [
         },
       },
       {
+        path: `./assets/models/orv3/bbu.glb`,
         id: "bbu",
         title: "BATTERY BACK UP",
         position: [0, 2.075, 0],
@@ -42,8 +43,10 @@ const models: Model[] = [
     position: [0, -1.3, 0],
     componentOpenPosition: [0, -1.3, -1],
     scale: 1,
+    path: `./assets/models/noahs-ark/noahs-ark.glb`,
     components: [
       {
+        path: `./assets/models/noahs-ark/rpu.glb`,
         id: "rpu",
         title: "RPU",
         position: [-0.3, 0.16, 0],
@@ -55,6 +58,7 @@ const models: Model[] = [
         },
       },
       {
+        path: `./assets/models/noahs-ark/ttv.glb`,
         id: "ttv",
         title: "TTV",
         position: [0.305, 1.258, 0.09],
@@ -69,6 +73,7 @@ const models: Model[] = [
     ],
   },
   {
+    path: `./assets/models/blind-mate-interfaces/blind-mate-interfaces.glb`,
     id: "blind-mate-interfaces",
     title: "BLIND MATE INTERFACES",
     scale: 1,
@@ -77,6 +82,7 @@ const models: Model[] = [
     rotation: [0, 0, 0],
     components: [
       {
+        path: `./assets/models/blind-mate-interfaces/blind-mate-chassis.glb`,
         id: "blind-mate-chassis",
         title: "BLIND MATE CHASSIS",
         position: [0, 1.63, -0.06],
@@ -88,6 +94,7 @@ const models: Model[] = [
         },
       },
       // {
+      //   path: `./assets/models/blind-mate-interfaces/blind-mate-manifold.glb`,
       //   id: "blind-mate-manifold",
       //   title: "BLIND MATE MANIFOLD",
       //   position: [0, 2.075, 0],
@@ -102,6 +109,7 @@ const models: Model[] = [
     ],
   },
   {
+    path: `./assets/models/liquid-cooling-cart/liquid-cooling-cart.glb`,
     id: "liquid-cooling-cart",
     title: "LIQUID COOLING CART",
     rotation: [0, THREE.MathUtils.degToRad(-60), 0],
@@ -121,6 +129,7 @@ const models: Model[] = [
     },
   },
   {
+    path: `./assets/models/wedge-400c/wedge-400c.glb`,
     id: "wedge-400c",
     title: "WEDGE 400C",
     position: [0, 0, 0],
@@ -129,6 +138,7 @@ const models: Model[] = [
     scale: 1.5,
     components: [
       {
+        path: `./assets/models/wedge-400c/rack-adapter.glb`,
         id: "rack-adapter",
         title: "RACK ADAPTER",
         position: [0, 0, 0],
@@ -141,6 +151,7 @@ const models: Model[] = [
         },
       },
       {
+        path: `./assets/models/wedge-400c/module.glb`,
         id: "module",
         title: "MODULE",
         position: [0, 0, 0],
@@ -156,6 +167,7 @@ const models: Model[] = [
     ],
   },
   {
+    path: `./assets/models/minipack2/minipack2.glb`,
     id: "minipack2",
     title: "MINIPACK2",
     scale: 2,
@@ -175,6 +187,7 @@ const models: Model[] = [
     },
   },
   {
+    path: `./assets/models/grand-canyon/grand-canyon.glb`,
     id: "grand-canyon",
     title: "GRAND CANYON",
     scale: 1.5,
@@ -193,6 +206,7 @@ const models: Model[] = [
     },
   },
   {
+    path: `./assets/models/grand-teton/grand-teton.glb`,
     id: "grand-teton",
     title: "GRAND TETON",
     position: [0, -0.3, 0],
@@ -201,6 +215,7 @@ const models: Model[] = [
     scale: 1.75,
     components: [
       {
+        path: `./assets/models/grand-teton/arrowhead-pools.glb`,
         id: "arrowhead-pools",
         title: "ARROWHEAD POOLS",
         position: [0, 0, 0.1],
@@ -213,6 +228,7 @@ const models: Model[] = [
         },
       },
       {
+        path: `./assets/models/grand-teton/storm-point.glb`,
         id: "storm-point",
         title: "STORM POINT",
         position: [0, 0.28, 0.1],
@@ -230,6 +246,7 @@ This new CPU tray has increased memory, bandwidth and performance compared to it
         },
       },
       {
+        path: `./assets/models/grand-teton/cascade-creek.glb`,
         id: "cascade-creek",
         title: "CASCADE CREEK",
         position: [0, 0.18, 0.1],
@@ -248,11 +265,13 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     ],
   },
   {
+    path: `./assets/models/glacier-point/glacier-point.glb`,
     id: "glacier-point",
     title: "GLACIER POINT",
     components: [],
   },
   {
+    path: `./assets/models/discovery-point/discovery-point.glb`,
     id: "discovery-point",
     title: "DISCOVERY POINT",
     components: [],

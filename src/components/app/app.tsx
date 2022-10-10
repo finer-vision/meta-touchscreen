@@ -12,20 +12,6 @@ import ModelInfo from "../model-info/model-info";
 import { Logo } from "@/pages/home-page/home-page.style";
 import Screensaver from "@/components/screensaver/screensaver";
 
-// Preload assets
-const modelPaths = models
-  .map((model) => {
-    return [
-      `./assets/models/${model.id}/${model.id}.glb`,
-      ...model.components.map((component) => {
-        return `./assets/models/${model.id}/${component.id}.glb`;
-      }),
-    ];
-  })
-  .flat();
-useGLTF.preload(modelPaths);
-useGLTF.preload("./assets/hotspot.glb");
-
 export default function App() {
   React.useEffect(() => {
     function onContextMenu(event: MouseEvent) {
@@ -41,8 +27,50 @@ export default function App() {
   const controlsRef = React.useRef<OrbitControlsType>(null);
 
   const [mounted, setMounted] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
 
   React.useEffect(() => {
+    // Preload assets
+    const modelPaths = models
+      .map((model) => {
+        return [
+          `./assets/models/${model.id}/${model.id}.glb`,
+          ...model.components.map((component) => {
+            return `./assets/models/${model.id}/${component.id}.glb`;
+          }),
+        ];
+      })
+      .flat();
+    useGLTF.preload("./assets/hotspot.glb");
+    const pending: Promise<void>[] = [];
+    for (const modelPath of modelPaths) {
+      pending.push(
+        fetch(modelPath)
+          .then((res) => res.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            models.forEach((model) => {
+              if (model.path === modelPath) {
+                model.path = url;
+              }
+              model.components.forEach((component) => {
+                if (component.path === modelPath) {
+                  component.path = url;
+                }
+              });
+            });
+            useGLTF.preload(url);
+          })
+          .catch((err) => console.error(err))
+      );
+    }
+    Promise.all(pending).finally(() => {
+      setLoaded(true);
+    });
+  }, []);
+
+  React.useEffect(() => {
+    if (!loaded) return;
     if (!mounted) {
       setMounted(true);
       return;
@@ -50,7 +78,7 @@ export default function App() {
     const controls = controlsRef.current;
     if (controls === null) return;
     controls.saveState();
-  }, [mounted]);
+  }, [mounted, loaded]);
 
   const onReset = React.useCallback(() => {
     const controls = controlsRef.current;
@@ -92,7 +120,8 @@ export default function App() {
     appState.getState().setModelInfo(null);
   }, [selectedModel.id]);
 
-  const [showScreensaver, setShowScreensaver] = React.useState(false);
+  const showScreensaver = appState((state) => state.showScreensaver);
+  const setShowScreensaver = appState((state) => state.setShowScreensaver);
 
   React.useEffect(() => {
     if (showScreensaver) {
@@ -142,14 +171,15 @@ export default function App() {
     }
   }, [showScreensaver]);
 
+  if (!loaded) return null;
+
   return (
-    <React.Fragment key={selectedModel.id}>
+    <React.Fragment>
       <Logo>
         <video ref={logoRef} src="./assets/logo.webm" muted autoPlay />
         <span>Meta</span>
       </Logo>
       <ModelInfo
-        key={showScreensaver ? "info-1" : "info-0"}
         show={modelInfo}
         title={modelInfo?.title}
         description={modelInfo?.description}
@@ -159,7 +189,9 @@ export default function App() {
         }}
       />
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
-        <Model key={selectedModel.id} />
+        <React.Suspense fallback={<></>}>
+          <Model key={selectedModel.id} />
+        </React.Suspense>
         <ambientLight />
         <OrbitControls
           ref={controlsRef}
@@ -169,7 +201,7 @@ export default function App() {
           maxPolarAngle={Math.PI * 0.75}
         />
       </Canvas>
-      <Homepage key={showScreensaver ? "home-1" : "home-0"} />
+      <Homepage />
       {showScreensaver && <Screensaver />}
     </React.Fragment>
   );

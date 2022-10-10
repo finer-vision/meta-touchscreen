@@ -15,9 +15,7 @@ export default function Model() {
   const selectedModelComponent = appState(
     (state) => state.selectedModelComponent
   );
-  const model = useGLTF(
-    `./assets/models/${selectedModel.id}/${selectedModel.id}.glb`
-  );
+  const model = useGLTF(selectedModel.path);
 
   const animation = useAnimations(model.animations, model.scene);
   const [animating, setAnimating] = React.useState(false);
@@ -43,6 +41,12 @@ export default function Model() {
   const groupRef = React.useRef<THREE.Group>(null);
   const [rotate, setRotate] = React.useState(false);
 
+  const showScreensaver = appState((state) => state.showScreensaver);
+
+  React.useEffect(() => {
+    setRotate(showScreensaver);
+  }, [showScreensaver]);
+
   useSubscription(Subscription.rotate, () => {
     setRotate(true);
   });
@@ -61,7 +65,9 @@ export default function Model() {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
-      const alpha = ["Grand Teton Chasis_Vents", "Vents"].includes(object.material.name);
+      const alpha = ["Grand Teton Chasis_Vents", "Vents"].includes(
+        object.material.name
+      );
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;
       object.material.needsUpdate = true;
@@ -124,7 +130,6 @@ export default function Model() {
                     key={index}
                     modelId={selectedModel.id}
                     component={component}
-                    path={`./assets/models/${selectedModel.id}/${component.id}.glb`}
                     open={selectedModelComponent?.id === component.id}
                     showHotspot={
                       !rotate &&

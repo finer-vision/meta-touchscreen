@@ -5,6 +5,7 @@ import { a, useSpring } from "@react-spring/three";
 import Hotspot from "@/components/hotspot/hotspot";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import { appState } from "@/state/app-state";
 
 type Props = {
   modelId: string;
@@ -23,17 +24,13 @@ export default function ModelComponent({
 }: Props) {
   const model = useGLTF(path);
 
-  React.useMemo(() => {
-    model.scene.traverse((object) => {
-      if (!(object instanceof THREE.Mesh)) return;
-      if (!(object.material instanceof THREE.Material)) return;
-      object.material.depthWrite = !object.material.transparent;
-    });
-  }, [model.scene]);
-
   const props = useSpring({
     position: open ? component.openPosition : component.position,
   });
+
+  const selectedModelComponent = appState(
+    (state) => state.selectedModelComponent
+  );
 
   React.useEffect(() => {
     model.scene.traverse((object) => {
@@ -50,9 +47,17 @@ export default function ModelComponent({
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      let opacityEnd = 1;
+      if (
+        selectedModelComponent !== null &&
+        selectedModelComponent.id !== component.id
+      ) {
+        opacityEnd = 0.6;
+      }
       object.material.opacity = THREE.MathUtils.lerp(
         object.material.opacity,
-        1,
+        opacityEnd,
         speed
       );
       object.material.needsUpdate = true;

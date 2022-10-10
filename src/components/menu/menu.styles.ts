@@ -118,6 +118,7 @@ export const DropDownImage = styled.div<DropDownImageProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+
   img {
     height: 100%;
     width: auto;

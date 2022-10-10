@@ -4,66 +4,66 @@ import vars from "./vars";
 
 export default createGlobalStyle`
   @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-Caption.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-Caption.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-Caption.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-Caption.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-CaptionBold.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-CaptionBold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "PT Sans Caption";
-      src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
-        url("./assets/fonts/PTSans-Caption.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "PT Sans Caption";
+    src: url("./assets/fonts/PTSans-Caption.woff2") format("woff2"),
+    url("./assets/fonts/PTSans-Caption.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
-    @font-face {
-      font-family: "Meta";
-      src: url("./assets/fonts/Poligon-Regular.otf") format("opentype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+  @font-face {
+    font-family: "Meta";
+    src: url("./assets/fonts/Poligon-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
   :root {
     --gap: 1rem;
@@ -78,7 +78,7 @@ export default createGlobalStyle`
     --z-index-modal: 1;
     --z-index-actions: 2;
     --z-index-side-modal: 3;
-	  --circular-chart-stroke-width: 1.5;
+    --circular-chart-stroke-width: 1.5;
   }
 
   * {
@@ -101,7 +101,7 @@ export default createGlobalStyle`
     overscroll-behavior: none;
     overflow: hidden;
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   html {

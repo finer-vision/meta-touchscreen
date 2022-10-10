@@ -56,14 +56,18 @@ export default function Model() {
   }, []);
 
   useFrame(() => {
-    const speed = 0.01;
+    const speed = 0.05;
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
       object.material.transparent = true;
+      let opacityEnd = 1;
+      if (selectedModelComponent !== null) {
+        opacityEnd = 0.6;
+      }
       object.material.opacity = THREE.MathUtils.lerp(
         object.material.opacity,
-        1,
+        opacityEnd,
         speed
       );
       object.material.needsUpdate = true;
@@ -116,8 +120,9 @@ export default function Model() {
                     path={`./assets/models/${selectedModel.id}/${component.id}.glb`}
                     open={selectedModelComponent?.id === component.id}
                     showHotspot={
-                      !rotate && (selectedModelComponent === null ||
-                      selectedModelComponent?.id === component.id)
+                      !rotate &&
+                      (selectedModelComponent === null ||
+                        selectedModelComponent?.id === component.id)
                     }
                   />
                 );

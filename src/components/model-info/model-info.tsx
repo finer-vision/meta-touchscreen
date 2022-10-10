@@ -45,7 +45,11 @@ export default function ModelInfo({
               </ModelInfoClose>
             </ModelInfoHeader>
             <ModelInfoBody>
-              <p>{description}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: description.replace(/\n+/gim, "<br/>"),
+                }}
+              />
             </ModelInfoBody>
           </ModelInfoContainer>
         </ModelInfoWrapper>

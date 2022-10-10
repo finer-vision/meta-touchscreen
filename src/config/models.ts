@@ -39,9 +39,9 @@ const models: Model[] = [
   {
     id: "noahs-ark",
     title: "NOAH'S ARK",
-    position: [0, -1.7, 0],
-    componentOpenPosition: [0, -1.7, -1],
-    scale: 1.3,
+    position: [0, -1.3, 0],
+    componentOpenPosition: [0, -1.3, -1],
+    scale: 1,
     components: [
       {
         id: "rpu",

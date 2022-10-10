@@ -143,7 +143,7 @@ export default function App() {
   }, [showScreensaver]);
 
   return (
-    <React.Fragment key={selectedModel.id}>
+    <React.Fragment key={`${selectedModel.id}-${showScreensaver}`}>
       <Logo>
         <video ref={logoRef} src="./assets/logo.webm" muted autoPlay />
         <span>Meta</span>

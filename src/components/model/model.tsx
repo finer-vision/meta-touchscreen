@@ -66,6 +66,7 @@ export default function Model() {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
       const alpha = [
+        "BLMTCH_Vents",
         "Grand Teton Chasis_Vents",
         "Vents",
         "MiniPK front_Vents",

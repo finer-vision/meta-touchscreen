@@ -112,7 +112,7 @@ export default function App() {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         setShowScreensaver(true);
-      }, 60000);
+      }, 2000);
     }
 
     resetScreensaverTimeout();
@@ -129,7 +129,7 @@ export default function App() {
     };
   }, [showScreensaver]);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (showScreensaver) {
       appState.getState().setSelectedModel(models[0]);
       appState.getState().setSelectedModelComponent(null);
@@ -143,12 +143,13 @@ export default function App() {
   }, [showScreensaver]);
 
   return (
-    <React.Fragment key={`${selectedModel.id}-${showScreensaver}`}>
+    <React.Fragment key={selectedModel.id}>
       <Logo>
         <video ref={logoRef} src="./assets/logo.webm" muted autoPlay />
         <span>Meta</span>
       </Logo>
       <ModelInfo
+        key={showScreensaver ? "info-1" : "info-0"}
         show={modelInfo}
         title={modelInfo?.title}
         description={modelInfo?.description}
@@ -168,7 +169,7 @@ export default function App() {
           maxPolarAngle={Math.PI * 0.75}
         />
       </Canvas>
-      <Homepage />
+      <Homepage key={showScreensaver ? "home-1" : "home-0"} />
       {showScreensaver && <Screensaver />}
     </React.Fragment>
   );

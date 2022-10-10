@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { Canvas } from "@react-three/fiber";
@@ -9,7 +9,6 @@ import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
 import { appState } from "@/state/app-state";
 import ModelInfo from "../model-info/model-info";
-import { AnimatePresence } from "framer-motion";
 import { Logo } from "@/pages/home-page/home-page.style";
 
 // Preload assets
@@ -71,31 +70,35 @@ export default function App() {
     useSubscription.emit(Subscription.reset);
   }, [selectedModel.id]);
 
-  const LogoRef = React.useRef<HTMLVideoElement>();
+  const logoRef = React.useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
+  // Loop logo video every 10 seconds
+  React.useEffect(() => {
+    const logo = logoRef.current;
     const playInterval = setInterval(() => {
-      LogoRef.current?.play()
-    }, 10000)
-
+      if (logo === null) return;
+      logo.play().catch((err) => {
+        console.error(err);
+      });
+    }, 10000);
     return () => {
-      clearInterval(playInterval)
-    }
-  }, [])
+      clearInterval(playInterval);
+    };
+  }, []);
 
   return (
     <React.Fragment key={selectedModel.id}>
       <Logo>
-        <video ref={LogoRef} src="./assets/logo.webm" muted autoPlay/>
+        <video ref={logoRef} src="./assets/logo.webm" muted autoPlay />
         <span>Meta</span>
       </Logo>
       <ModelInfo
-          show={modelInfo}
-          title={modelInfo?.title}
-          description={modelInfo?.description}
-          onClose={() => {
-            appState.getState().setModelInfo(null);
-          }}
+        show={modelInfo}
+        title={modelInfo?.title}
+        description={modelInfo?.description}
+        onClose={() => {
+          appState.getState().setModelInfo(null);
+        }}
       />
       <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <Model key={selectedModel.id} />

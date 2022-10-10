@@ -35,16 +35,16 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   const controls = useAnimationControls();
 
   useEffect(() => {
-    if(mainMenuOpen) {
+    if (mainMenuOpen) {
       controls.set(() => ({
-        opacity: 0
-      }))
-      controls.start(i => ({
+        opacity: 0,
+      }));
+      controls.start((i) => ({
         opacity: 1,
         transition: { delay: i * 0.2 },
-      }))
+      }));
     }
-  }, [mainMenuOpen, page])
+  }, [mainMenuOpen, page]);
 
   const modelsPages = React.useMemo(() => {
     return chunk(models, 7);
@@ -61,7 +61,9 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
   return (
     <MenuWrapper
       style={{
-        transform: mainMenuOpen ? "translateX(0)" : "translateX(calc(-27.275em*.8))",
+        transform: mainMenuOpen
+          ? "translateX(0)"
+          : "translateX(calc(-27.275em*.8))",
       }}
     >
       <MenuLeft>
@@ -74,10 +76,12 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
               const backgroundColor =
                 index === sideMenuOpen ? "#DDDEE0" : undefined;
               return (
-                <MainItem 
-                animate={controls}
-                custom={index}
-                key={model.id} style={{ backgroundColor }}>
+                <MainItem
+                  animate={controls}
+                  custom={index}
+                  key={model.id}
+                  style={{ backgroundColor }}
+                >
                   <MainItemFlex
                     style={{ backgroundColor }}
                     onClick={() => {
@@ -99,8 +103,19 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       />
                     </div>
                     <span>{model.title}</span>
-                    <Arrow style={{ opacity: model.components.length > 0 ? 1 : 0 }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    <Arrow
+                      style={{ opacity: model.components.length > 0 ? 1 : 0 }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
                     </Arrow>
                   </MainItemFlex>
                 </MainItem>
@@ -110,7 +125,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           <NavWrapper>
             <Prev
               style={{
-                visibility: page > 0 ? "visible" : "hidden"
+                visibility: page > 0 ? "visible" : "hidden",
               }}
               onClick={() => {
                 setSideMenuOpen(-1);
@@ -126,11 +141,11 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
             </DotContainer>
             <Next
               style={{
-                visibility: page < 1 ? "visible" : "hidden"
+                visibility: page < 1 ? "visible" : "hidden",
               }}
               onClick={() => {
                 setSideMenuOpen(-1);
-                setPage((active) => Math.min(totalPages-1, active + 1));
+                setPage((active) => Math.min(totalPages - 1, active + 1));
               }}
             >
               <img src="./assets/images/next.svg" alt="Next" />
@@ -138,22 +153,22 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </NavWrapper>
           <>
             {modelsInPage.map((model, index) => {
-                const top = (() => {
-                  switch(sideMenuOpen) {
-                    default:
-                      return `1em`;
-                    case 1: 
-                      return `6.4em`; 
-                    case 2: 
-                      return `11.7em`;
-                    case 3: 
-                      return `15em`; 
-                    case 4: 
-                      return `22.4em`; 
-                    case 5: 
-                      return `18.75em`; 
-                  }
-                })()
+              const top = (() => {
+                switch (sideMenuOpen) {
+                  default:
+                    return `1em`;
+                  case 1:
+                    return `6.4em`;
+                  case 2:
+                    return `11.7em`;
+                  case 3:
+                    return `15em`;
+                  case 4:
+                    return `22.4em`;
+                  case 5:
+                    return `18.75em`;
+                }
+              })();
               return (
                 <DropDown
                   style={{ top }}
@@ -163,12 +178,16 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                   <DropDownItemFlex
                     onClick={() => {
                       appState.getState().setSelectedModel(model);
+                      appState.getState().setSelectedModelComponent(null);
                       setSideMenuOpen(-1);
                       animateMenu();
                     }}
                   >
                     <DropDownImage>
-                      <img src={`./assets/models/${model.id}/${model.id}.png`}/>
+                      <img
+                        src={`./assets/models/${model.id}/${model.id}.png`}
+                        alt=""
+                      />
                     </DropDownImage>
                     <span>{model.title}</span>
                   </DropDownItemFlex>
@@ -177,10 +196,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                       <DropDownItemFlex
                         key={index}
                         onClick={() => {
-                          appState
-                            .getState()
-                            .setSelectedModel(model)
-
+                          appState.getState().setSelectedModel(model);
                           setTimeout(() => {
                             appState
                               .getState()
@@ -190,10 +206,12 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                           }, 100);
                         }}
                       >
-                          <DropDownImage id={component.id}>
-                            <img src={`./assets/models/${model.id}/${component.id}.png`}/>
-                          </DropDownImage>
-                          <span>{component.title}</span>
+                        <DropDownImage id={component.id}>
+                          <img
+                            src={`./assets/models/${model.id}/${component.id}.png`}
+                          />
+                        </DropDownImage>
+                        <span>{component.title}</span>
                       </DropDownItemFlex>
                     );
                   })}
@@ -203,28 +221,48 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
           </>
         </Main>
       </MenuLeft>
-      {!appState((state) => state.modelInfo) && <MenuHandle
-        onClick={() => {
-          setSideMenuOpen(-1);
-          animateMenu();
-        }}
-      >
-        <div>
-          {mainMenuOpen
-            ? <>
-              <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              <span id="close-text">Close</span>
-            </>
-            : <>
-            <svg id="open-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
-            </svg>
-            <span id="open-text">Model List</span>
-          </>}
-        </div>
-      </MenuHandle>}
+      {!appState((state) => state.modelInfo) && (
+        <MenuHandle
+          onClick={() => {
+            setSideMenuOpen(-1);
+            animateMenu();
+          }}
+        >
+          <div>
+            {mainMenuOpen ? (
+              <>
+                <svg
+                  id="close-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={3}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                <span id="close-text">Close</span>
+              </>
+            ) : (
+              <>
+                <svg
+                  id="open-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
+                </svg>
+                <span id="open-text">Model List</span>
+              </>
+            )}
+          </div>
+        </MenuHandle>
+      )}
     </MenuWrapper>
   );
 }

@@ -23,6 +23,14 @@ export default function ModelComponent({
 }: Props) {
   const model = useGLTF(path);
 
+  React.useMemo(() => {
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.depthWrite = !object.material.transparent;
+    });
+  }, [model.scene]);
+
   const props = useSpring({
     position: open ? component.openPosition : component.position,
   });

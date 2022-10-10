@@ -9,6 +9,11 @@ import { appState } from "@/state/app-state";
 import ModelComponent from "@/components/model/model-component";
 import ModelHotspot from "@/components/model-hotspot/model-hotspot";
 import AnimationHotspot from "@/components/animation-hotspot/animation-hotspot";
+import {
+  CustomBlending,
+  NormalBlending,
+  SubtractiveBlending,
+} from "three/src/constants";
 
 export default function Model() {
   const selectedModel = appState((state) => state.selectedModel);
@@ -18,6 +23,15 @@ export default function Model() {
   const model = useGLTF(
     `./assets/models/${selectedModel.id}/${selectedModel.id}.glb`
   );
+
+  React.useMemo(() => {
+    model.scene.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.depthWrite = !object.material.transparent;
+    });
+  }, [model.scene]);
+
   const animation = useAnimations(model.animations, model.scene);
   const [animating, setAnimating] = React.useState(false);
   const mountedRef = React.useRef(false);
@@ -59,13 +73,19 @@ export default function Model() {
   React.useEffect(() => {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
-      if (!(object.material instanceof THREE.Material)) return;
+      if (!(object.material instanceof THREE.MeshStandardMaterial)) return;
+      if (object.material.map instanceof THREE.Texture) {
+        object.material.map.encoding = THREE.LinearEncoding;
+      }
+      object.material.toneMapped = true;
       object.material.transparent = true;
-      object.material.alphaToCoverage = true;
+      object.material.alphaToCoverage = ["Grand Teton Chasis_Vents"].includes(
+        object.material.name
+      );
       object.material.opacity = 0;
       object.material.needsUpdate = true;
     });
-  }, []);
+  }, [model.scene]);
 
   useFrame(() => {
     const speed = 0.05;

@@ -179,6 +179,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
                     onClick={() => {
                       appState.getState().setSelectedModel(model);
                       appState.getState().setSelectedModelComponent(null);
+                      appState.getState().setModelInfo(null);
                       setSideMenuOpen(-1);
                       animateMenu();
                     }}

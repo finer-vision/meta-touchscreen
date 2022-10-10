@@ -89,6 +89,7 @@ export default function App() {
 
   React.useEffect(() => {
     appState.getState().setSelectedModelComponent(null);
+    appState.getState().setModelInfo(null);
   }, [selectedModel.id]);
 
   const [showScreensaver, setShowScreensaver] = React.useState(false);
@@ -97,6 +98,8 @@ export default function App() {
     if (showScreensaver) {
       function onPointerDown() {
         setShowScreensaver(false);
+        useSubscription.emit(Subscription.stopRotate);
+        useSubscription.emit(Subscription.reset);
       }
 
       window.addEventListener("pointerdown", onPointerDown);
@@ -111,6 +114,11 @@ export default function App() {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         setShowScreensaver(true);
+        useSubscription.emit(Subscription.reset);
+        useSubscription.emit(Subscription.rotate);
+        appState.getState().setSelectedModel(models[0]);
+        appState.getState().setSelectedModelComponent(null);
+        appState.getState().setModelInfo(null);
       }, 60000);
     }
 

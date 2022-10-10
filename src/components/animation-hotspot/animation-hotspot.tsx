@@ -5,7 +5,6 @@ import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
 import { Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
 import { Vector } from "@/types";
-import { appState } from "@/state/app-state";
 
 type GLTFResult = GLTF & {
   nodes: {

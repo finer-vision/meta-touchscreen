@@ -76,14 +76,14 @@ export default function App() {
   // Loop logo video every 10 seconds
   React.useEffect(() => {
     const logo = logoRef.current;
-    const playInterval = setInterval(() => {
+    const interval = setInterval(() => {
       if (logo === null) return;
       logo.play().catch((err) => {
         console.error(err);
       });
     }, 10000);
     return () => {
-      clearInterval(playInterval);
+      clearInterval(interval);
     };
   }, []);
 

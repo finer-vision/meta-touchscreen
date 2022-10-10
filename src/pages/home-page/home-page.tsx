@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import {
   LabelWrapper,
-  Logo,
   MenuWrapper,
   ResetWrapper,
   RotateWrapper,

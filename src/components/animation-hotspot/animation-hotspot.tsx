@@ -4,9 +4,8 @@ import { GLTF } from "three-stdlib";
 import { GroupProps, ThreeEvent, useFrame } from "@react-three/fiber";
 import { Text, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
-import { ModelComponent, Subscription, Vector } from "@/types";
+import { Vector } from "@/types";
 import { appState } from "@/state/app-state";
-import useSubscription from "@/hooks/use-subscription";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,73 +22,38 @@ type GLTFResult = GLTF & {
 };
 
 type Props = Omit<GroupProps, "position"> & {
-  show?: boolean;
-  modelId: string;
-  modelComponent: ModelComponent;
   title: string;
-  info: {
-    title: string;
-    description: string;
-  };
   padding?: number;
   flipped?: boolean;
   position?: Vector;
   rotation?: Vector;
+  onClick: () => void;
 };
 
-enum Step {
-  initial = "initial",
-  open = "open",
-  info = "info",
-}
-
-export default function Hotspot({
-  show = true,
-  modelId,
-  modelComponent,
+export default function AnimationHotspot({
   title,
-  info,
   padding = 0.1,
   flipped = false,
   position,
   rotation,
+  onClick,
   ...props
 }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
 
-  const [step, setStep] = React.useState<Step>(Step.initial);
-
   const [width, setWidth] = React.useState(1);
-
-  useSubscription(Subscription.closeHotspot, () => {
-    setStep(Step.initial);
-  });
 
   const x2 = React.useMemo(() => {
     return nodes.Hotspot_Surround_01.geometry.boundingBox.max.x * -0.5;
   }, [nodes.Hotspot_Surround_01]);
 
   const pillGroupRef = React.useRef<THREE.Group>(null);
-  const groupRef = React.useRef<THREE.Group>(null);
 
   useFrame(() => {
-    const group = groupRef.current;
-    if (group === null) return;
     const pillGroup = pillGroupRef.current;
     if (pillGroup === null) return;
     const speed = 0.05;
     pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
-    group.traverse((object) => {
-      if (!(object instanceof THREE.Mesh)) return;
-      if (!(object.material instanceof THREE.Material)) return;
-      object.material.transparent = true;
-      object.material.opacity = THREE.MathUtils.lerp(
-        object.material.opacity,
-        show ? 1 : 0,
-        0.05
-      );
-      object.material.needsUpdate = true;
-    });
   });
 
   const labelPosition = React.useMemo<[x: number, y: number, z: number]>(() => {
@@ -100,72 +64,19 @@ export default function Hotspot({
     position: position,
   });
 
-  const selectedModel = appState((state) => state.selectedModel);
-  const selectedModelComponent = appState(
-    (state) => state.selectedModelComponent
-  );
-
-  React.useEffect(() => {
-    const selected =
-      selectedModel?.id === modelId &&
-      selectedModelComponent?.id === modelComponent.id;
-    if (selected && step === Step.initial) {
-      setStep(Step.open);
-    }
-    if (!selected && step !== Step.initial) {
-      setStep(Step.initial);
-    }
-  }, [
-    step,
-    selectedModel?.id,
-    selectedModelComponent?.id,
-    modelId,
-    modelComponent.id,
-  ]);
-
   const handleClick = React.useCallback(
     (event: ThreeEvent<MouseEvent>) => {
       event.stopPropagation();
-      if (!show) return;
-      switch (step) {
-        case Step.initial:
-          setStep(Step.open);
-          appState.getState().setSelectedModelComponent(modelComponent);
-          appState.getState().setModelInfo(null);
-          break;
-        case Step.open:
-          setStep(Step.info);
-          appState.getState().setModelInfo({
-            image: `./assets/models/${modelId}/${modelId}.png`,
-            title: info.title,
-            description: info.description,
-          });
-          break;
-        default:
-          appState.getState().setModelInfo({
-            image: `./assets/models/${modelId}/${modelId}.png`,
-            title: info.title,
-            description: info.description,
-          });
-      }
+      onClick();
     },
-    [step, show]
+    [onClick]
   );
 
   return (
     <>
-      <group ref={groupRef} rotation={rotation}>
-        <a.group
-          {...props}
-          {...groupProps}
-          onClick={handleClick}
-          onPointerMissed={() => {
-            if (step === Step.open) {
-              appState.getState().setSelectedModelComponent(null);
-            }
-          }}
-        >
-          <group scale={0.25}>
+      <group rotation={rotation}>
+        <a.group {...props} {...groupProps} onClick={handleClick}>
+          <group scale={0.4}>
             <group scale-x={flipped ? -1 : 1}>
               <group position={[0.67, 0, 0]}>
                 <mesh geometry={nodes.Hotspot_Surround_01.geometry}>

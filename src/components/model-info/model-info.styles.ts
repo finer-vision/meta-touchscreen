@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components/macro";
-import { motion } from "framer-motion"
+import styled from "styled-components/macro";
+import { motion } from "framer-motion";
 
 export const ModelInfoClose = styled.button`
   --size: 3.5em;
@@ -42,13 +42,13 @@ export const ModelInfoHeader = styled.div`
 
 export const ModelInfoContainer = styled(motion.div).attrs(() => ({
   initial: {
-    scale: 0
+    scale: 0,
   },
   animate: {
-    scale: 1
+    scale: 1,
   },
   exit: {
-    scale: 0
+    scale: 0,
   },
 }))`
   --padding: 2.5em;
@@ -61,7 +61,7 @@ export const ModelInfoWrapper = styled.div`
   --border-radius: 1.25em;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;

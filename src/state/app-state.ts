@@ -9,18 +9,18 @@ type AppState = {
   setSelectedModelComponent: (
     selectedModelComponent: AppState["selectedModelComponent"]
   ) => void;
-  modelInfo: any,
-  setModelInfo: (modelInfo: AppState["modelInfo"]) => void
+  modelInfo: any;
+  setModelInfo: (modelInfo: AppState["modelInfo"]) => void;
 };
 
-interface ModelInfoProps{
-  title: string,
-  description: string
+interface ModelInfoProps {
+  title: string;
+  description: string;
 }
 
 export const appState = create<AppState>((set) => {
   return {
-    selectedModel: models[0],
+    selectedModel: models[3],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },
@@ -30,7 +30,7 @@ export const appState = create<AppState>((set) => {
     },
     modelInfo: null,
     setModelInfo(modelInfo: ModelInfoProps) {
-      set({ modelInfo })
-    }
+      set({ modelInfo });
+    },
   };
 });

@@ -11,20 +11,20 @@ export const MenuWrapper = styled.div`
 `;
 
 export const MenuLeft = styled.div`
-  height: calc(58.09895833333333vh*.8);
+  height: calc(58.09895833333333vh * 0.8);
 `;
 
 export const MenuHandle = styled.div`
-  height: calc(12.213541666666666vh*.8);
+  height: calc(12.213541666666666vh * 0.8);
   width: 3vh;
   transform: translateY(-38%);
   div {
-    background-color: rgb(33	43	49);
+    background-color: rgb(33 43 49);
     height: 131%;
     position: relative;
     width: 100%;
-    border-top-right-radius: .6vh;
-    border-bottom-right-radius: .6vh;
+    border-top-right-radius: 0.6vh;
+    border-bottom-right-radius: 0.6vh;
     position: relative;
   }
 
@@ -69,39 +69,49 @@ export const MenuHandle = styled.div`
 `;
 
 interface DropDownImageProps {
-  id?: string
+  id?: string;
 }
+
 export const DropDownImage = styled.div<DropDownImageProps>`
   width: 45%;
   height: 100%;
-  ${props => [
-    'power-shelf',
-    'bbu',
-  ].some((whitelist: string) => whitelist === props.id) && `
+  ${(props) =>
+    ["power-shelf", "bbu"].some(
+      (whitelist: string) => whitelist === props.id
+    ) &&
+    `
     height: 70%;
     margin-left: 3%;
     margin-top: 4%;
   `}
-  ${props => [
-    'storm-point',
-    'cascade-creek',
-    'arrowhead-pools',
-  ].some((whitelist: string) => whitelist === props.id) && `
+  ${(props) =>
+    ["storm-point", "cascade-creek", "arrowhead-pools"].some(
+      (whitelist: string) => whitelist === props.id
+    ) &&
+    `
     height: 80%;
     margin-left: 3%;
     margin-top: 4%;
   `}
-  ${props => props.id === 'rack-adapter' && `
+  ${(props) =>
+    props.id === "rack-adapter" &&
+    `
     height: 100%;
   `}
-  ${props => props.id === 'module' && `
+  ${(props) =>
+    props.id === "module" &&
+    `
     height: 90%;
   `}
-  ${props => props.id === 'blind-mate-chassis' && `
+  ${(props) =>
+    props.id === "blind-mate-chassis" &&
+    `
     height: 75%;
     margin-top: 4%;
   `}
-  ${props => props.id === 'rpu' && `
+  ${(props) =>
+    props.id === "rpu" &&
+    `
     height: 80%;
     margin-top: 2%;
   `}
@@ -151,7 +161,7 @@ export const DropDownItemFlex = styled.div`
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 1em;
-  width: calc(18.45em*.8);
+  width: calc(18.45em * 0.8);
   background-color: #dddee0;
   display: flex;
   flex-direction: column;
@@ -172,7 +182,7 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  height: calc(51.550448vh*.8);
+  height: calc(51.550448vh * 0.8);
   border-bottom-right-radius: 1.5em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
@@ -184,12 +194,12 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: calc(46.8em*.8);
+        width: calc(46.8em * 0.8);
         border-top-right-radius: 1.5em;
       `;
     } else {
       return css`
-        width: calc(27.275em*.8);
+        width: calc(27.275em * 0.8);
       `;
     }
   }}
@@ -203,11 +213,11 @@ export const MainItemContainer = styled.div`
 `;
 
 export const MainItem = styled(motion.div)`
-  margin-bottom: calc(1.25em*.8);
+  margin-bottom: calc(1.25em * 0.8);
   position: relative;
   overflow: auto;
   border-radius: 1em;
-  height: calc(5.494791666666667vh*.8);
+  height: calc(5.494791666666667vh * 0.8);
 
   :last-child {
     margin-bottom: 0;
@@ -215,7 +225,7 @@ export const MainItem = styled(motion.div)`
 `;
 
 export const MainItemFlex = styled.div`
-  width: calc(24.5475em*.8);
+  width: calc(24.5475em * 0.8);
   height: 100%;
   display: flex;
   align-items: center;
@@ -229,7 +239,7 @@ export const MainItemFlex = styled.div`
 
   span {
     color: #20202e;
-    font-size: calc(1.75em*.8);
+    font-size: calc(1.75em * 0.8);
     position: relative;
     z-index: 1;
     font-weight: bold;
@@ -269,14 +279,14 @@ export const Title = styled.div`
   background-color: #1f2b32;
   height: 5.4vh;
   padding: 1.5em 1em;
-  width: calc(27.275em*.8);
+  width: calc(27.275em * 0.8);
   border-top-right-radius: 1.5em;
   display: flex;
   align-items: flex-end;
 
   h1 {
     font-weight: 700;
-    font-size: calc(2.5em*.8);
+    font-size: calc(2.5em * 0.8);
     line-height: 1;
   }
 `;
@@ -290,7 +300,7 @@ export const NavWrapper = styled.div`
   gap: 0.5em;
 
   img {
-    width: calc(1.1em*.8);
+    width: calc(1.1em * 0.8);
   }
 `;
 
@@ -306,8 +316,8 @@ export const Next = styled.button`
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: calc(0.8em*.8);
-  height: calc(0.8em*.8);
+  width: calc(0.8em * 0.8);
+  height: calc(0.8em * 0.8);
   border: 2.5px solid white;
   border-radius: 50%;
   background-color: ${({ active }) => (active ? "#ffffff" : "transparent")};

@@ -16,6 +16,12 @@ type Hotspot = {
   flipped?: boolean;
 };
 
+type AnimationHotspot = {
+  position?: Vector;
+  rotation?: Vector;
+  flipped?: boolean;
+};
+
 export type ModelComponent = {
   id: string;
   title: string;
@@ -34,4 +40,5 @@ export type Model = {
   scale?: number;
   components: ModelComponent[];
   hotspot?: Hotspot;
+  animationHotspot?: AnimationHotspot;
 };

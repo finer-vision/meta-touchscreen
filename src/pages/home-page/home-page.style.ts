@@ -29,7 +29,7 @@ export const Section = styled.section<SectionProps>`
   ${({ backdrop }) => {
     if (!backdrop) {
       return css`
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0, 0, 0, 0.3);
       `;
     }
   }} @keyframes showElement {
@@ -71,14 +71,14 @@ export const Logo = styled.div`
 
 export const LabelWrapper = styled(motion.div).attrs(() => ({
   initial: {
-    opacity: 0
+    opacity: 0,
   },
   animate: {
-    opacity: 1
+    opacity: 1,
   },
   exit: {
-    opacity: 0
-  }
+    opacity: 0,
+  },
 }))`
   width: max-content;
   height: 8vh;
@@ -121,7 +121,7 @@ export const ResetWrapper = styled.div<ShowProps>`
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: calc(3.7760416666666665vh*.8);
+  height: calc(3.7760416666666665vh * 0.8);
 
   img {
     width: auto;
@@ -155,7 +155,7 @@ export const RotateWrapper = styled.div<ShowProps>`
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: calc(12.213541666666666vh*.8);
+  height: calc(12.213541666666666vh * 0.8);
 
   img {
     width: auto;

@@ -73,6 +73,7 @@ const models: Model[] = [
     title: "BLIND MATE INTERFACES",
     scale: 1,
     position: [0, -1.3, 0],
+    componentOpenPosition: [0, -1.3, 0],
     rotation: [0, 0, 0],
     components: [
       {
@@ -116,6 +117,10 @@ const models: Model[] = [
       flipped: true,
       openPosition: [0, 0, 0],
       position: [0, 1.4, 0.5],
+      rotation: [0, THREE.MathUtils.degToRad(60), 0],
+    },
+    animationHotspot: {
+      position: [0, 0.6, 0.5],
       rotation: [0, THREE.MathUtils.degToRad(60), 0],
     },
   },

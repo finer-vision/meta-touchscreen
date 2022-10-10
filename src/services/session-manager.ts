@@ -16,7 +16,8 @@ type SessionData = {
 };
 
 class SessionManager {
-  private serverEndpoint = "https://analytics-server.finervision.com/api/save-sessions";
+  private serverEndpoint =
+    "https://analytics-server.finervision.com/api/save-sessions";
 
   private cacheKeyPrefix = "meta-touchscreens";
 
@@ -176,7 +177,7 @@ class SessionManager {
   }
 
   getCurrentSession() {
-	  return this.currentSession
+    return this.currentSession;
   }
 }
 

@@ -8,6 +8,7 @@ import { a, useSpring } from "@react-spring/three";
 import { appState } from "@/state/app-state";
 import ModelComponent from "@/components/model/model-component";
 import ModelHotspot from "@/components/model-hotspot/model-hotspot";
+import AnimationHotspot from "@/components/animation-hotspot/animation-hotspot";
 
 export default function Model() {
   const selectedModel = appState((state) => state.selectedModel);
@@ -18,14 +19,25 @@ export default function Model() {
     `./assets/models/${selectedModel.id}/${selectedModel.id}.glb`
   );
   const animation = useAnimations(model.animations, model.scene);
+  const [animating, setAnimating] = React.useState(false);
+  const mountedRef = React.useRef(false);
+
   React.useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
     const name = animation.names[0];
     if (name === undefined) return;
     const action = animation.actions[name];
     if (action === undefined) return;
-    action.loop = THREE.LoopPingPong;
+    action.loop = animating ? THREE.LoopPingPong : THREE.LoopOnce;
+    action.timeScale = animating ? 1 : -1;
+    const time = action.time;
+    action.reset();
+    action.time = time;
     action.play();
-  }, [animation.names[0]]);
+  }, [animation.names[0], animating]);
 
   const groupRef = React.useRef<THREE.Group>(null);
   const [rotate, setRotate] = React.useState(false);
@@ -109,6 +121,17 @@ export default function Model() {
                   position={selectedModel.hotspot.position}
                   rotation={selectedModel.hotspot.rotation}
                   flipped={selectedModel.hotspot.flipped}
+                />
+              )}
+              {selectedModel.animationHotspot && (
+                <AnimationHotspot
+                  title={animating ? "STOP ANIMATION" : "PLAY ANIMATION"}
+                  position={selectedModel.animationHotspot.position}
+                  rotation={selectedModel.animationHotspot.rotation}
+                  flipped={selectedModel.animationHotspot.flipped}
+                  onClick={() => {
+                    setAnimating((animating) => !animating);
+                  }}
                 />
               )}
               {selectedModel.components.map((component, index) => {

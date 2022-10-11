@@ -196,7 +196,7 @@ export default function App() {
         <OrbitControls
           ref={controlsRef}
           enablePan={false}
-          enableZoom={false}
+          // enableZoom={false}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}
         />

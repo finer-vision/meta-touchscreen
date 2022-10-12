@@ -174,6 +174,12 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     scale: 1.15,
     hotspots: [
       {
+        title: `Hoses Cabinet`,
+        description: `The auxiliary hoses cabinet enables the flexibility connectivity of the cart with the AALC rack, external fluid tank, and compressed air connections. This allows for new connections to be added in the future.`,
+        position: [0, 0.75, 0.5],
+        rotation: [0, THREE.MathUtils.degToRad(90+180), 0],
+      },
+      {
         title: `Fluid Management`,
         description: `In the liquid cooling cart cabinet, you will find the new coolant reservoir, used coolant reservoir and a fluid pump. The pump allows you to top-off the rack in 3 minutes or less.  This system is capable of storing 50 liters of coolant per tank (100 liters in total), and given the weight of the cart it was essential to use appropriate casters and wheel assembly to enable the ease of mobility for on-site technicians.`,
         position: [0, 1, 0.5],

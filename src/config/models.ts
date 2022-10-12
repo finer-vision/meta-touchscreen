@@ -174,6 +174,12 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     scale: 1.15,
     hotspots: [
       {
+        title: `OPERATING PANEL`,
+        description: `The panel utilizes an array of pressure switches to operate the cart functions. This includes: fill, drain, compressed air, power, and emergency shutoff feature. The cart will automatically stop pumping fluid once the AALC rack is filled. It then alerts the operator of a complete procedure, by blinking and alerts of an error by maintaining a red color.`,
+        position: [0, 0.25, 0.8],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      },
+      {
         title: `Manifold Mount`,
         description: `This mount is used for servicing of the manifold on both Blindmate and AALC racks. It carries the manifold from storage, to the data hall while containing any potential fluid leaks`,
         position: [0, 1.25, 0.5],

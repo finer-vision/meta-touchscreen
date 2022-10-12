@@ -225,6 +225,14 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, 0.5, -0.5],
     scale: 1.5,
+    hotspots: [
+      {
+        scale: 0.6,
+        title: `Front Panel Port Features`,
+        description: `Wedge 400 & 400C have sixteen QSFP-DD ports to support 400 gigabits per seconds network speeds and thirty-two QSFP-56 ports to support 200 gigabits per seconds.  The rackmon provides connections to the power shelves (including PSUs and BBUs) in the rack.   In addition, There are two buttons on the left side of the front panel. The reset button is used to reset the whole system, and the LED button is used to switch different modes for showing the uplink/downlink status.`,
+        position: [-0.25, 0.3, 0.4],
+      },
+    ],
     components: [
       {
         path: `./assets/models/wedge-400c/rack-adapter.glb`,
@@ -234,7 +242,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         openPosition: [0, -0.25, 0.5],
         hotspots: [
           {
-            description: `In Wedge 400 and Wedge 400C the Switch Control Module, or SCM for short, is removable to allow for easier servicing. First remove Fans 1 & 2 then pull the green ejector handle to release the SCM. From there, you can remove the DIMM, Solid-State Drive or BMC Storage Module (SSD and BSM)`,
+            description: `The adapter tray for Wedge 400 & 400C is designed for integration with Open Rack V3.  When removing the system from the adapter tray, we have added a safety stop feature.  This is designed to stop the system pulling out all the way, allow the user to adjust their hold of the system before pressing to release the system all the way out of the tray.`,
             position: [-0.2, 0.25, 0],
             openPosition: [-0.13, 0.25, 0.25],
             rotation: [0, THREE.MathUtils.degToRad(20), 0],

@@ -13,6 +13,13 @@ const models: Model[] = [
       {
         scale: 0.7,
         rotation: [0, THREE.MathUtils.degToRad(180), 0],
+        position: [-0.1, 3.05, 0.85],
+        title: "AC WHIP POWER CABLE",
+        description: `On ORV3 the cables run directly to the power shelf whereas V2 had a separate power distribution unit. Coupled with the different lengths of cable, this offers more flexibility for you to put the power shelf anywhere in the rack.  The AC Whip Power cable will have two separate versions for EU and North America customers to allow for different voltages and currents.`,
+      },
+      {
+        scale: 0.7,
+        rotation: [0, THREE.MathUtils.degToRad(180), 0],
         position: [0, 1.75, 0.85],
         title: "BUS BAR",
         description: `The improved Bus Bar now has no fixed zones and is easily replaceable with just a few screws. The Bus Bar allows for a pluggable Blind Mate IT gear connection. This allows easier customization and servicing of parts.  It also has increased power capability and can service 48V compared to the 12V in Open rack V2`,

@@ -73,6 +73,12 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     path: `./assets/models/noahs-ark/noahs-ark.glb`,
     hotspots: [
       {
+        title: `LEAK DETECTION & CONTAINMENT`,
+        description: `The AALC system is designed to avoid leaks through our quick connector hoses, hose clamps and extensive testing at five times the pressure the system will actually run at. Furthermore, the rubber hoses have passed the ASTM and UL standard tests.  To complement the leak prevention measures, the system has comprehensive leak detection and mitigation mechanisms. The leak sensor ropes are designed to sense liquid at the lowest latency possible. If one of the ropes senses a drip, DC alert manager sounds, the RPU pumps turn off and both racks automatically power down. The drain pans collect leaked coolant with each drain pan capable of holding 25 liters of fluid.  Meanwhile, the alarm tooling creates a trouble ticket to notify the data center service teams. Drain pans are removable for easy cleaning in order to get the system up and running as quickly as possible.`,
+        position: [-0.25, 2.7, 1],
+        scale: 0.7,
+      },
+      {
         title: `QUICK CONNECTORS`,
         description: `Quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors were designed with serviceability in mind.   Connectors will be mechanically keyed (plug for hot coolant exiting IT gear, socket for chilled coolant entering IT gear) to prevent user error. The connectors are drip free and can be connected or disconnected while the system is running. Clamps added to hose-barb connection to prevent pull out by user or under high pressure  Furthermore, in system, the same type of quick connectors are used to connect both the large and small hose connections.`,
         position: [0.25, 2.4, 1],

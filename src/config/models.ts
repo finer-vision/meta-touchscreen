@@ -174,6 +174,13 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     scale: 1.15,
     hotspots: [
       {
+        title: `Extended Shelf`,
+        description: `This shelf mimics what is on the standard crash carts in the data center, and provides additional workspace for the DC technicians`,
+        position: [0, 1, 0.75],
+        flipped: true,
+        rotation: [0, THREE.MathUtils.degToRad(60), 0],
+      },
+      {
         title: `Hoses Cabinet`,
         description: `The auxiliary hoses cabinet enables the flexibility connectivity of the cart with the AALC rack, external fluid tank, and compressed air connections. This allows for new connections to be added in the future.`,
         position: [0, 0.75, 0.5],

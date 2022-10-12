@@ -174,6 +174,12 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     scale: 1.15,
     hotspots: [
       {
+        title: `Manifold Mount`,
+        description: `This mount is used for servicing of the manifold on both Blindmate and AALC racks. It carries the manifold from storage, to the data hall while containing any potential fluid leaks`,
+        position: [0, 1.25, 0.5],
+        rotation: [0, THREE.MathUtils.degToRad(90), 0],
+      },
+      {
         title: `Extended Shelf`,
         description: `This shelf mimics what is on the standard crash carts in the data center, and provides additional workspace for the DC technicians`,
         position: [0, 1, 0.75],

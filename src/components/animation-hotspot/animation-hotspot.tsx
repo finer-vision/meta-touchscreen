@@ -20,8 +20,9 @@ type GLTFResult = GLTF & {
   };
 };
 
-type Props = Omit<GroupProps, "position"> & {
+type Props = Omit<GroupProps, "position" | "scale"> & {
   title: string;
+  scale?: number;
   padding?: number;
   flipped?: boolean;
   position?: Vector;
@@ -31,6 +32,7 @@ type Props = Omit<GroupProps, "position"> & {
 
 export default function AnimationHotspot({
   title,
+  scale = 1,
   padding = 0.1,
   flipped = false,
   position,
@@ -72,7 +74,7 @@ export default function AnimationHotspot({
   );
 
   return (
-    <>
+    <group scale={scale}>
       <group rotation={rotation}>
         <a.group {...props} {...groupProps} onClick={handleClick}>
           <group scale={0.4}>
@@ -121,6 +123,6 @@ export default function AnimationHotspot({
           </group>
         </a.group>
       </group>
-    </>
+    </group>
   );
 }

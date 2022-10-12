@@ -19,6 +19,7 @@ type Hotspot = {
 };
 
 type AnimationHotspot = {
+  scale?: number;
   position?: Vector;
   rotation?: Vector;
   flipped?: boolean;

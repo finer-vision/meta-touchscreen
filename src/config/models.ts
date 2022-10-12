@@ -57,7 +57,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         id: "rpu",
         title: "RPU",
         position: [-0.3, 0.16, 0],
-        openPosition: [0, 1.075, 1],
+        openPosition: [0, 1.075, 1.2],
         hotspot: {
           description: `The RPU (Reservoir and Pumping Unit) provides the pressure head and distributes coolant to the entire Air Assisted Liquid Cooling (AALC) solution.​ The RPU also serves as the brain for AALC solution, which is responsible for control and monitoring of the system. How does it work? Cooled fluid flows into the RPU from the heat exchanger. Coolant collects in the RPU reservoir and is pulled into 2 pumps (the other 2 pumps are redundant). The pumps create pressure to push the coolant back out of the RPU. Finally the coolant flows out of the RPU into the cold manifold in front of the rack.`,
           position: [0, 0.1, 0.6],
@@ -69,7 +69,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         id: "ttv",
         title: "TTV",
         position: [0.305, 1.258, 0.09],
-        openPosition: [0, 1.075, 1],
+        openPosition: [0, 1.075, 1.2],
         hotspot: {
           description: `The TTV (thermal test vehicle) chassis is the thermal load in an IT gear form factor that allows the testing of the AALC system without the use of functioning GPUs or other high thermal loads. The TTV chassis consists of block heaters that simulate the size and heat rejection from a GPU, covered by cold plates that flow chilled coolant over the heaters and then route hot coolant out of the chassis. The block heaters are variable in their thermal load so that different use cases can be simulated. The AALC system connects to the TTV via quick connectors on the front of the chassis.`,
           position: [0.05, -0.1, 0.6],

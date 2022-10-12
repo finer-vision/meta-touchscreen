@@ -125,6 +125,15 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     position: [0, -1.3, 0],
     componentOpenPosition: [0, -1.3, 0],
     rotation: [0, 0, 0],
+    hotspots: [
+      {
+        title: `LIQUID COOLING SUPPORT BRACKETS`,
+        description: `ORV3 was designed with liquid cooling in mind. The standard ORV3 frame can be converted into a liquid cooling capable solution by installing a bolt-on support bracket kit. This kit stiffens the frame to account for the added forces induced from fluid pressures and valve spring forces, as well as provides the interfaces for mounting the blind mate manifolds to the rack.  The kit contains front web stiffener brackets, a front cross-plate stiffener, two lower manifold interface brackets, two upper manifold interface brackets, and two mid-rack manifold interface brackets.`,
+        position: [0.2, 1.6, 0.9],
+        flipped: true,
+        scale: 0.7,
+      },
+    ],
     components: [
       {
         path: `./assets/models/blind-mate-interfaces/blind-mate-chassis.glb`,

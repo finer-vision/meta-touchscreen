@@ -382,6 +382,26 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     title: "GLACIER POINT",
     hotspots: [
       {
+        title: `Riser Cage`,
+        description: `Now, you can view the Riser Cage with the Glacier Point v3 Board. The bottom M.2 modules as well as the 2x E1.S drives are now accessible for service. You will also see a heat sink on the Glacier Point v3 Board which is for the switch to route traffic between the expansion board and Delta Lake motherboard`,
+        scale: 0.5,
+        position: [0, 0.325, 0.2],
+        flipped: true,
+      },
+      {
+        title: `M.2 Modules`,
+        description: `By opening the top cover, you can easily access the upper 6 M.2 Modules mounted to the Glacier Point v3 Board. This board also has a switch that allows for traffic communication between the M.2 modules and Intel Cooper Lake Host.   The latching mechanism on each side of the blade, allows you to unlock the 2OU Riser Cage from the Blade Base to access the lower M.2 Modules and two E1.S drives for Storage.`,
+        scale: 0.5,
+        position: [0, 0.325, 0],
+      },
+      {
+        title: `Serviceability`,
+        description: `By removal of the Green 2OU Air Baffle, you can access the Rear portion of the Delta Lake Motherboard. The DIMMs, CPU, Heat Sink, and Boot drive can easily be accessed for service. As you see here, this model is supporting 4 DIMMs. Up to 6 can be used with this system`,
+        scale: 0.5,
+        position: [0, 0.325, -0.2],
+        flipped: true,
+      },
+      {
         scale: 0.5,
         position: [0, 0.325, 0.55],
         description: `Meet the latest generation of Glacier Peak.

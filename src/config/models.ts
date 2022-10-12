@@ -272,9 +272,17 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     ],
   },
   {
+    scale: 2.5,
     path: `./assets/models/glacier-point/glacier-point.glb`,
     id: "glacier-point",
     title: "GLACIER POINT",
+    hotspot: {
+      scale: 0.5,
+      position: [0, 0.325, 0.55],
+      description: `Meet the latest generation of Glacier Peak.
+
+Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is a M.2/Dual M.2 carrier card that supports PCIe gen4 accelerator modules and 2xE1.S SSD on the Yosemite v3 platform using a Gen4 capable PCIE switch.`,
+    },
     components: [],
   },
   {

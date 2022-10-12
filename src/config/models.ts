@@ -127,11 +127,18 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [0, 0, 0],
     hotspots: [
       {
+        title: `BLIND MATE MANIFOLD`,
+        description: `The blind mate manifold provides the interface between the IT Gear and the facility fluid cooling & distribution source. The blind mate manifold consists of the manifold tube, the blind mate sockets, an optional air vent, and an inlet or outlet port with hoses to connect to fluid source and return. The blind mate manifolds are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
+        position: [0.2, 2, 0.9],
+        flipped: true,
+        scale: 0.65,
+      },
+      {
         title: `LIQUID COOLING SUPPORT BRACKETS`,
         description: `ORV3 was designed with liquid cooling in mind. The standard ORV3 frame can be converted into a liquid cooling capable solution by installing a bolt-on support bracket kit. This kit stiffens the frame to account for the added forces induced from fluid pressures and valve spring forces, as well as provides the interfaces for mounting the blind mate manifolds to the rack.  The kit contains front web stiffener brackets, a front cross-plate stiffener, two lower manifold interface brackets, two upper manifold interface brackets, and two mid-rack manifold interface brackets.`,
         position: [0.2, 1.6, 0.9],
         flipped: true,
-        scale: 0.7,
+        scale: 0.65,
       },
     ],
     components: [

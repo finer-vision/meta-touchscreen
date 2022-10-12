@@ -71,6 +71,14 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     componentOpenPosition: [0, -1.3, -1],
     scale: 1,
     path: `./assets/models/noahs-ark/noahs-ark.glb`,
+    hotspots: [
+      {
+        title: `QUICK CONNECTORS`,
+        description: `Quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors were designed with serviceability in mind.   Connectors will be mechanically keyed (plug for hot coolant exiting IT gear, socket for chilled coolant entering IT gear) to prevent user error. The connectors are drip free and can be connected or disconnected while the system is running. Clamps added to hose-barb connection to prevent pull out by user or under high pressure  Furthermore, in system, the same type of quick connectors are used to connect both the large and small hose connections.`,
+        position: [0.25, 2.4, 1],
+        scale: 0.7,
+      },
+    ],
     components: [
       {
         path: `./assets/models/noahs-ark/rpu.glb`,

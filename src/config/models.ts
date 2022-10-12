@@ -71,7 +71,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         position: [0.305, 1.258, 0.09],
         openPosition: [0, 1.075, 1],
         hotspot: {
-          description: `Team providing`,
+          description: `The TTV (thermal test vehicle) chassis is the thermal load in an IT gear form factor that allows the testing of the AALC system without the use of functioning GPUs or other high thermal loads. The TTV chassis consists of block heaters that simulate the size and heat rejection from a GPU, covered by cold plates that flow chilled coolant over the heaters and then route hot coolant out of the chassis. The block heaters are variable in their thermal load so that different use cases can be simulated. The AALC system connects to the TTV via quick connectors on the front of the chassis.`,
           position: [0.05, -0.1, 0.6],
           openPosition: [0.25, 0.25, 0.38],
           flipped: true,

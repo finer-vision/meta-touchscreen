@@ -127,6 +127,12 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [0, 0, 0],
     hotspots: [
       {
+        title: `BMQC`,
+        description: `The blind mate quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors automatically adjust for misalignment between the plug side on the IT gear and the socket side on the manifolds. The plug side has the capability of moving and rotating to take-up the misalignment during mating. The valves also have extended working range.  The valves automatically open and close as they mate and de-mate with no manual interaction required. These valves are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
+        position: [0.15, 2.3, 0.9],
+        scale: 0.65,
+      },
+      {
         title: `BLIND MATE MANIFOLD`,
         description: `The blind mate manifold provides the interface between the IT Gear and the facility fluid cooling & distribution source. The blind mate manifold consists of the manifold tube, the blind mate sockets, an optional air vent, and an inlet or outlet port with hoses to connect to fluid source and return. The blind mate manifolds are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
         position: [0.2, 2, 0.9],

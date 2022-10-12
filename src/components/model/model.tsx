@@ -104,21 +104,25 @@ export default function Model() {
           <a.group {...props}>
             <group scale={selectedModel.scale}>
               <primitive object={model.scene} />
-              {selectedModel.hotspot && (
-                <ModelHotspot
-                  modelId={selectedModel.id}
-                  title={selectedModel.hotspot.title ?? "MORE INFO"}
-                  info={{
-                    title: selectedModel.title,
-                    description: selectedModel.hotspot.description,
-                  }}
-                  scale={selectedModel.hotspot.scale}
-                  position={selectedModel.hotspot.position}
-                  rotation={selectedModel.hotspot.rotation}
-                  flipped={selectedModel.hotspot.flipped}
-                  show={!rotate && selectedModelComponent === null}
-                />
-              )}
+              {(selectedModel.hotspots ?? []).map((hotspot, index) => {
+                return (
+                  <ModelHotspot
+                    key={index}
+                    modelId={selectedModel.id}
+                    title={hotspot.title ?? "MORE INFO"}
+                    info={{
+                      title: hotspot.title ?? selectedModel.title,
+                      description: hotspot.description,
+                    }}
+                    scale={hotspot.scale}
+                    position={hotspot.position}
+                    rotation={hotspot.rotation}
+                    flipped={hotspot.flipped}
+                    show={!rotate && selectedModelComponent === null}
+                  />
+                );
+              })}
+
               {selectedModel.animationHotspot && (
                 <AnimationHotspot
                   title={animating ? "STOP ANIMATION" : "PLAY ANIMATION"}

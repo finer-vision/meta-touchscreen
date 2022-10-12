@@ -75,19 +75,29 @@ export default function ModelHotspot({
 
   const [open, setOpen] = React.useState(false);
 
-  const handleClick = React.useCallback((event: ThreeEvent<MouseEvent>) => {
-    event.stopPropagation();
-    if (!open) {
-      setOpen(true);
-      appState.getState().setModelInfo({
-        title: info.title,
-        description: info.description,
-      });
-    } else {
-      setOpen(false);
-      appState.getState().setModelInfo(null);
-    }
-  }, []);
+  const modelInfo = appState((state) => state.modelInfo);
+
+  React.useEffect(() => {
+    if (modelInfo !== null) return;
+    setOpen(false);
+  }, [modelInfo]);
+
+  const handleClick = React.useCallback(
+    (event: ThreeEvent<MouseEvent>) => {
+      event.stopPropagation();
+      if (!open) {
+        setOpen(true);
+        appState.getState().setModelInfo({
+          title: info.title,
+          description: info.description,
+        });
+      } else {
+        setOpen(false);
+        appState.getState().setModelInfo(null);
+      }
+    },
+    [open, info]
+  );
 
   const groupRef = React.useRef<THREE.Group>(null);
 

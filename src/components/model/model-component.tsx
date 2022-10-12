@@ -27,21 +27,24 @@ export default function ModelComponent({
     <a.group position={props.position}>
       <group scale={component.scale}>
         <primitive object={model.scene} />
-        <Hotspot
-          show={showHotspot}
-          modelId={modelId}
-          modelComponent={component}
-          title={open ? "MORE INFO" : component.title}
-          info={{
-            title: component.title,
-            description: component.hotspot.description,
-          }}
-          scale={component.hotspot.scale}
-          position={
-            open ? component.hotspot.openPosition : component.hotspot.position
-          }
-          flipped={component.hotspot.flipped}
-        />
+        {(component.hotspots ?? []).map((hotspot, index) => {
+          return (
+            <Hotspot
+              key={index}
+              show={showHotspot}
+              modelId={modelId}
+              modelComponent={component}
+              title={open ? "MORE INFO" : component.title}
+              info={{
+                title: component.title,
+                description: hotspot.description,
+              }}
+              scale={hotspot.scale}
+              position={open ? hotspot.openPosition : hotspot.position}
+              flipped={hotspot.flipped}
+            />
+          );
+        })}
       </group>
     </a.group>
   );

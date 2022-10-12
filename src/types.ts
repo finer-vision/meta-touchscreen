@@ -30,7 +30,7 @@ export type ModelComponent = {
   position?: Vector;
   openPosition?: Vector;
   scale?: number;
-  hotspot: Hotspot;
+  hotspots: Hotspot[];
   path: string;
 };
 
@@ -42,7 +42,7 @@ export type Model = {
   componentOpenPosition?: Vector;
   scale?: number;
   components: ModelComponent[];
-  hotspot?: Hotspot;
+  hotspots?: Hotspot[];
   animationHotspot?: AnimationHotspot;
   path: string;
 };

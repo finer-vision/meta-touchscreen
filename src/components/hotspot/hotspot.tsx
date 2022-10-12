@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-type Props = Omit<GroupProps, "position"> & {
+type Props = Omit<GroupProps, "position" | "scale"> & {
   show?: boolean;
   modelId: string;
   modelComponent: ModelComponent;
@@ -35,6 +35,7 @@ type Props = Omit<GroupProps, "position"> & {
   flipped?: boolean;
   position?: Vector;
   rotation?: Vector;
+  scale?: number;
 };
 
 enum Step {
@@ -53,6 +54,7 @@ export default function Hotspot({
   flipped = false,
   position,
   rotation,
+  scale = 1,
   ...props
 }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
@@ -153,7 +155,7 @@ export default function Hotspot({
   );
 
   return (
-    <>
+    <group scale={scale}>
       <group ref={groupRef} rotation={rotation}>
         <a.group
           {...props}
@@ -211,6 +213,6 @@ export default function Hotspot({
           </group>
         </a.group>
       </group>
-    </>
+    </group>
   );
 }

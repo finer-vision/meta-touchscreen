@@ -9,11 +9,13 @@ export enum Subscription {
 export type Vector = [x: number, y: number, z: number];
 
 type Hotspot = {
+  title?: string;
   description: string;
   position?: Vector;
   rotation?: Vector;
   openPosition?: Vector;
   flipped?: boolean;
+  scale?: number;
 };
 
 type AnimationHotspot = {

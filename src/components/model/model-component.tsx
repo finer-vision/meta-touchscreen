@@ -36,6 +36,7 @@ export default function ModelComponent({
             title: component.title,
             description: component.hotspot.description,
           }}
+          scale={component.hotspot.scale}
           position={
             open ? component.hotspot.openPosition : component.hotspot.position
           }

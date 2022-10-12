@@ -107,14 +107,16 @@ export default function Model() {
               {selectedModel.hotspot && (
                 <ModelHotspot
                   modelId={selectedModel.id}
-                  title="MORE INFO"
+                  title={selectedModel.hotspot.title ?? "MORE INFO"}
                   info={{
                     title: selectedModel.title,
                     description: selectedModel.hotspot.description,
                   }}
+                  scale={selectedModel.hotspot.scale}
                   position={selectedModel.hotspot.position}
                   rotation={selectedModel.hotspot.rotation}
                   flipped={selectedModel.hotspot.flipped}
+                  show={!rotate && selectedModelComponent === null}
                 />
               )}
               {selectedModel.animationHotspot && (

@@ -9,6 +9,13 @@ const models: Model[] = [
     componentOpenPosition: [0, -1.7, -1],
     scale: 1.3,
     path: `./assets/models/orv3/orv3.glb`,
+    hotspot: {
+      scale: 0.7,
+      position: [0, 1.5, 0.6],
+      title: "ORV3",
+      description: `Meet the latest generation of Open Rack.
+Open Rack V3 has many new features that will improve how we design, configure, build, deploy and manage our IT gear. ORV3 features a new 48v power systems & distributed busbar that can support higher power densities and faster load transients, as well as an increased battery backup system providing up to 4 minutes of backup during outage events. It also supports flexible IT gear form factors for supporting OpenU & RU gear, pluggable connection to the busbar, flexible shelf placement locations, and increased rack height with support for tool-less rails to enable more gear and faster development.`,
+    },
     components: [
       {
         path: `./assets/models/orv3/power-shelf.glb`,

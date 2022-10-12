@@ -21,7 +21,9 @@ type GLTFResult = GLTF & {
   };
 };
 
-type Props = Omit<GroupProps, "position"> & {
+type Props = Omit<GroupProps, "position" | "scale"> & {
+  scale?: number;
+  show?: boolean;
   modelId: string;
   title: string;
   info: {
@@ -35,6 +37,8 @@ type Props = Omit<GroupProps, "position"> & {
 };
 
 export default function ModelHotspot({
+  scale = 1,
+  show = true,
   modelId,
   title,
   info,
@@ -47,10 +51,6 @@ export default function ModelHotspot({
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
 
   const [width, setWidth] = React.useState(1);
-
-  const modelInfoRoot = React.useMemo(() => {
-    return document.querySelector<HTMLDivElement>("#root-model-info");
-  }, []);
 
   const x2 = React.useMemo(() => {
     return nodes.Hotspot_Surround_01.geometry.boundingBox.max.x * -0.5;
@@ -89,9 +89,31 @@ export default function ModelHotspot({
     }
   }, []);
 
+  const groupRef = React.useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    const group = groupRef.current;
+    if (group === null) return;
+    const pillGroup = pillGroupRef.current;
+    if (pillGroup === null) return;
+    const speed = 0.05;
+    pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
+    group.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      if (!(object.material instanceof THREE.Material)) return;
+      object.material.transparent = true;
+      object.material.opacity = THREE.MathUtils.lerp(
+        object.material.opacity,
+        show ? 1 : 0,
+        0.05
+      );
+      object.material.needsUpdate = true;
+    });
+  });
+
   return (
-    <>
-      <group rotation={rotation}>
+    <group scale={scale}>
+      <group ref={groupRef} rotation={rotation}>
         <a.group {...props} {...groupProps} onClick={handleClick}>
           <group scale={0.4}>
             <group scale-x={flipped ? -1 : 1}>
@@ -139,6 +161,6 @@ export default function ModelHotspot({
           </group>
         </a.group>
       </group>
-    </>
+    </group>
   );
 }

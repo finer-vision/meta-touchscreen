@@ -196,13 +196,13 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         title: `Hoses Cabinet`,
         description: `The auxiliary hoses cabinet enables the flexibility connectivity of the cart with the AALC rack, external fluid tank, and compressed air connections. This allows for new connections to be added in the future.`,
         position: [0, 0.75, 0.5],
-        rotation: [0, THREE.MathUtils.degToRad(90+180), 0],
+        rotation: [0, THREE.MathUtils.degToRad(90 + 180), 0],
       },
       {
         title: `Fluid Management`,
         description: `In the liquid cooling cart cabinet, you will find the new coolant reservoir, used coolant reservoir and a fluid pump. The pump allows you to top-off the rack in 3 minutes or less.  This system is capable of storing 50 liters of coolant per tank (100 liters in total), and given the weight of the cart it was essential to use appropriate casters and wheel assembly to enable the ease of mobility for on-site technicians.`,
         position: [0, 1, 0.5],
-        rotation: [0, THREE.MathUtils.degToRad(90+180), 0],
+        rotation: [0, THREE.MathUtils.degToRad(90 + 180), 0],
       },
       {
         description: `The liquid cooling cart is Meta’s solution to servicing liquid cooled equipment in our data centers. This battery powered cart is capable of handling 50 liters of coolant at a time, and performs operations such as filling, draining, and purging the rack. By developing this cart, we enable our data center technicians to confidently interact with liquid enabled equipment in all data center variants.`,
@@ -310,6 +310,14 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, -0.3, -0.75],
     scale: 1.75,
+    hotspots: [
+      {
+        title: `Chassis`,
+        description: `Compared to Zion, the Grand Teton monolithic chassis has eliminated eternal cables and replaced them with blind mate connectors allowing for increased reliability. A standard ORv3 rack can accommodate two 8OU Grand Tetons.  Unlike its predecessor, Zion, the Grand Teton chassis has a fan wall made up of 16 rear serviceable fans.  Finally, in total the Chassis has 33 field replaceable units`,
+        position: [-0.2, 0.1, 0.35],
+        rotation: [0, THREE.MathUtils.degToRad(90), 0],
+      },
+    ],
     components: [
       {
         path: `./assets/models/grand-teton/arrowhead-pools.glb`,

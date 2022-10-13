@@ -100,37 +100,40 @@ export default function Model() {
           <a.group {...props}>
             <group scale={selectedModel.scale}>
               <primitive object={model.scene} />
-              {(selectedModel.hotspots ?? []).map((hotspot, index) => {
-                return (
-                  <ModelHotspot
-                    key={index}
-                    modelId={selectedModel.id}
-                    title={hotspot.title ?? "MORE INFO"}
-                    info={{
-                      title: hotspot.title ?? selectedModel.title,
-                      description: hotspot.description,
-                    }}
-                    scale={hotspot.scale}
-                    position={hotspot.position}
-                    rotation={hotspot.rotation}
-                    flipped={hotspot.flipped}
-                    show={!rotate && selectedModelComponent === null}
-                  />
-                );
-              })}
+              <group scale={0.5}>
+                {(selectedModel.hotspots ?? []).map((hotspot, index) => {
+                  return (
+                    <ModelHotspot
+                      key={index}
+                      modelId={selectedModel.id}
+                      title={hotspot.title ?? "MORE INFO"}
+                      info={{
+                        title: hotspot.title ?? selectedModel.title,
+                        description: hotspot.description,
+                      }}
+                      scale={hotspot.scale}
+                      position={hotspot.position}
+                      rotation={hotspot.rotation}
+                      flipped={hotspot.flipped}
+                      show={!rotate && selectedModelComponent === null}
+                    />
+                  );
+                })}
 
-              {selectedModel.animationHotspot && (
-                <AnimationHotspot
-                  title={animating ? "STOP ANIMATION" : "PLAY ANIMATION"}
-                  scale={selectedModel.animationHotspot.scale}
-                  position={selectedModel.animationHotspot.position}
-                  rotation={selectedModel.animationHotspot.rotation}
-                  flipped={selectedModel.animationHotspot.flipped}
-                  onClick={() => {
-                    setAnimating((animating) => !animating);
-                  }}
-                />
-              )}
+                {selectedModel.animationHotspot && (
+                  <AnimationHotspot
+                    title={animating ? "STOP ANIMATION" : "PLAY ANIMATION"}
+                    scale={selectedModel.animationHotspot.scale}
+                    position={selectedModel.animationHotspot.position}
+                    rotation={selectedModel.animationHotspot.rotation}
+                    flipped={selectedModel.animationHotspot.flipped}
+                    onClick={() => {
+                      setAnimating((animating) => !animating);
+                    }}
+                  />
+                )}
+              </group>
+
               {selectedModel.components.map((component, index) => {
                 return (
                   <ModelComponent

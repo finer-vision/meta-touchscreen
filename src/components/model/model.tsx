@@ -61,10 +61,11 @@ export default function Model() {
     group.rotation.y = 0;
   });
 
-  React.useEffect(() => {
+  React.useMemo(() => {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
+      object.material = new THREE.MeshPhysicalMaterial(object.material);
       const alpha = [
         "BLMTCH_Vents",
         "Grand Teton Chasis_Vents",

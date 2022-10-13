@@ -11,6 +11,7 @@ import { appState } from "@/state/app-state";
 import ModelInfo from "../model-info/model-info";
 import { Logo } from "@/pages/home-page/home-page.style";
 import Screensaver from "@/components/screensaver/screensaver";
+import Lights from "@/components/lights/lights";
 
 export default function App() {
   React.useEffect(() => {
@@ -188,18 +189,24 @@ export default function App() {
           useSubscription.emit(Subscription.closeHotspot);
         }}
       />
-      <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
-        <React.Suspense fallback={<></>}>
-          <Model key={selectedModel.id} />
-        </React.Suspense>
-        <ambientLight />
+      <Canvas
+        legacy
+        flat
+        linear
+        dpr={1}
+        gl={{ alpha: true, physicallyCorrectLights: true }}
+      >
+        <Lights />
         <OrbitControls
           ref={controlsRef}
           enablePan={false}
-          enableZoom={false}
+          // enableZoom={false}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}
         />
+        <React.Suspense fallback={<></>}>
+          <Model key={selectedModel.id} />
+        </React.Suspense>
       </Canvas>
       <Homepage />
       {showScreensaver && <Screensaver />}

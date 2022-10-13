@@ -199,7 +199,7 @@ export default function App() {
         <Lights />
         <OrbitControls
           ref={controlsRef}
-          enablePan={false}
+          // enablePan={false}
           // enableZoom={false}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}

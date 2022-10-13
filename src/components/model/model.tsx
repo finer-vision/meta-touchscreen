@@ -1,6 +1,6 @@
 import React from "react";
 import * as THREE from "three";
-import { Environment, useAnimations, useGLTF } from "@react-three/drei";
+import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
@@ -96,11 +96,6 @@ export default function Model() {
   return (
     <group ref={groupRef}>
       <mesh scale={1.5}>
-        <Environment
-          background={false}
-          files="./assets/environment.hdr"
-          encoding={THREE.LinearEncoding}
-        />
         <group rotation={selectedModel.rotation}>
           <a.group {...props}>
             <group scale={selectedModel.scale}>

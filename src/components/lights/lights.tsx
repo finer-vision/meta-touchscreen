@@ -1,6 +1,7 @@
 import React from "react";
 import * as THREE from "three";
 import { useHelper } from "@react-three/drei";
+import { useControls } from "leva";
 
 export default function Lights() {
   const spotLight0Ref = React.useRef<THREE.SpotLight>(null);
@@ -10,12 +11,34 @@ export default function Lights() {
   useHelper(spotLight1Ref, THREE.SpotLightHelper, "green");
   useHelper(spotLight2Ref, THREE.SpotLightHelper, "blue");
 
+  const props = useControls({
+    name: "Red SpotLight Pos",
+    spotLight0Position: [0, 4, 0],
+    spotLight0Intensity: 300,
+    spotLight1Position: [2, 4, 0],
+    spotLight1Intensity: 300,
+    spotLight2Position: [-2, 4, 0],
+    spotLight2Intensity: 300,
+  });
+
   return (
     <>
       <ambientLight />
-      <spotLight ref={spotLight0Ref} position={[0, 10, 0]} intensity={300} />
-      <spotLight ref={spotLight1Ref} position={[10, 10, 0]} intensity={300} />
-      <spotLight ref={spotLight2Ref} position={[-10, 10, 0]} intensity={300} />
+      <spotLight
+        ref={spotLight0Ref}
+        position={props.spotLight0Position}
+        intensity={props.spotLight0Intensity}
+      />
+      <spotLight
+        ref={spotLight1Ref}
+        position={props.spotLight1Position}
+        intensity={props.spotLight1Intensity}
+      />
+      <spotLight
+        ref={spotLight2Ref}
+        position={props.spotLight2Position}
+        intensity={props.spotLight2Intensity}
+      />
     </>
   );
 }

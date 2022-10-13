@@ -45,6 +45,7 @@
     "@react-three/drei": "^9.25.2",
     "@react-three/fiber": "^8.6.0",
     "framer-motion": "^7.5.2",
+    "leva": "^0.9.31",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
     "polished": "^4.2.2",

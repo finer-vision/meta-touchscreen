@@ -26,7 +26,7 @@ export const appState = create<AppState>((set) => {
     setShowScreensaver(showScreensaver) {
       set({ showScreensaver });
     },
-    selectedModel: models[9],
+    selectedModel: models[0],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },

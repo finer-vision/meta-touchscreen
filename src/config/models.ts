@@ -5,9 +5,9 @@ const models: Model[] = [
   {
     id: "orv3",
     title: "OPEN RACK v3",
-    position: [0, -1.7, 0],
-    componentOpenPosition: [0, -1.7, -1],
-    scale: 1.3,
+    position: [0, -1, 0],
+    componentOpenPosition: [0, -1, 0],
+    scale: 0.8,
     path: `./assets/models/orv3/orv3.glb`,
     hotspots: [
       {
@@ -67,9 +67,9 @@ Open Rack V3 has many new features that will improve how we design, configure, b
   {
     id: "noahs-ark",
     title: "AACL",
-    position: [0, -1.3, 0],
-    componentOpenPosition: [0, -1.3, -1],
-    scale: 1,
+    position: [0, -0.9, 0],
+    componentOpenPosition: [0, -0.9, 0],
+    scale: 0.75,
     path: `./assets/models/noahs-ark/noahs-ark.glb`,
     hotspots: [
       {
@@ -126,9 +126,9 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     path: `./assets/models/blind-mate-interfaces/blind-mate-interfaces.glb`,
     id: "blind-mate-interfaces",
     title: "BLIND MATE INTERFACES",
-    scale: 1,
-    position: [0, -1.3, 0],
-    componentOpenPosition: [0, -1.3, 0],
+    scale: 0.75,
+    position: [0, -0.9, 0],
+    componentOpenPosition: [0, -0.9, 0],
     rotation: [0, 0, 0],
     hotspots: [
       {
@@ -176,7 +176,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [0, THREE.MathUtils.degToRad(-60), 0],
     position: [0, -0.6, 0],
     components: [],
-    scale: 1.15,
+    scale: 0.8,
     hotspots: [
       {
         title: `OPERATING PANEL`,
@@ -237,7 +237,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     position: [0.2, 0, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, 0.5, -0.5],
-    scale: 2,
+    scale: 1.5,
     hotspots: [
       {
         scale: 0.25,
@@ -285,8 +285,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     path: `./assets/models/minipack2/minipack2_2.glb`,
     id: "minipack2",
     title: "MINIPACK2",
-    scale: 2,
-    position: [0, -0.25, 0],
+    scale: 1.3,
+    position: [0.1, -0.25, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
     hotspots: [
@@ -302,7 +302,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         title: `SWITCH MAIN BOARD SERVICEABILITY`,
         description: `On the left column, eight ports of QSFP-DD cage have been designed to support 400G optics while all sixteen ports can support 200G QSFP-DD pluggable optics. The improved cages allow for better thermal cooling solutions for the next generation pluggable optics in the line cards.`,
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        position: [0, 0.3, 1.4],
+        position: [-0.6, 0.05, 1.4],
       },
       {
         scale: 0.25,
@@ -317,7 +317,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         title: `LINE CARD EJECTOR`,
         description: `Based on feedback from the community, we improved the arm design from Minipack1 to Minipack2. The new line card ejector arm is designed for easier serviceability with a spring loaded ejector handle that pops out automatically when released and an easier to access release button.`,
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        position: [-0.6, 0.2, 1.4],
+        position: [0.2, 0.8, 1.4],
         flipped: true,
       },
       {
@@ -330,7 +330,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     ],
     animationHotspot: {
       scale: 0.25,
-      position: [-0.1, 0.1, 1.4],
+      position: [0.2, 0.3, 1.4],
       rotation: [0, THREE.MathUtils.degToRad(0), 0],
     },
   },
@@ -338,8 +338,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     path: `./assets/models/grand-canyon/grand-canyon.glb`,
     id: "grand-canyon",
     title: "GRAND CANYON",
-    scale: 2,
-    position: [0, -0.25, 0],
+    scale: 1.3,
+    position: [0.1, -0.25, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
     hotspots: [
@@ -355,7 +355,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.25,
         title: `FRONT PANEL CARDS`,
         description: `The front panel features two User Interface Cards (UICs), which are low speed management cards that house the BMC and TPM, as well as a debug USB port, status LEDs, and a mechanical power button. Further inward are two OCP 3.0 NICs in the small form factor. In the center of the front panel are four E.1S SSDs.`,
-        position: [0.1, -0.1, 1.2],
+        position: [-0.3, -0.1, 1.2],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
         flipped: true,
       },
@@ -370,7 +370,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.25,
         title: `BARTON SPRINGS CPUS`,
         description: `Grand Canyon features two Barton Springs cards, which are 1 socket server modules. These are top-accessible and specifically designed to maximize chassis drive density while maintaining all the necessary features. The card has one CPU, four DIMM sockets, a PCH, and an M.2 SSD for boot purposes.`,
-        position: [0.8, 0.35, 1.2],
+        position: [0.75, 0.35, 1.2],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
       },
       {
@@ -393,7 +393,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.25,
         title: `STORAGE CONTROLLER CARDS (SCC)`,
         description: `Grand Canyon features two Storage Controller Cards (SCCs). These are top-accessible modules that contain the components necessary to translate PCIe connectivity from the server card to SAS/SATA for the HDDs. These cards are easily serviceable with the release of one ejector handle.`,
-        position: [0.45, -0.2, 1.2],
+        position: [-0.1, -0.1, 1.2],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
       },
       {
@@ -414,17 +414,17 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     path: `./assets/models/grand-teton/grand-teton.glb`,
     id: "grand-teton",
     title: "GRAND TETON",
-    position: [0, -0.3, 0],
+    position: [0.2, -0.3, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, -0.3, -0.75],
-    scale: 1.75,
+    scale: 1.3,
     hotspots: [
       {
         title: `Chassis`,
         description: `Compared to Zion, the Grand Teton monolithic chassis has eliminated eternal cables and replaced them with blind mate connectors allowing for increased reliability. A standard ORv3 rack can accommodate two 8OU Grand Tetons.  Unlike its predecessor, Zion, the Grand Teton chassis has a fan wall made up of 16 rear serviceable fans.  Finally, in total the Chassis has 33 field replaceable units`,
-        position: [-0.7, 0.15, 1.3],
+        position: [-0.7, 0.15, 1],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        scale: 0.25,
+        scale: 0.3,
         flipped: true,
       },
     ],
@@ -486,7 +486,9 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     ],
   },
   {
-    scale: 3.5,
+    scale: 2.5,
+    position: [0.1, -0.1, 0],
+    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     path: `./assets/models/glacier-point/glacier-point.glb`,
     id: "glacier-point",
     title: "GLACIER POINT",
@@ -495,7 +497,7 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
         title: `Riser Cage`,
         description: `Now, you can view the Riser Cage with the Glacier Point v3 Board. The bottom M.2 modules as well as the 2x E1.S drives are now accessible for service. You will also see a heat sink on the Glacier Point v3 Board which is for the switch to route traffic between the expansion board and Delta Lake motherboard`,
         scale: 0.15,
-        position: [-0.5, 0.325, 1.2],
+        position: [-0.1, 0.025, 1.4],
         flipped: true,
       },
       {
@@ -526,13 +528,13 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
     id: "discovery-point",
     title: "DISCOVERY POINT",
     components: [],
-    scale: 2.5,
-    position: [0, 0, 0],
+    scale: 2.1,
+    position: [-0.1, 0, 0],
     rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
     hotspots: [
       {
-        scale: 0.3,
-        position: [-0.2, 0.3, 0],
+        scale: 0.2,
+        position: [-0.2, 0.4, 0],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
         description: `Discovery Point is an expansion card to the Yosemite v3 Platform that provides an industry standard PCIe interface to a Delta Lake server board for more functionality through added storage, networking, or other cards.
 

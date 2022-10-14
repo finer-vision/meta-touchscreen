@@ -29,6 +29,8 @@ export default function App() {
 
   const [mounted, setMounted] = React.useState(false);
   const [loaded, setLoaded] = React.useState(false);
+  const [minDistance, setMinDistance] = React.useState(1);
+  const [maxDistance, setMaxDistance] = React.useState(3);
 
   React.useEffect(() => {
     // Preload assets
@@ -119,6 +121,8 @@ export default function App() {
   React.useEffect(() => {
     appState.getState().setSelectedModelComponent(null);
     appState.getState().setModelInfo(null);
+    setMinDistance(selectedModel?.minDistance ?? 1)
+    setMaxDistance(selectedModel?.maxDistance ?? 3)
   }, [selectedModel.id]);
 
   const showScreensaver = appState((state) => state.showScreensaver);
@@ -201,8 +205,8 @@ export default function App() {
           ref={controlsRef}
           // enablePan={false}
           // enableZoom={false}
-          minDistance={1}
-          maxDistance={3}
+          minDistance={minDistance}
+          maxDistance={maxDistance}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}
         />

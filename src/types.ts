@@ -46,4 +46,6 @@ export type Model = {
   hotspots?: Hotspot[];
   animationHotspot?: AnimationHotspot;
   path: string;
+  maxDistance?: number;
+  minDistance?: number;
 };

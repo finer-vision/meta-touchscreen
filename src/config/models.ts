@@ -177,6 +177,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     position: [0, -0.6, 0],
     components: [],
     scale: 0.8,
+    maxDistance: 3,
+    minDistance: 2,
     hotspots: [
       {
         title: `OPERATING PANEL`,
@@ -238,6 +240,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, 0.5, -0.5],
     scale: 1.5,
+    maxDistance: 3,
+    minDistance: 2,
     hotspots: [
       {
         scale: 0.25,
@@ -289,6 +293,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     position: [0.1, -0.25, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
+    maxDistance: 3,
+    minDistance: 1.5,
     hotspots: [
       {
         scale: 0.25,
@@ -342,6 +348,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     position: [0.1, -0.25, 0],
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     components: [],
+    maxDistance: 3,
+    minDistance: 1.5,
     hotspots: [
       {
         scale: 0.25,
@@ -418,6 +426,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
     componentOpenPosition: [0, -0.3, -0.75],
     scale: 1.3,
+    maxDistance: 3,
+    minDistance: 1.3,
     hotspots: [
       {
         title: `Chassis`,
@@ -492,6 +502,8 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     path: `./assets/models/glacier-point/glacier-point.glb`,
     id: "glacier-point",
     title: "GLACIER POINT",
+    maxDistance: 3,
+    minDistance: 1.4,
     hotspots: [
       {
         title: `Riser Cage`,
@@ -531,6 +543,8 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
     scale: 2.1,
     position: [-0.1, 0, 0],
     rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
+    maxDistance: 3,
+    minDistance: 1.4,
     hotspots: [
       {
         scale: 0.2,

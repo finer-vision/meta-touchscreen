@@ -32,9 +32,16 @@ export default function ModelComponent({
       const alpha = [
         "BLMTCH_Vents",
         "Grand Teton Chasis_Vents",
+        "Grand Teton Chasis_Vents.001",
         "Vents",
         "MiniPK front_Vents",
         "WDG400C_Vents",
+        "Arrowhead Vents.001",
+        "Arrowhead Vents",
+        "Storm Point_Vents",
+        "Cascade Creek Text ",
+        "Storm Point_Vents",
+        "Discovery Point_Vents",
       ].includes(object.material.name);
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;

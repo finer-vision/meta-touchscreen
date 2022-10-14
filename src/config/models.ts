@@ -430,7 +430,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     minDistance: 1.3,
     hotspots: [
       {
-        title: `Chassis`,
+        title: `CHASSIS`,
         description: `Compared to Zion, the Grand Teton monolithic chassis has eliminated eternal cables and replaced them with blind mate connectors allowing for increased reliability. A standard ORv3 rack can accommodate two 8OU Grand Tetons.  Unlike its predecessor, Zion, the Grand Teton chassis has a fan wall made up of 16 rear serviceable fans.  Finally, in total the Chassis has 33 field replaceable units`,
         position: [-0.7, 0.15, 1],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
@@ -506,20 +506,20 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
     minDistance: 1.4,
     hotspots: [
       {
-        title: `Riser Cage`,
+        title: `RISER CAGE`,
         description: `Now, you can view the Riser Cage with the Glacier Point v3 Board. The bottom M.2 modules as well as the 2x E1.S drives are now accessible for service. You will also see a heat sink on the Glacier Point v3 Board which is for the switch to route traffic between the expansion board and Delta Lake motherboard`,
         scale: 0.15,
         position: [-0.1, 0.025, 1.4],
         flipped: true,
       },
       {
-        title: `M.2 Modules`,
+        title: `M.2 MODULES`,
         description: `By opening the top cover, you can easily access the upper 6 M.2 Modules mounted to the Glacier Point v3 Board. This board also has a switch that allows for traffic communication between the M.2 modules and Intel Cooper Lake Host.   The latching mechanism on each side of the blade, allows you to unlock the 2OU Riser Cage from the Blade Base to access the lower M.2 Modules and two E1.S drives for Storage.`,
         scale: 0.15,
         position: [0.5, 0.325, 1],
       },
       {
-        title: `Serviceability`,
+        title: `SERVICEABILITY`,
         description: `By removal of the Green 2OU Air Baffle, you can access the Rear portion of the Delta Lake Motherboard. The DIMMs, CPU, Heat Sink, and Boot drive can easily be accessed for service. As you see here, this model is supporting 4 DIMMs. Up to 6 can be used with this system`,
         scale: 0.15,
         position: [-0.5, 0.325, -0.2],

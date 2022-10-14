@@ -42,6 +42,7 @@ export default function ModelComponent({
         "Cascade Creek Text ",
         "Storm Point_Vents",
         "Discovery Point_Vents",
+        "Rubber Hose Textured",
       ].includes(object.material.name);
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;

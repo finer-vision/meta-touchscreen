@@ -32,8 +32,8 @@ export const ModelInfoHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 5%;
-  padding-bottom: 3%;
-  padding-top: 3%;
+  padding-bottom: 1.5%;
+  padding-top: 1.5%;
 
   h3 {
     font-size: 2em;

@@ -48,7 +48,7 @@ export default function ModelComponent({
         <primitive object={model.scene} />
         {(component.hotspots ?? []).map((hotspot, index) => {
           return (
-            <group scale={0.5}>
+            <group scale={0.7}>
               <Hotspot
                 key={index}
                 show={showHotspot}

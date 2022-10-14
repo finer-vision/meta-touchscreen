@@ -100,7 +100,7 @@ export default function Model() {
           <a.group {...props}>
             <group scale={selectedModel.scale}>
               <primitive object={model.scene} />
-              <group scale={0.5}>
+              <group scale={1.5}>
                 {(selectedModel.hotspots ?? []).map((hotspot, index) => {
                   return (
                     <ModelHotspot

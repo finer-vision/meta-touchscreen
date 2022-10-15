@@ -85,7 +85,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         description: `Quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors were designed with serviceability in mind.   Connectors will be mechanically keyed (plug for hot coolant exiting IT gear, socket for chilled coolant entering IT gear) to prevent user error. The connectors are drip free and can be connected or disconnected while the system is running. Clamps added to hose-barb connection to prevent pull out by user or under high pressure  Furthermore, in system, the same type of quick connectors are used to connect both the large and small hose connections.`,
         position: [0.25, 2.4, 1.2],
         scale: 0.4,
-        flipped: true
+        flipped: true,
       },
     ],
     components: [
@@ -138,13 +138,6 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.4,
       },
       {
-        title: `BLIND MATE MANIFOLD`,
-        description: `The blind mate manifold provides the interface between the IT Gear and the facility fluid cooling & distribution source. The blind mate manifold consists of the manifold tube, the blind mate sockets, an optional air vent, and an inlet or outlet port with hoses to connect to fluid source and return. The blind mate manifolds are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
-        position: [0.2, 2, 1],
-        flipped: true,
-        scale: 0.4,
-      },
-      {
         title: `LIQUID COOLING SUPPORT BRACKETS`,
         description: `ORV3 was designed with liquid cooling in mind. The standard ORV3 frame can be converted into a liquid cooling capable solution by installing a bolt-on support bracket kit. This kit stiffens the frame to account for the added forces induced from fluid pressures and valve spring forces, as well as provides the interfaces for mounting the blind mate manifolds to the rack.  The kit contains front web stiffener brackets, a front cross-plate stiffener, two lower manifold interface brackets, two upper manifold interface brackets, and two mid-rack manifold interface brackets.`,
         position: [-0.5, 1.6, 1],
@@ -163,6 +156,22 @@ Open Rack V3 has many new features that will improve how we design, configure, b
             description: `Blind mate chassis is a reference design for future IT gear using blind mating liquid cooling and to provide functional design during development. There are no manual hose connections or manifolds on the front of racks. Instead, blind mate chassis has quick connect plug valves mounted at the rear for mating directly into sockets mounted on the blind mate manifold. Within the chassis, there’s a theoretical liquid cooling passive cold plate loop (PCL) connecting to an internal manifold, which terminates into the hoses that connect to the quick connect plugs at the rear of the chassis. The injector handles are located at the front of the chassis, which have long travel and provide mechanical advantage to overcome the fluid and spring forces to mate the chassis into the rack.`,
             position: [0, -0.1, 0.85],
             openPosition: [-0.15, 0.3, 0.5],
+            scale: 1.2,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/blind-mate-interfaces/manifold.glb`,
+        id: "manifold",
+        title: "BLIND MATE MANIFOLD",
+        position: [0, 0, 0.85],
+        openPosition: [0, 0, 1.5],
+        hotspots: [
+          {
+            description: `The blind mate manifold provides the interface between the IT Gear and the facility fluid cooling & distribution source. The blind mate manifold consists of the manifold tube, the blind mate sockets, an optional air vent, and an inlet or outlet port with hoses to connect to fluid source and return. The blind mate manifolds are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
+            position: [0.2, 2, 0],
+            openPosition: [0.15, 1.5, -0.5],
+            flipped: true,
             scale: 1.2,
           },
         ],

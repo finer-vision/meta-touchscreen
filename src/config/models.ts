@@ -564,6 +564,11 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
 With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
       },
     ],
+    animationHotspot: {
+      position: [0, 0.2, 0.55],
+      rotation: [0, THREE.MathUtils.degToRad(-90), 0],
+      scale: 0.2,
+    },
   },
 ];
 

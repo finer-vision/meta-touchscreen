@@ -26,17 +26,18 @@ export default function Model() {
       mountedRef.current = true;
       return;
     }
-    const name = animation.names[0];
-    if (name === undefined) return;
-    const action = animation.actions[name];
-    if (action === undefined) return;
-    action.loop = animating ? THREE.LoopPingPong : THREE.LoopOnce;
-    action.timeScale = animating ? 1 : -1;
-    const time = action.time;
-    action.reset();
-    action.time = time;
-    action.play();
-  }, [animation.names[0], animating]);
+    animation.names.forEach((name) => {
+      const action = animation.actions[name];
+      if (action === undefined) return;
+      if (animating) {
+        action.loop = THREE.LoopPingPong;
+        action.play();
+      } else {
+        action.stop();
+        action.reset();
+      }
+    });
+  }, [animation.names, animating]);
 
   const groupRef = React.useRef<THREE.Group>(null);
   const [rotate, setRotate] = React.useState(false);

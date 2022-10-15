@@ -295,7 +295,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     ],
   },
   {
-    path: `./assets/models/minipack2/minipack2_2.glb`,
+    path: `./assets/models/minipack2/minipack2.glb`,
     id: "minipack2",
     title: "MINIPACK2",
     scale: 1.3,

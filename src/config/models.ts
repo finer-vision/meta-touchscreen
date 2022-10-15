@@ -543,6 +543,11 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
       },
     ],
     components: [],
+    animationHotspot: {
+      position: [0, 0.3, 1.4],
+      rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      scale: 0.15,
+    },
   },
   {
     path: `./assets/models/discovery-point/discovery-point.glb`,

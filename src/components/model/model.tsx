@@ -29,6 +29,7 @@ export default function Model() {
     animation.names.forEach((name) => {
       const action = animation.actions[name];
       if (action === undefined) return;
+      console.log(name);
       if (animating) {
         action.loop = THREE.LoopPingPong;
         action.play();
@@ -37,6 +38,14 @@ export default function Model() {
         action.reset();
       }
     });
+    return () => {
+      animation.names.forEach((name) => {
+        const action = animation.actions[name];
+        if (action === undefined) return;
+        action.stop();
+        action.reset();
+      });
+    };
   }, [animation.names, animating]);
 
   const groupRef = React.useRef<THREE.Group>(null);

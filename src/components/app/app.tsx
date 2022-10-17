@@ -203,7 +203,7 @@ export default function App() {
           physicallyCorrectLights: true,
           logarithmicDepthBuffer: true,
         }}
-        camera={{ near: 0.0001, far: 10000 }}
+        camera={{ near: 0.1, far: 10000 }}
       >
         <Lights />
         <OrbitControls

@@ -198,7 +198,11 @@ export default function App() {
         flat
         linear
         dpr={1}
-        gl={{ alpha: true, physicallyCorrectLights: true, logarithmicDepthBuffer: true }}
+        gl={{
+          alpha: true,
+          physicallyCorrectLights: true,
+          logarithmicDepthBuffer: true,
+        }}
         camera={{ near: 0.0001, far: 10000 }}
       >
         <Lights />
@@ -215,7 +219,7 @@ export default function App() {
           <Model key={selectedModel.id} />
         </React.Suspense>
       </Canvas>
-      <Homepage />
+      <Homepage key={showScreensaver ? 0 : 1} />
       {showScreensaver && <Screensaver />}
     </React.Fragment>
   );

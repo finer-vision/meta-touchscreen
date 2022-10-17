@@ -53,8 +53,8 @@ export default function AnimationHotspot({
   useFrame(() => {
     const pillGroup = pillGroupRef.current;
     if (pillGroup === null) return;
-    const speed = 0.05;
-    pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
+    const speed = 0.3;
+    pillGroup.rotation.y = THREE.MathUtils.degToRad(Date.now() * speed);
   });
 
   const labelPosition = React.useMemo<[x: number, y: number, z: number]>(() => {

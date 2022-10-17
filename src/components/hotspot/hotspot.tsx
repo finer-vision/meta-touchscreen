@@ -79,8 +79,8 @@ export default function Hotspot({
     if (group === null) return;
     const pillGroup = pillGroupRef.current;
     if (pillGroup === null) return;
-    const speed = 0.05;
-    pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
+    const speed = 0.3;
+    pillGroup.rotation.y = THREE.MathUtils.degToRad(Date.now() * speed);
     group.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;

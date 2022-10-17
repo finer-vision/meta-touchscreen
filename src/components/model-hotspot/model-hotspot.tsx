@@ -61,8 +61,8 @@ export default function ModelHotspot({
   useFrame(() => {
     const pillGroup = pillGroupRef.current;
     if (pillGroup === null) return;
-    const speed = 0.05;
-    pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
+    const speed = 0.3;
+    pillGroup.rotation.y = THREE.MathUtils.degToRad(Date.now() * speed);
   });
 
   const labelPosition = React.useMemo<[x: number, y: number, z: number]>(() => {
@@ -104,10 +104,6 @@ export default function ModelHotspot({
   useFrame(() => {
     const group = groupRef.current;
     if (group === null) return;
-    const pillGroup = pillGroupRef.current;
-    if (pillGroup === null) return;
-    const speed = 0.05;
-    pillGroup.rotation.y = (pillGroup.rotation.y + speed) % (Math.PI * 2);
     group.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;

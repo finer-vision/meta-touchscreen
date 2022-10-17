@@ -548,7 +548,7 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
     hotspots: [
       {
         scale: 0.2,
-        position: [-0.2, 0.4, 0],
+        position: [0, -0.2, 0.8],
         rotation: [0, THREE.MathUtils.degToRad(0), 0],
         description: `Discovery Point is an expansion card to the Yosemite v3 Platform that provides an industry standard PCIe interface to a Delta Lake server board for more functionality through added storage, networking, or other cards.
 

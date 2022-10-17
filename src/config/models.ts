@@ -197,14 +197,14 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.5,
       },
       {
-        title: `Manifold Mount`,
+        title: `MANIFOLD MOUNT`,
         description: `This mount is used for servicing of the manifold on both Blindmate and AALC racks. It carries the manifold from storage, to the data hall while containing any potential fluid leaks`,
         position: [0, 0.6, 0.5],
         rotation: [0, THREE.MathUtils.degToRad(90), 0],
         scale: 0.5,
       },
       {
-        title: `Extended Shelf`,
+        title: `EXTENDED SHELF`,
         description: `This shelf mimics what is on the standard crash carts in the data center, and provides additional workspace for the DC technicians`,
         position: [0, 1.75, 0.5],
         flipped: true,
@@ -212,7 +212,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.5,
       },
       {
-        title: `Hoses Cabinet`,
+        title: `HOSES CABINET`,
         description: `The auxiliary hoses cabinet enables the flexibility connectivity of the cart with the AALC rack, external fluid tank, and compressed air connections. This allows for new connections to be added in the future.`,
         position: [-0.4, 1.2, 0.6],
         rotation: [0, THREE.MathUtils.degToRad(90 + 180), 0],
@@ -220,7 +220,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         scale: 0.5,
       },
       {
-        title: `Fluid Management`,
+        title: `FLUID MANAGEMENT`,
         description: `In the liquid cooling cart cabinet, you will find the new coolant reservoir, used coolant reservoir and a fluid pump. The pump allows you to top-off the rack in 3 minutes or less.  This system is capable of storing 50 liters of coolant per tank (100 liters in total), and given the weight of the cart it was essential to use appropriate casters and wheel assembly to enable the ease of mobility for on-site technicians.`,
         position: [0.3, 1, 0.6],
         rotation: [0, THREE.MathUtils.degToRad(90 + 180), 0],
@@ -254,7 +254,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     hotspots: [
       {
         scale: 0.25,
-        title: `Front Panel Port Features`,
+        title: `FRONT PANEL PORT FEATURES`,
         description: `Wedge 400 & 400C have sixteen QSFP-DD ports to support 400 gigabits per seconds network speeds and thirty-two QSFP-56 ports to support 200 gigabits per seconds.  The rackmon provides connections to the power shelves (including PSUs and BBUs) in the rack.   In addition, There are two buttons on the left side of the front panel. The reset button is used to reset the whole system, and the LED button is used to switch different modes for showing the uplink/downlink status.`,
         position: [-0.25, 0.4, 1.2],
       },

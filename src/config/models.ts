@@ -164,13 +164,14 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         path: `./assets/models/blind-mate-interfaces/manifold.glb`,
         id: "manifold",
         title: "BLIND MATE MANIFOLD",
-        position: [0, 0, 0.85],
-        openPosition: [0, 0, 1.5],
+        position: [0, 0, 0],
+        openPosition: [0, 0, -0.5],
         hotspots: [
           {
             description: `The blind mate manifold provides the interface between the IT Gear and the facility fluid cooling & distribution source. The blind mate manifold consists of the manifold tube, the blind mate sockets, an optional air vent, and an inlet or outlet port with hoses to connect to fluid source and return. The blind mate manifolds are being developed in the OCP ORv3 Blind Mate Interfaces Group.`,
-            position: [0.2, 2, 0],
-            openPosition: [0.15, 1.5, -0.5],
+            position: [0.2, 2, 0.7],
+            rotation: [0, THREE.MathUtils.degToRad(180), 0],
+            openPosition: [0.2, 2, 0.7],
             flipped: true,
             scale: 1.2,
           },

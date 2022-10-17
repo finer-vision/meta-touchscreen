@@ -68,6 +68,7 @@ export default function ModelComponent({
                 }}
                 scale={hotspot.scale}
                 position={open ? hotspot.openPosition : hotspot.position}
+                rotation={hotspot.rotation}
                 flipped={hotspot.flipped}
               />
             </group>

@@ -56,12 +56,18 @@ export const ModelInfoContainer = styled(motion.div).attrs(() => ({
   line-height: 1.6;
 `;
 
+export const ModelInfoBackdrop = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.3);
+`;
+
 export const ModelInfoWrapper = styled.div`
   --padding: 1rem;
   --border-radius: 1.25em;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;

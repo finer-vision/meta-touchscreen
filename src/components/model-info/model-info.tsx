@@ -4,6 +4,7 @@ import {
   ModelInfoClose,
   ModelInfoContainer,
   ModelInfoHeader,
+  ModelInfoBackdrop,
   ModelInfoWrapper,
 } from "@/components/model-info/model-info.styles";
 import { AnimatePresence } from "framer-motion";
@@ -25,6 +26,7 @@ export default function ModelInfo({
     <AnimatePresence>
       {show && (
         <ModelInfoWrapper>
+          <ModelInfoBackdrop onClick={onClose} />
           <ModelInfoContainer>
             <ModelInfoHeader>
               <h3>{title}</h3>

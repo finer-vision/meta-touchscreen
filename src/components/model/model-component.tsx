@@ -43,6 +43,7 @@ export default function ModelComponent({
         "Storm Point_Vents",
         "Discovery Point_Vents",
         "Rubber Hose Textured",
+        "Glacier Point_Vents",
       ].includes(object.material.name);
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;

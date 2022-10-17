@@ -121,8 +121,8 @@ export default function App() {
   React.useEffect(() => {
     appState.getState().setSelectedModelComponent(null);
     appState.getState().setModelInfo(null);
-    setMinDistance(selectedModel?.minDistance ?? 1)
-    setMaxDistance(selectedModel?.maxDistance ?? 3)
+    setMinDistance(selectedModel?.minDistance ?? 1);
+    setMaxDistance(selectedModel?.maxDistance ?? 3);
   }, [selectedModel.id]);
 
   const showScreensaver = appState((state) => state.showScreensaver);

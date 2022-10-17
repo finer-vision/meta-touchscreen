@@ -198,7 +198,8 @@ export default function App() {
         flat
         linear
         dpr={1}
-        gl={{ alpha: true, physicallyCorrectLights: true }}
+        gl={{ alpha: true, physicallyCorrectLights: true, logarithmicDepthBuffer: true }}
+        camera={{ near: 0.0001, far: 10000 }}
       >
         <Lights />
         <OrbitControls

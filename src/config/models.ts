@@ -66,7 +66,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
   },
   {
     id: "noahs-ark",
-    title: "AACL",
+    title: "AALC",
     position: [0, -0.9, 0],
     componentOpenPosition: [0, -0.9, 0],
     scale: 0.75,

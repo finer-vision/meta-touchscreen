@@ -65,57 +65,76 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     ],
   },
   {
-    id: "noahs-ark",
-    title: "AALC",
-    position: [0, -0.9, 0],
-    componentOpenPosition: [0, -0.9, 0],
-    scale: 0.75,
-    path: `./assets/models/noahs-ark/noahs-ark.glb`,
+    path: `./assets/models/grand-teton/grand-teton.glb`,
+    id: "grand-teton",
+    title: "GRAND TETON",
+    position: [0.2, 0, 0],
+    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
+    componentOpenPosition: [0, -0.3, -0.75],
+    scale: 1.3,
+    maxDistance: 3,
+    minDistance: 1.3,
     hotspots: [
       {
-        title: `LEAK DETECTION & CONTAINMENT`,
-        description: `The AALC system is designed to avoid leaks through our quick connector hoses, hose clamps and extensive testing at five times the pressure the system will actually run at. Furthermore, the rubber hoses have passed the ASTM and UL standard tests.  To complement the leak prevention measures, the system has comprehensive leak detection and mitigation mechanisms. The leak sensor ropes are designed to sense liquid at the lowest latency possible. If one of the ropes senses a drip, DC alert manager sounds, the RPU pumps turn off and both racks automatically power down. The drain pans collect leaked coolant with each drain pan capable of holding 25 liters of fluid.  Meanwhile, the alarm tooling creates a trouble ticket to notify the data center service teams. Drain pans are removable for easy cleaning in order to get the system up and running as quickly as possible.`,
-        position: [0.2, 0.5, 1.4],
-        rotation: [0, THREE.MathUtils.degToRad(180), 0],
-        flipped: true,
-        scale: 0.4,
-      },
-      {
-        title: `QUICK CONNECTORS`,
-        description: `Quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors were designed with serviceability in mind.   Connectors will be mechanically keyed (plug for hot coolant exiting IT gear, socket for chilled coolant entering IT gear) to prevent user error. The connectors are drip free and can be connected or disconnected while the system is running. Clamps added to hose-barb connection to prevent pull out by user or under high pressure  Furthermore, in system, the same type of quick connectors are used to connect both the large and small hose connections.`,
-        position: [0.25, 2.4, 1.2],
-        scale: 0.4,
+        title: `CHASSIS`,
+        description: `Compared to Zion, the Grand Teton monolithic chassis has eliminated eternal cables and replaced them with blind mate connectors allowing for increased reliability. A standard ORv3 rack can accommodate two 8OU Grand Tetons.  Unlike its predecessor, Zion, the Grand Teton chassis has a fan wall made up of 16 rear serviceable fans.  Finally, in total the Chassis has 33 field replaceable units`,
+        position: [-0.7, 0.15, 1],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+        scale: 0.3,
         flipped: true,
       },
     ],
     components: [
       {
-        path: `./assets/models/noahs-ark/rpu.glb`,
-        id: "rpu",
-        title: "RPU",
-        position: [-0.3, 0.16, 0],
-        openPosition: [0, 1.075, 1.2],
+        path: `./assets/models/grand-teton/arrowhead-pools.glb`,
+        id: "arrowhead-pools",
+        title: "ARROWHEAD POOLS",
+        position: [0, 0, 0.1],
+        openPosition: [0, 0, 0.75],
         hotspots: [
           {
-            description: `The RPU (Reservoir and Pumping Unit) provides the pressure head and distributes coolant to the entire Air Assisted Liquid Cooling (AALC) solution.​ The RPU also serves as the brain for AALC solution, which is responsible for control and monitoring of the system. How does it work? Cooled fluid flows into the RPU from the heat exchanger. Coolant collects in the RPU reservoir and is pulled into 2 pumps (the other 2 pumps are redundant). The pumps create pressure to push the coolant back out of the RPU. Finally the coolant flows out of the RPU into the cold manifold in front of the rack.`,
-            position: [0, 0.1, 0.77],
-            openPosition: [-0.15, 0.25, 0.3],
-            scale: 1.4,
+            description: `Arrowhead Pool is our next generation GPU tray, it features 8 GPUs to enable both training and inference applications within the data center. As it weighs over 41kilos, the tray is on rails, has a ‘hard stop’ and safety latches to ensure safe serviceability for on-site technicians.`,
+            position: [-0, 0.1, 0.55],
+            openPosition: [-0.175, -0.1, 0.25],
+            rotation: [0, THREE.MathUtils.degToRad(20), 0],
           },
         ],
       },
       {
-        path: `./assets/models/noahs-ark/ttv.glb`,
-        id: "ttv",
-        title: "TTV",
-        position: [0.305, 1.258, 0.09],
-        openPosition: [0, 1.075, 1.2],
+        path: `./assets/models/grand-teton/storm-point.glb`,
+        id: "storm-point",
+        title: "STORM POINT",
+        position: [0, 0.28, 0.1],
+        openPosition: [0, 0, 0.75],
         hotspots: [
           {
-            description: `The TTV (thermal test vehicle) chassis is the thermal load in an IT gear form factor that allows the testing of the AALC system without the use of functioning GPUs or other high thermal loads. The TTV chassis consists of block heaters that simulate the size and heat rejection from a GPU, covered by cold plates that flow chilled coolant over the heaters and then route hot coolant out of the chassis. The block heaters are variable in their thermal load so that different use cases can be simulated. The AALC system connects to the TTV via quick connectors on the front of the chassis.`,
-            position: [0.05, -0.25, 0.67],
-            openPosition: [0.175, 0.25, 0.3],
-            scale: 1.4,
+            description: `Storm Point is our next generation CPU tray. It is a two socket system with 39 field replaceable units (FRUs) including:
+- The DIMMs
+- The CPUs
+- And the TSFF NICs (tall small form factor network interface card)
+
+This new CPU tray has increased memory, bandwidth and performance compared to its predecessor Angels Landing.`,
+            position: [0.1, 0.1, 0.55],
+            openPosition: [-0.175, -0.1, 0.25],
+            rotation: [0, THREE.MathUtils.degToRad(20), 0],
+          },
+        ],
+      },
+      {
+        path: `./assets/models/grand-teton/cascade-creek.glb`,
+        id: "cascade-creek",
+        title: "CASCADE CREEK",
+        position: [0, 0.18, 0.1],
+        openPosition: [0, 0, 0.75],
+        hotspots: [
+          {
+            description: `Cascade Creek is our Switch Tray. it is comprised of;
+- 8 x RDMA NICs
+- And up to 16 x E1.S Drives
+Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front serviceable, and hot-swappable enabling faster serviceability for on-site technicians.`,
+            position: [0.1, 0.075, 0.55],
+            openPosition: [0.16, -0.1, 0.25],
+            rotation: [0, THREE.MathUtils.degToRad(20), 0],
             flipped: true,
           },
         ],
@@ -243,6 +262,198 @@ Open Rack V3 has many new features that will improve how we design, configure, b
     },
   },
   {
+    path: `./assets/models/grand-canyon/grand-canyon.glb`,
+    id: "grand-canyon",
+    title: "GRAND CANYON",
+    scale: 0.9,
+    position: [0.1, -0, 0],
+    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
+    components: [],
+    maxDistance: 3,
+    minDistance: 1.5,
+    hotspots: [
+      {
+        scale: 0.25,
+        title: `REAR FANS`,
+        description: `In the rear of the chassis, we have four hot swappable fan modules. In order to improve vibration performance, these fan cages are isolated from the chassis via elastomer padding. They also feature a lower fan blade count and improved blade geometry. There is an option to mount fan louvers to reduce air leakage during fan failure and lower fan speeds.`,
+        position: [0.3, 0.6, 1.4],
+        rotation: [0, THREE.MathUtils.degToRad(180), 0],
+        flipped: true,
+      },
+      {
+        scale: 0.25,
+        title: `BARTON SPRINGS CPUS`,
+        description: `Grand Canyon features two Barton Springs cards, which are 1 socket server modules. These are top-accessible and specifically designed to maximize chassis drive density while maintaining all the necessary features. The card has one CPU, four DIMM sockets, a PCH, and an M.2 SSD for boot purposes.`,
+        position: [0.75, 0.35, 1.2],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      },
+      {
+        scale: 0.25,
+        title: `CHASSIS DESIGN`,
+        description: `Grand Canyon features several improvements over Bryce Canyon. The power cable track has been redesigned for easier serviceability and reliability. Many new features were implemented to help with improving drive vibration dampening, such as new HDD latch materials, improved air sealing, and the addition of optional acoustic foam. The front handles were improved for easier functionality and increased reliability as well.`,
+        position: [-0.8, 0.5, 1.2],
+        rotation: [0, THREE.MathUtils.degToRad(180), 0],
+        flipped: true,
+      },
+      {
+        scale: 0.25,
+        title: `HARD DRIVES (HDDS)`,
+        description: `The system features 72 hot swappable 3.5” form factor hard drives. These drives can easily be serviced by engaging a latch and pulling out the drive from its designated location. The latch assembly is also designed to keep all drives in the unseated position in case the drive plane board (DPB) needs to be replaced.`,
+        position: [-0.8, 0.2, 1.2],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+        flipped: true,
+      },
+      {
+        scale: 0.25,
+        title: `STORAGE CONTROLLER CARDS (SCC)`,
+        description: `Grand Canyon features two Storage Controller Cards (SCCs). These are top-accessible modules that contain the components necessary to translate PCIe connectivity from the server card to SAS/SATA for the HDDs. These cards are easily serviceable with the release of one ejector handle.`,
+        position: [-0.1, -0.1, 1.2],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      },
+      {
+        scale: 0.25,
+        description: `Grand Canyon is Meta’s next generation storage platform with improved hardware security and modularity for future upgrades of key commodities. The platform is designed to support higher density HDD without performance degradation and improves power utilization. The platform Enables large scale deployments in hyperscale environments by leveraging OpenBMC, OCP NIC, industry standard interfaces and improves serviceability.`,
+        position: [0, 0.7, -0.1],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      },
+    ],
+    animationHotspot: {
+      scale: 0.25,
+      position: [0.15, 0.7, 1.2],
+      rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      flipped: true,
+    },
+  },
+  {
+    scale: 2.5,
+    position: [0.1, 0.1, 0],
+    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
+    path: `./assets/models/glacier-point/glacier-point.glb`,
+    id: "glacier-point",
+    title: "GLACIER POINT",
+    maxDistance: 3,
+    minDistance: 1.4,
+    hotspots: [
+      {
+        title: `RISER CAGE`,
+        description: `Now, you can view the Riser Cage with the Glacier Point v3 Board. The bottom M.2 modules as well as the 2x E1.S drives are now accessible for service. You will also see a heat sink on the Glacier Point v3 Board which is for the switch to route traffic between the expansion board and Delta Lake motherboard`,
+        scale: 0.15,
+        position: [-0.1, 0.025, 1.4],
+        flipped: true,
+      },
+      {
+        title: `M.2 MODULES`,
+        description: `By opening the top cover, you can easily access the upper 6 M.2 Modules mounted to the Glacier Point v3 Board. This board also has a switch that allows for traffic communication between the M.2 modules and Intel Cooper Lake Host.   The latching mechanism on each side of the blade, allows you to unlock the 2OU Riser Cage from the Blade Base to access the lower M.2 Modules and two E1.S drives for Storage.`,
+        scale: 0.15,
+        position: [0.5, 0.325, 1],
+      },
+      {
+        title: `SERVICEABILITY`,
+        description: `By removal of the Green 2OU Air Baffle, you can access the Rear portion of the Delta Lake Motherboard. The DIMMs, CPU, Heat Sink, and Boot drive can easily be accessed for service. As you see here, this model is supporting 4 DIMMs. Up to 6 can be used with this system`,
+        scale: 0.15,
+        position: [-0.5, 0.325, -0.2],
+        flipped: true,
+      },
+      {
+        scale: 0.15,
+        position: [-0.25, 0.525, 0.1],
+        description: `Meet the latest generation of Glacier Peak.
+
+Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is a M.2/Dual M.2 carrier card that supports PCIe gen4 accelerator modules and 2xE1.S SSD on the Yosemite v3 platform using a Gen4 capable PCIE switch.`,
+      },
+    ],
+    components: [],
+    animationHotspot: {
+      position: [0, 0.3, 1.4],
+      rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      scale: 0.15,
+    },
+  },
+  {
+    path: `./assets/models/discovery-point/discovery-point.glb`,
+    id: "discovery-point",
+    title: "DISCOVERY POINT",
+    components: [],
+    scale: 2.1,
+    position: [-0.1, 0.1, 0],
+    rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
+    maxDistance: 3,
+    minDistance: 1.4,
+    hotspots: [
+      {
+        scale: 0.2,
+        position: [0, -0.2, 0.8],
+        rotation: [0, THREE.MathUtils.degToRad(0), 0],
+        description: `Discovery Point is an expansion card to the Yosemite v3 Platform that provides an industry standard PCIe interface to a Delta Lake server board for more functionality through added storage, networking, or other cards.
+
+With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
+      },
+    ],
+    animationHotspot: {
+      position: [0, 0.2, 0.55],
+      rotation: [0, THREE.MathUtils.degToRad(-90), 0],
+      scale: 0.2,
+    },
+  },
+  {
+    id: "noahs-ark",
+    title: "AALC",
+    position: [0, -0.9, 0],
+    componentOpenPosition: [0, -0.9, 0],
+    scale: 0.75,
+    path: `./assets/models/noahs-ark/noahs-ark.glb`,
+    hotspots: [
+      {
+        title: `LEAK DETECTION & CONTAINMENT`,
+        description: `The AALC system is designed to avoid leaks through our quick connector hoses, hose clamps and extensive testing at five times the pressure the system will actually run at. Furthermore, the rubber hoses have passed the ASTM and UL standard tests.  To complement the leak prevention measures, the system has comprehensive leak detection and mitigation mechanisms. The leak sensor ropes are designed to sense liquid at the lowest latency possible. If one of the ropes senses a drip, DC alert manager sounds, the RPU pumps turn off and both racks automatically power down. The drain pans collect leaked coolant with each drain pan capable of holding 25 liters of fluid.  Meanwhile, the alarm tooling creates a trouble ticket to notify the data center service teams. Drain pans are removable for easy cleaning in order to get the system up and running as quickly as possible.`,
+        position: [0.2, 0.5, 1.4],
+        rotation: [0, THREE.MathUtils.degToRad(180), 0],
+        flipped: true,
+        scale: 0.4,
+      },
+      {
+        title: `QUICK CONNECTORS`,
+        description: `Quick connector valves are the interface between manifold hoses and IT gear cold plate loops. These connectors were designed with serviceability in mind.   Connectors will be mechanically keyed (plug for hot coolant exiting IT gear, socket for chilled coolant entering IT gear) to prevent user error. The connectors are drip free and can be connected or disconnected while the system is running. Clamps added to hose-barb connection to prevent pull out by user or under high pressure  Furthermore, in system, the same type of quick connectors are used to connect both the large and small hose connections.`,
+        position: [0.25, 2.4, 1.2],
+        scale: 0.4,
+        flipped: true,
+      },
+    ],
+    components: [
+      {
+        path: `./assets/models/noahs-ark/rpu.glb`,
+        id: "rpu",
+        title: "RPU",
+        position: [-0.3, 0.16, 0],
+        openPosition: [0, 1.075, 1.2],
+        hotspots: [
+          {
+            description: `The RPU (Reservoir and Pumping Unit) provides the pressure head and distributes coolant to the entire Air Assisted Liquid Cooling (AALC) solution.​ The RPU also serves as the brain for AALC solution, which is responsible for control and monitoring of the system. How does it work? Cooled fluid flows into the RPU from the heat exchanger. Coolant collects in the RPU reservoir and is pulled into 2 pumps (the other 2 pumps are redundant). The pumps create pressure to push the coolant back out of the RPU. Finally the coolant flows out of the RPU into the cold manifold in front of the rack.`,
+            position: [0, 0.1, 0.77],
+            openPosition: [-0.15, 0.25, 0.3],
+            scale: 1.4,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/noahs-ark/ttv.glb`,
+        id: "ttv",
+        title: "TTV",
+        position: [0.305, 1.258, 0.09],
+        openPosition: [0, 1.075, 1.2],
+        hotspots: [
+          {
+            description: `The TTV (thermal test vehicle) chassis is the thermal load in an IT gear form factor that allows the testing of the AALC system without the use of functioning GPUs or other high thermal loads. The TTV chassis consists of block heaters that simulate the size and heat rejection from a GPU, covered by cold plates that flow chilled coolant over the heaters and then route hot coolant out of the chassis. The block heaters are variable in their thermal load so that different use cases can be simulated. The AALC system connects to the TTV via quick connectors on the front of the chassis.`,
+            position: [0.05, -0.25, 0.67],
+            openPosition: [0.175, 0.25, 0.3],
+            scale: 1.4,
+            flipped: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: `./assets/models/wedge-400c/wedge-400c.glb`,
     id: "wedge-400c",
     title: "WEDGE 400C",
@@ -348,217 +559,6 @@ Open Rack V3 has many new features that will improve how we design, configure, b
       scale: 0.25,
       position: [0.2, 0.3, 1.4],
       rotation: [0, THREE.MathUtils.degToRad(0), 0],
-    },
-  },
-  {
-    path: `./assets/models/grand-canyon/grand-canyon.glb`,
-    id: "grand-canyon",
-    title: "GRAND CANYON",
-    scale: 0.9,
-    position: [0.1, -0, 0],
-    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
-    components: [],
-    maxDistance: 3,
-    minDistance: 1.5,
-    hotspots: [
-      {
-        scale: 0.25,
-        title: `REAR FANS`,
-        description: `In the rear of the chassis, we have four hot swappable fan modules. In order to improve vibration performance, these fan cages are isolated from the chassis via elastomer padding. They also feature a lower fan blade count and improved blade geometry. There is an option to mount fan louvers to reduce air leakage during fan failure and lower fan speeds.`,
-        position: [0.3, 0.6, 1.4],
-        rotation: [0, THREE.MathUtils.degToRad(180), 0],
-        flipped: true,
-      },
-      {
-        scale: 0.25,
-        title: `BARTON SPRINGS CPUS`,
-        description: `Grand Canyon features two Barton Springs cards, which are 1 socket server modules. These are top-accessible and specifically designed to maximize chassis drive density while maintaining all the necessary features. The card has one CPU, four DIMM sockets, a PCH, and an M.2 SSD for boot purposes.`,
-        position: [0.75, 0.35, 1.2],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-      },
-      {
-        scale: 0.25,
-        title: `CHASSIS DESIGN`,
-        description: `Grand Canyon features several improvements over Bryce Canyon. The power cable track has been redesigned for easier serviceability and reliability. Many new features were implemented to help with improving drive vibration dampening, such as new HDD latch materials, improved air sealing, and the addition of optional acoustic foam. The front handles were improved for easier functionality and increased reliability as well.`,
-        position: [-0.8, 0.5, 1.2],
-        rotation: [0, THREE.MathUtils.degToRad(180), 0],
-        flipped: true,
-      },
-      {
-        scale: 0.25,
-        title: `HARD DRIVES (HDDS)`,
-        description: `The system features 72 hot swappable 3.5” form factor hard drives. These drives can easily be serviced by engaging a latch and pulling out the drive from its designated location. The latch assembly is also designed to keep all drives in the unseated position in case the drive plane board (DPB) needs to be replaced.`,
-        position: [-0.8, 0.2, 1.2],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        flipped: true,
-      },
-      {
-        scale: 0.25,
-        title: `STORAGE CONTROLLER CARDS (SCC)`,
-        description: `Grand Canyon features two Storage Controller Cards (SCCs). These are top-accessible modules that contain the components necessary to translate PCIe connectivity from the server card to SAS/SATA for the HDDs. These cards are easily serviceable with the release of one ejector handle.`,
-        position: [-0.1, -0.1, 1.2],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-      },
-      {
-        scale: 0.25,
-        description: `Grand Canyon is Meta’s next generation storage platform with improved hardware security and modularity for future upgrades of key commodities. The platform is designed to support higher density HDD without performance degradation and improves power utilization. The platform Enables large scale deployments in hyperscale environments by leveraging OpenBMC, OCP NIC, industry standard interfaces and improves serviceability.`,
-        position: [0, 0.7, -0.1],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-      },
-    ],
-    animationHotspot: {
-      scale: 0.25,
-      position: [0.15, 0.7, 1.2],
-      rotation: [0, THREE.MathUtils.degToRad(0), 0],
-      flipped: true,
-    },
-  },
-  {
-    path: `./assets/models/grand-teton/grand-teton.glb`,
-    id: "grand-teton",
-    title: "GRAND TETON",
-    position: [0.2, 0, 0],
-    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
-    componentOpenPosition: [0, -0.3, -0.75],
-    scale: 1.3,
-    maxDistance: 3,
-    minDistance: 1.3,
-    hotspots: [
-      {
-        title: `CHASSIS`,
-        description: `Compared to Zion, the Grand Teton monolithic chassis has eliminated eternal cables and replaced them with blind mate connectors allowing for increased reliability. A standard ORv3 rack can accommodate two 8OU Grand Tetons.  Unlike its predecessor, Zion, the Grand Teton chassis has a fan wall made up of 16 rear serviceable fans.  Finally, in total the Chassis has 33 field replaceable units`,
-        position: [-0.7, 0.15, 1],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        scale: 0.3,
-        flipped: true,
-      },
-    ],
-    components: [
-      {
-        path: `./assets/models/grand-teton/arrowhead-pools.glb`,
-        id: "arrowhead-pools",
-        title: "ARROWHEAD POOLS",
-        position: [0, 0, 0.1],
-        openPosition: [0, 0, 0.75],
-        hotspots: [
-          {
-            description: `Arrowhead Pool is our next generation GPU tray, it features 8 GPUs to enable both training and inference applications within the data center. As it weighs over 41kilos, the tray is on rails, has a ‘hard stop’ and safety latches to ensure safe serviceability for on-site technicians.`,
-            position: [-0, 0.1, 0.55],
-            openPosition: [-0.175, -0.1, 0.25],
-            rotation: [0, THREE.MathUtils.degToRad(20), 0],
-          },
-        ],
-      },
-      {
-        path: `./assets/models/grand-teton/storm-point.glb`,
-        id: "storm-point",
-        title: "STORM POINT",
-        position: [0, 0.28, 0.1],
-        openPosition: [0, 0, 0.75],
-        hotspots: [
-          {
-            description: `Storm Point is our next generation CPU tray. It is a two socket system with 39 field replaceable units (FRUs) including:
-- The DIMMs
-- The CPUs
-- And the TSFF NICs (tall small form factor network interface card)
-
-This new CPU tray has increased memory, bandwidth and performance compared to its predecessor Angels Landing.`,
-            position: [0.1, 0.1, 0.55],
-            openPosition: [-0.175, -0.1, 0.25],
-            rotation: [0, THREE.MathUtils.degToRad(20), 0],
-          },
-        ],
-      },
-      {
-        path: `./assets/models/grand-teton/cascade-creek.glb`,
-        id: "cascade-creek",
-        title: "CASCADE CREEK",
-        position: [0, 0.18, 0.1],
-        openPosition: [0, 0, 0.75],
-        hotspots: [
-          {
-            description: `Cascade Creek is our Switch Tray. it is comprised of;
-- 8 x RDMA NICs
-- And up to 16 x E1.S Drives
-Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front serviceable, and hot-swappable enabling faster serviceability for on-site technicians.`,
-            position: [0.1, 0.075, 0.55],
-            openPosition: [0.16, -0.1, 0.25],
-            rotation: [0, THREE.MathUtils.degToRad(20), 0],
-            flipped: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    scale: 2.5,
-    position: [0.1, 0.1, 0],
-    rotation: [THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(-20), 0],
-    path: `./assets/models/glacier-point/glacier-point.glb`,
-    id: "glacier-point",
-    title: "GLACIER POINT",
-    maxDistance: 3,
-    minDistance: 1.4,
-    hotspots: [
-      {
-        title: `RISER CAGE`,
-        description: `Now, you can view the Riser Cage with the Glacier Point v3 Board. The bottom M.2 modules as well as the 2x E1.S drives are now accessible for service. You will also see a heat sink on the Glacier Point v3 Board which is for the switch to route traffic between the expansion board and Delta Lake motherboard`,
-        scale: 0.15,
-        position: [-0.1, 0.025, 1.4],
-        flipped: true,
-      },
-      {
-        title: `M.2 MODULES`,
-        description: `By opening the top cover, you can easily access the upper 6 M.2 Modules mounted to the Glacier Point v3 Board. This board also has a switch that allows for traffic communication between the M.2 modules and Intel Cooper Lake Host.   The latching mechanism on each side of the blade, allows you to unlock the 2OU Riser Cage from the Blade Base to access the lower M.2 Modules and two E1.S drives for Storage.`,
-        scale: 0.15,
-        position: [0.5, 0.325, 1],
-      },
-      {
-        title: `SERVICEABILITY`,
-        description: `By removal of the Green 2OU Air Baffle, you can access the Rear portion of the Delta Lake Motherboard. The DIMMs, CPU, Heat Sink, and Boot drive can easily be accessed for service. As you see here, this model is supporting 4 DIMMs. Up to 6 can be used with this system`,
-        scale: 0.15,
-        position: [-0.5, 0.325, -0.2],
-        flipped: true,
-      },
-      {
-        scale: 0.15,
-        position: [-0.25, 0.525, 0.1],
-        description: `Meet the latest generation of Glacier Peak.
-
-Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is a M.2/Dual M.2 carrier card that supports PCIe gen4 accelerator modules and 2xE1.S SSD on the Yosemite v3 platform using a Gen4 capable PCIE switch.`,
-      },
-    ],
-    components: [],
-    animationHotspot: {
-      position: [0, 0.3, 1.4],
-      rotation: [0, THREE.MathUtils.degToRad(0), 0],
-      scale: 0.15,
-    },
-  },
-  {
-    path: `./assets/models/discovery-point/discovery-point.glb`,
-    id: "discovery-point",
-    title: "DISCOVERY POINT",
-    components: [],
-    scale: 2.1,
-    position: [-0.1, 0.1, 0],
-    rotation: [THREE.MathUtils.degToRad(15), THREE.MathUtils.degToRad(45), 0],
-    maxDistance: 3,
-    minDistance: 1.4,
-    hotspots: [
-      {
-        scale: 0.2,
-        position: [0, -0.2, 0.8],
-        rotation: [0, THREE.MathUtils.degToRad(0), 0],
-        description: `Discovery Point is an expansion card to the Yosemite v3 Platform that provides an industry standard PCIe interface to a Delta Lake server board for more functionality through added storage, networking, or other cards.
-
-With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
-      },
-    ],
-    animationHotspot: {
-      position: [0, 0.2, 0.55],
-      rotation: [0, THREE.MathUtils.degToRad(-90), 0],
-      scale: 0.2,
     },
   },
 ];

@@ -124,7 +124,7 @@ This new CPU tray has increased memory, bandwidth and performance compared to it
         path: `./assets/models/grand-teton/cascade-creek.glb`,
         id: "cascade-creek",
         title: "CASCADE CREEK",
-        position: [0, 0.18, 0.1],
+        position: [0, -0.01, 0],
         openPosition: [0, 0, 0.75],
         hotspots: [
           {
@@ -132,7 +132,7 @@ This new CPU tray has increased memory, bandwidth and performance compared to it
 - 8 x RDMA NICs
 - And up to 16 x E1.S Drives
 Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front serviceable, and hot-swappable enabling faster serviceability for on-site technicians.`,
-            position: [0.1, 0.075, 0.55],
+            position: [0.1, 0.35, 0.7],
             openPosition: [0.16, -0.1, 0.25],
             rotation: [0, THREE.MathUtils.degToRad(20), 0],
             flipped: true,

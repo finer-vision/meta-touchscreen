@@ -14,6 +14,9 @@ type SectionProps = {
 };
 
 export const Section = styled.section<SectionProps>`
+  --rotate-height: 10em;
+  --reset-height: 3em;
+  --button-gap: 1em;
   width: 100vw;
   height: 100vh;
   min-height: 100%;
@@ -59,7 +62,7 @@ export const Logo = styled.div`
   width: auto;
   height: 2.604166666666667vh;
   position: absolute;
-  bottom: calc(var(--gap) * 3.45);
+  bottom: 0.5em;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 500;
@@ -116,12 +119,19 @@ export const MenuWrapper = styled.div<Props>`
 export const ResetWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
-  top: 41.5%;
+  top: 50%;
+  transform: translateY(
+    calc(
+      -50% - (var(--reset-height) / 2) - (
+          (var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2
+        ) - (var(--button-gap) / 2)
+    )
+  );
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: calc(3.7760416666666665vh * 0.8);
+  height: var(--reset-height);
 
   img {
     width: auto;
@@ -150,12 +160,18 @@ export const RotateWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(
+    calc(
+      -50% + (var(--rotate-height) / 2) - (
+          (var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2
+        ) + (var(--button-gap) / 2)
+    )
+  );
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  height: calc(12.213541666666666vh * 0.8);
+  height: var(--rotate-height);
 
   img {
     width: auto;

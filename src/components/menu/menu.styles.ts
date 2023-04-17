@@ -11,18 +11,18 @@ export const MenuWrapper = styled.div`
 `;
 
 export const MenuLeft = styled.div`
-  height: 39.5em;
+  height: calc(58.09895833333333vh * 0.8);
   display: flex;
   flex-direction: column;
 `;
 
 export const MenuHandle = styled.div`
-  height: 10em;
-  width: 3em;
+  height: calc(12.213541666666666vh * 0.8);
+  width: 3vh;
 
   div {
     background-color: rgb(33 43 49);
-    height: 10em;
+    height: 131%;
     position: relative;
     width: 100%;
     border-top-right-radius: 0.6em;
@@ -183,7 +183,7 @@ export const DropDown = styled.div<{ open: boolean }>`
 
 export const Main = styled.div<{ open: boolean }>`
   background-color: #1f2b32;
-  flex-grow: 1;
+  height: calc(51.550448vh * 0.8);
   border-bottom-right-radius: 1.5em;
   position: relative;
   transition: width 0.3s ease, border-top-right-radius 0.5s ease;
@@ -218,7 +218,7 @@ export const MainItem = styled(motion.div)`
   position: relative;
   overflow: auto;
   border-radius: 1em;
-  height: calc(4.5em * 0.8);
+  height: calc(5.494791666666667vh * 0.8);
 
   :last-child {
     margin-bottom: 0;
@@ -277,7 +277,7 @@ export const Arrow = styled.svg`
 
 export const Title = styled.div`
   background-color: #1f2b32;
-  height: 5em;
+  height: 5.4vh;
   padding: 1.5em 1em;
   width: calc(27.275em * 0.8);
   border-top-right-radius: 1.5em;

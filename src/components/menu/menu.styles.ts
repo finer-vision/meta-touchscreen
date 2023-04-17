@@ -43,7 +43,7 @@ export const MenuHandle = styled.div`
     transform: rotate(-90deg);
     left: -50%;
     top: 50%;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   #close-icon {

@@ -21,9 +21,11 @@ export const Section = styled.section<SectionProps>`
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+
   * {
     pointer-events: auto;
   }
+
   ${({ backdrop }) => {
     if (!backdrop) {
       return css`
@@ -93,10 +95,12 @@ export const LabelWrapper = styled(motion.div).attrs(() => ({
   align-items: center;
   opacity: 1;
   gap: 2vh;
+
   img {
     width: auto;
     height: 2.604166666666667vh;
   }
+
   span {
     font-style: normal;
     font-weight: 700;
@@ -118,10 +122,12 @@ export const ResetWrapper = styled.div<ShowProps>`
   align-items: center;
   opacity: 1;
   height: calc(3.7760416666666665vh * 0.8);
+
   img {
     width: auto;
     height: 100%;
   }
+
   ${({ show }) => {
     if (!show) {
       return css`
@@ -150,10 +156,12 @@ export const RotateWrapper = styled.div<ShowProps>`
   align-items: center;
   opacity: 1;
   height: calc(12.213541666666666vh * 0.8);
+
   img {
     width: auto;
     height: 100%;
   }
+
   ${({ show }) => {
     if (!show) {
       return css`

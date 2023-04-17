@@ -21,7 +21,7 @@ export const MenuHandle = styled.div`
   div {
     font-size: 1vh;
     background-color: rgb(33 43 49);
-    height: 131%;
+    height: 138%;
     position: relative;
     width: 100%;
     border-top-right-radius: 0.6vh;

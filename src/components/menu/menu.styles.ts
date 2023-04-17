@@ -281,10 +281,11 @@ export const Title = styled.div`
   background-color: #1f2b32;
   height: 5.4vh;
   padding: 1.5em 1em;
+  font-size: 0.8vh;
   width: calc(38.7962962962963vw * 0.8);
   border-top-right-radius: 1.5em;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   h1 {
     font-weight: 700;
@@ -299,10 +300,10 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.5vh;
 
   img {
-    width: calc(1.1em * 0.8);
+    width: calc(1.1vh * 0.8);
   }
 `;
 
@@ -318,9 +319,9 @@ export const Next = styled.button`
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: calc(0.8em * 0.8);
-  height: calc(0.8em * 0.8);
-  border: 2.5px solid white;
+  width: calc(0.8vh * 0.8);
+  height: calc(0.8vh * 0.8);
+  border: 0.15vh solid white;
   border-radius: 50%;
   background-color: ${({ active }) => (active ? "#ffffff" : "transparent")};
 `;
@@ -329,5 +330,5 @@ export const DotContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4em;
+  gap: 0.4vh;
 `;

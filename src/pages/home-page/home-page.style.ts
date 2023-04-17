@@ -57,13 +57,14 @@ export const Logo = styled.div`
   gap: 5px;
   aspect-ratio: 416 / 100;
   width: auto;
-  height: 2.604166666666667vh;
+  height: 4.5vh;
   position: absolute;
-  bottom: calc(var(--gap) * 3.45);
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 500;
-  font-size: 150%;
+  font-size: 2vh;
+
   video {
     height: 100%;
   }

@@ -12,23 +12,21 @@ export const MenuWrapper = styled.div`
 
 export const MenuLeft = styled.div`
   height: calc(58.09895833333333vh * 0.8);
-  display: flex;
-  flex-direction: column;
 `;
 
 export const MenuHandle = styled.div`
   height: calc(12.213541666666666vh * 0.8);
   width: 3vh;
-
+  transform: translateY(-38%);
   div {
     background-color: rgb(33 43 49);
     height: 131%;
     position: relative;
     width: 100%;
-    border-top-right-radius: 0.6em;
-    border-bottom-right-radius: 0.6em;
+    border-top-right-radius: 0.6vh;
+    border-bottom-right-radius: 0.6vh;
+    position: relative;
   }
-
   #open-icon {
     width: 50%;
     position: absolute;
@@ -36,7 +34,6 @@ export const MenuHandle = styled.div`
     top: 16%;
     transform: translateX(-50%);
   }
-
   #open-text {
     position: absolute;
     width: 200%;
@@ -45,7 +42,6 @@ export const MenuHandle = styled.div`
     top: 50%;
     font-weight: 500;
   }
-
   #close-icon {
     width: 50%;
     position: absolute;
@@ -53,7 +49,6 @@ export const MenuHandle = styled.div`
     top: 26%;
     transform: translateX(-50%);
   }
-
   #close-text {
     position: absolute;
     width: 200%;
@@ -62,7 +57,6 @@ export const MenuHandle = styled.div`
     top: 40%;
     font-weight: 500;
   }
-
   img {
     width: auto;
     height: 100%;
@@ -119,7 +113,6 @@ export const DropDownImage = styled.div<DropDownImageProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-
   img {
     height: 100%;
     width: auto;
@@ -128,15 +121,14 @@ export const DropDownImage = styled.div<DropDownImageProps>`
 `;
 
 export const DropDownItemFlex = styled.div`
+  height: calc(5.494791666666667vh*.8);
   display: flex;
   align-items: center;
   gap: 1em;
   height: 8vw;
-
   :last-child {
     margin-bottom: 0;
   }
-
   span {
     font-size: calc(1.25rem*.8);
     color: #1f2b32;
@@ -144,16 +136,13 @@ export const DropDownItemFlex = styled.div`
     left: 50%;
     padding-right: 5%;
   }
-
   & {
     border-top: 1px solid 31, 43, 50, 0.3);
     border-bottom: 1px solid rgba(31, 43, 50, 0.3);
   }
-
   &:last-child {
     border-bottom: none;
   }
-
   &:last-child {
     margin-bottom: 0;
   }
@@ -169,7 +158,6 @@ export const DropDown = styled.div<{ open: boolean }>`
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
   transition: all 0.1s ease;
-
   ${({ open }) => {
     if (!open) {
       return css`
@@ -191,7 +179,6 @@ export const Main = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   ${({ open }) => {
     if (open) {
       return css`
@@ -219,7 +206,6 @@ export const MainItem = styled(motion.div)`
   overflow: auto;
   border-radius: 1em;
   height: calc(5.494791666666667vh * 0.8);
-
   :last-child {
     margin-bottom: 0;
   }
@@ -237,10 +223,10 @@ export const MainItemFlex = styled.div`
   gap: 1em;
   overflow: hidden;
   position: relative;
-
   span {
     color: #20202e;
     font-size: calc(1.75em * 0.8);
+    position: relative;
     z-index: 1;
     font-weight: bold;
     text-transform: uppercase;
@@ -283,7 +269,6 @@ export const Title = styled.div`
   border-top-right-radius: 1.5em;
   display: flex;
   align-items: flex-end;
-
   h1 {
     font-weight: 700;
     font-size: calc(2.5em * 0.8);
@@ -298,7 +283,6 @@ export const NavWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-
   img {
     width: calc(1.1em * 0.8);
   }

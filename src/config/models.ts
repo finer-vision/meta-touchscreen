@@ -94,8 +94,8 @@ Open Rack V3 has many new features that will improve how we design, configure, b
         hotspots: [
           {
             description: `Arrowhead Pool is our next generation GPU tray, it features 8 GPUs to enable both training and inference applications within the data center. As it weighs over 41kilos, the tray is on rails, has a ‘hard stop’ and safety latches to ensure safe serviceability for on-site technicians.`,
-            position: [-0, 0.1, 0.55],
-            openPosition: [-0.175, -0.1, 0.25],
+            position: [-0, 0.1, 0.7],
+            openPosition: [-0.175, -0.1, 0.5],
             rotation: [0, THREE.MathUtils.degToRad(20), 0],
           },
         ],
@@ -115,7 +115,7 @@ Open Rack V3 has many new features that will improve how we design, configure, b
 
 This new CPU tray has increased memory, bandwidth and performance compared to its predecessor Angels Landing.`,
             position: [0.1, 0.1, 0.55],
-            openPosition: [-0.175, -0.1, 0.25],
+            openPosition: [-0.175, -0.1, 0.5],
             rotation: [0, THREE.MathUtils.degToRad(20), 0],
           },
         ],

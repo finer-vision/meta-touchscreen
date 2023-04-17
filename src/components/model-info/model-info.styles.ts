@@ -20,7 +20,7 @@ export const ModelInfoBody = styled.div`
   padding: 5%;
 
   p {
-    font-size: 1em;
+    font-size: 1vh;
   }
 `;
 
@@ -36,7 +36,7 @@ export const ModelInfoHeader = styled.div`
   padding-top: 1.5%;
 
   h3 {
-    font-size: 2em;
+    font-size: 1.5vh;
   }
 `;
 

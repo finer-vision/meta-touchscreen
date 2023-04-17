@@ -72,7 +72,7 @@ export default function Menu({ mainMenuOpen, animateMenu }: Props) {
       style={{
         transform: mainMenuOpen
           ? "translateX(0)"
-          : "translateX(calc(-27.275em*.8))",
+          : "translateX(calc(-38.7962962962963vw*.8))",
       }}
     >
       <MenuLeft>

@@ -19,6 +19,7 @@ export const MenuHandle = styled.div`
   width: 3vh;
   transform: translateY(-38%);
   div {
+    font-size: 1vh;
     background-color: rgb(33 43 49);
     height: 131%;
     position: relative;
@@ -127,7 +128,7 @@ export const DropDownImage = styled.div<DropDownImageProps>`
 `;
 
 export const DropDownItemFlex = styled.div`
-  height: calc(5.494791666666667vh*.8);
+  height: calc(5.494791666666667vh * 0.8);
   display: flex;
   align-items: center;
   gap: 1em;
@@ -138,7 +139,7 @@ export const DropDownItemFlex = styled.div`
   }
 
   span {
-    font-size: calc(1.25rem*.8);
+    font-size: calc(1vh * 0.8);
     color: #1f2b32;
     position: absolute;
     left: 50%;
@@ -146,7 +147,7 @@ export const DropDownItemFlex = styled.div`
   }
 
   & {
-    border-top: 1px solid 31, 43, 50, 0.3);
+    border-top: 1px solid rgba(31, 43, 50, 0.3);
     border-bottom: 1px solid rgba(31, 43, 50, 0.3);
   }
 
@@ -162,7 +163,7 @@ export const DropDownItemFlex = styled.div`
 export const DropDown = styled.div<{ open: boolean }>`
   position: absolute;
   right: 1em;
-  width: calc(18.45em * 0.8);
+  width: calc(35.45vw * 0.8);
   background-color: #dddee0;
   display: flex;
   flex-direction: column;
@@ -195,12 +196,12 @@ export const Main = styled.div<{ open: boolean }>`
   ${({ open }) => {
     if (open) {
       return css`
-        width: calc(46.8em * 0.8);
+        width: calc(71.8vw * 0.8);
         border-top-right-radius: 1.5em;
       `;
     } else {
       return css`
-        width: calc(27.275em * 0.8);
+        width: calc(38.7962962962963vw * 0.8);
       `;
     }
   }}
@@ -226,7 +227,7 @@ export const MainItem = styled(motion.div)`
 `;
 
 export const MainItemFlex = styled.div`
-  width: calc(24.5475em * 0.8);
+  width: calc(34.91666666666667em * 0.8);
   height: 100%;
   display: flex;
   align-items: center;
@@ -280,7 +281,7 @@ export const Title = styled.div`
   background-color: #1f2b32;
   height: 5.4vh;
   padding: 1.5em 1em;
-  width: calc(27.275em * 0.8);
+  width: calc(38.7962962962963vw * 0.8);
   border-top-right-radius: 1.5em;
   display: flex;
   align-items: flex-end;

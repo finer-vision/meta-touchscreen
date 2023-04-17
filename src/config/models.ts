@@ -491,7 +491,7 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
       {
         path: `./assets/models/wedge-400c/module.glb`,
         id: "module",
-        title: "MODULE",
+        title: "SCM",
         position: [0, 0, 0],
         openPosition: [0, -0.25, 0.5],
         hotspots: [

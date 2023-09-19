@@ -1,0 +1,55 @@
+name: Deploy UAT
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "tsconfig.json"
+      - "webpack.config.ts"
+      - ".github/workflows/deploy-uat.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install & Build
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+      - run: zip -r build.zip build
+      - name: Sync
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.AWS_UAT_HOST }}
+          username: ${{ secrets.AWS_UAT_USERNAME }}
+          key: ${{ secrets.AWS_UAT_PRIVATE_KEY }}
+          source: build.zip
+          target: /var/www/sites/meta-touchscreen
+      - name: Deploy
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd /var/www/sites/meta-touchscreen
+            unzip -o build.zip -d tmp-build
+            rsync -av --delete tmp-build/ build/
+            rm -f build.zip tmp-build
+          host: ${{ secrets.AWS_UAT_HOST }}
+          username: ${{ secrets.AWS_UAT_USERNAME }}
+          privateKey: ${{ secrets.AWS_UAT_PRIVATE_KEY }}
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_DEPLOYMENTS }}

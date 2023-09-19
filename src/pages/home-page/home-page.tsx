@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   LabelWrapper,
-  MenuWrapper,
   ResetWrapper,
   RotateWrapper,
   Section,
 } from "./home-page.style";
 import { Subscription } from "@/types";
 import useSubscription from "@/hooks/use-subscription";
-import Menu from "@/components/menu/menu";
 import { appState } from "@/state/app-state";
 import { AnimatePresence } from "framer-motion";
 import MenuNew from "@/components/menu-new/menu-new";
@@ -20,7 +18,7 @@ export default function ScreenSaver() {
   const labelRef = React.useRef<HTMLDivElement>();
   const [mounted, setMounted] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
-  const [mainMenuOpen, setMainMenuOpen] = React.useState(true);
+  const [mainMenuOpen, setMainMenuOpen] = React.useState(false);
 
   const showScreensaver = appState((state) => state.showScreensaver);
 
@@ -33,13 +31,7 @@ export default function ScreenSaver() {
   const selectedModel = appState((state) => state.selectedModel);
   const modelInfo = appState((state) => state.modelInfo);
 
-  const animateMenu = React.useCallback(() => {
-    setMainMenuOpen((prevState) => {
-      return !prevState;
-    });
-  }, []);
-
-  useEffect(() => {
+  React.useEffect(() => {
     if (
       !menuContainerRef.current &&
       !rotateWrapperRef.current &&
@@ -60,7 +52,7 @@ export default function ScreenSaver() {
     }
   }, [mainMenuOpen, menuContainerRef, labelRef]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!mounted) return;
     if (rotate) {
       useSubscription.emit(Subscription.rotate);
@@ -123,9 +115,6 @@ export default function ScreenSaver() {
           </>
         )}
         <MenuNew open={mainMenuOpen} onOpen={setMainMenuOpen} />
-        {/*<MenuWrapper>*/}
-        {/*  <Menu mainMenuOpen={mainMenuOpen} animateMenu={animateMenu} />*/}
-        {/*</MenuWrapper>*/}
       </Section>
     </AnimatePresence>
   );

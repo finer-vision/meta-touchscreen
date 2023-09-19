@@ -14,7 +14,7 @@ import models from "@/config/models";
 import MenuNewToggle from "@/components/menu-new/menu-new-toggle";
 import MenuNewArrow from "@/components/menu-new/menu-new-arrow";
 import { appState } from "@/state/app-state";
-import { Model, ModelComponent } from "@/types";
+import { ModelComponent } from "@/types";
 
 type Props = {
   open: boolean;

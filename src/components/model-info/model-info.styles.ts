@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 import { motion } from "framer-motion";
 
 export const ModelInfoClose = styled.button`
-  --size: 3.5em;
-  background-color: rgba(255, 255, 255, 0.6);
+  --size: 2.25em;
+  background-color: transparent;
   width: var(--size);
   height: var(--size);
   border-radius: 0.5em;
@@ -11,15 +11,21 @@ export const ModelInfoClose = styled.button`
   align-items: center;
   justify-content: center;
   color: #000000;
+  padding: 0;
+  position: absolute;
+  top: calc(var(--size) * 0.35);
+  right: calc(var(--size) * 0.35);
 `;
 
 export const ModelInfoBody = styled.div`
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  padding: 5%;
+  padding: 2.525em;
+  padding-block-start: 0.5em;
 
   p {
     font-size: 1em;
+    text-align: center;
   }
 `;
 
@@ -29,12 +35,12 @@ export const ModelInfoHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5%;
-  padding-bottom: 1.5%;
-  padding-top: 1.5%;
+  padding: 1.5% 5% 0 5%;
 
   h3 {
+    width: 100%;
     font-size: 2em;
+    text-align: center;
   }
 `;
 
@@ -66,7 +72,7 @@ export const ModelInfoBackdrop = styled.div`
 
 export const ModelInfoWrapper = styled.div`
   --padding: 1rem;
-  --border-radius: 1.25em;
+  --border-radius: 0.6em;
   width: 100vw;
   height: 100vh;
   display: flex;

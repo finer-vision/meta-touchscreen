@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const ModelInfoClose = styled.button`
   --size: 3.5em;
-  background-color: #eef3f5;
+  background-color: rgba(255, 255, 255, 0.6);
   width: var(--size);
   height: var(--size);
   border-radius: 0.5em;
@@ -14,7 +14,6 @@ export const ModelInfoClose = styled.button`
 `;
 
 export const ModelInfoBody = styled.div`
-  background-color: #eef3f5;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   padding: 5%;
@@ -25,7 +24,6 @@ export const ModelInfoBody = styled.div`
 `;
 
 export const ModelInfoHeader = styled.div`
-  background-color: #ffffff;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   display: flex;
@@ -54,6 +52,9 @@ export const ModelInfoContainer = styled(motion.div).attrs(() => ({
   --padding: 2.5em;
   width: 60vw;
   line-height: 1.6;
+  border-radius: 1.25em;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2.5em);
 `;
 
 export const ModelInfoBackdrop = styled.div`

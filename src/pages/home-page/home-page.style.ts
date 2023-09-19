@@ -132,10 +132,16 @@ export const ResetWrapper = styled.div<ShowProps>`
   align-items: center;
   opacity: 1;
   height: var(--reset-height);
+  border-top-left-radius: 0.6em;
+  border-bottom-left-radius: 0.6em;
+  backdrop-filter: blur(2.5em);
+  background: rgba(255, 255, 255, 0.4);
+  width: 3em;
+  aspect-ratio: 1;
 
-  img {
+  svg {
     width: auto;
-    height: 100%;
+    height: 50%;
   }
 
   ${({ show }) => {
@@ -168,14 +174,28 @@ export const RotateWrapper = styled.div<ShowProps>`
     )
   );
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 1;
   height: var(--rotate-height);
+  border-top-left-radius: 0.6em;
+  border-bottom-left-radius: 0.6em;
+  backdrop-filter: blur(2.5em);
+  background: rgba(255, 255, 255, 0.4);
+  width: 3em;
 
-  img {
-    width: auto;
-    height: 100%;
+  svg {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    top: 0.5em;
+  }
+
+  span {
+    transform: rotate(-90deg) translateX(-0.75em);
+    white-space: nowrap;
+    position: absolute;
   }
 
   ${({ show }) => {

@@ -21,12 +21,13 @@ export const MenuHandle = styled.div`
   width: 3em;
 
   div {
-    background-color: rgb(33 43 49);
+    border-top-right-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+    backdrop-filter: blur(2.5em);
+    background: rgba(255, 255, 255, 0.40);
     height: 10em;
     position: relative;
     width: 100%;
-    border-top-right-radius: 0.6em;
-    border-bottom-right-radius: 0.6em;
   }
 
   #open-icon {

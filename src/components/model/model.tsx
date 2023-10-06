@@ -141,7 +141,13 @@ export default function Model() {
 
                 {selectedModel.animationHotspot && (
                   <AnimationHotspot
-                    title={animating ? "STOP ANIMATION" : "PLAY ANIMATION"}
+                    title={
+                      animating
+                        ? selectedModel.animationHotspot.stopLabel ??
+                          "STOP ANIMATION"
+                        : selectedModel.animationHotspot.playLabel ??
+                          "PLAY ANIMATION"
+                    }
                     scale={selectedModel.animationHotspot.scale}
                     position={selectedModel.animationHotspot.position}
                     rotation={selectedModel.animationHotspot.rotation}

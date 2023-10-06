@@ -23,6 +23,8 @@ type AnimationHotspot = {
   position?: Vector;
   rotation?: Vector;
   flipped?: boolean;
+  playLabel?: string;
+  stopLabel?: string;
 };
 
 export type ModelComponent = {

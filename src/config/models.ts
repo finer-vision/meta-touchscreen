@@ -259,6 +259,8 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
       position: [0, 1.5, 0.5],
       rotation: [0, THREE.MathUtils.degToRad(90), 0],
       scale: 0.5,
+      playLabel: "OPEN DRAWER",
+      stopLabel: "CLOSE DRAWER",
     },
   },
   {
@@ -322,6 +324,8 @@ Bringing the total number of FRUs to 25. Both the NICs and E1.S Drives are front
       position: [0.15, 0.7, 1.2],
       rotation: [0, THREE.MathUtils.degToRad(0), 0],
       flipped: true,
+      playLabel: "OPEN CHASSIS",
+      stopLabel: "CLOSE CHASSIS",
     },
   },
   {
@@ -367,6 +371,8 @@ Glacier Peak V3 allows for further expansion of the Yosemite V3 Platform. It is 
       position: [0, 0.3, 1.4],
       rotation: [0, THREE.MathUtils.degToRad(0), 0],
       scale: 0.15,
+      playLabel: "LOOK INSIDE",
+      stopLabel: "CLOSE",
     },
   },
   {
@@ -393,6 +399,8 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
       position: [0, 0.2, 0.55],
       rotation: [0, THREE.MathUtils.degToRad(-90), 0],
       scale: 0.2,
+      playLabel: "LOOK INSIDE",
+      stopLabel: "CLOSE",
     },
   },
   {
@@ -559,6 +567,7 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
       scale: 0.25,
       position: [0.2, 0.3, 1.4],
       rotation: [0, THREE.MathUtils.degToRad(0), 0],
+      playLabel: "LINE CARD EJECTOR HANDLE"
     },
   },
 ];

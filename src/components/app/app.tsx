@@ -12,6 +12,7 @@ import ModelInfo from "../model-info/model-info";
 import { Logo } from "@/pages/home-page/home-page.style";
 import Screensaver from "@/components/screensaver/screensaver";
 import Lights from "@/components/lights/lights";
+import ResetButton from "@/components/reset-button/reset-button";
 
 export default function App() {
   React.useEffect(() => {
@@ -231,6 +232,7 @@ export default function App() {
       </Canvas>
       <HomePage key={showScreensaver ? 0 : 1} />
       {showScreensaver && <Screensaver />}
+      <ResetButton />
     </React.Fragment>
   );
 }

@@ -8,6 +8,7 @@ import {
   ModelInfoWrapper,
 } from "@/components/model-info/model-info.styles";
 import { AnimatePresence } from "framer-motion";
+import { appState } from "@/state/app-state";
 
 type Props = {
   title: string;
@@ -22,13 +23,15 @@ export default function ModelInfo({
   show,
   onClose,
 }: Props) {
+  const zoom = appState((state) => state.zoom);
+
   return (
     <AnimatePresence>
       {show && (
         <ModelInfoWrapper>
           <ModelInfoBackdrop onClick={onClose} />
-          <ModelInfoContainer>
-            <ModelInfoHeader>
+          <ModelInfoContainer style={{ "--zoom": zoom } as React.CSSProperties}>
+            <ModelInfoHeader style={{ zoom }}>
               <h3>{title}</h3>
               <ModelInfoClose onClick={onClose}>
                 <svg
@@ -46,7 +49,7 @@ export default function ModelInfo({
                 </svg>
               </ModelInfoClose>
             </ModelInfoHeader>
-            <ModelInfoBody>
+            <ModelInfoBody style={{ zoom }}>
               <p
                 dangerouslySetInnerHTML={{
                   __html: description.replace(/\n+/gim, "<br/>"),

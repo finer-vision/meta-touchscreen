@@ -58,7 +58,7 @@ export const ModelInfoContainer = styled(motion.div).attrs(() => ({
   --padding: 2.5em;
   width: 60vw;
   line-height: 1.6;
-  border-radius: 1.25em;
+  border-radius: calc(0.9em * var(--zoom, 1));
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(2.5em);
 `;

@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { Canvas } from "@react-three/fiber";
 import Model from "@/components/model/model";
-import Homepage from "@/pages/home-page/home-page";
+import HomePage from "@/pages/home-page/home-page";
 import models from "@/config/models";
 import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
@@ -129,6 +129,18 @@ export default function App() {
   const setShowScreensaver = appState((state) => state.setShowScreensaver);
 
   React.useEffect(() => {
+    function updateScale() {
+      appState.getState().setZoom(Math.max(1, window.innerHeight / 1920));
+    }
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => {
+      window.removeEventListener("resize", updateScale);
+    };
+  }, []);
+
+  React.useEffect(() => {
     if (showScreensaver) {
       function onPointerDown() {
         setShowScreensaver(false);
@@ -217,7 +229,7 @@ export default function App() {
           <Model key={selectedModel.id} />
         </React.Suspense>
       </Canvas>
-      <Homepage key={showScreensaver ? 0 : 1} />
+      <HomePage key={showScreensaver ? 0 : 1} />
       {showScreensaver && <Screensaver />}
     </React.Fragment>
   );

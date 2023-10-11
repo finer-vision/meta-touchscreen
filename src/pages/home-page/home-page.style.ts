@@ -86,8 +86,6 @@ export const LabelWrapper = styled(motion.div).attrs(() => ({
   width: max-content;
   height: 8vh;
   padding-inline: 5vh;
-  background-color: var(--color-ebony-clay);
-  border-radius: 1.5rem;
   color: #000000;
   position: absolute;
   top: 7.03125vh;
@@ -98,8 +96,8 @@ export const LabelWrapper = styled(motion.div).attrs(() => ({
   align-items: center;
   opacity: 1;
   gap: 2vh;
-  border-radius: 0.6em;
-  background: rgba(255, 255, 255, 0.30);
+  border-radius: 0.9em;
+  background-color: rgba(255, 255, 255, 0.30);
   backdrop-filter: blur(2.5em);
 
   img {

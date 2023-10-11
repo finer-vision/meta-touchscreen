@@ -13,6 +13,8 @@ type AppState = {
   ) => void;
   modelInfo: any;
   setModelInfo: (modelInfo: AppState["modelInfo"]) => void;
+  zoom: number;
+  setZoom: (zoom: AppState["zoom"]) => void;
 };
 
 interface ModelInfoProps {
@@ -37,6 +39,10 @@ export const appState = create<AppState>((set) => {
     modelInfo: null,
     setModelInfo(modelInfo: ModelInfoProps) {
       set({ modelInfo });
+    },
+    zoom: 1,
+    setZoom(zoom) {
+      set({ zoom });
     },
   };
 });

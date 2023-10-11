@@ -571,6 +571,46 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
       stopLabel: "CLOSE",
     },
   },
+  {
+    id: "yv4",
+    title: "YOSEMITE V4",
+    position: [0, -2.2, -1.75],
+    rotation: [0, THREE.MathUtils.degToRad(-90), 0],
+    componentOpenPosition: [0, 0, 0],
+    scale: 0.2,
+    path: `./assets/models/yv4/yv4.glb`,
+    hotspots: [],
+    components: [
+      {
+        path: `./assets/models/yv4/nic-tray.glb`,
+        id: "nic-tray",
+        title: "NIC TRAY",
+        position: [0, 0, 0],
+        openPosition: [0, 0, 0],
+        hotspots: [
+          // {
+          //   description: ``,
+          //   position: [0, 0, 0],
+          //   openPosition: [0, 0, 0],
+          // },
+        ],
+      },
+      {
+        path: `./assets/models/yv4/blade.glb`,
+        id: "blade",
+        title: "BLADE",
+        position: [0, 0, 0],
+        openPosition: [0, 0, 0],
+        hotspots: [
+          // {
+          //   description: ``,
+          //   position: [0, 0, 0],
+          //   openPosition: [0, 0, 0],
+          // },
+        ],
+      },
+    ],
+  },
 ];
 
 export default models;

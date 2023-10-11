@@ -221,8 +221,8 @@ export default function App() {
           ref={controlsRef}
           // enablePan={false}
           // enableZoom={false}
-          minDistance={minDistance}
-          maxDistance={maxDistance}
+          // minDistance={minDistance}
+          // maxDistance={maxDistance}
           minPolarAngle={Math.PI * 0.25}
           maxPolarAngle={Math.PI * 0.75}
         />

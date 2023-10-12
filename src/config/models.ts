@@ -576,7 +576,7 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
     title: "YOSEMITE V4",
     position: [0, -1.5, -1.17],
     rotation: [0, THREE.MathUtils.degToRad(-90), 0],
-    componentOpenPosition: [0, -2.2, -1.75],
+    componentOpenPosition: [0, -1.5, -1.17],
     scale: 0.13,
     path: `./assets/models/yv4/yv4.glb`,
     hotspots: [

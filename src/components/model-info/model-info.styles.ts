@@ -56,7 +56,7 @@ export const ModelInfoContainer = styled(motion.div).attrs(() => ({
   },
 }))`
   --padding: 2.5em;
-  width: 60vw;
+  width: 65vw;
   line-height: 1.6;
   border-radius: calc(0.9em * var(--zoom, 1));
   background: rgba(255, 255, 255, 0.6);

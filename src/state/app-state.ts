@@ -24,11 +24,11 @@ interface ModelInfoProps {
 
 export const appState = create<AppState>((set) => {
   return {
-    showScreensaver: true,
+    showScreensaver: false,
     setShowScreensaver(showScreensaver) {
-      set({ showScreensaver });
+      // set({ showScreensaver });
     },
-    selectedModel: models[0],
+    selectedModel: models[11],
     setSelectedModel(selectedModel) {
       set({ selectedModel });
     },

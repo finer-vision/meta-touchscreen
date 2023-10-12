@@ -53,6 +53,15 @@ export const Section = styled.section<SectionProps>`
   }
 `;
 
+export const Gradient = styled.div`
+  background: linear-gradient(180deg, rgba(31, 43, 50, 0) 0%, #1f2b32 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 37.75%;
+`;
+
 export const Logo = styled.div`
   display: flex;
   justify-content: center;
@@ -66,7 +75,7 @@ export const Logo = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 500;
-  font-size: 150%;
+  font-size: 350%;
   video {
     height: 100%;
   }
@@ -96,8 +105,8 @@ export const LabelWrapper = styled(motion.div).attrs(() => ({
   align-items: center;
   opacity: 1;
   gap: 2vh;
-  border-radius: 0.9em;
-  background-color: rgba(255, 255, 255, 0.30);
+  border-radius: 2.2em;
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(2.5em);
 
   img {

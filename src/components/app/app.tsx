@@ -9,7 +9,7 @@ import useSubscription from "@/hooks/use-subscription";
 import { Subscription } from "@/types";
 import { appState } from "@/state/app-state";
 import ModelInfo from "../model-info/model-info";
-import { Logo } from "@/pages/home-page/home-page.style";
+import { Gradient, Logo } from "@/pages/home-page/home-page.style";
 import Screensaver from "@/components/screensaver/screensaver";
 import Lights from "@/components/lights/lights";
 import ResetButton from "@/components/reset-button/reset-button";
@@ -193,6 +193,7 @@ export default function App() {
 
   return (
     <React.Fragment>
+      <Gradient />
       <Logo>
         <video ref={logoRef} src="./assets/logo.webm" muted autoPlay />
         <span>Meta</span>

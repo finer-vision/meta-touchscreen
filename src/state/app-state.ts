@@ -24,7 +24,7 @@ interface ModelInfoProps {
 
 export const appState = create<AppState>((set) => {
   return {
-    showScreensaver: false,
+    showScreensaver: true,
     setShowScreensaver(showScreensaver) {
       set({ showScreensaver });
     },

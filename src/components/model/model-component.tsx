@@ -51,6 +51,14 @@ export default function ModelComponent({
     });
   }, [model.scene]);
 
+  const transformTimeoutRef = React.useRef<NodeJS.Timeout>();
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(transformTimeoutRef.current);
+    };
+  }, []);
+
   return (
     <a.group position={props.position}>
       <group scale={component.scale}>

@@ -7,7 +7,6 @@ export const ScreensaverWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(1em);
 
   video {
     width: 50vw;

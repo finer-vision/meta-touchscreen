@@ -76,6 +76,7 @@ export const Logo = styled.div`
   transform: translate(-50%, -50%);
   font-weight: 500;
   font-size: 350%;
+  z-index: 2;
   video {
     height: 100%;
   }

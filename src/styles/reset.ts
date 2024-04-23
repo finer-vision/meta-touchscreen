@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components/macro";
+import { createGlobalStyle } from "styled-components";
 import { fluidRange } from "polished";
 import vars from "./vars";
 

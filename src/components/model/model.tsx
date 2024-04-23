@@ -17,6 +17,7 @@ export default function Model() {
   );
   const model = useGLTF(selectedModel.path);
 
+  // @ts-ignore
   const animation = useAnimations(model.animations, model.scene);
   const [animating, setAnimating] = React.useState(false);
   const mountedRef = React.useRef(false);
@@ -31,6 +32,7 @@ export default function Model() {
       if (action === undefined) return;
       console.log(name);
       if (animating) {
+        // @ts-ignore
         action.loop = THREE.LoopPingPong;
         action.play();
       } else {

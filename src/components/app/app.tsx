@@ -65,7 +65,7 @@ export default function App() {
             });
             useGLTF.preload(url);
           })
-          .catch((err) => console.error(err))
+          .catch((err) => console.error(err)),
       );
     }
     Promise.all(pending).finally(() => {
@@ -207,26 +207,9 @@ export default function App() {
           useSubscription.emit(Subscription.closeHotspot);
         }}
       />
-      <Canvas
-        legacy
-        flat
-        linear
-        dpr={1}
-        gl={{
-          alpha: true,
-          physicallyCorrectLights: true,
-        }}
-      >
+      <Canvas legacy flat linear dpr={1} gl={{ alpha: true }}>
         <Lights />
-        <OrbitControls
-          ref={controlsRef}
-          enablePan={false}
-          enableZoom={false}
-          minDistance={minDistance}
-          maxDistance={maxDistance}
-          minPolarAngle={Math.PI * 0.25}
-          maxPolarAngle={Math.PI * 0.75}
-        />
+        <OrbitControls ref={controlsRef} enablePan={false} enableZoom={false} minDistance={minDistance} maxDistance={maxDistance} minPolarAngle={Math.PI * 0.25} maxPolarAngle={Math.PI * 0.75} />
         <React.Suspense fallback={<></>}>
           <Model key={selectedModel.id} />
         </React.Suspense>

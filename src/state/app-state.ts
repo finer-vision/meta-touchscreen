@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import { Model, ModelComponent } from "@/types";
 import models from "@/config/models";
 
@@ -8,9 +8,7 @@ type AppState = {
   selectedModel: Model;
   setSelectedModel: (selectedModel: AppState["selectedModel"]) => void;
   selectedModelComponent: ModelComponent | null;
-  setSelectedModelComponent: (
-    selectedModelComponent: AppState["selectedModelComponent"]
-  ) => void;
+  setSelectedModelComponent: (selectedModelComponent: AppState["selectedModelComponent"]) => void;
   modelInfo: any;
   setModelInfo: (modelInfo: AppState["modelInfo"]) => void;
   zoom: number;

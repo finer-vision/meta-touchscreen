@@ -92,7 +92,7 @@ export default function AnimationHotspot({
               </group>
               <group position={labelPosition}>
                 <mesh>
-                  <boxBufferGeometry args={[width + padding, 0.395, 0.057]} />
+                  <boxGeometry args={[width + padding, 0.395, 0.057]} />
                   <meshBasicMaterial color="#35373e" />
                 </mesh>
                 <Text

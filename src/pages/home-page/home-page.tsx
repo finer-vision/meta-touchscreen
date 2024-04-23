@@ -64,7 +64,7 @@ export default function HomePage() {
 
   return (
     <AnimatePresence>
-      <Section backdrop={!mainMenuOpen}>
+      <Section $backdrop={!mainMenuOpen}>
         {!mainMenuOpen && !modelInfo && (
           <>
             <LabelWrapper ref={labelRef}>
@@ -73,7 +73,7 @@ export default function HomePage() {
             </LabelWrapper>
             <div style={{ zoom }}>
               <ResetWrapper
-                show={!mainMenuOpen}
+                $show={!mainMenuOpen}
                 ref={resetWrapperRef}
                 onClick={() => {
                   setRotate(false);
@@ -94,7 +94,7 @@ export default function HomePage() {
                 </svg>
               </ResetWrapper>
               <RotateWrapper
-                show={!mainMenuOpen}
+                $show={!mainMenuOpen}
                 ref={rotateWrapperRef}
                 onClick={() => {
                   setRotate((rotate) => !rotate);

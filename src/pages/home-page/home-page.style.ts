@@ -6,11 +6,11 @@ type Props = {
 };
 
 type ShowProps = {
-  show: boolean;
+  $show: boolean;
 };
 
 type SectionProps = {
-  backdrop: boolean;
+  $backdrop: boolean;
 };
 
 export const Section = styled.section<SectionProps>`
@@ -29,13 +29,15 @@ export const Section = styled.section<SectionProps>`
     pointer-events: auto;
   }
 
-  ${({ backdrop }) => {
-    if (!backdrop) {
+  ${({ $backdrop }) => {
+    if (!$backdrop) {
       return css`
         background-color: rgba(0, 0, 0, 0.3);
       `;
     }
-  }} @keyframes showElement {
+  }};
+
+  @keyframes showElement {
     from {
       opacity: 0;
     }
@@ -131,13 +133,7 @@ export const ResetWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(
-    calc(
-      -50% - (var(--reset-height) / 2) - (
-          (var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2
-        ) - (var(--button-gap) / 2)
-    )
-  );
+  transform: translateY(calc(-50% - (var(--reset-height) / 2) - ((var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2) - (var(--button-gap) / 2)));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,8 +151,8 @@ export const ResetWrapper = styled.div<ShowProps>`
     height: 50%;
   }
 
-  ${({ show }) => {
-    if (!show) {
+  ${({ $show }) => {
+    if (!$show) {
       return css`
         animation-duration: 1000ms;
         animation-timing-function: var(--ease);
@@ -177,13 +173,7 @@ export const RotateWrapper = styled.div<ShowProps>`
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(
-    calc(
-      -50% + (var(--rotate-height) / 2) - (
-          (var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2
-        ) + (var(--button-gap) / 2)
-    )
-  );
+  transform: translateY(calc(-50% + (var(--rotate-height) / 2) - ((var(--reset-height) + var(--reset-height) + var(--button-gap)) / 2) + (var(--button-gap) / 2)));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,8 +199,8 @@ export const RotateWrapper = styled.div<ShowProps>`
     position: absolute;
   }
 
-  ${({ show }) => {
-    if (!show) {
+  ${({ $show }) => {
+    if (!$show) {
       return css`
         animation-duration: 1000ms;
         animation-timing-function: var(--ease);

@@ -143,7 +143,7 @@ export default function ModelHotspot({
                   scale-x={flipped ? -1 : 1}
                   position-x={0.025}
                   position-z={0.057 + 0.0001}
-                  fontSize={0.395 / 2}
+                  fontSize={0.3 / 2}
                   color="#000000"
                   onAfterRender={(renderer, scene, camera, geometry) => {
                     const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);

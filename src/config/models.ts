@@ -620,7 +620,7 @@ With both an x8 and x16 PCIe Gen3 connection, the possibilities are endless!`,
   {
     id: "nic-tray",
     title: "NIC TRAY",
-    position: [0, -1.5, -1.17],
+    position: [0, -1, -1.17],
     rotation: [0, THREE.MathUtils.degToRad(-90), 0],
     scale: 0.13,
     path: `./assets/models/yv4/nic-tray.glb`,

@@ -7,10 +7,16 @@ import { SessionProvider } from "@/session";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
+let server = "http://localhost:3000/api/save-sessions";
+
+if (process.env.NODE_ENV === "production") {
+  server = "https://analytics-server.finervision.com/api/save-sessions";
+}
+
 root.render(
   <Router>
     <Reset />
-    <SessionProvider server="http://localhost:3000/api/save-sessions" storageKey="analytics" projectId="meta-touchscreen">
+    <SessionProvider server={server} storageKey="meta-touchscreen" projectId="meta-touchscreen">
       <App />
     </SessionProvider>
   </Router>,

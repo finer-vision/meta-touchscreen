@@ -13,6 +13,7 @@ import { Gradient, Logo } from "@/pages/home-page/home-page.style";
 import Screensaver from "@/components/screensaver/screensaver";
 import Lights from "@/components/lights/lights";
 import ResetButton from "@/components/reset-button/reset-button";
+import { useSession } from "@/session";
 
 export default function App() {
   React.useEffect(() => {
@@ -34,6 +35,9 @@ export default function App() {
   const [maxDistance, setMaxDistance] = React.useState(3);
 
   React.useEffect(() => {
+    if (process.env.NODE_ENV === "development") {
+      return setLoaded(true);
+    }
     // Preload assets
     const modelPaths = models
       .map((model) => {
@@ -128,6 +132,20 @@ export default function App() {
 
   const showScreensaver = appState((state) => state.showScreensaver);
   const setShowScreensaver = appState((state) => state.setShowScreensaver);
+
+  const session = useSession();
+
+  React.useEffect(() => {
+    if (showScreensaver) {
+      session.end();
+    } else {
+      session.start(appState.getState().selectedModel.id);
+    }
+  }, [showScreensaver]);
+
+  React.useEffect(() => {
+    session.visitPage(selectedModel.id);
+  }, [selectedModel]);
 
   React.useEffect(() => {
     function updateScale() {

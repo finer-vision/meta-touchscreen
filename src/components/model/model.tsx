@@ -12,9 +12,7 @@ import AnimationHotspot from "@/components/animation-hotspot/animation-hotspot";
 
 export default function Model() {
   const selectedModel = appState((state) => state.selectedModel);
-  const selectedModelComponent = appState(
-    (state) => state.selectedModelComponent
-  );
+  const selectedModelComponent = appState((state) => state.selectedModelComponent);
   const model = useGLTF(selectedModel.path);
 
   const animation = useAnimations(model.animations, model.scene);
@@ -29,7 +27,6 @@ export default function Model() {
     animation.names.forEach((name) => {
       const action = animation.actions[name];
       if (action === undefined) return;
-      console.log(name);
       if (animating) {
         action.loop = THREE.LoopPingPong;
         action.play();
@@ -76,22 +73,7 @@ export default function Model() {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
       object.material = new THREE.MeshPhysicalMaterial(object.material);
-      const alpha = [
-        "BLMTCH_Vents",
-        "Grand Teton Chasis_Vents",
-        "Grand Teton Chasis_Vents.001",
-        "Vents",
-        "MiniPK front_Vents",
-        "WDG400C_Vents",
-        "Arrowhead Vents.001",
-        "Arrowhead Vents",
-        "Storm Point_Vents",
-        "Cascade Creek Text ",
-        "Storm Point_Vents",
-        "Discovery Point_Vents",
-        "Rubber Hose Textured",
-        "Glacier Point_Vents",
-      ].includes(object.material.name);
+      const alpha = ["BLMTCH_Vents", "Grand Teton Chasis_Vents", "Grand Teton Chasis_Vents.001", "Vents", "MiniPK front_Vents", "WDG400C_Vents", "Arrowhead Vents.001", "Arrowhead Vents", "Storm Point_Vents", "Cascade Creek Text ", "Storm Point_Vents", "Discovery Point_Vents", "Rubber Hose Textured", "Glacier Point_Vents"].includes(object.material.name);
       object.material.transparent = alpha;
       object.material.alphaToCoverage = alpha;
       object.material.needsUpdate = true;
@@ -106,10 +88,7 @@ export default function Model() {
   });
 
   const props = useSpring({
-    position:
-      selectedModelComponent !== null
-        ? selectedModel.componentOpenPosition
-        : selectedModel.position,
+    position: selectedModelComponent !== null ? selectedModel.componentOpenPosition : selectedModel.position,
   });
 
   return (
@@ -141,13 +120,7 @@ export default function Model() {
 
                 {selectedModel.animationHotspot && (
                   <AnimationHotspot
-                    title={
-                      animating
-                        ? selectedModel.animationHotspot.stopLabel ??
-                          "STOP ANIMATION"
-                        : selectedModel.animationHotspot.playLabel ??
-                          "PLAY ANIMATION"
-                    }
+                    title={animating ? selectedModel.animationHotspot.stopLabel ?? "STOP ANIMATION" : selectedModel.animationHotspot.playLabel ?? "PLAY ANIMATION"}
                     scale={selectedModel.animationHotspot.scale}
                     position={selectedModel.animationHotspot.position}
                     rotation={selectedModel.animationHotspot.rotation}
@@ -160,19 +133,7 @@ export default function Model() {
               </group>
 
               {selectedModel.components.map((component, index) => {
-                return (
-                  <ModelComponent
-                    key={index}
-                    modelId={selectedModel.id}
-                    component={component}
-                    open={selectedModelComponent?.id === component.id}
-                    showHotspot={
-                      !rotate &&
-                      (selectedModelComponent === null ||
-                        selectedModelComponent?.id === component.id)
-                    }
-                  />
-                );
+                return <ModelComponent key={index} modelId={selectedModel.id} component={component} open={selectedModelComponent?.id === component.id} showHotspot={!rotate && (selectedModelComponent === null || selectedModelComponent?.id === component.id)} />;
               })}
             </group>
           </a.group>

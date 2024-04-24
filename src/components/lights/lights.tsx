@@ -4,8 +4,6 @@ import { appState } from "@/state/app-state";
 export default function Lights() {
   const selectedModel = appState((state) => state.selectedModel);
 
-  console.log(selectedModel.id);
-
   switch (selectedModel.id) {
     case "orv3":
     case "noahs-ark":

@@ -176,7 +176,9 @@ export default function App() {
     function resetScreensaverTimeout() {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        setShowScreensaver(true);
+        if (import.meta.env.PROD) {
+          setShowScreensaver(true);
+        }
       }, 60000);
     }
 

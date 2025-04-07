@@ -3,6 +3,112 @@ import { Model } from "@/types";
 
 const models: Model[] = [
   {
+    id: "catalina",
+    title: "CATALINA",
+    position: [0, -1, 0],
+    componentOpenPosition: [0, -1, 0],
+    scale: 0.085,
+    path: `./assets/models/catalina/catalina.glb`,
+    hotspots: [
+      //
+    ],
+    components: [
+      {
+        path: `./assets/models/catalina/power-shelf.glb`,
+        id: "power-shelf",
+        title: "POWER SHELF",
+        position: [0, 0, 0],
+        openPosition: [0, -9, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [0.3, 2.75, 0.675],
+            openPosition: [-0.125, 2.925, 0.3],
+            scale: 10,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/bbu.glb`,
+        id: "bbu",
+        title: "BBU",
+        position: [0, 0, 0],
+        openPosition: [0, -9, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [-0.3, 2.85, 0.675],
+            openPosition: [0.125, 3.05, 0.3],
+            scale: 10,
+            flipped: true,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/management-controller.glb`,
+        id: "management-controller",
+        title: "MANAGEMENT CONTROLLER",
+        position: [0, 0, 0],
+        openPosition: [0, -8, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [-0.1, 2.66, 0.675],
+            openPosition: [0.125, 2.8, 0.3],
+            scale: 10,
+            flipped: true,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/management-switch.glb`,
+        id: "management-switch",
+        title: "MANAGEMENT SWITCH",
+        position: [0, 0, 0],
+        openPosition: [0, 7, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [0.25, 0.7, 0.675],
+            openPosition: [-0.125, 0.7, 0.4],
+            scale: 10,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/fiber-patch-panel.glb`,
+        id: "fiber-patch-panel",
+        title: "FIBER PATCH PANEL",
+        position: [0, 0, 0],
+        openPosition: [0, -8, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [0.3, 2.6375, 0.675],
+            openPosition: [-0.125, 2.925, 0.3],
+            scale: 10,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/wedge-400-c.glb`,
+        id: "wedge-400-c",
+        title: "WEDGE 400C",
+        position: [0, 0, 0],
+        openPosition: [0, -7, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [-0.2, 2.45, 0.675],
+            openPosition: [0.125, 2.7, 0.3],
+            scale: 10,
+            flipped: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "orv3",
     title: "OPEN RACK v3",
     position: [0, -1, 0],

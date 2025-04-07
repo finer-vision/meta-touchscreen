@@ -22,7 +22,7 @@ interface ModelInfoProps {
 
 export const appState = create<AppState>((set) => {
   return {
-    showScreensaver: true,
+    showScreensaver: import.meta.env.PROD,
     setShowScreensaver(showScreensaver) {
       set({ showScreensaver });
     },

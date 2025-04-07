@@ -14,21 +14,6 @@ const models: Model[] = [
     ],
     components: [
       {
-        path: `./assets/models/catalina/power-shelf.glb`,
-        id: "power-shelf",
-        title: "POWER SHELF",
-        position: [0, 0, 0],
-        openPosition: [0, -9, 10],
-        hotspots: [
-          {
-            description: `Description needed`,
-            position: [0.3, 2.75, 0.675],
-            openPosition: [-0.125, 2.925, 0.3],
-            scale: 10,
-          },
-        ],
-      },
-      {
         path: `./assets/models/catalina/bbu.glb`,
         id: "bbu",
         title: "BBU",
@@ -45,32 +30,16 @@ const models: Model[] = [
         ],
       },
       {
-        path: `./assets/models/catalina/management-controller.glb`,
-        id: "management-controller",
-        title: "MANAGEMENT CONTROLLER",
+        path: `./assets/models/catalina/power-shelf.glb`,
+        id: "power-shelf",
+        title: "POWER SHELF",
         position: [0, 0, 0],
-        openPosition: [0, -8, 10],
+        openPosition: [0, -9, 10],
         hotspots: [
           {
             description: `Description needed`,
-            position: [-0.1, 2.66, 0.675],
-            openPosition: [0.125, 2.8, 0.3],
-            scale: 10,
-            flipped: true,
-          },
-        ],
-      },
-      {
-        path: `./assets/models/catalina/management-switch.glb`,
-        id: "management-switch",
-        title: "MANAGEMENT SWITCH",
-        position: [0, 0, 0],
-        openPosition: [0, 7, 10],
-        hotspots: [
-          {
-            description: `Description needed`,
-            position: [0.25, 0.7, 0.675],
-            openPosition: [-0.125, 0.7, 0.4],
+            position: [0.3, 2.75, 0.675],
+            openPosition: [-0.125, 2.925, 0.3],
             scale: 10,
           },
         ],
@@ -91,6 +60,22 @@ const models: Model[] = [
         ],
       },
       {
+        path: `./assets/models/catalina/management-controller.glb`,
+        id: "management-controller",
+        title: "RACK MANAGEMENT CONTROLLER",
+        position: [0, 0, 0],
+        openPosition: [0, -8, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [-0.1, 2.66, 0.675],
+            openPosition: [0.125, 2.8, 0.3],
+            scale: 10,
+            flipped: true,
+          },
+        ],
+      },
+      {
         path: `./assets/models/catalina/wedge-400-c.glb`,
         id: "wedge-400-c",
         title: "WEDGE 400C",
@@ -103,6 +88,21 @@ const models: Model[] = [
             openPosition: [0.125, 2.7, 0.3],
             scale: 10,
             flipped: true,
+          },
+        ],
+      },
+      {
+        path: `./assets/models/catalina/management-switch.glb`,
+        id: "management-switch",
+        title: "RACK MANAGEMENT SWITCH",
+        position: [0, 0, 0],
+        openPosition: [0, 7, 10],
+        hotspots: [
+          {
+            description: `Description needed`,
+            position: [0.25, 0.7, 0.675],
+            openPosition: [-0.125, 0.7, 0.4],
+            scale: 10,
           },
         ],
       },

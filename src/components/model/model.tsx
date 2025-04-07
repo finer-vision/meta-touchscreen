@@ -26,7 +26,7 @@ export default function Model() {
     }
     animation.names.forEach((name) => {
       const action = animation.actions[name];
-      if (action === undefined) return;
+      if (!action) return;
       if (animating) {
         action.loop = THREE.LoopPingPong;
         action.play();
@@ -38,7 +38,7 @@ export default function Model() {
     return () => {
       animation.names.forEach((name) => {
         const action = animation.actions[name];
-        if (action === undefined) return;
+        if (!action) return;
         action.stop();
         action.reset();
       });
@@ -72,6 +72,7 @@ export default function Model() {
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
+      // @ts-expect-error
       object.material = new THREE.MeshPhysicalMaterial(object.material);
       const alpha = ["BLMTCH_Vents", "Grand Teton Chasis_Vents", "Grand Teton Chasis_Vents.001", "Vents", "MiniPK front_Vents", "WDG400C_Vents", "Arrowhead Vents.001", "Arrowhead Vents", "Storm Point_Vents", "Cascade Creek Text ", "Storm Point_Vents", "Discovery Point_Vents", "Rubber Hose Textured", "Glacier Point_Vents"].includes(object.material.name);
       object.material.transparent = alpha;

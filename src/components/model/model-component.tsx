@@ -28,6 +28,7 @@ export default function ModelComponent({
     model.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
+      // @ts-expect-error
       object.material = new THREE.MeshPhysicalMaterial(object.material);
       const alpha = [
         "BLMTCH_Vents",

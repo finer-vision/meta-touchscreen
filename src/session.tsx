@@ -110,8 +110,8 @@ export function useSession() {
 
 type Props = {
   children?: React.ReactNode;
-  server?: SessionContextType["server"];
-  storageKey?: SessionContextType["storageKey"];
+  server: SessionContextType["server"];
+  storageKey: SessionContextType["storageKey"];
   deviceId?: SessionContextType["deviceId"];
   projectId: SessionContextType["projectId"];
 };
@@ -174,9 +174,8 @@ export function SessionProvider(props: Props) {
             deviceId: contextRef.current.deviceId,
             projectId: contextRef.current.projectId,
             sessions: sessionsToSync.map((session) => {
-              delete session.syncingWithServer;
-              delete session.syncedToServer;
-              return session;
+              const { syncingWithServer, syncedToServer, ...props } = session;
+              return props;
             }),
           }),
         });

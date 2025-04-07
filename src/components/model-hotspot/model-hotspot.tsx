@@ -36,23 +36,15 @@ type Props = Omit<GroupProps, "position" | "scale"> & {
   rotation?: Vector;
 };
 
-export default function ModelHotspot({
-  scale = 1,
-  show = true,
-  modelId,
-  title,
-  info,
-  padding = 0.1,
-  flipped = false,
-  position,
-  rotation,
-  ...props
-}: Props) {
+export default function ModelHotspot({ scale = 1, show = true, modelId, title, info, padding = 0.1, flipped = false, position, rotation, ...props }: Props) {
   const { nodes } = useGLTF("./assets/hotspot.glb") as GLTFResult;
 
   const [width, setWidth] = React.useState(1);
 
   const x2 = React.useMemo(() => {
+    if (!nodes.Hotspot_Surround_01.geometry.boundingBox) {
+      return 0;
+    }
     return nodes.Hotspot_Surround_01.geometry.boundingBox.max.x * -0.5;
   }, [nodes.Hotspot_Surround_01]);
 
@@ -96,7 +88,7 @@ export default function ModelHotspot({
         appState.getState().setModelInfo(null);
       }
     },
-    [open, info]
+    [open, info],
   );
 
   const groupRef = React.useRef<THREE.Group>(null);
@@ -108,11 +100,7 @@ export default function ModelHotspot({
       if (!(object instanceof THREE.Mesh)) return;
       if (!(object.material instanceof THREE.Material)) return;
       object.material.transparent = true;
-      object.material.opacity = THREE.MathUtils.lerp(
-        object.material.opacity,
-        show ? 1 : 0,
-        0.05
-      );
+      object.material.opacity = THREE.MathUtils.lerp(object.material.opacity, show ? 1 : 0, 0.05);
       object.material.needsUpdate = true;
     });
   });
@@ -127,10 +115,7 @@ export default function ModelHotspot({
                 <mesh geometry={nodes.Hotspot_Surround_01.geometry}>
                   <meshBasicMaterial color="#babcbe" />
                 </mesh>
-                <mesh
-                  position-x={width + padding}
-                  geometry={nodes.Hotspot_Surround_03001.geometry}
-                >
+                <mesh position-x={width + padding} geometry={nodes.Hotspot_Surround_03001.geometry}>
                   <meshBasicMaterial color="#babcbe" />
                 </mesh>
               </group>
@@ -146,6 +131,7 @@ export default function ModelHotspot({
                   fontSize={0.3 / 2}
                   color="#000000"
                   onAfterRender={(renderer, scene, camera, geometry) => {
+                    if (!geometry.boundingBox) return;
                     const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
                     if (nextWidth === Infinity) return;
                     if (nextWidth !== width) {

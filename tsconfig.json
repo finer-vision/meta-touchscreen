@@ -1,16 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "build",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es6",
-    "jsx": "react-jsx",
-    "noEmit": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["src/*"]
+    },
+    "types": ["vite/client", "vite-plugin-pwa/info", "vite-plugin-pwa/client"]
+  },
+  "include": ["vite.config.ts", "src"]
 }

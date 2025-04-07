@@ -68,6 +68,7 @@ export default function Hotspot({
   });
 
   const x2 = React.useMemo(() => {
+    if (!nodes.Hotspot_Surround_01.geometry.boundingBox) return 0;
     return nodes.Hotspot_Surround_01.geometry.boundingBox.max.x * -0.5;
   }, [nodes.Hotspot_Surround_01]);
 
@@ -192,6 +193,7 @@ export default function Hotspot({
                   fontSize={0.3 / 2}
                   color="#000000"
                   onAfterRender={(renderer, scene, camera, geometry) => {
+                    if (!geometry.boundingBox) return;
                     const nextWidth = Math.abs(geometry.boundingBox.max.x * 2);
                     if (nextWidth === Infinity) return;
                     if (nextWidth !== width) {

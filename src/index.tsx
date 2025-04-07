@@ -1,9 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter as Router } from "react-router-dom";
+import { registerSW } from "virtual:pwa-register";
 import App from "@/components/app/app";
 import Reset from "@/styles/reset";
 import { SessionProvider } from "@/session";
+
+const updateSW = registerSW({
+  async onNeedRefresh() {
+    await updateSW(true);
+  },
+});
 
 const root = document.querySelector("#root");
 

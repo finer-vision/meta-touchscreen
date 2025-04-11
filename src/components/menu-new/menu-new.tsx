@@ -58,6 +58,9 @@ export default function MenuNew({ open, onOpen, itemsPerPage = 6 }: Props) {
             if (itemIndex > -1) {
               model = pages[pageIndex][itemIndex];
             }
+            if ((item as ModelComponent).hideFromMenu) {
+              return null;
+            }
             const id = model.id;
             return (
               <MenuNewListItem

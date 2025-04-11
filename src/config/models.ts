@@ -30,6 +30,14 @@ const models: Model[] = [
         ],
       },
       {
+        path: `./assets/models/catalina/duplicate-models.glb`,
+        id: "duplicate-models",
+        title: "",
+        position: [0, 0, 0],
+        hotspots: [],
+        hideFromMenu: true,
+      },
+      {
         path: `./assets/models/catalina/power-shelf.glb`,
         id: "power-shelf",
         title: "POWER SHELF",

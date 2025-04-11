@@ -35,6 +35,7 @@ export type ModelComponent = {
   scale?: number;
   hotspots: Hotspot[];
   path: string;
+  hideFromMenu?: boolean;
 };
 
 export type Model = {

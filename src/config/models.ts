@@ -21,7 +21,7 @@ const models: Model[] = [
         openPosition: [0, -9, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `Battery Backup Units.`,
             position: [-0.3, 2.85, 0.675],
             openPosition: [0.125, 3.05, 0.3],
             scale: 10,
@@ -37,7 +37,7 @@ const models: Model[] = [
         openPosition: [0, -9, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `Power Supply Shelf.`,
             position: [0.3, 2.75, 0.675],
             openPosition: [-0.125, 2.925, 0.3],
             scale: 10,
@@ -52,7 +52,7 @@ const models: Model[] = [
         openPosition: [0, -8, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `A panel that is a central point for connecting and managing fiber optic cables in a rack.`,
             position: [0.3, 2.6375, 0.675],
             openPosition: [-0.125, 2.925, 0.3],
             scale: 10,
@@ -67,7 +67,7 @@ const models: Model[] = [
         openPosition: [0, -8, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `Rack Management Controller (RMC) is a rack unit that currently primarily handles Liquid cooling flows (leaks, repair, maintenance) and power sequencing.`,
             position: [-0.1, 2.66, 0.675],
             openPosition: [0.125, 2.8, 0.3],
             scale: 10,
@@ -83,7 +83,7 @@ const models: Model[] = [
         openPosition: [0, -7, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `Top of Rack Switch.`,
             position: [-0.2, 2.45, 0.675],
             openPosition: [0.125, 2.7, 0.3],
             scale: 10,
@@ -99,7 +99,7 @@ const models: Model[] = [
         openPosition: [0, 7, 10],
         hotspots: [
           {
-            description: `Description needed`,
+            description: `A network device is a switch that enables connectivity between management, console, and the data plane.`,
             position: [0.25, 0.7, 0.675],
             openPosition: [-0.125, 0.7, 0.4],
             scale: 10,

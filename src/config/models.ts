@@ -60,7 +60,7 @@ const models: Model[] = [
         openPosition: [0, -8, 10],
         hotspots: [
           {
-            description: `A panel that is a central point for connecting and managing fiber optic cables in a rack.`,
+            description: `A panel that is a central point for connecting and managing fiber optic cables in the rack.`,
             position: [0.3, 2.6375, 0.675],
             openPosition: [-0.125, 2.925, 0.3],
             scale: 10,

@@ -10,7 +10,19 @@ const models: Model[] = [
     scale: 0.085,
     path: `./assets/models/catalina/catalina.glb`,
     hotspots: [
-      //
+      {
+        scale: 3,
+        position: [0.2, 3.2, 1],
+        title: "COMPUTE TRAY",
+        description: `CPU + GPU Tray.`,
+      },
+      {
+        scale: 3,
+        position: [-0.2, 2.4, 1],
+        flipped: true,
+        title: "NV Switch Tray",
+        description: `Enables interconnectivity of GPUs via the cable backplane.`,
+      },
     ],
     components: [
       {

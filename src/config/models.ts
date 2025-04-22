@@ -91,7 +91,7 @@ const models: Model[] = [
         openPosition: [0, -7, 10],
         hotspots: [
           {
-            description: `Top of Rack Switch.`,
+            description: `Front End Rack Switch`,
             position: [-0.2, 2.45, 0.675],
             openPosition: [0.125, 2.7, 0.3],
             scale: 10,
@@ -107,7 +107,7 @@ const models: Model[] = [
         openPosition: [0, 7, 10],
         hotspots: [
           {
-            description: `A network device is a switch that enables connectivity between management, console, and the data plane.`,
+            description: `A network device that enables connectivity between management, console, and the data plane.`,
             position: [0.25, 0.7, 0.675],
             openPosition: [-0.125, 0.7, 0.4],
             scale: 10,

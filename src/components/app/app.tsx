@@ -14,6 +14,7 @@ import Screensaver from "@/components/screensaver/screensaver";
 import Lights from "@/components/lights/lights";
 import ResetButton from "@/components/reset-button/reset-button";
 import { useSession } from "@/session";
+import preloadStaticAssets from "@/preload-static-assets.ts";
 
 export default function App() {
   React.useEffect(() => {
@@ -38,6 +39,7 @@ export default function App() {
     if (process.env.NODE_ENV === "development") {
       return setLoaded(true);
     }
+    preloadStaticAssets().catch(console.error);
     // Preload assets
     const modelPaths = models
       .map((model) => {

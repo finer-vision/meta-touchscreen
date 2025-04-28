@@ -22,7 +22,7 @@ type Props = {
   itemsPerPage?: number;
 };
 
-export default function MenuNew({ open, onOpen, itemsPerPage = 6 }: Props) {
+export default function MenuNew({ open, onOpen, itemsPerPage = 7 }: Props) {
   const [pageIndex, setPageIndex] = React.useState(0);
   const [itemIndex, setItemIndex] = React.useState(-1);
 
